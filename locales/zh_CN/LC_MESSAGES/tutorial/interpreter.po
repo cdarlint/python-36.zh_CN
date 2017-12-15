@@ -164,12 +164,15 @@ msgid ""
 "dots (``...``). The interpreter prints a welcome message stating its version"
 " number and a copyright notice before printing the first prompt:"
 msgstr ""
+"在终端（tty）输入并执行指令时，我们说解释器是运行在 *交互模式（interactive mode）*。在这种模式中，它会显示 "
+"*主提示符（primary prompt）*，提示输入下一条指令，通常用三个大于号（``>>>``）表示；连续输入行的时候，它会显示 "
+"*次要提示符*，默认是三个点（``...``）。进入解释器时，它会先显示欢迎信息、版本信息、版权声明，然后就会出现提示符："
 
 #: ../../tutorial/interpreter.rst:109
 msgid ""
 "Continuation lines are needed when entering a multi-line construct. As an "
 "example, take a look at this :keyword:`if` statement::"
-msgstr ""
+msgstr "多行指令需要在连续的多行中输入。比如，以 :keyword:`if` 为例："
 
 #: ../../tutorial/interpreter.rst:119
 msgid "For more on interactive mode, see :ref:`tut-interac`."
@@ -193,23 +196,27 @@ msgid ""
 "properly, your editor must recognize that the file is UTF-8, and it must use"
 " a font that supports all the characters in the file."
 msgstr ""
+"默认情况下，Python 源码文件以 UTF-8 "
+"编码方式处理。在这种编码方式中，世界上大多数语言的字符都可以同时用于字符串字面值、变量或函数名称以及注释中——尽管标准库中只用常规的 ASCII "
+"字符作为变量或函数名，而且任何可移植的代码都应该遵守此约定。要正确显示这些字符，你的编辑器必须能识别 UTF-"
+"8编码，而且必须使用能支持打开的文件中所有字符的字体。"
 
 #: ../../tutorial/interpreter.rst:141
 msgid ""
 "To declare an encoding other than the default one, a special comment line "
 "should be added as the *first* line of the file.  The syntax is as follows::"
-msgstr ""
+msgstr "如果不使用默认编码，要声明文件所使用的编码，文件的 *第一* 行要写成特殊的注释。语法如下所示："
 
 #: ../../tutorial/interpreter.rst:146
 msgid ""
 "where *encoding* is one of the valid :mod:`codecs` supported by Python."
-msgstr ""
+msgstr "其中 *encoding* 可以是 Python 支持的任意一种 :mod:`codecs`。"
 
 #: ../../tutorial/interpreter.rst:148
 msgid ""
 "For example, to declare that Windows-1252 encoding is to be used, the first "
 "line of your source code file should be::"
-msgstr ""
+msgstr "比如，要声明使用 Windows-1252 编码，你的源码文件要写成："
 
 #: ../../tutorial/interpreter.rst:153
 msgid ""
@@ -217,6 +224,8 @@ msgid ""
 " :ref:`UNIX \"shebang\" line <tut-scripts>`.  In this case, the encoding "
 "declaration should be added as the second line of the file.  For example::"
 msgstr ""
+"关于 *第一行* 规则的一种例外情况是，源码以 :ref:`UNIX \"shebang\" line <tut-scripts>` "
+"开头。这种情况下，编码声明就要写在文件的第二行。例如："
 
 #: ../../tutorial/interpreter.rst:161
 msgid "Footnotes"

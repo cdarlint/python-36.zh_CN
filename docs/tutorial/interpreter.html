@@ -115,12 +115,7 @@
 </div>
 <div class="section" id="interactive-mode">
 <span id="tut-interactive"></span><h3>2.1.2. 交互模式<a class="headerlink" href="#interactive-mode" title="永久链接至标题">¶</a></h3>
-<p>When commands are read from a tty, the interpreter is said to be in <em>interactive
-mode</em>.  In this mode it prompts for the next command with the <em>primary prompt</em>,
-usually three greater-than signs (<code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code>); for continuation lines it prompts
-with the <em>secondary prompt</em>, by default three dots (<code class="docutils literal"><span class="pre">...</span></code>). The interpreter
-prints a welcome message stating its version number and a copyright notice
-before printing the first prompt:</p>
+<p>在终端（tty）输入并执行指令时，我们说解释器是运行在 <em>交互模式（interactive mode）</em>。在这种模式中，它会显示 <em>主提示符（primary prompt）</em>，提示输入下一条指令，通常用三个大于号（<code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code>）表示；连续输入行的时候，它会显示 <em>次要提示符</em>，默认是三个点（<code class="docutils literal"><span class="pre">...</span></code>）。进入解释器时，它会先显示欢迎信息、版本信息、版权声明，然后就会出现提示符：</p>
 <div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python3.6
 <span class="go">Python 3.6 (default, Sep 16 2015, 09:25:04)</span>
 <span class="go">[GCC 4.8.2] on linux</span>
@@ -128,8 +123,7 @@ before printing the first prompt:</p>
 <span class="gp">&gt;</span>&gt;&gt;
 </pre></div>
 </div>
-<p>Continuation lines are needed when entering a multi-line construct. As an
-example, take a look at this <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal"><span class="pre">if</span></code></a> statement:</p>
+<p>多行指令需要在连续的多行中输入。比如，以 <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal"><span class="pre">if</span></code></a> 为例：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">the_world_is_flat</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">the_world_is_flat</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Be careful not to fall off!&quot;</span><span class="p">)</span>
@@ -144,27 +138,17 @@ example, take a look at this <a class="reference internal" href="../reference/co
 <span id="tut-interp"></span><h2>2.2. 解释器的运行环境<a class="headerlink" href="#the-interpreter-and-its-environment" title="永久链接至标题">¶</a></h2>
 <div class="section" id="source-code-encoding">
 <span id="tut-source-encoding"></span><h3>2.2.1. 源文件的字符编码<a class="headerlink" href="#source-code-encoding" title="永久链接至标题">¶</a></h3>
-<p>By default, Python source files are treated as encoded in UTF-8.  In that
-encoding, characters of most languages in the world can be used simultaneously
-in string literals, identifiers and comments — although the standard library
-only uses ASCII characters for identifiers, a convention that any portable code
-should follow.  To display all these characters properly, your editor must
-recognize that the file is UTF-8, and it must use a font that supports all the
-characters in the file.</p>
-<p>To declare an encoding other than the default one, a special comment line
-should be added as the <em>first</em> line of the file.  The syntax is as follows:</p>
+<p>默认情况下，Python 源码文件以 UTF-8 编码方式处理。在这种编码方式中，世界上大多数语言的字符都可以同时用于字符串字面值、变量或函数名称以及注释中——尽管标准库中只用常规的 ASCII 字符作为变量或函数名，而且任何可移植的代码都应该遵守此约定。要正确显示这些字符，你的编辑器必须能识别 UTF-8编码，而且必须使用能支持打开的文件中所有字符的字体。</p>
+<p>如果不使用默认编码，要声明文件所使用的编码，文件的 <em>第一</em> 行要写成特殊的注释。语法如下所示：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: encoding -*-</span>
 </pre></div>
 </div>
-<p>where <em>encoding</em> is one of the valid <a class="reference internal" href="../library/codecs.html#module-codecs" title="codecs: Encode and decode data and streams."><code class="xref py py-mod docutils literal"><span class="pre">codecs</span></code></a> supported by Python.</p>
-<p>For example, to declare that Windows-1252 encoding is to be used, the first
-line of your source code file should be:</p>
+<p>其中 <em>encoding</em> 可以是 Python 支持的任意一种 <a class="reference internal" href="../library/codecs.html#module-codecs" title="codecs: Encode and decode data and streams."><code class="xref py py-mod docutils literal"><span class="pre">codecs</span></code></a>。</p>
+<p>比如，要声明使用 Windows-1252 编码，你的源码文件要写成：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: cp-1252 -*-</span>
 </pre></div>
 </div>
-<p>One exception to the <em>first line</em> rule is when the source code starts with a
-<a class="reference internal" href="appendix.html#tut-scripts"><span class="std std-ref">UNIX “shebang” line</span></a>.  In this case, the encoding
-declaration should be added as the second line of the file.  For example:</p>
+<p>关于 <em>第一行</em> 规则的一种例外情况是，源码以 <a class="reference internal" href="appendix.html#tut-scripts"><span class="std std-ref">UNIX “shebang” line</span></a> 开头。这种情况下，编码声明就要写在文件的第二行。例如：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: cp-1252 -*-</span>
 </pre></div>
@@ -269,7 +253,7 @@ declaration should be added as the second line of the file.  For example:</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 14, 2017。
+    上次更新于 12月 15, 2017。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
