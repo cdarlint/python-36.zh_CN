@@ -1,0 +1,290 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>35.13. syslog — Unix syslog library routines &#8212; Python 3.6.3 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.6.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.6.3 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权信息" href="../copyright.html" />
+    <link rel="next" title="36. Superseded Modules" href="superseded.html" />
+    <link rel="prev" title="35.12. nis — Interface to Sun’s NIS (Yellow Pages)" href="nis.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/syslog.html" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+    
+    
+ 
+
+  </head>
+  <body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="superseded.html" title="36. Superseded Modules"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="nis.html" title="35.12. nis — Interface to Sun’s NIS (Yellow Pages)"
+             accesskey="P">上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="unix.html" accesskey="U">35. Unix Specific Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-syslog">
+<span id="syslog-unix-syslog-library-routines"></span><h1>35.13. <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">syslog</span></code></a> — Unix syslog library routines<a class="headerlink" href="#module-syslog" title="永久链接至标题">¶</a></h1>
+<hr class="docutils" />
+<p>This module provides an interface to the Unix <code class="docutils literal"><span class="pre">syslog</span></code> library routines.
+Refer to the Unix manual pages for a detailed description of the <code class="docutils literal"><span class="pre">syslog</span></code>
+facility.</p>
+<p>This module wraps the system <code class="docutils literal"><span class="pre">syslog</span></code> family of routines.  A pure Python
+library that can speak to a syslog server is available in the
+<a class="reference internal" href="logging.handlers.html#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal"><span class="pre">logging.handlers</span></code></a> module as <code class="xref py py-class docutils literal"><span class="pre">SysLogHandler</span></code>.</p>
+<p>The module defines the following functions:</p>
+<dl class="function">
+<dt id="syslog.syslog">
+<code class="descclassname">syslog.</code><code class="descname">syslog</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#syslog.syslog" title="永久链接至目标">¶</a></dt>
+<dt>
+<code class="descclassname">syslog.</code><code class="descname">syslog</code><span class="sig-paren">(</span><em>priority</em>, <em>message</em><span class="sig-paren">)</span></dt>
+<dd><p>Send the string <em>message</em> to the system logger.  A trailing newline is added
+if necessary.  Each message is tagged with a priority composed of a
+<em>facility</em> and a <em>level</em>.  The optional <em>priority</em> argument, which defaults
+to <code class="xref py py-const docutils literal"><span class="pre">LOG_INFO</span></code>, determines the message priority.  If the facility is
+not encoded in <em>priority</em> using logical-or (<code class="docutils literal"><span class="pre">LOG_INFO</span> <span class="pre">|</span> <span class="pre">LOG_USER</span></code>), the
+value given in the <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal"><span class="pre">openlog()</span></code></a> call is used.</p>
+<p>If <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal"><span class="pre">openlog()</span></code></a> has not been called prior to the call to <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal"><span class="pre">syslog()</span></code></a>,
+<code class="docutils literal"><span class="pre">openlog()</span></code> will be called with no arguments.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="syslog.openlog">
+<code class="descclassname">syslog.</code><code class="descname">openlog</code><span class="sig-paren">(</span><span class="optional">[</span><em>ident</em><span class="optional">[</span>, <em>logoption</em><span class="optional">[</span>, <em>facility</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#syslog.openlog" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging options of subsequent <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal"><span class="pre">syslog()</span></code></a> calls can be set by calling
+<a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal"><span class="pre">openlog()</span></code></a>.  <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal"><span class="pre">syslog()</span></code></a> will call <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal"><span class="pre">openlog()</span></code></a> with no arguments
+if the log is not currently open.</p>
+<p>The optional <em>ident</em> keyword argument is a string which is prepended to every
+message, and defaults to <code class="docutils literal"><span class="pre">sys.argv[0]</span></code> with leading path components
+stripped.  The optional <em>logoption</em> keyword argument (default is 0) is a bit
+field – see below for possible values to combine.  The optional <em>facility</em>
+keyword argument (default is <code class="xref py py-const docutils literal"><span class="pre">LOG_USER</span></code>) sets the default facility for
+messages which do not have a facility explicitly encoded.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">在 3.2 版更改: </span>In previous versions, keyword arguments were not allowed, and <em>ident</em> was
+required.  The default for <em>ident</em> was dependent on the system libraries,
+and often was <code class="docutils literal"><span class="pre">python</span></code> instead of the name of the python program file.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="syslog.closelog">
+<code class="descclassname">syslog.</code><code class="descname">closelog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#syslog.closelog" title="永久链接至目标">¶</a></dt>
+<dd><p>Reset the syslog module values and call the system library <code class="docutils literal"><span class="pre">closelog()</span></code>.</p>
+<p>This causes the module to behave as it does when initially imported.  For
+example, <a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal"><span class="pre">openlog()</span></code></a> will be called on the first <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal"><span class="pre">syslog()</span></code></a> call (if
+<a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal"><span class="pre">openlog()</span></code></a> hasn’t already been called), and <em>ident</em> and other
+<a class="reference internal" href="#syslog.openlog" title="syslog.openlog"><code class="xref py py-func docutils literal"><span class="pre">openlog()</span></code></a> parameters are reset to defaults.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="syslog.setlogmask">
+<code class="descclassname">syslog.</code><code class="descname">setlogmask</code><span class="sig-paren">(</span><em>maskpri</em><span class="sig-paren">)</span><a class="headerlink" href="#syslog.setlogmask" title="永久链接至目标">¶</a></dt>
+<dd><p>Set the priority mask to <em>maskpri</em> and return the previous mask value.  Calls
+to <a class="reference internal" href="#module-syslog" title="syslog: An interface to the Unix syslog library routines. (Unix)"><code class="xref py py-func docutils literal"><span class="pre">syslog()</span></code></a> with a priority level not set in <em>maskpri</em> are ignored.
+The default is to log all priorities.  The function <code class="docutils literal"><span class="pre">LOG_MASK(pri)</span></code>
+calculates the mask for the individual priority <em>pri</em>.  The function
+<code class="docutils literal"><span class="pre">LOG_UPTO(pri)</span></code> calculates the mask for all priorities up to and including
+<em>pri</em>.</p>
+</dd></dl>
+
+<p>The module defines the following constants:</p>
+<dl class="docutils">
+<dt>Priority levels (high to low):</dt>
+<dd><code class="xref py py-const docutils literal"><span class="pre">LOG_EMERG</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_ALERT</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_CRIT</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_ERR</span></code>,
+<code class="xref py py-const docutils literal"><span class="pre">LOG_WARNING</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_NOTICE</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_INFO</span></code>,
+<code class="xref py py-const docutils literal"><span class="pre">LOG_DEBUG</span></code>.</dd>
+<dt>Facilities:</dt>
+<dd><code class="xref py py-const docutils literal"><span class="pre">LOG_KERN</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_USER</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_MAIL</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_DAEMON</span></code>,
+<code class="xref py py-const docutils literal"><span class="pre">LOG_AUTH</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_LPR</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_NEWS</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_UUCP</span></code>,
+<code class="xref py py-const docutils literal"><span class="pre">LOG_CRON</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_SYSLOG</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_LOCAL0</span></code> to
+<code class="xref py py-const docutils literal"><span class="pre">LOG_LOCAL7</span></code>, and, if defined in <code class="docutils literal"><span class="pre">&lt;syslog.h&gt;</span></code>,
+<code class="xref py py-const docutils literal"><span class="pre">LOG_AUTHPRIV</span></code>.</dd>
+<dt>Log options:</dt>
+<dd><code class="xref py py-const docutils literal"><span class="pre">LOG_PID</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_CONS</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_NDELAY</span></code>, and, if defined
+in <code class="docutils literal"><span class="pre">&lt;syslog.h&gt;</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_ODELAY</span></code>, <code class="xref py py-const docutils literal"><span class="pre">LOG_NOWAIT</span></code>, and
+<code class="xref py py-const docutils literal"><span class="pre">LOG_PERROR</span></code>.</dd>
+</dl>
+<div class="section" id="examples">
+<h2>35.13.1. Examples<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
+<div class="section" id="simple-example">
+<h3>35.13.1.1. Simple example<a class="headerlink" href="#simple-example" title="永久链接至标题">¶</a></h3>
+<p>A simple set of examples:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">syslog</span>
+
+<span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="s1">&#39;Processing started&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_ERR</span><span class="p">,</span> <span class="s1">&#39;Processing started&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An example of setting some log options, these would include the process ID in
+logged messages, and write the messages to the destination facility used for
+mail logging:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">syslog</span><span class="o">.</span><span class="n">openlog</span><span class="p">(</span><span class="n">logoption</span><span class="o">=</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_PID</span><span class="p">,</span> <span class="n">facility</span><span class="o">=</span><span class="n">syslog</span><span class="o">.</span><span class="n">LOG_MAIL</span><span class="p">)</span>
+<span class="n">syslog</span><span class="o">.</span><span class="n">syslog</span><span class="p">(</span><span class="s1">&#39;E-mail processing initiated...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">內容目录</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">35.13. <code class="docutils literal"><span class="pre">syslog</span></code> — Unix syslog library routines</a><ul>
+<li><a class="reference internal" href="#examples">35.13.1. Examples</a><ul>
+<li><a class="reference internal" href="#simple-example">35.13.1.1. Simple example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="nis.html"
+                        title="上一章">35.12. <code class="docutils literal"><span class="pre">nis</span></code> — Interface to Sun’s NIS (Yellow Pages)</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="superseded.html"
+                        title="下一章">36. Superseded Modules</a></p>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.6/Doc/library/syslog.rst"
+            rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="superseded.html" title="36. Superseded Modules"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="nis.html" title="35.12. nis — Interface to Sun’s NIS (Yellow Pages)"
+             >上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="unix.html" >35. Unix Specific Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python 软件基金会是一个非盈利组织。
+    <a href="https://www.python.org/psf/donations/">请捐助。</a>
+    <br />
+    上次更新于 12月 13, 2017。
+    <a href="../bugs.html">发现了问题</a>？
+    <br />
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    </div>
+
+  </body>
+</html>

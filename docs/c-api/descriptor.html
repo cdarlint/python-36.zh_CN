@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Descriptor Objects &#8212; Python 3.6.3 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.6.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.6.3 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权信息" href="../copyright.html" />
+    <link rel="next" title="Slice Objects" href="slice.html" />
+    <link rel="prev" title="Iterator Objects" href="iterator.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/c-api/descriptor.html" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+    
+    
+ 
+
+  </head>
+  <body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="slice.html" title="Slice Objects"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="iterator.html" title="Iterator Objects"
+             accesskey="P">上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="concrete.html" accesskey="U">Concrete Objects Layer</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="descriptor-objects">
+<span id="id1"></span><h1>Descriptor Objects<a class="headerlink" href="#descriptor-objects" title="永久链接至标题">¶</a></h1>
+<p>“Descriptors” are objects that describe some attribute of an object. They are
+found in the dictionary of type objects.</p>
+<dl class="var">
+<dt id="c.PyProperty_Type">
+<a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a> <code class="descname">PyProperty_Type</code><a class="headerlink" href="#c.PyProperty_Type" title="永久链接至目标">¶</a></dt>
+<dd><p>The type object for the built-in descriptor types.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyDescr_NewGetSet">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyDescr_NewGetSet</code><span class="sig-paren">(</span><a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a><em>&nbsp;*type</em>, struct <a class="reference internal" href="structures.html#c.PyGetSetDef" title="PyGetSetDef">PyGetSetDef</a><em>&nbsp;*getset</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDescr_NewGetSet" title="永久链接至目标">¶</a></dt>
+<dd><em class="refcount">Return value: New reference.</em></dd></dl>
+
+<dl class="function">
+<dt id="c.PyDescr_NewMember">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyDescr_NewMember</code><span class="sig-paren">(</span><a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a><em>&nbsp;*type</em>, struct <a class="reference internal" href="structures.html#c.PyMemberDef" title="PyMemberDef">PyMemberDef</a><em>&nbsp;*meth</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDescr_NewMember" title="永久链接至目标">¶</a></dt>
+<dd><em class="refcount">Return value: New reference.</em></dd></dl>
+
+<dl class="function">
+<dt id="c.PyDescr_NewMethod">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyDescr_NewMethod</code><span class="sig-paren">(</span><a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a><em>&nbsp;*type</em>, struct <a class="reference internal" href="structures.html#c.PyMethodDef" title="PyMethodDef">PyMethodDef</a><em>&nbsp;*meth</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDescr_NewMethod" title="永久链接至目标">¶</a></dt>
+<dd><em class="refcount">Return value: New reference.</em></dd></dl>
+
+<dl class="function">
+<dt id="c.PyDescr_NewWrapper">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyDescr_NewWrapper</code><span class="sig-paren">(</span><a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a><em>&nbsp;*type</em>, struct wrapperbase<em>&nbsp;*wrapper</em>, void<em>&nbsp;*wrapped</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDescr_NewWrapper" title="永久链接至目标">¶</a></dt>
+<dd><em class="refcount">Return value: New reference.</em></dd></dl>
+
+<dl class="function">
+<dt id="c.PyDescr_NewClassMethod">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyDescr_NewClassMethod</code><span class="sig-paren">(</span><a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a><em>&nbsp;*type</em>, <a class="reference internal" href="structures.html#c.PyMethodDef" title="PyMethodDef">PyMethodDef</a><em>&nbsp;*method</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDescr_NewClassMethod" title="永久链接至目标">¶</a></dt>
+<dd><em class="refcount">Return value: New reference.</em></dd></dl>
+
+<dl class="function">
+<dt id="c.PyDescr_IsData">
+int <code class="descname">PyDescr_IsData</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*descr</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyDescr_IsData" title="永久链接至目标">¶</a></dt>
+<dd><p>Return true if the descriptor objects <em>descr</em> describes a data attribute, or
+false if it describes a method.  <em>descr</em> must be a descriptor object; there is
+no error checking.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyWrapper_New">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyWrapper_New</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyWrapper_New" title="永久链接至目标">¶</a></dt>
+<dd><em class="refcount">Return value: New reference.</em></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="iterator.html"
+                        title="上一章">Iterator Objects</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="slice.html"
+                        title="下一章">Slice Objects</a></p>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.6/Doc/c-api/descriptor.rst"
+            rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="slice.html" title="Slice Objects"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="iterator.html" title="Iterator Objects"
+             >上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="concrete.html" >Concrete Objects Layer</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python 软件基金会是一个非盈利组织。
+    <a href="https://www.python.org/psf/donations/">请捐助。</a>
+    <br />
+    上次更新于 12月 13, 2017。
+    <a href="../bugs.html">发现了问题</a>？
+    <br />
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    </div>
+
+  </body>
+</html>

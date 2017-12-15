@@ -1,0 +1,218 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>处理错误 &#8212; Python 3.6.3 文档</title>
+    <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.6.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.6.3 文档 中搜索"
+          href="_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="copyright" title="版权信息" href="copyright.html" />
+    <link rel="next" title="版权" href="copyright.html" />
+    <link rel="prev" title="文档说明" href="about.html" />
+    <link rel="shortcut icon" type="image/png" href="_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/bugs.html" />
+    
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+    
+    
+ 
+
+  </head>
+  <body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="全局索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="copyright.html" title="版权"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="about.html" title="文档说明"
+             accesskey="P">上一页</a> |</li>
+        <li><img src="_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dealing-with-bugs">
+<span id="reporting-bugs"></span><h1>处理错误<a class="headerlink" href="#dealing-with-bugs" title="永久链接至标题">¶</a></h1>
+<p>Python是一种成熟的编程语言，以稳定著称。为了维持良好性能，维护者需要了解您在使用Python中发现的缺陷。</p>
+<p>得益于Python高效率的处理流程，你可以更快的修复错误和提供补丁，并且不会影响到别人。参考 <a class="reference internal" href="#contributing-to-python"><span class="std std-ref">contribute</span></a>。</p>
+<div class="section" id="documentation-bugs">
+<h2>文档错误<a class="headerlink" href="#documentation-bugs" title="永久链接至标题">¶</a></h2>
+<p>如果您在本文档中发现了错误并打算帮助我们改进，请将错误提交到 <a class="reference internal" href="#using-the-tracker"><span class="std std-ref">tracker</span></a>。如果您有修改建议，请一并提交。</p>
+<p>如果您时间宝贵，同样可以通过电子邮件将错误报告文档发送至docs&#64;python.org (行为性错误请发送至python-<a class="reference external" href="mailto:list&#37;&#52;&#48;python&#46;org">list<span>&#64;</span>python<span>&#46;</span>org</a>)。’docs&#64;’是一个有志愿者运作的邮件列表；您的请求将得到关注，尽管这可能需要花费一些时间受理。</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<p class="last">在Python的问题跟踪页面 <a class="reference external" href="https://bugs.python.org/issue?&#64;filter=status&amp;&#64;filter=components&amp;components=4&amp;status=1&amp;&#64;columns=id,activity,title,status&amp;&#64;sort=-activity">提交错误报告</a></p>
+</div>
+</div>
+<div class="section" id="using-the-python-issue-tracker">
+<span id="using-the-tracker"></span><h2>使用Python的问题追踪器<a class="headerlink" href="#using-the-python-issue-tracker" title="永久链接至标题">¶</a></h2>
+<p>对于Python本身的错误报告应当经由Python问题追踪器 (<a class="reference external" href="https://bugs.python.org">https://bugs.python.org</a>) 进行提交。该错误追踪系统提供了一个可以输入并提交相关信息给开发者的网页界面。</p>
+<p>填写报告的第一步是确定该问题是否已经被报告过了。除了可以节省开发者的时间，这样做的好处还在于，您可以从中学习到什么样的手段曾经用于修复这个问题；这个问题可能已经在下一次的发布中被修复，或者需要更多额外的信息(在这种情况下，如果您可以，非常欢迎您提供这些信息！)。要做到这一点，请使用页面顶部的搜索栏在错误数据库中进行搜索。</p>
+<p>如果您正在报告的问题并没有记录在错误追踪系统中，请返回Python错误追踪系统并登录。如果您没有一个错误追踪系统的账号，请选择”注册“链接或者使用侧边栏中的任一OpenID提供方的标识，如果您使用OpenID的话。您不能匿名提交一份错误报告。</p>
+<p>您现在已经登陆且可以提交bug。点击侧边栏中的“新建(Create New)“链接打开bug报告表单。</p>
+<p>提交表单拥有一些栏位。请在“标题”栏位填入一个对问题的非常简短的描述；一个好的描述应当少于十个字。在“类型”栏位，选择您的问题的类型；同样地，选择错误相对应的“组件”和“版本”。</p>
+<p>在”说明“栏位，请详细描述您的问题，包括您期待发生什么以及实际上发生了什么。请确认信息包含任何涉及的拓展模块，以及您当时所使用的硬件和软件平台(如果可能，请附上版本信息)。</p>
+<p>每一份错误报告会被分派给一名开发者，以决定如何更正这个问题。每当有针对该错误的处理，您都会收到一个更新通知。</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="http://www.chiark.greenend.org.uk/~sgtatham/bugs.html">如何高效地报告错误</a></dt>
+<dd>文章详细描述了如何创建一份有用的错误报告。同时描述了什么样的信息是有用的以及为什么是有用的。</dd>
+<dt><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Mozilla/QA/Bug_writing_guidelines">错误书写导引</a></dt>
+<dd>有关书写一份好的错误报告的信息。部分仅针对Mozilla项目，不过其描述了通常的好的做法。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="getting-started-contributing-to-python-yourself">
+<span id="contributing-to-python"></span><h2>始于此，为Python贡献您的知识<a class="headerlink" href="#getting-started-contributing-to-python-yourself" title="永久链接至标题">¶</a></h2>
+<p>除了仅仅报告您所发现的错误之外，同样欢迎您提交修复它们的补丁。您可以在 <a class="reference external" href="https://mail.python.org/mailman/listinfo/core-mentorship/">Python开发者指引</a> 中找到更多上手为Python打补丁的相关信息。如果您有任何问题，<a class="reference external" href="https://devguide.python.org/">核心导师邮件列表</a> 是一个寻求任何修复Python事宜相关问题的答案的互助之处。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">內容目录</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">处理错误</a><ul>
+<li><a class="reference internal" href="#documentation-bugs">文档错误</a></li>
+<li><a class="reference internal" href="#using-the-python-issue-tracker">使用Python的问题追踪器</a></li>
+<li><a class="reference internal" href="#getting-started-contributing-to-python-yourself">始于此，为Python贡献您的知识</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="about.html"
+                        title="上一章">文档说明</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="copyright.html"
+                        title="下一章">版权</a></p>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="#">提交 Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.6/Doc/bugs.rst"
+            rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="全局索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="copyright.html" title="版权"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="about.html" title="文档说明"
+             >上一页</a> |</li>
+        <li><img src="_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python 软件基金会是一个非盈利组织。
+    <a href="https://www.python.org/psf/donations/">请捐助。</a>
+    <br />
+    上次更新于 12月 13, 2017。
+    <a href="#">发现了问题</a>？
+    <br />
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    </div>
+
+  </body>
+</html>

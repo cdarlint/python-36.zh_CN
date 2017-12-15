@@ -1,0 +1,244 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>24. Program Frameworks &#8212; Python 3.6.3 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.6.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.6.3 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权信息" href="../copyright.html" />
+    <link rel="next" title="24.1. turtle — Turtle graphics" href="turtle.html" />
+    <link rel="prev" title="23.2. locale — Internationalization services" href="locale.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/frameworks.html" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+    
+    
+ 
+
+  </head>
+  <body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="turtle.html" title="24.1. turtle — Turtle graphics"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="locale.html" title="23.2. locale — Internationalization services"
+             accesskey="P">上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="program-frameworks">
+<span id="frameworks"></span><h1>24. Program Frameworks<a class="headerlink" href="#program-frameworks" title="永久链接至标题">¶</a></h1>
+<p>The modules described in this chapter are frameworks that will largely dictate
+the structure of your program.  Currently the modules described  here are all
+oriented toward writing command-line interfaces.</p>
+<p>The full list of modules described in this chapter is:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html">24.1. <code class="docutils literal"><span class="pre">turtle</span></code> — Turtle graphics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#introduction">24.1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#overview-of-available-turtle-and-screen-methods">24.1.2. Overview of available Turtle and Screen methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#turtle-methods">24.1.2.1. Turtle methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#methods-of-turtlescreen-screen">24.1.2.2. Methods of TurtleScreen/Screen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#methods-of-rawturtle-turtle-and-corresponding-functions">24.1.3. Methods of RawTurtle/Turtle and corresponding functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#turtle-motion">24.1.3.1. Turtle motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#tell-turtle-s-state">24.1.3.2. Tell Turtle’s state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#settings-for-measurement">24.1.3.3. Settings for measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#pen-control">24.1.3.4. Pen control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="turtle.html#drawing-state">24.1.3.4.1. Drawing state</a></li>
+<li class="toctree-l4"><a class="reference internal" href="turtle.html#color-control">24.1.3.4.2. Color control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="turtle.html#filling">24.1.3.4.3. Filling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="turtle.html#more-drawing-control">24.1.3.4.4. More drawing control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#turtle-state">24.1.3.5. Turtle state</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="turtle.html#visibility">24.1.3.5.1. Visibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="turtle.html#appearance">24.1.3.5.2. Appearance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#using-events">24.1.3.6. Using events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#special-turtle-methods">24.1.3.7. Special Turtle methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#compound-shapes">24.1.3.8. Compound shapes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#methods-of-turtlescreen-screen-and-corresponding-functions">24.1.4. Methods of TurtleScreen/Screen and corresponding functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#window-control">24.1.4.1. Window control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#animation-control">24.1.4.2. Animation control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#using-screen-events">24.1.4.3. Using screen events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#input-methods">24.1.4.4. Input methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#settings-and-special-methods">24.1.4.5. Settings and special methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#methods-specific-to-screen-not-inherited-from-turtlescreen">24.1.4.6. Methods specific to Screen, not inherited from TurtleScreen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#public-classes">24.1.5. Public classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#help-and-configuration">24.1.6. Help and configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#how-to-use-help">24.1.6.1. How to use help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#translation-of-docstrings-into-different-languages">24.1.6.2. Translation of docstrings into different languages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="turtle.html#how-to-configure-screen-and-turtles">24.1.6.3. How to configure Screen and Turtles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#module-turtledemo">24.1.7. <code class="docutils literal"><span class="pre">turtledemo</span></code> — Demo scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#changes-since-python-2-6">24.1.8. Changes since Python 2.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html#changes-since-python-3-0">24.1.9. Changes since Python 3.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cmd.html">24.2. <code class="docutils literal"><span class="pre">cmd</span></code> — Support for line-oriented command interpreters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmd.html#cmd-objects">24.2.1. Cmd Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd.html#cmd-example">24.2.2. Cmd Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shlex.html">24.3. <code class="docutils literal"><span class="pre">shlex</span></code> — Simple lexical analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shlex.html#shlex-objects">24.3.1. shlex Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shlex.html#parsing-rules">24.3.2. Parsing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shlex.html#improved-compatibility-with-shells">24.3.3. Improved Compatibility with Shells</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="locale.html"
+                        title="上一章">23.2. <code class="docutils literal"><span class="pre">locale</span></code> — Internationalization services</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="turtle.html"
+                        title="下一章">24.1. <code class="docutils literal"><span class="pre">turtle</span></code> — Turtle graphics</a></p>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.6/Doc/library/frameworks.rst"
+            rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="turtle.html" title="24.1. turtle — Turtle graphics"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="locale.html" title="23.2. locale — Internationalization services"
+             >上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python 软件基金会是一个非盈利组织。
+    <a href="https://www.python.org/psf/donations/">请捐助。</a>
+    <br />
+    上次更新于 12月 13, 2017。
+    <a href="../bugs.html">发现了问题</a>？
+    <br />
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    </div>
+
+  </body>
+</html>

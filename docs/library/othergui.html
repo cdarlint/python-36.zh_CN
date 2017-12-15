@@ -1,0 +1,223 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>25.6. Other Graphical User Interface Packages &#8212; Python 3.6.3 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.6.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.6.3 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权信息" href="../copyright.html" />
+    <link rel="next" title="26. Development Tools" href="development.html" />
+    <link rel="prev" title="25.5. IDLE" href="idle.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/othergui.html" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+    
+    
+ 
+
+  </head>
+  <body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="development.html" title="26. Development Tools"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="idle.html" title="25.5. IDLE"
+             accesskey="P">上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="tk.html" accesskey="U">25. Graphical User Interfaces with Tk</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="other-graphical-user-interface-packages">
+<span id="other-gui-packages"></span><h1>25.6. Other Graphical User Interface Packages<a class="headerlink" href="#other-graphical-user-interface-packages" title="永久链接至标题">¶</a></h1>
+<p>Major cross-platform (Windows, Mac OS X, Unix-like) GUI toolkits are
+available for Python:</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="https://wiki.gnome.org/Projects/PyGObject">PyGObject</a></dt>
+<dd>PyGObject provides introspection bindings for C libraries using
+<a class="reference external" href="https://developer.gnome.org/gobject/stable/">GObject</a>.  One of
+these libraries is the <a class="reference external" href="http://www.gtk.org/">GTK+ 3</a> widget set.
+GTK+ comes with many more widgets than Tkinter provides.  An online
+<a class="reference external" href="https://python-gtk-3-tutorial.readthedocs.org/en/latest/">Python GTK+ 3 Tutorial</a>
+is available.</dd>
+<dt><a class="reference external" href="http://www.pygtk.org/">PyGTK</a></dt>
+<dd>PyGTK provides bindings for an older version
+of the library, GTK+ 2.  It provides an object oriented interface that
+is slightly higher level than the C one.  There are also bindings to
+<a class="reference external" href="https://www.gnome.org/">GNOME</a>.  An online <a class="reference external" href="http://www.pygtk.org/pygtk2tutorial/index.html">tutorial</a> is available.</dd>
+<dt><a class="reference external" href="https://riverbankcomputing.com/software/pyqt/intro">PyQt</a></dt>
+<dd>PyQt is a <strong class="program">sip</strong>-wrapped binding to the Qt toolkit.  Qt is an
+extensive C++ GUI application development framework that is
+available for Unix, Windows and Mac OS X. <strong class="program">sip</strong> is a tool
+for generating bindings for C++ libraries as Python classes, and
+is specifically designed for Python.</dd>
+<dt><a class="reference external" href="https://wiki.qt.io/PySide">PySide</a></dt>
+<dd>PySide is a newer binding to the Qt toolkit, provided by Nokia.
+Compared to PyQt, its licensing scheme is friendlier to non-open source
+applications.</dd>
+<dt><a class="reference external" href="http://www.wxpython.org">wxPython</a></dt>
+<dd>wxPython is a cross-platform GUI toolkit for Python that is built around
+the popular <a class="reference external" href="https://www.wxwidgets.org/">wxWidgets</a> (formerly wxWindows)
+C++ toolkit.  It provides a native look and feel for applications on
+Windows, Mac OS X, and Unix systems by using each platform’s native
+widgets where ever possible, (GTK+ on Unix-like systems).  In addition to
+an extensive set of widgets, wxPython provides classes for online
+documentation and context sensitive help, printing, HTML viewing,
+low-level device context drawing, drag and drop, system clipboard access,
+an XML-based resource format and more, including an ever growing library
+of user-contributed modules.</dd>
+</dl>
+</div>
+<p>PyGTK, PyQt, and wxPython, all have a modern look and feel and more
+widgets than Tkinter. In addition, there are many other GUI toolkits for
+Python, both cross-platform, and platform-specific. See the <a class="reference external" href="https://wiki.python.org/moin/GuiProgramming">GUI Programming</a> page in the Python Wiki for a
+much more complete list, and also for links to documents where the
+different GUI toolkits are compared.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="idle.html"
+                        title="上一章">25.5. IDLE</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="development.html"
+                        title="下一章">26. Development Tools</a></p>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.6/Doc/library/othergui.rst"
+            rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="development.html" title="26. Development Tools"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="idle.html" title="25.5. IDLE"
+             >上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="tk.html" >25. Graphical User Interfaces with Tk</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python 软件基金会是一个非盈利组织。
+    <a href="https://www.python.org/psf/donations/">请捐助。</a>
+    <br />
+    上次更新于 12月 13, 2017。
+    <a href="../bugs.html">发现了问题</a>？
+    <br />
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    </div>
+
+  </body>
+</html>

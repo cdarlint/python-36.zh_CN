@@ -1,0 +1,234 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>32.8. tabnanny — Detection of ambiguous indentation &#8212; Python 3.6.3 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.6.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.6.3 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权信息" href="../copyright.html" />
+    <link rel="next" title="32.9. pyclbr — Python class browser support" href="pyclbr.html" />
+    <link rel="prev" title="32.7. tokenize — Tokenizer for Python source" href="tokenize.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/tabnanny.html" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+    
+    
+ 
+
+  </head>
+  <body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="pyclbr.html" title="32.9. pyclbr — Python class browser support"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="tokenize.html" title="32.7. tokenize — Tokenizer for Python source"
+             accesskey="P">上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="language.html" accesskey="U">32. Python Language Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-tabnanny">
+<span id="tabnanny-detection-of-ambiguous-indentation"></span><h1>32.8. <a class="reference internal" href="#module-tabnanny" title="tabnanny: Tool for detecting white space related problems in Python source files in a directory tree."><code class="xref py py-mod docutils literal"><span class="pre">tabnanny</span></code></a> — Detection of ambiguous indentation<a class="headerlink" href="#module-tabnanny" title="永久链接至标题">¶</a></h1>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.6/Lib/tabnanny.py">Lib/tabnanny.py</a></p>
+<hr class="docutils" />
+<p>For the time being this module is intended to be called as a script. However it
+is possible to import it into an IDE and use the function <a class="reference internal" href="#tabnanny.check" title="tabnanny.check"><code class="xref py py-func docutils literal"><span class="pre">check()</span></code></a>
+described below.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">The API provided by this module is likely to change in future releases; such
+changes may not be backward compatible.</p>
+</div>
+<dl class="function">
+<dt id="tabnanny.check">
+<code class="descclassname">tabnanny.</code><code class="descname">check</code><span class="sig-paren">(</span><em>file_or_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#tabnanny.check" title="永久链接至目标">¶</a></dt>
+<dd><p>If <em>file_or_dir</em> is a directory and not a symbolic link, then recursively
+descend the directory tree named by <em>file_or_dir</em>, checking all <code class="file docutils literal"><span class="pre">.py</span></code>
+files along the way.  If <em>file_or_dir</em> is an ordinary Python source file, it
+is checked for whitespace related problems.  The diagnostic messages are
+written to standard output using the <a class="reference internal" href="functions.html#print" title="print"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> function.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="tabnanny.verbose">
+<code class="descclassname">tabnanny.</code><code class="descname">verbose</code><a class="headerlink" href="#tabnanny.verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Flag indicating whether to print verbose messages. This is incremented by the
+<code class="docutils literal"><span class="pre">-v</span></code> option if called as a script.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="tabnanny.filename_only">
+<code class="descclassname">tabnanny.</code><code class="descname">filename_only</code><a class="headerlink" href="#tabnanny.filename_only" title="永久链接至目标">¶</a></dt>
+<dd><p>Flag indicating whether to print only the filenames of files containing
+whitespace related problems.  This is set to true by the <code class="docutils literal"><span class="pre">-q</span></code> option if called
+as a script.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="tabnanny.NannyNag">
+<em class="property">exception </em><code class="descclassname">tabnanny.</code><code class="descname">NannyNag</code><a class="headerlink" href="#tabnanny.NannyNag" title="永久链接至目标">¶</a></dt>
+<dd><p>Raised by <a class="reference internal" href="#tabnanny.process_tokens" title="tabnanny.process_tokens"><code class="xref py py-func docutils literal"><span class="pre">process_tokens()</span></code></a> if detecting an ambiguous indent. Captured and
+handled in <a class="reference internal" href="#tabnanny.check" title="tabnanny.check"><code class="xref py py-func docutils literal"><span class="pre">check()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="tabnanny.process_tokens">
+<code class="descclassname">tabnanny.</code><code class="descname">process_tokens</code><span class="sig-paren">(</span><em>tokens</em><span class="sig-paren">)</span><a class="headerlink" href="#tabnanny.process_tokens" title="永久链接至目标">¶</a></dt>
+<dd><p>This function is used by <a class="reference internal" href="#tabnanny.check" title="tabnanny.check"><code class="xref py py-func docutils literal"><span class="pre">check()</span></code></a> to process tokens generated by the
+<a class="reference internal" href="tokenize.html#module-tokenize" title="tokenize: Lexical scanner for Python source code."><code class="xref py py-mod docutils literal"><span class="pre">tokenize</span></code></a> module.</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<dl class="last docutils">
+<dt>Module <a class="reference internal" href="tokenize.html#module-tokenize" title="tokenize: Lexical scanner for Python source code."><code class="xref py py-mod docutils literal"><span class="pre">tokenize</span></code></a></dt>
+<dd>Lexical scanner for Python source code.</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="tokenize.html"
+                        title="上一章">32.7. <code class="docutils literal"><span class="pre">tokenize</span></code> — Tokenizer for Python source</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="pyclbr.html"
+                        title="下一章">32.9. <code class="docutils literal"><span class="pre">pyclbr</span></code> — Python class browser support</a></p>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.6/Doc/library/tabnanny.rst"
+            rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="pyclbr.html" title="32.9. pyclbr — Python class browser support"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="tokenize.html" title="32.7. tokenize — Tokenizer for Python source"
+             >上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="language.html" >32. Python Language Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python 软件基金会是一个非盈利组织。
+    <a href="https://www.python.org/psf/donations/">请捐助。</a>
+    <br />
+    上次更新于 12月 13, 2017。
+    <a href="../bugs.html">发现了问题</a>？
+    <br />
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    </div>
+
+  </body>
+</html>

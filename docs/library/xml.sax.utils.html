@@ -1,0 +1,261 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>20.11. xml.sax.saxutils — SAX Utilities &#8212; Python 3.6.3 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.6.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.6.3 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权信息" href="../copyright.html" />
+    <link rel="next" title="20.12. xml.sax.xmlreader — Interface for XML parsers" href="xml.sax.reader.html" />
+    <link rel="prev" title="20.10. xml.sax.handler — Base classes for SAX handlers" href="xml.sax.handler.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/xml.sax.utils.html" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+    
+    
+ 
+
+  </head>
+  <body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="xml.sax.reader.html" title="20.12. xml.sax.xmlreader — Interface for XML parsers"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="xml.sax.handler.html" title="20.10. xml.sax.handler — Base classes for SAX handlers"
+             accesskey="P">上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="markup.html" accesskey="U">20. Structured Markup Processing Tools</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xml.sax.saxutils">
+<span id="xml-sax-saxutils-sax-utilities"></span><h1>20.11. <a class="reference internal" href="#module-xml.sax.saxutils" title="xml.sax.saxutils: Convenience functions and classes for use with SAX."><code class="xref py py-mod docutils literal"><span class="pre">xml.sax.saxutils</span></code></a> — SAX Utilities<a class="headerlink" href="#module-xml.sax.saxutils" title="永久链接至标题">¶</a></h1>
+<p><strong>Source code:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.6/Lib/xml/sax/saxutils.py">Lib/xml/sax/saxutils.py</a></p>
+<hr class="docutils" />
+<p>The module <a class="reference internal" href="#module-xml.sax.saxutils" title="xml.sax.saxutils: Convenience functions and classes for use with SAX."><code class="xref py py-mod docutils literal"><span class="pre">xml.sax.saxutils</span></code></a> contains a number of classes and functions
+that are commonly useful when creating SAX applications, either in direct use,
+or as base classes.</p>
+<dl class="function">
+<dt id="xml.sax.saxutils.escape">
+<code class="descclassname">xml.sax.saxutils.</code><code class="descname">escape</code><span class="sig-paren">(</span><em>data</em>, <em>entities={}</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.sax.saxutils.escape" title="永久链接至目标">¶</a></dt>
+<dd><p>Escape <code class="docutils literal"><span class="pre">'&amp;'</span></code>, <code class="docutils literal"><span class="pre">'&lt;'</span></code>, and <code class="docutils literal"><span class="pre">'&gt;'</span></code> in a string of data.</p>
+<p>You can escape other strings of data by passing a dictionary as the optional
+<em>entities</em> parameter.  The keys and values must all be strings; each key will be
+replaced with its corresponding value.  The characters <code class="docutils literal"><span class="pre">'&amp;'</span></code>, <code class="docutils literal"><span class="pre">'&lt;'</span></code> and
+<code class="docutils literal"><span class="pre">'&gt;'</span></code> are always escaped, even if <em>entities</em> is provided.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xml.sax.saxutils.unescape">
+<code class="descclassname">xml.sax.saxutils.</code><code class="descname">unescape</code><span class="sig-paren">(</span><em>data</em>, <em>entities={}</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.sax.saxutils.unescape" title="永久链接至目标">¶</a></dt>
+<dd><p>Unescape <code class="docutils literal"><span class="pre">'&amp;amp;'</span></code>, <code class="docutils literal"><span class="pre">'&amp;lt;'</span></code>, and <code class="docutils literal"><span class="pre">'&amp;gt;'</span></code> in a string of data.</p>
+<p>You can unescape other strings of data by passing a dictionary as the optional
+<em>entities</em> parameter.  The keys and values must all be strings; each key will be
+replaced with its corresponding value.  <code class="docutils literal"><span class="pre">'&amp;amp'</span></code>, <code class="docutils literal"><span class="pre">'&amp;lt;'</span></code>, and <code class="docutils literal"><span class="pre">'&amp;gt;'</span></code>
+are always unescaped, even if <em>entities</em> is provided.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xml.sax.saxutils.quoteattr">
+<code class="descclassname">xml.sax.saxutils.</code><code class="descname">quoteattr</code><span class="sig-paren">(</span><em>data</em>, <em>entities={}</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.sax.saxutils.quoteattr" title="永久链接至目标">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#xml.sax.saxutils.escape" title="xml.sax.saxutils.escape"><code class="xref py py-func docutils literal"><span class="pre">escape()</span></code></a>, but also prepares <em>data</em> to be used as an
+attribute value.  The return value is a quoted version of <em>data</em> with any
+additional required replacements. <a class="reference internal" href="#xml.sax.saxutils.quoteattr" title="xml.sax.saxutils.quoteattr"><code class="xref py py-func docutils literal"><span class="pre">quoteattr()</span></code></a> will select a quote
+character based on the content of <em>data</em>, attempting to avoid encoding any
+quote characters in the string.  If both single- and double-quote characters
+are already in <em>data</em>, the double-quote characters will be encoded and <em>data</em>
+will be wrapped in double-quotes.  The resulting string can be used directly
+as an attribute value:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;element attr=</span><span class="si">%s</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> <span class="n">quoteattr</span><span class="p">(</span><span class="s2">&quot;ab &#39; cd </span><span class="se">\&quot;</span><span class="s2"> ef&quot;</span><span class="p">))</span>
+<span class="go">&lt;element attr=&quot;ab &#39; cd &amp;quot; ef&quot;&gt;</span>
+</pre></div>
+</div>
+<p>This function is useful when generating attribute values for HTML or any SGML
+using the reference concrete syntax.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xml.sax.saxutils.XMLGenerator">
+<em class="property">class </em><code class="descclassname">xml.sax.saxutils.</code><code class="descname">XMLGenerator</code><span class="sig-paren">(</span><em>out=None</em>, <em>encoding='iso-8859-1'</em>, <em>short_empty_elements=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.sax.saxutils.XMLGenerator" title="永久链接至目标">¶</a></dt>
+<dd><p>This class implements the <a class="reference internal" href="xml.sax.handler.html#xml.sax.handler.ContentHandler" title="xml.sax.handler.ContentHandler"><code class="xref py py-class docutils literal"><span class="pre">ContentHandler</span></code></a> interface
+by writing SAX
+events back into an XML document. In other words, using an <a class="reference internal" href="#xml.sax.saxutils.XMLGenerator" title="xml.sax.saxutils.XMLGenerator"><code class="xref py py-class docutils literal"><span class="pre">XMLGenerator</span></code></a>
+as the content handler will reproduce the original document being parsed. <em>out</em>
+should be a file-like object which will default to <em>sys.stdout</em>. <em>encoding</em> is
+the encoding of the output stream which defaults to <code class="docutils literal"><span class="pre">'iso-8859-1'</span></code>.
+<em>short_empty_elements</em> controls the formatting of elements that contain no
+content:  if <code class="docutils literal"><span class="pre">False</span></code> (the default) they are emitted as a pair of start/end
+tags, if set to <code class="docutils literal"><span class="pre">True</span></code> they are emitted as a single self-closed tag.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.2 新版功能: </span>The <em>short_empty_elements</em> parameter.</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="xml.sax.saxutils.XMLFilterBase">
+<em class="property">class </em><code class="descclassname">xml.sax.saxutils.</code><code class="descname">XMLFilterBase</code><span class="sig-paren">(</span><em>base</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.sax.saxutils.XMLFilterBase" title="永久链接至目标">¶</a></dt>
+<dd><p>This class is designed to sit between an
+<a class="reference internal" href="xml.sax.reader.html#xml.sax.xmlreader.XMLReader" title="xml.sax.xmlreader.XMLReader"><code class="xref py py-class docutils literal"><span class="pre">XMLReader</span></code></a> and the client
+application’s event handlers.  By default, it does nothing but pass requests up
+to the reader and events on to the handlers unmodified, but subclasses can
+override specific methods to modify the event stream or the configuration
+requests as they pass through.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xml.sax.saxutils.prepare_input_source">
+<code class="descclassname">xml.sax.saxutils.</code><code class="descname">prepare_input_source</code><span class="sig-paren">(</span><em>source</em>, <em>base=''</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.sax.saxutils.prepare_input_source" title="永久链接至目标">¶</a></dt>
+<dd><p>This function takes an input source and an optional base URL and returns a
+fully resolved <a class="reference internal" href="xml.sax.reader.html#xml.sax.xmlreader.InputSource" title="xml.sax.xmlreader.InputSource"><code class="xref py py-class docutils literal"><span class="pre">InputSource</span></code></a> object ready for
+reading.  The input source can be given as a string, a file-like object, or
+an <a class="reference internal" href="xml.sax.reader.html#xml.sax.xmlreader.InputSource" title="xml.sax.xmlreader.InputSource"><code class="xref py py-class docutils literal"><span class="pre">InputSource</span></code></a> object; parsers will use this
+function to implement the polymorphic <em>source</em> argument to their
+<code class="xref py py-meth docutils literal"><span class="pre">parse()</span></code> method.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="xml.sax.handler.html"
+                        title="上一章">20.10. <code class="docutils literal"><span class="pre">xml.sax.handler</span></code> — Base classes for SAX handlers</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="xml.sax.reader.html"
+                        title="下一章">20.12. <code class="docutils literal"><span class="pre">xml.sax.xmlreader</span></code> — Interface for XML parsers</a></p>
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.6/Doc/library/xml.sax.utils.rst"
+            rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="全局索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="xml.sax.reader.html" title="20.12. xml.sax.xmlreader — Interface for XML parsers"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="xml.sax.handler.html" title="20.10. xml.sax.handler — Base classes for SAX handlers"
+             >上一页</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="../index.html">3.6.3 Documentation</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="markup.html" >20. Structured Markup Processing Tools</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python 软件基金会是一个非盈利组织。
+    <a href="https://www.python.org/psf/donations/">请捐助。</a>
+    <br />
+    上次更新于 12月 13, 2017。
+    <a href="../bugs.html">发现了问题</a>？
+    <br />
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    </div>
+
+  </body>
+</html>
