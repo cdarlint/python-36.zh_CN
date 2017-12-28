@@ -25,7 +25,7 @@ msgstr "其他的流程控制"
 msgid ""
 "Besides the :keyword:`while` statement just introduced, Python knows the "
 "usual control flow statements known from other languages, with some twists."
-msgstr "除了刚刚介绍过的 :keyword:`if` 语句，Python中也有其他语言常用的流程控制语句，只是稍有不同。"
+msgstr "除了刚刚介绍过的 :keyword:`while` 语句，Python中也有其他语言常用的流程控制语句，只是稍有不同。"
 
 #: ../../tutorial/controlflow.rst:14
 msgid ":keyword:`if` Statements"
