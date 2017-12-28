@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4. More Control Flow Tools &#8212; Python 3.6.4 文档</title>
+    <title>4. 其他的流程控制 &#8212; Python 3.6.4 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -90,13 +90,11 @@
           <div class="body" role="main">
             
   <div class="section" id="more-control-flow-tools">
-<span id="tut-morecontrol"></span><h1>4. More Control Flow Tools<a class="headerlink" href="#more-control-flow-tools" title="永久链接至标题">¶</a></h1>
-<p>Besides the <a class="reference internal" href="../reference/compound_stmts.html#while"><code class="xref std std-keyword docutils literal"><span class="pre">while</span></code></a> statement just introduced, Python knows the usual
-control flow statements known from other languages, with some twists.</p>
+<span id="tut-morecontrol"></span><h1>4. 其他的流程控制<a class="headerlink" href="#more-control-flow-tools" title="永久链接至标题">¶</a></h1>
+<p>除了刚刚介绍过的 <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal"><span class="pre">if</span></code></a> 语句，Python中也有其他语言常用的流程控制语句，只是稍有不同。</p>
 <div class="section" id="if-statements">
-<span id="tut-if"></span><h2>4.1. <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal"><span class="pre">if</span></code></a> Statements<a class="headerlink" href="#if-statements" title="永久链接至标题">¶</a></h2>
-<p>Perhaps the most well-known statement type is the <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal"><span class="pre">if</span></code></a> statement.  For
-example:</p>
+<span id="tut-if"></span><h2>4.1. <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal"><span class="pre">if</span></code></a> 语句<a class="headerlink" href="#if-statements" title="永久链接至标题">¶</a></h2>
+<p>可能最为人所熟知的编程语句就是 <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal"><span class="pre">if</span></code></a> 语句了。例如：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter an integer: &quot;</span><span class="p">))</span>
 <span class="go">Please enter an integer: 42</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -112,20 +110,11 @@ example:</p>
 <span class="go">More</span>
 </pre></div>
 </div>
-<p>There can be zero or more <a class="reference internal" href="../reference/compound_stmts.html#elif"><code class="xref std std-keyword docutils literal"><span class="pre">elif</span></code></a> parts, and the <a class="reference internal" href="../reference/compound_stmts.html#else"><code class="xref std std-keyword docutils literal"><span class="pre">else</span></code></a> part is
-optional.  The keyword ‘<a class="reference internal" href="../reference/compound_stmts.html#elif"><code class="xref std std-keyword docutils literal"><span class="pre">elif</span></code></a>’ is short for ‘else if’, and is useful
-to avoid excessive indentation.  An  <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal"><span class="pre">if</span></code></a> … <a class="reference internal" href="../reference/compound_stmts.html#elif"><code class="xref std std-keyword docutils literal"><span class="pre">elif</span></code></a> …
-<a class="reference internal" href="../reference/compound_stmts.html#elif"><code class="xref std std-keyword docutils literal"><span class="pre">elif</span></code></a> … sequence is a substitute for the <code class="docutils literal"><span class="pre">switch</span></code> or
-<code class="docutils literal"><span class="pre">case</span></code> statements found in other languages.</p>
+<p>可以没有或者有多个 <a class="reference internal" href="../reference/compound_stmts.html#elif"><code class="xref std std-keyword docutils literal"><span class="pre">elif</span></code></a> 语句块，而 <a class="reference internal" href="../reference/compound_stmts.html#else"><code class="xref std std-keyword docutils literal"><span class="pre">else</span></code></a> 块也不是必须的。关键字 ‘<a class="reference internal" href="../reference/compound_stmts.html#elif"><code class="xref std std-keyword docutils literal"><span class="pre">elif</span></code></a>’ 是 ‘else if’ 的简写，而且避免了过多的缩进。一组 <a class="reference internal" href="../reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal"><span class="pre">if</span></code></a> … <a class="reference internal" href="../reference/compound_stmts.html#elif"><code class="xref std std-keyword docutils literal"><span class="pre">elif</span></code></a> … <a class="reference internal" href="../reference/compound_stmts.html#elif"><code class="xref std std-keyword docutils literal"><span class="pre">elif</span></code></a> 语句在其他语言里可能要写成 <code class="docutils literal"><span class="pre">switch</span></code> 或 <code class="docutils literal"><span class="pre">case</span></code> 语句。</p>
 </div>
 <div class="section" id="for-statements">
-<span id="tut-for"></span><h2>4.2. <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal"><span class="pre">for</span></code></a> Statements<a class="headerlink" href="#for-statements" title="永久链接至标题">¶</a></h2>
-<p id="index-0">The <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal"><span class="pre">for</span></code></a> statement in Python differs a bit from what you may be used
-to in C or Pascal.  Rather than always iterating over an arithmetic progression
-of numbers (like in Pascal), or giving the user the ability to define both the
-iteration step and halting condition (as C), Python’s <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal"><span class="pre">for</span></code></a> statement
-iterates over the items of any sequence (a list or a string), in the order that
-they appear in the sequence.  For example (no pun intended):</p>
+<span id="tut-for"></span><h2>4.2. <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal"><span class="pre">for</span></code></a> 语句<a class="headerlink" href="#for-statements" title="永久链接至标题">¶</a></h2>
+<p id="index-0">Python 中的关键字 <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal"><span class="pre">for</span></code></a> 与你可能熟悉的 C 语言或者 Pascal 不同。它不像 Pascal 那样累加循环，也不像 C 语言那样让用户自定义步进和终止条件，Python 中的 <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal"><span class="pre">for</span></code></a> 语句对序列（比如列表或字符串）进行循环（按照它们在序列中的顺序）。例如：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Measure some strings:</span>
 <span class="gp">... </span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;window&#39;</span><span class="p">,</span> <span class="s1">&#39;defenestrate&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
@@ -136,10 +125,7 @@ they appear in the sequence.  For example (no pun intended):</p>
 <span class="go">defenestrate 12</span>
 </pre></div>
 </div>
-<p>If you need to modify the sequence you are iterating over while inside the loop
-(for example to duplicate selected items), it is recommended that you first
-make a copy.  Iterating over a sequence does not implicitly make a copy.  The
-slice notation makes this especially convenient:</p>
+<p>如果在循环内需要修改序列中的值（比如重复某些选中的元素），推荐你先拷贝一份副本。对序列进行循环不代表制作了一个副本进行操作。切片操作使这件事非常简单：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">[:]:</span>  <span class="c1"># Loop over a slice copy of the entire list.</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="n">words</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
@@ -148,11 +134,10 @@ slice notation makes this especially convenient:</p>
 <span class="go">[&#39;defenestrate&#39;, &#39;cat&#39;, &#39;window&#39;, &#39;defenestrate&#39;]</span>
 </pre></div>
 </div>
-<p>With <code class="docutils literal"><span class="pre">for</span> <span class="pre">w</span> <span class="pre">in</span> <span class="pre">words:</span></code>, the example would attempt to create an infinite list,
-inserting <code class="docutils literal"><span class="pre">defenestrate</span></code> over and over again.</p>
+<p>如果写成 <code class="docutils literal"><span class="pre">for</span> <span class="pre">w</span> <span class="pre">in</span> <span class="pre">words:</span></code>，这个示例就会创建无限长的列表，一次又一次重复地插入 <code class="docutils literal"><span class="pre">defenestrate</span></code>。</p>
 </div>
 <div class="section" id="the-range-function">
-<span id="tut-range"></span><h2>4.3. The <a class="reference internal" href="../library/stdtypes.html#range" title="range"><code class="xref py py-func docutils literal"><span class="pre">range()</span></code></a> Function<a class="headerlink" href="#the-range-function" title="永久链接至标题">¶</a></h2>
+<span id="tut-range"></span><h2>4.3. <a class="reference internal" href="../library/stdtypes.html#range" title="range"><code class="xref py py-func docutils literal"><span class="pre">range()</span></code></a> 函数<a class="headerlink" href="#the-range-function" title="永久链接至标题">¶</a></h2>
 <p>If you do need to iterate over a sequence of numbers, the built-in function
 <a class="reference internal" href="../library/stdtypes.html#range" title="range"><code class="xref py py-func docutils literal"><span class="pre">range()</span></code></a> comes in handy.  It generates arithmetic progressions:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
@@ -756,10 +741,10 @@ callee makes to it (items inserted into a list).</td></tr>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../contents.html">內容目录</a></h3>
   <ul>
-<li><a class="reference internal" href="#">4. More Control Flow Tools</a><ul>
-<li><a class="reference internal" href="#if-statements">4.1. <code class="docutils literal"><span class="pre">if</span></code> Statements</a></li>
-<li><a class="reference internal" href="#for-statements">4.2. <code class="docutils literal"><span class="pre">for</span></code> Statements</a></li>
-<li><a class="reference internal" href="#the-range-function">4.3. The <code class="docutils literal"><span class="pre">range()</span></code> Function</a></li>
+<li><a class="reference internal" href="#">4. 其他的流程控制</a><ul>
+<li><a class="reference internal" href="#if-statements">4.1. <code class="docutils literal"><span class="pre">if</span></code> 语句</a></li>
+<li><a class="reference internal" href="#for-statements">4.2. <code class="docutils literal"><span class="pre">for</span></code> 语句</a></li>
+<li><a class="reference internal" href="#the-range-function">4.3. <code class="docutils literal"><span class="pre">range()</span></code> 函数</a></li>
 <li><a class="reference internal" href="#break-and-continue-statements-and-else-clauses-on-loops">4.4. <code class="docutils literal"><span class="pre">break</span></code> and <code class="docutils literal"><span class="pre">continue</span></code> Statements, and <code class="docutils literal"><span class="pre">else</span></code> Clauses on Loops</a></li>
 <li><a class="reference internal" href="#pass-statements">4.5. <code class="docutils literal"><span class="pre">pass</span></code> Statements</a></li>
 <li><a class="reference internal" href="#defining-functions">4.6. Defining Functions</a></li>
@@ -845,7 +830,7 @@ callee makes to it (items inserted into a list).</td></tr>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 12月 28, 2017。
     <a href="../bugs.html">发现了问题</a>？
     <br />
     使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
