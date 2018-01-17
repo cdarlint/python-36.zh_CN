@@ -515,8 +515,9 @@ system components, e.g. between the finder that creates the module spec
 and the loader that executes it.  Most importantly, it allows the
 import machinery to perform the boilerplate operations of loading,
 whereas without a module spec the loader had that responsibility.</p>
-<p>See <a class="reference internal" href="../library/importlib.html#importlib.machinery.ModuleSpec" title="importlib.machinery.ModuleSpec"><code class="xref py py-class docutils literal"><span class="pre">ModuleSpec</span></code></a> for more specifics on what
-information a module’s spec may hold.</p>
+<p>The module’s spec is exposed as the <code class="docutils literal"><span class="pre">__spec__</span></code> attribute on a module object.
+See <a class="reference internal" href="../library/importlib.html#importlib.machinery.ModuleSpec" title="importlib.machinery.ModuleSpec"><code class="xref py py-class docutils literal"><span class="pre">ModuleSpec</span></code></a> for details on the contents of
+the module spec.</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.4 新版功能.</span></p>
 </div>
@@ -1061,15 +1062,15 @@ is recommended that code be changed to use <code class="docutils literal"><span 
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

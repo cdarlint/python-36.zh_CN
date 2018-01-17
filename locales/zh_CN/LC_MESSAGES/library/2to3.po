@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -196,11 +197,11 @@ msgid ""
 "Replaces deprecated :mod:`unittest` method names with the correct ones."
 msgstr ""
 
-#: ../../library/2to3.rst:164 ../../library/2to3.rst:351
+#: ../../library/2to3.rst:164 ../../library/2to3.rst:352
 msgid "From"
 msgstr ""
 
-#: ../../library/2to3.rst:164 ../../library/2to3.rst:351
+#: ../../library/2to3.rst:164 ../../library/2to3.rst:352
 msgid "To"
 msgstr ""
 
@@ -384,66 +385,67 @@ msgstr ""
 msgid ""
 "Fixes duplicate types in the second argument of :func:`isinstance`.  For "
 "example, ``isinstance(x, (int, int))`` is converted to ``isinstance(x, "
-"(int))``."
+"int)`` and ``isinstance(x, (int, float, int))`` is converted to "
+"``isinstance(x, (int, float))``."
 msgstr ""
 
-#: ../../library/2to3.rst:295
+#: ../../library/2to3.rst:296
 msgid ""
 "Removes imports of :func:`itertools.ifilter`, :func:`itertools.izip`, and "
 ":func:`itertools.imap`.  Imports of :func:`itertools.ifilterfalse` are also "
 "changed to :func:`itertools.filterfalse`."
 msgstr ""
 
-#: ../../library/2to3.rst:301
+#: ../../library/2to3.rst:302
 msgid ""
 "Changes usage of :func:`itertools.ifilter`, :func:`itertools.izip`, and "
 ":func:`itertools.imap` to their built-in equivalents. "
 ":func:`itertools.ifilterfalse` is changed to :func:`itertools.filterfalse`."
 msgstr ""
 
-#: ../../library/2to3.rst:307
+#: ../../library/2to3.rst:308
 msgid "Renames :class:`long` to :class:`int`."
 msgstr ""
 
-#: ../../library/2to3.rst:311
+#: ../../library/2to3.rst:312
 msgid ""
 "Wraps :func:`map` in a :class:`list` call.  It also changes ``map(None, x)``"
 " to ``list(x)``.  Using ``from future_builtins import map`` disables this "
 "fixer."
 msgstr ""
 
-#: ../../library/2to3.rst:317
+#: ../../library/2to3.rst:318
 msgid ""
 "Converts the old metaclass syntax (``__metaclass__ = Meta`` in the class "
 "body) to the new (``class X(metaclass=Meta)``)."
 msgstr ""
 
-#: ../../library/2to3.rst:322
+#: ../../library/2to3.rst:323
 msgid ""
 "Fixes old method attribute names.  For example, ``meth.im_func`` is "
 "converted to ``meth.__func__``."
 msgstr ""
 
-#: ../../library/2to3.rst:327
+#: ../../library/2to3.rst:328
 msgid "Converts the old not-equal syntax, ``<>``, to ``!=``."
 msgstr ""
 
-#: ../../library/2to3.rst:331
+#: ../../library/2to3.rst:332
 msgid ""
 "Converts the use of iterator's :meth:`~iterator.next` methods to the "
 ":func:`next` function.  It also renames :meth:`next` methods to "
 ":meth:`~iterator.__next__`."
 msgstr ""
 
-#: ../../library/2to3.rst:337
+#: ../../library/2to3.rst:338
 msgid "Renames :meth:`__nonzero__` to :meth:`~object.__bool__`."
 msgstr ""
 
-#: ../../library/2to3.rst:341
+#: ../../library/2to3.rst:342
 msgid "Converts octal literals into the new syntax."
 msgstr ""
 
-#: ../../library/2to3.rst:345
+#: ../../library/2to3.rst:346
 msgid ""
 "Converts calls to various functions in the :mod:`operator` module to other, "
 "but equivalent, function calls.  When needed, the appropriate ``import`` "
@@ -451,73 +453,73 @@ msgid ""
 "are made:"
 msgstr ""
 
-#: ../../library/2to3.rst:353
+#: ../../library/2to3.rst:354
 msgid "``operator.isCallable(obj)``"
 msgstr ""
 
-#: ../../library/2to3.rst:353
+#: ../../library/2to3.rst:354
 msgid "``hasattr(obj, '__call__')``"
 msgstr ""
 
-#: ../../library/2to3.rst:354
+#: ../../library/2to3.rst:355
 msgid "``operator.sequenceIncludes(obj)``"
 msgstr ""
 
-#: ../../library/2to3.rst:354
+#: ../../library/2to3.rst:355
 msgid "``operator.contains(obj)``"
 msgstr ""
 
-#: ../../library/2to3.rst:355
+#: ../../library/2to3.rst:356
 msgid "``operator.isSequenceType(obj)``"
 msgstr ""
 
-#: ../../library/2to3.rst:355
+#: ../../library/2to3.rst:356
 msgid "``isinstance(obj, collections.Sequence)``"
 msgstr ""
 
-#: ../../library/2to3.rst:356
+#: ../../library/2to3.rst:357
 msgid "``operator.isMappingType(obj)``"
 msgstr ""
 
-#: ../../library/2to3.rst:356
+#: ../../library/2to3.rst:357
 msgid "``isinstance(obj, collections.Mapping)``"
 msgstr ""
 
-#: ../../library/2to3.rst:357
+#: ../../library/2to3.rst:358
 msgid "``operator.isNumberType(obj)``"
 msgstr ""
 
-#: ../../library/2to3.rst:357
+#: ../../library/2to3.rst:358
 msgid "``isinstance(obj, numbers.Number)``"
 msgstr ""
 
-#: ../../library/2to3.rst:358
+#: ../../library/2to3.rst:359
 msgid "``operator.repeat(obj, n)``"
 msgstr ""
 
-#: ../../library/2to3.rst:358
+#: ../../library/2to3.rst:359
 msgid "``operator.mul(obj, n)``"
 msgstr ""
 
-#: ../../library/2to3.rst:359
+#: ../../library/2to3.rst:360
 msgid "``operator.irepeat(obj, n)``"
 msgstr ""
 
-#: ../../library/2to3.rst:359
+#: ../../library/2to3.rst:360
 msgid "``operator.imul(obj, n)``"
 msgstr ""
 
-#: ../../library/2to3.rst:364
+#: ../../library/2to3.rst:365
 msgid ""
 "Add extra parenthesis where they are required in list comprehensions.  For "
 "example, ``[x for x in 1, 2]`` becomes ``[x for x in (1, 2)]``."
 msgstr ""
 
-#: ../../library/2to3.rst:369
+#: ../../library/2to3.rst:370
 msgid "Converts the ``print`` statement to the :func:`print` function."
 msgstr ""
 
-#: ../../library/2to3.rst:373
+#: ../../library/2to3.rst:374
 msgid ""
 "Converts ``raise E, V`` to ``raise E(V)``, and ``raise E, V, T`` to ``raise "
 "E(V).with_traceback(T)``.  If ``E`` is a tuple, the translation will be "
@@ -525,99 +527,99 @@ msgid ""
 "3.0."
 msgstr ""
 
-#: ../../library/2to3.rst:379
+#: ../../library/2to3.rst:380
 msgid "Converts :func:`raw_input` to :func:`input`."
 msgstr ""
 
-#: ../../library/2to3.rst:383
+#: ../../library/2to3.rst:384
 msgid "Handles the move of :func:`reduce` to :func:`functools.reduce`."
 msgstr ""
 
-#: ../../library/2to3.rst:387
+#: ../../library/2to3.rst:388
 msgid "Converts :func:`reload` to :func:`imp.reload`."
 msgstr ""
 
-#: ../../library/2to3.rst:391
+#: ../../library/2to3.rst:392
 msgid "Changes :data:`sys.maxint` to :data:`sys.maxsize`."
 msgstr ""
 
-#: ../../library/2to3.rst:395
+#: ../../library/2to3.rst:396
 msgid "Replaces backtick repr with the :func:`repr` function."
 msgstr ""
 
-#: ../../library/2to3.rst:399
+#: ../../library/2to3.rst:400
 msgid ""
 "Replaces use of the :class:`set` constructor with set literals.  This fixer "
 "is optional."
 msgstr ""
 
-#: ../../library/2to3.rst:404
+#: ../../library/2to3.rst:405
 msgid "Renames :exc:`StandardError` to :exc:`Exception`."
 msgstr ""
 
-#: ../../library/2to3.rst:408
+#: ../../library/2to3.rst:409
 msgid ""
 "Changes the deprecated :data:`sys.exc_value`, :data:`sys.exc_type`, "
 ":data:`sys.exc_traceback` to use :func:`sys.exc_info`."
 msgstr ""
 
-#: ../../library/2to3.rst:413
+#: ../../library/2to3.rst:414
 msgid "Fixes the API change in generator's :meth:`throw` method."
 msgstr ""
 
-#: ../../library/2to3.rst:417
+#: ../../library/2to3.rst:418
 msgid ""
 "Removes implicit tuple parameter unpacking.  This fixer inserts temporary "
 "variables."
 msgstr ""
 
-#: ../../library/2to3.rst:422
+#: ../../library/2to3.rst:423
 msgid ""
 "Fixes code broken from the removal of some members in the :mod:`types` "
 "module."
 msgstr ""
 
-#: ../../library/2to3.rst:427
+#: ../../library/2to3.rst:428
 msgid "Renames :class:`unicode` to :class:`str`."
 msgstr ""
 
-#: ../../library/2to3.rst:431
+#: ../../library/2to3.rst:432
 msgid ""
 "Handles the rename of :mod:`urllib` and :mod:`urllib2` to the :mod:`urllib` "
 "package."
 msgstr ""
 
-#: ../../library/2to3.rst:436
+#: ../../library/2to3.rst:437
 msgid ""
 "Removes excess whitespace from comma separated items.  This fixer is "
 "optional."
 msgstr ""
 
-#: ../../library/2to3.rst:441
+#: ../../library/2to3.rst:442
 msgid ""
 "Renames :func:`xrange` to :func:`range` and wraps existing :func:`range` "
 "calls with :class:`list`."
 msgstr ""
 
-#: ../../library/2to3.rst:446
+#: ../../library/2to3.rst:447
 msgid "Changes ``for x in file.xreadlines()`` to ``for x in file``."
 msgstr ""
 
-#: ../../library/2to3.rst:450
+#: ../../library/2to3.rst:451
 msgid ""
 "Wraps :func:`zip` usage in a :class:`list` call.  This is disabled when "
 "``from future_builtins import zip`` appears."
 msgstr ""
 
-#: ../../library/2to3.rst:455
+#: ../../library/2to3.rst:456
 msgid ":mod:`lib2to3` - 2to3's library"
 msgstr ""
 
-#: ../../library/2to3.rst:464
+#: ../../library/2to3.rst:465
 msgid "**Source code:** :source:`Lib/lib2to3/`"
 msgstr ""
 
-#: ../../library/2to3.rst:470
+#: ../../library/2to3.rst:471
 msgid ""
 "The :mod:`lib2to3` API should be considered unstable and may change "
 "drastically in the future."

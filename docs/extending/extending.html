@@ -116,7 +116,7 @@ extension module.</p>
 <span id="extending-simpleexample"></span><h2>1.1. A Simple Example<a class="headerlink" href="#a-simple-example" title="永久链接至标题">¶</a></h2>
 <p>Let’s create an extension module called <code class="docutils literal"><span class="pre">spam</span></code> (the favorite food of Monty
 Python fans…) and let’s say we want to create a Python interface to the C
-library function <code class="xref c c-func docutils literal"><span class="pre">system()</span></code>. <a class="footnote-reference" href="#id5" id="id1">[1]</a> This function takes a null-terminated
+library function <code class="xref c c-func docutils literal"><span class="pre">system()</span></code> <a class="footnote-reference" href="#id5" id="id1">[1]</a>. This function takes a null-terminated
 character string as argument and returns an integer.  We want this function to
 be callable from Python as follows:</p>
 <div class="highlight-c"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">import</span> <span class="n">spam</span>
@@ -888,7 +888,7 @@ Forgetting to dispose of an owned reference creates a memory leak.</p>
 borrower of a reference should not call <a class="reference internal" href="../c-api/refcounting.html#c.Py_DECREF" title="Py_DECREF"><code class="xref c c-func docutils literal"><span class="pre">Py_DECREF()</span></code></a>.  The borrower must
 not hold on to the object longer than the owner from which it was borrowed.
 Using a borrowed reference after the owner has disposed of it risks using freed
-memory and should be avoided completely. <a class="footnote-reference" href="#id7" id="id3">[3]</a></p>
+memory and should be avoided completely <a class="footnote-reference" href="#id7" id="id3">[3]</a>.</p>
 <p>The advantage of borrowing over owning a reference is that you don’t need to
 take care of disposing of the reference on all possible paths through the code
 — in other words, with a borrowed reference you don’t run the risk of leaking
@@ -1031,7 +1031,7 @@ this would generate redundant tests.  There are no variants with <em>NULL</em>
 checking.</p>
 <p>The C function calling mechanism guarantees that the argument list passed to C
 functions (<code class="docutils literal"><span class="pre">args</span></code> in the examples) is never <em>NULL</em> — in fact it guarantees
-that it is always a tuple. <a class="footnote-reference" href="#id8" id="id4">[4]</a></p>
+that it is always a tuple <a class="footnote-reference" href="#id8" id="id4">[4]</a>.</p>
 <p>It is a severe error to ever let a <em>NULL</em> pointer “escape” to the Python user.</p>
 </div>
 </div>
@@ -1377,15 +1377,15 @@ this is still found in much existing code.</td></tr>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

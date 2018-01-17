@@ -227,7 +227,7 @@ this was deemed not useful and so it is currently unimplemented.</p>
 <h2>23.1.2. Class-based API<a class="headerlink" href="#class-based-api" title="永久链接至标题">¶</a></h2>
 <p>The class-based API of the <a class="reference internal" href="#module-gettext" title="gettext: Multilingual internationalization services."><code class="xref py py-mod docutils literal"><span class="pre">gettext</span></code></a> module gives you more flexibility and
 greater convenience than the GNU <strong class="program">gettext</strong> API.  It is the recommended
-way of localizing your Python applications and modules.  <a class="reference internal" href="#module-gettext" title="gettext: Multilingual internationalization services."><code class="xref py py-mod docutils literal"><span class="pre">gettext</span></code></a> defines
+way of localizing your Python applications and modules.  <code class="xref py py-mod docutils literal"><span class="pre">gettext</span></code> defines
 a “translations” class which implements the parsing of GNU <code class="file docutils literal"><span class="pre">.mo</span></code> format
 files, and has methods for returning strings. Instances of this “translations”
 class can also install themselves in the built-in namespace as the function
@@ -304,7 +304,7 @@ application.</p>
 source file message strings to translated message strings. The base class used
 by all translation classes is <a class="reference internal" href="#gettext.NullTranslations" title="gettext.NullTranslations"><code class="xref py py-class docutils literal"><span class="pre">NullTranslations</span></code></a>; this provides the basic
 interface you can use to write your own specialized translation classes.  Here
-are the methods of <a class="reference internal" href="#gettext.NullTranslations" title="gettext.NullTranslations"><code class="xref py py-class docutils literal"><span class="pre">NullTranslations</span></code></a>:</p>
+are the methods of <code class="xref py py-class docutils literal"><span class="pre">NullTranslations</span></code>:</p>
 <dl class="class">
 <dt id="gettext.NullTranslations">
 <em class="property">class </em><code class="descclassname">gettext.</code><code class="descname">NullTranslations</code><span class="sig-paren">(</span><em>fp=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gettext.NullTranslations" title="永久链接至目标">¶</a></dt>
@@ -333,14 +333,14 @@ translation for a given message.</p>
 <dl class="method">
 <dt id="gettext.NullTranslations.gettext">
 <code class="descname">gettext</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#gettext.NullTranslations.gettext" title="永久链接至目标">¶</a></dt>
-<dd><p>If a fallback has been set, forward <a class="reference internal" href="#gettext.NullTranslations.gettext" title="gettext.NullTranslations.gettext"><code class="xref py py-meth docutils literal"><span class="pre">gettext()</span></code></a> to the fallback.
+<dd><p>If a fallback has been set, forward <code class="xref py py-meth docutils literal"><span class="pre">gettext()</span></code> to the fallback.
 Otherwise, return <em>message</em>.  Overridden in derived classes.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="gettext.NullTranslations.ngettext">
 <code class="descname">ngettext</code><span class="sig-paren">(</span><em>singular</em>, <em>plural</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#gettext.NullTranslations.ngettext" title="永久链接至目标">¶</a></dt>
-<dd><p>If a fallback has been set, forward <a class="reference internal" href="#gettext.ngettext" title="gettext.ngettext"><code class="xref py py-meth docutils literal"><span class="pre">ngettext()</span></code></a> to the fallback.
+<dd><p>If a fallback has been set, forward <code class="xref py py-meth docutils literal"><span class="pre">ngettext()</span></code> to the fallback.
 Otherwise, return <em>singular</em> if <em>n</em> is 1; return <em>plural</em> otherwise.
 Overridden in derived classes.</p>
 </dd></dl>
@@ -353,7 +353,7 @@ Overridden in derived classes.</p>
 <dl class="method">
 <dt id="gettext.NullTranslations.lngettext">
 <code class="descname">lngettext</code><span class="sig-paren">(</span><em>singular</em>, <em>plural</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#gettext.NullTranslations.lngettext" title="永久链接至目标">¶</a></dt>
-<dd><p>Equivalent to <a class="reference internal" href="#gettext.NullTranslations.gettext" title="gettext.NullTranslations.gettext"><code class="xref py py-meth docutils literal"><span class="pre">gettext()</span></code></a> and <a class="reference internal" href="#gettext.ngettext" title="gettext.ngettext"><code class="xref py py-meth docutils literal"><span class="pre">ngettext()</span></code></a>, but the translation
+<dd><p>Equivalent to <a class="reference internal" href="#gettext.NullTranslations.gettext" title="gettext.NullTranslations.gettext"><code class="xref py py-meth docutils literal"><span class="pre">gettext()</span></code></a> and <a class="reference internal" href="#gettext.NullTranslations.ngettext" title="gettext.NullTranslations.ngettext"><code class="xref py py-meth docutils literal"><span class="pre">ngettext()</span></code></a>, but the translation
 is returned as a byte string encoded in the preferred system encoding
 if no encoding was explicitly set with <a class="reference internal" href="#gettext.NullTranslations.set_output_charset" title="gettext.NullTranslations.set_output_charset"><code class="xref py py-meth docutils literal"><span class="pre">set_output_charset()</span></code></a>.
 Overridden in derived classes.</p>
@@ -827,15 +827,15 @@ absolute path at the start of your application.</td></tr>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

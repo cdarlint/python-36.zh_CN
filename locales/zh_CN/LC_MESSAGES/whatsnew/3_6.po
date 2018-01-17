@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -1150,7 +1151,7 @@ msgid ""
 "Hettinger in :issue:`17941`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:939 ../../whatsnew/3.6.rst:2223
+#: ../../whatsnew/3.6.rst:939 ../../whatsnew/3.6.rst:2228
 msgid ""
 "The *verbose* and *rename* arguments for :func:`~collections.namedtuple` are"
 " now keyword-only. (Contributed by Raymond Hettinger in :issue:`25628`.)"
@@ -1241,7 +1242,7 @@ msgstr ""
 msgid "(Contributed by Stefan Krah amd Mark Dickinson in :issue:`25928`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1011 ../../whatsnew/3.6.rst:1933
+#: ../../whatsnew/3.6.rst:1011 ../../whatsnew/3.6.rst:1938
 msgid "distutils"
 msgstr ""
 
@@ -1428,7 +1429,7 @@ msgid ""
 "Additional useful information will be added to idlelib when available."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1146 ../../whatsnew/3.6.rst:1950
+#: ../../whatsnew/3.6.rst:1146 ../../whatsnew/3.6.rst:1955
 msgid "importlib"
 msgstr ""
 
@@ -1524,7 +1525,7 @@ msgid ""
 "Potts in :issue:`6766`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1215 ../../whatsnew/3.6.rst:1964
+#: ../../whatsnew/3.6.rst:1215 ../../whatsnew/3.6.rst:1969
 msgid "os"
 msgstr ""
 
@@ -1630,7 +1631,7 @@ msgid ""
 " by Raymond Hettinger in :issue:`18844`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1292 ../../whatsnew/3.6.rst:1972
+#: ../../whatsnew/3.6.rst:1292 ../../whatsnew/3.6.rst:1977
 msgid "re"
 msgstr ""
 
@@ -1772,7 +1773,7 @@ msgid ""
 "  (Contributed by Martin Panter in :issue:`26721`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1392 ../../whatsnew/3.6.rst:1980
+#: ../../whatsnew/3.6.rst:1392 ../../whatsnew/3.6.rst:1985
 msgid "ssl"
 msgstr ""
 
@@ -1922,7 +1923,7 @@ msgid ""
 " and worst times. (Contributed by Serhiy Storchaka in :issue:`23552`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1495 ../../whatsnew/3.6.rst:1997
+#: ../../whatsnew/3.6.rst:1495 ../../whatsnew/3.6.rst:2002
 msgid "tkinter"
 msgstr ""
 
@@ -2094,7 +2095,7 @@ msgid ""
 "in :issue:`16099`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1634 ../../whatsnew/3.6.rst:2003
+#: ../../whatsnew/3.6.rst:1634 ../../whatsnew/3.6.rst:2008
 msgid "venv"
 msgstr ""
 
@@ -2423,25 +2424,33 @@ msgid ""
 "functions will now accept :term:`path-like objects <path-like object>`."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1857
+#: ../../whatsnew/3.6.rst:1855
+msgid ""
+"The ``PyExc_RecursionErrorInst`` singleton that was part of the public API "
+"has been removed as its members being never cleared may cause a segfault "
+"during finalization of the interpreter. Contributed by Xavier de Gaye in "
+":issue:`22898` and :issue:`30697`."
+msgstr ""
+
+#: ../../whatsnew/3.6.rst:1862
 msgid "Other Improvements"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1859
+#: ../../whatsnew/3.6.rst:1864
 msgid ""
 "When :option:`--version` (short form: :option:`-V`) is supplied twice, "
 "Python prints :data:`sys.version` for detailed information."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1870
+#: ../../whatsnew/3.6.rst:1875
 msgid "Deprecated"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1873
+#: ../../whatsnew/3.6.rst:1878
 msgid "New Keywords"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1875
+#: ../../whatsnew/3.6.rst:1880
 msgid ""
 "``async`` and ``await`` are not recommended to be used as variable, class, "
 "function or module names.  Introduced by :pep:`492` in Python 3.5, they will"
@@ -2449,18 +2458,18 @@ msgid ""
 "``async`` or ``await`` as names will generate a :exc:`DeprecationWarning`."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1882
+#: ../../whatsnew/3.6.rst:1887
 msgid "Deprecated Python behavior"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1884
+#: ../../whatsnew/3.6.rst:1889
 msgid ""
 "Raising the :exc:`StopIteration` exception inside a generator will now "
 "generate a :exc:`DeprecationWarning`, and will trigger a :exc:`RuntimeError`"
 " in Python 3.7.  See :ref:`whatsnew-pep-479` for details."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1888
+#: ../../whatsnew/3.6.rst:1893
 msgid ""
 "The :meth:`__aiter__` method is now expected to return an asynchronous "
 "iterator directly instead of returning an awaitable as previously. Doing the"
@@ -2469,7 +2478,7 @@ msgid ""
 ":issue:`27243`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1894
+#: ../../whatsnew/3.6.rst:1899
 msgid ""
 "A backslash-character pair that is not a valid escape sequence now generates"
 " a :exc:`DeprecationWarning`.  Although this will eventually become a "
@@ -2477,7 +2486,7 @@ msgid ""
 "(Contributed by Emanuel Barry in :issue:`27364`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1899
+#: ../../whatsnew/3.6.rst:1904
 msgid ""
 "When performing a relative import, falling back on ``__name__`` and "
 "``__path__`` from the calling module when ``__spec__`` or ``__package__`` "
@@ -2485,35 +2494,35 @@ msgid ""
 "Ames in :issue:`25791`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1906
+#: ../../whatsnew/3.6.rst:1911
 msgid "Deprecated Python modules, functions and methods"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1909
+#: ../../whatsnew/3.6.rst:1914
 msgid "asynchat"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1911
+#: ../../whatsnew/3.6.rst:1916
 msgid ""
 "The :mod:`asynchat` has been deprecated in favor of :mod:`asyncio`. "
 "(Contributed by Mariatta in :issue:`25002`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1916
+#: ../../whatsnew/3.6.rst:1921
 msgid "asyncore"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1918
+#: ../../whatsnew/3.6.rst:1923
 msgid ""
 "The :mod:`asyncore` has been deprecated in favor of :mod:`asyncio`. "
 "(Contributed by Mariatta in :issue:`25002`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1923
+#: ../../whatsnew/3.6.rst:1928
 msgid "dbm"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1925
+#: ../../whatsnew/3.6.rst:1930
 msgid ""
 "Unlike other :mod:`dbm` implementations, the :mod:`dbm.dumb` module creates "
 "databases with the ``'rw'`` mode and allows modifying the database opened "
@@ -2521,7 +2530,7 @@ msgid ""
 "in 3.8. (Contributed by Serhiy Storchaka in :issue:`21708`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1935
+#: ../../whatsnew/3.6.rst:1940
 msgid ""
 "The undocumented ``extra_path`` argument to the "
 ":class:`~distutils.Distribution` constructor is now considered deprecated "
@@ -2529,17 +2538,17 @@ msgid ""
 "removed in a future Python release.  See :issue:`27919` for details."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1942
+#: ../../whatsnew/3.6.rst:1947
 msgid "grp"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1944
+#: ../../whatsnew/3.6.rst:1949
 msgid ""
 "The support of non-integer arguments in :func:`~grp.getgrgid` has been "
 "deprecated. (Contributed by Serhiy Storchaka in :issue:`26129`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1952
+#: ../../whatsnew/3.6.rst:1957
 msgid ""
 "The :meth:`importlib.machinery.SourceFileLoader.load_module` and "
 ":meth:`importlib.machinery.SourcelessFileLoader.load_module` methods are now"
@@ -2549,14 +2558,14 @@ msgid ""
 ":meth:`importlib.abc.Loader.exec_module`."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1959
+#: ../../whatsnew/3.6.rst:1964
 msgid ""
 "The :class:`importlib.machinery.WindowsRegistryFinder` class is now "
 "deprecated. As of 3.6.0, it is still added to :attr:`sys.meta_path` by "
 "default (on Windows), but this may change in future releases."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1966
+#: ../../whatsnew/3.6.rst:1971
 msgid ""
 "Undocumented support of general :term:`bytes-like objects <bytes-like "
 "object>` as paths in :mod:`os` functions, :func:`compile` and similar "
@@ -2564,7 +2573,7 @@ msgid ""
 ":issue:`25791` and :issue:`26754`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1974
+#: ../../whatsnew/3.6.rst:1979
 msgid ""
 "Support for inline flags ``(?letters)`` in the middle of the regular "
 "expression has been deprecated and will be removed in a future Python "
@@ -2572,14 +2581,14 @@ msgid ""
 "(Contributed by Serhiy Storchaka in :issue:`22493`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1982
+#: ../../whatsnew/3.6.rst:1987
 msgid ""
 "OpenSSL 0.9.8, 1.0.0 and 1.0.1 are deprecated and no longer supported. In "
 "the future the :mod:`ssl` module will require at least OpenSSL 1.0.2 or "
 "1.1.0."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1986
+#: ../../whatsnew/3.6.rst:1991
 msgid ""
 "SSL-related arguments like ``certfile``, ``keyfile`` and ``check_hostname`` "
 "in :mod:`ftplib`, :mod:`http.client`, :mod:`imaplib`, :mod:`poplib`, and "
@@ -2587,7 +2596,7 @@ msgid ""
 " Christian Heimes in :issue:`28022`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1991
+#: ../../whatsnew/3.6.rst:1996
 msgid ""
 "A couple of protocols and functions of the :mod:`ssl` module are now "
 "deprecated. Some features will no longer be available in future versions of "
@@ -2595,13 +2604,13 @@ msgid ""
 "(Contributed by Christian Heimes in :issue:`28022` and :issue:`26470`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:1999
+#: ../../whatsnew/3.6.rst:2004
 msgid ""
 "The :mod:`tkinter.tix` module is now deprecated.  :mod:`tkinter` users "
 "should use :mod:`tkinter.ttk` instead."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2005
+#: ../../whatsnew/3.6.rst:2010
 msgid ""
 "The ``pyvenv`` script has been deprecated in favour of ``python3 -m venv``. "
 "This prevents confusion as to what Python interpreter ``pyvenv`` is "
@@ -2609,11 +2618,11 @@ msgid ""
 "environment.  (Contributed by Brett Cannon in :issue:`25154`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2012
+#: ../../whatsnew/3.6.rst:2017
 msgid "Deprecated functions and types of the C API"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2014
+#: ../../whatsnew/3.6.rst:2019
 msgid ""
 "Undocumented functions :c:func:`PyUnicode_AsEncodedObject`, "
 ":c:func:`PyUnicode_AsDecodedObject`, :c:func:`PyUnicode_AsEncodedUnicode` "
@@ -2621,11 +2630,11 @@ msgid ""
 ":ref:`generic codec based API <codec-registry>` instead."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2021
+#: ../../whatsnew/3.6.rst:2026
 msgid "Deprecated Build Options"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2023
+#: ../../whatsnew/3.6.rst:2028
 msgid ""
 "The ``--with-system-ffi`` configure flag is now on by default on non-macOS "
 "UNIX platforms.  It may be disabled by using ``--without-system-ffi``, but "
@@ -2634,15 +2643,15 @@ msgid ""
 "the ``--with-system-ffi`` flag when building their system Python."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2031
+#: ../../whatsnew/3.6.rst:2036
 msgid "Removed"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2034
+#: ../../whatsnew/3.6.rst:2039
 msgid "API and Feature Removals"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2036
+#: ../../whatsnew/3.6.rst:2041
 msgid ""
 "Unknown escapes consisting of ``'\\'`` and an ASCII letter in regular "
 "expressions will now cause an error.  In replacement templates for "
@@ -2650,14 +2659,14 @@ msgid ""
 ":const:`re.LOCALE` flag can now only be used with binary patterns."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2041
+#: ../../whatsnew/3.6.rst:2046
 msgid ""
 "``inspect.getmoduleinfo()`` was removed (was deprecated since CPython 3.3). "
 ":func:`inspect.getmodulename` should be used for obtaining the module name "
 "for a given path. (Contributed by Yury Selivanov in :issue:`13248`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2046
+#: ../../whatsnew/3.6.rst:2051
 msgid ""
 "``traceback.Ignore`` class and ``traceback.usage``, ``traceback.modname``, "
 "``traceback.fullmodname``, ``traceback.find_lines_from_code``, "
@@ -2667,14 +2676,14 @@ msgid ""
 "Python 3.2 and equivalent functionality is available from private methods."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2053
+#: ../../whatsnew/3.6.rst:2058
 msgid ""
 "The ``tk_menuBar()`` and ``tk_bindForTraversal()`` dummy methods in "
 ":mod:`tkinter` widget classes were removed (corresponding Tk commands were "
 "obsolete since Tk 4.0)."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2057
+#: ../../whatsnew/3.6.rst:2062
 msgid ""
 "The :meth:`~zipfile.ZipFile.open` method of the :class:`zipfile.ZipFile` "
 "class no longer supports the ``'U'`` mode (was deprecated since Python 3.4)."
@@ -2682,7 +2691,7 @@ msgid ""
 ":term:`universal newlines` mode."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2062
+#: ../../whatsnew/3.6.rst:2067
 msgid ""
 "The undocumented ``IN``, ``CDROM``, ``DLFCN``, ``TYPES``, ``CDIO``, and "
 "``STROPTS`` modules have been removed.  They had been available in the "
@@ -2692,25 +2701,25 @@ msgid ""
 "distribution at :source:`Tools/scripts/h2py.py`."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2069
+#: ../../whatsnew/3.6.rst:2074
 msgid "The deprecated ``asynchat.fifo`` class has been removed."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2073
+#: ../../whatsnew/3.6.rst:2078
 msgid "Porting to Python 3.6"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2075
+#: ../../whatsnew/3.6.rst:2080
 msgid ""
 "This section lists previously described changes and other bugfixes that may "
 "require changes to your code."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2079
+#: ../../whatsnew/3.6.rst:2084
 msgid "Changes in 'python' Command Behavior"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2081
+#: ../../whatsnew/3.6.rst:2086
 msgid ""
 "The output of a special Python build with defined ``COUNT_ALLOCS``, "
 "``SHOW_ALLOC_COUNT`` or ``SHOW_TRACK_COUNT`` macros is now off by default.  "
@@ -2719,42 +2728,42 @@ msgid ""
 ":issue:`23034`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2089
+#: ../../whatsnew/3.6.rst:2094
 msgid "Changes in the Python API"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2091
+#: ../../whatsnew/3.6.rst:2096
 msgid ""
 ":func:`open() <open>` will no longer allow combining the ``'U'`` mode flag "
 "with ``'+'``. (Contributed by Jeff Balogh and John O'Connor in "
 ":issue:`2091`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2095
+#: ../../whatsnew/3.6.rst:2100
 msgid ""
 ":mod:`sqlite3` no longer implicitly commits an open transaction before DDL "
 "statements."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2098
+#: ../../whatsnew/3.6.rst:2103
 msgid ""
 "On Linux, :func:`os.urandom` now blocks until the system urandom entropy "
 "pool is initialized to increase the security."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2101
+#: ../../whatsnew/3.6.rst:2106
 msgid ""
 "When :meth:`importlib.abc.Loader.exec_module` is defined, "
 ":meth:`importlib.abc.Loader.create_module` must also be defined."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2104
+#: ../../whatsnew/3.6.rst:2109
 msgid ""
 ":c:func:`PyErr_SetImportError` now sets :exc:`TypeError` when its **msg** "
 "argument is not set. Previously only ``NULL`` was returned."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2107
+#: ../../whatsnew/3.6.rst:2112
 msgid ""
 "The format of the ``co_lnotab`` attribute of code objects changed to support"
 " a negative line number delta. By default, Python does not emit bytecode "
@@ -2767,7 +2776,7 @@ msgid ""
 "it, and see the :pep:`511` for the rationale."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2117
+#: ../../whatsnew/3.6.rst:2122
 msgid ""
 "The functions in the :mod:`compileall` module now return booleans instead of"
 " ``1`` or ``0`` to represent success or failure, respectively. Thanks to "
@@ -2775,7 +2784,7 @@ msgid ""
 "were doing identity checks for ``1`` or ``0``. See :issue:`25768`."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2122
+#: ../../whatsnew/3.6.rst:2127
 msgid ""
 "Reading the :attr:`~urllib.parse.SplitResult.port` attribute of "
 ":func:`urllib.parse.urlsplit` and :func:`~urllib.parse.urlparse` results now"
@@ -2783,13 +2792,13 @@ msgid ""
 ":const:`None`.  See :issue:`20059`."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2127
+#: ../../whatsnew/3.6.rst:2132
 msgid ""
 "The :mod:`imp` module now raises a :exc:`DeprecationWarning` instead of "
 ":exc:`PendingDeprecationWarning`."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2130
+#: ../../whatsnew/3.6.rst:2135
 msgid ""
 "The following modules have had missing APIs added to their :attr:`__all__` "
 "attributes to match the documented APIs: :mod:`calendar`, :mod:`cgi`, "
@@ -2801,21 +2810,21 @@ msgid ""
 "and Jacek Kołodziej in :issue:`23883`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2141
+#: ../../whatsnew/3.6.rst:2146
 msgid ""
 "When performing a relative import, if ``__package__`` does not compare equal"
 " to ``__spec__.parent`` then :exc:`ImportWarning` is raised. (Contributed by"
 " Brett Cannon in :issue:`25791`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2145
+#: ../../whatsnew/3.6.rst:2150
 msgid ""
 "When a relative import is performed and no parent package is known, then "
 ":exc:`ImportError` will be raised. Previously, :exc:`SystemError` could be "
 "raised. (Contributed by Brett Cannon in :issue:`18018`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2149
+#: ../../whatsnew/3.6.rst:2154
 msgid ""
 "Servers based on the :mod:`socketserver` module, including those defined in "
 ":mod:`http.server`, :mod:`xmlrpc.server` and :mod:`wsgiref.simple_server`, "
@@ -2826,20 +2835,20 @@ msgid ""
 "(Contributed by Martin Panter in :issue:`23430`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2158
+#: ../../whatsnew/3.6.rst:2163
 msgid ""
 ":func:`spwd.getspnam` now raises a :exc:`PermissionError` instead of "
 ":exc:`KeyError` if the user doesn't have privileges."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2161
+#: ../../whatsnew/3.6.rst:2166
 msgid ""
 "The :meth:`socket.socket.close` method now raises an exception if an error "
 "(e.g. ``EBADF``) was reported by the underlying system call. (Contributed by"
 " Martin Panter in :issue:`26685`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2165
+#: ../../whatsnew/3.6.rst:2170
 msgid ""
 "The *decode_data* argument for the :class:`smtpd.SMTPChannel` and "
 ":class:`smtpd.SMTPServer` constructors is now ``False`` by default. This "
@@ -2849,7 +2858,7 @@ msgid ""
 " deprecation warning generated by 3.5 will not be affected."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2173
+#: ../../whatsnew/3.6.rst:2178
 msgid ""
 "All optional arguments of the :func:`~json.dump`, :func:`~json.dumps`, "
 ":func:`~json.load` and :func:`~json.loads` functions and "
@@ -2858,13 +2867,13 @@ msgid ""
 "only_parameter>`. (Contributed by Serhiy Storchaka in :issue:`18726`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2180
+#: ../../whatsnew/3.6.rst:2185
 msgid ""
 "Subclasses of :class:`type` which don't override ``type.__new__`` may no "
 "longer use the one-argument form to get the type of an object."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2183
+#: ../../whatsnew/3.6.rst:2188
 msgid ""
 "As part of :pep:`487`, the handling of keyword arguments passed to "
 ":class:`type` (other than the metaclass hint, ``metaclass``) is now "
@@ -2876,7 +2885,7 @@ msgid ""
 ":meth:`type.__new__` (whether direct or via :class:`super`) accordingly."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2192
+#: ../../whatsnew/3.6.rst:2197
 msgid ""
 "In :class:`distutils.command.sdist.sdist`, the ``default_format`` attribute "
 "has been removed and is no longer honored. Instead, the gzipped tarfile "
@@ -2886,13 +2895,13 @@ msgid ""
 "containing the following::"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2203
+#: ../../whatsnew/3.6.rst:2208
 msgid ""
 "This behavior has also been backported to earlier Python versions by "
 "Setuptools 26.0.0."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2206
+#: ../../whatsnew/3.6.rst:2211
 msgid ""
 "In the :mod:`urllib.request` module and the "
 ":meth:`http.client.HTTPConnection.request` method, if no Content-Length "
@@ -2903,48 +2912,48 @@ msgid ""
 " Panter in :issue:`12319`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2215
+#: ../../whatsnew/3.6.rst:2220
 msgid ""
 "The :class:`~csv.DictReader` now returns rows of type "
 ":class:`~collections.OrderedDict`. (Contributed by Steve Holden in "
 ":issue:`27842`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2219
+#: ../../whatsnew/3.6.rst:2224
 msgid ""
 "The :const:`crypt.METHOD_CRYPT` will no longer be added to ``crypt.methods``"
 " if unsupported by the platform. (Contributed by Victor Stinner in "
 ":issue:`25287`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2227
+#: ../../whatsnew/3.6.rst:2232
 msgid ""
 "On Linux, :func:`ctypes.util.find_library` now looks in ``LD_LIBRARY_PATH`` "
 "for shared libraries. (Contributed by Vinay Sajip in :issue:`9998`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2231
+#: ../../whatsnew/3.6.rst:2236
 msgid ""
 "The :class:`imaplib.IMAP4` class now handles flags containing the ``']'`` "
 "character in messages sent from the server to improve real-world "
 "compatibility. (Contributed by Lita Cho in :issue:`21815`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2236
+#: ../../whatsnew/3.6.rst:2241
 msgid ""
 "The :func:`mmap.write() <mmap.write>` function now returns the number of "
 "bytes written like other write methods. (Contributed by Jakub Stasiak in "
 ":issue:`26335`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2240
+#: ../../whatsnew/3.6.rst:2245
 msgid ""
 "The :func:`pkgutil.iter_modules` and :func:`pkgutil.walk_packages` functions"
 " now return :class:`~pkgutil.ModuleInfo` named tuples. (Contributed by "
 "Ramchandra Apte in :issue:`17211`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2244
+#: ../../whatsnew/3.6.rst:2249
 msgid ""
 ":func:`re.sub` now raises an error for invalid numerical group references in"
 " replacement templates even if the pattern is not found in the string.  The "
@@ -2953,7 +2962,7 @@ msgid ""
 " in :issue:`25953`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2250
+#: ../../whatsnew/3.6.rst:2255
 msgid ""
 ":class:`zipfile.ZipFile` will now raise :exc:`NotImplementedError` for "
 "unrecognized compression values.  Previously a plain :exc:`RuntimeError` was"
@@ -2963,7 +2972,7 @@ msgid ""
 "Previously, a :exc:`RuntimeError` was raised in those scenarios."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2257
+#: ../../whatsnew/3.6.rst:2262
 msgid ""
 "when custom metaclasses are combined with zero-argument :func:`super` or "
 "direct references from methods to the implicit ``__class__`` closure "
@@ -2972,11 +2981,11 @@ msgid ""
 " :exc:`DeprecationWarning` in 3.6 and a :exc:`RuntimeWarning` in the future."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2264
+#: ../../whatsnew/3.6.rst:2269
 msgid "Changes in the C API"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2266
+#: ../../whatsnew/3.6.rst:2271
 msgid ""
 "The :c:func:`PyMem_Malloc` allocator family now uses the :ref:`pymalloc "
 "allocator <pymalloc>` rather than the system :c:func:`malloc`. Applications "
@@ -2985,29 +2994,29 @@ msgid ""
 " usage of memory allocators in your application. See :issue:`26249`."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2272
+#: ../../whatsnew/3.6.rst:2277
 msgid ""
 ":c:func:`Py_Exit` (and the main interpreter) now override the exit status "
 "with 120 if flushing buffered data failed.  See :issue:`5319`."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2277
+#: ../../whatsnew/3.6.rst:2282
 msgid "CPython bytecode changes"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2279
+#: ../../whatsnew/3.6.rst:2284
 msgid ""
 "There have been several major changes to the :term:`bytecode` in Python 3.6."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2281
+#: ../../whatsnew/3.6.rst:2286
 msgid ""
 "The Python interpreter now uses a 16-bit wordcode instead of bytecode. "
 "(Contributed by Demur Rumed with input and reviews from Serhiy Storchaka and"
 " Victor Stinner in :issue:`26647` and :issue:`28050`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2285
+#: ../../whatsnew/3.6.rst:2290
 msgid ""
 "The new :opcode:`FORMAT_VALUE` and :opcode:`BUILD_STRING` opcodes as part of"
 " the  :ref:`formatted string literal <whatsnew36-pep498>` implementation. "
@@ -3015,14 +3024,14 @@ msgid ""
 ":issue:`27078`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2290
+#: ../../whatsnew/3.6.rst:2295
 msgid ""
 "The new :opcode:`BUILD_CONST_KEY_MAP` opcode to optimize the creation of "
 "dictionaries with constant keys. (Contributed by Serhiy Storchaka in "
 ":issue:`27140`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2294
+#: ../../whatsnew/3.6.rst:2299
 msgid ""
 "The function call opcodes have been heavily reworked for better performance "
 "and simpler implementation. The :opcode:`MAKE_FUNCTION`, "
@@ -3034,22 +3043,22 @@ msgid ""
 ":issue:`27095`, and Serhiy Storchaka in :issue:`27213`, :issue:`28257`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2305
+#: ../../whatsnew/3.6.rst:2310
 msgid ""
 "The new :opcode:`SETUP_ANNOTATIONS` and :opcode:`STORE_ANNOTATION` opcodes "
 "have been added to support the new :term:`variable annotation` syntax. "
 "(Contributed by Ivan Levkivskyi in :issue:`27985`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2311
+#: ../../whatsnew/3.6.rst:2316
 msgid "Notable changes in Python 3.6.2"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2314
+#: ../../whatsnew/3.6.rst:2319
 msgid "New ``make regen-all`` build target"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2316
+#: ../../whatsnew/3.6.rst:2321
 msgid ""
 "To simplify cross-compilation, and to ensure that CPython can reliably be "
 "compiled without requiring an existing version of Python to already be "
@@ -3057,34 +3066,34 @@ msgid ""
 " recompile generated files based on file modification times."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2321
+#: ../../whatsnew/3.6.rst:2326
 msgid ""
 "Instead, a new ``make regen-all`` command has been added to force "
 "regeneration of these files when desired (e.g. after an initial version of "
 "Python has already been built based on the pregenerated versions)."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2325
+#: ../../whatsnew/3.6.rst:2330
 msgid ""
 "More selective regeneration targets are also defined - see "
 ":source:`Makefile.pre.in` for details."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2328 ../../whatsnew/3.6.rst:2341
+#: ../../whatsnew/3.6.rst:2333 ../../whatsnew/3.6.rst:2346
 msgid "(Contributed by Victor Stinner in :issue:`23404`.)"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2334
+#: ../../whatsnew/3.6.rst:2339
 msgid "Removal of ``make touch`` build target"
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2336
+#: ../../whatsnew/3.6.rst:2341
 msgid ""
 "The ``make touch`` build target previously used to request implicit "
 "regeneration of generated files by updating their modification times has "
 "been removed."
 msgstr ""
 
-#: ../../whatsnew/3.6.rst:2339
+#: ../../whatsnew/3.6.rst:2344
 msgid "It has been replaced by the new ``make regen-all`` target."
 msgstr ""

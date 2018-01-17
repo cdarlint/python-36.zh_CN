@@ -189,19 +189,24 @@ any overhead beyond that of a regular function call.</p>
 <p>More precisely, the expression <code class="docutils literal"><span class="pre">some_value</span> <span class="pre">is</span> <span class="pre">Derived(some_value)</span></code> is always
 true at runtime.</p>
 <p>This also means that it is not possible to create a subtype of <code class="docutils literal"><span class="pre">Derived</span></code>
-since it is an identity function at runtime, not an actual type. Similarly, it
-is not possible to create another <a class="reference internal" href="#typing.NewType" title="typing.NewType"><code class="xref py py-func docutils literal"><span class="pre">NewType()</span></code></a> based on a <code class="docutils literal"><span class="pre">Derived</span></code> type:</p>
+since it is an identity function at runtime, not an actual type:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">NewType</span>
 
 <span class="n">UserId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s1">&#39;UserId&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 
 <span class="c1"># Fails at runtime and does not typecheck</span>
 <span class="k">class</span> <span class="nc">AdminUserId</span><span class="p">(</span><span class="n">UserId</span><span class="p">):</span> <span class="k">pass</span>
+</pre></div>
+</div>
+<p>However, it is possible to create a <a class="reference internal" href="#typing.NewType" title="typing.NewType"><code class="xref py py-func docutils literal"><span class="pre">NewType()</span></code></a> based on a ‘derived’ <code class="docutils literal"><span class="pre">NewType</span></code>:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">NewType</span>
 
-<span class="c1"># Also does not typecheck</span>
+<span class="n">UserId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s1">&#39;UserId&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
 <span class="n">ProUserId</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s1">&#39;ProUserId&#39;</span><span class="p">,</span> <span class="n">UserId</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>and typechecking for <code class="docutils literal"><span class="pre">ProUserId</span></code> will work as expected.</p>
 <p>See <span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0484"><strong>PEP 484</strong></a> for more details.</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
@@ -215,6 +220,9 @@ checker treat <code class="docutils literal"><span class="pre">Derived</span></c
 value of type <code class="docutils literal"><span class="pre">Original</span></code> cannot be used in places where a value of type
 <code class="docutils literal"><span class="pre">Derived</span></code> is expected. This is useful when you want to prevent logic
 errors with minimal runtime cost.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">3.5.2 新版功能.</span></p>
 </div>
 </div>
 <div class="section" id="callable">
@@ -545,6 +553,9 @@ required to handle this particular case may change in future revisions of
 </div>
 <p><code class="docutils literal"><span class="pre">Type[Any]</span></code> is equivalent to <code class="docutils literal"><span class="pre">Type</span></code> which in turn is equivalent
 to <code class="docutils literal"><span class="pre">type</span></code>, which is the root of Python’s metaclass hierarchy.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.5.2 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
@@ -798,6 +809,9 @@ The usage of this type is as follows:</p>
 <dt id="typing.DefaultDict">
 <em class="property">class </em><code class="descclassname">typing.</code><code class="descname">DefaultDict</code><span class="sig-paren">(</span><em>collections.defaultdict, MutableMapping[KT, VT]</em><span class="sig-paren">)</span><a class="headerlink" href="#typing.DefaultDict" title="永久链接至目标">¶</a></dt>
 <dd><p>A generic version of <a class="reference internal" href="collections.html#collections.defaultdict" title="collections.defaultdict"><code class="xref py py-class docutils literal"><span class="pre">collections.defaultdict</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.5.2 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
@@ -899,15 +913,18 @@ a manner that is compatible with both Python 2 and Python 3:</p>
     <span class="k">return</span> <span class="n">text</span> <span class="o">+</span> <span class="sa">u</span><span class="s1">&#39; </span><span class="se">\u2713</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
+<div class="versionadded">
+<p><span class="versionmodified">3.5.2 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="typing.io">
 <em class="property">class </em><code class="descclassname">typing.</code><code class="descname">io</code><a class="headerlink" href="#typing.io" title="永久链接至目标">¶</a></dt>
 <dd><p>Wrapper namespace for I/O stream types.</p>
-<p>This defines the generic type <code class="docutils literal"><span class="pre">IO[AnyStr]</span></code> and aliases <code class="docutils literal"><span class="pre">TextIO</span></code>
-and <code class="docutils literal"><span class="pre">BinaryIO</span></code> for respectively <code class="docutils literal"><span class="pre">IO[str]</span></code> and <code class="docutils literal"><span class="pre">IO[bytes]</span></code>.
-These represent the types of I/O streams such as returned by
+<p>This defines the generic type <code class="docutils literal"><span class="pre">IO[AnyStr]</span></code> and subclasses <code class="docutils literal"><span class="pre">TextIO</span></code>
+and <code class="docutils literal"><span class="pre">BinaryIO</span></code>, deriving from <code class="docutils literal"><span class="pre">IO[str]</span></code> and <code class="docutils literal"><span class="pre">IO[bytes]</span></code>,
+respectively. These represent the types of I/O streams such as returned by
 <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal"><span class="pre">open()</span></code></a>.</p>
 <p>These types are also accessible directly as <code class="docutils literal"><span class="pre">typing.IO</span></code>,
 <code class="docutils literal"><span class="pre">typing.TextIO</span></code>, and <code class="docutils literal"><span class="pre">typing.BinaryIO</span></code>.</p>
@@ -987,6 +1004,9 @@ its argument. Usage:</p>
 <span class="n">first_user</span> <span class="o">=</span> <span class="n">UserId</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="versionadded">
+<p><span class="versionmodified">3.5.2 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -1045,9 +1065,9 @@ precise type than can be expressed using a union or a type variable:</p>
 
 <dl class="function">
 <dt id="typing.no_type_check">
-<code class="descclassname">&#64;</code><code class="descclassname">typing.</code><code class="descname">no_type_check</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#typing.no_type_check" title="永久链接至目标">¶</a></dt>
+<code class="descclassname">&#64;</code><code class="descclassname">typing.</code><code class="descname">no_type_check</code><a class="headerlink" href="#typing.no_type_check" title="永久链接至目标">¶</a></dt>
 <dd><p>Decorator to indicate that annotations are not type hints.</p>
-<p>The argument must be a class or function; if it is a class, it
+<p>This works as class or function <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a>.  With a class, it
 applies recursively to all methods defined in that class (but not
 to methods defined in its superclasses or subclasses).</p>
 <p>This mutates the function(s) in place.</p>
@@ -1055,7 +1075,7 @@ to methods defined in its superclasses or subclasses).</p>
 
 <dl class="function">
 <dt id="typing.no_type_check_decorator">
-<code class="descclassname">&#64;</code><code class="descclassname">typing.</code><code class="descname">no_type_check_decorator</code><span class="sig-paren">(</span><em>decorator</em><span class="sig-paren">)</span><a class="headerlink" href="#typing.no_type_check_decorator" title="永久链接至目标">¶</a></dt>
+<code class="descclassname">&#64;</code><code class="descclassname">typing.</code><code class="descname">no_type_check_decorator</code><a class="headerlink" href="#typing.no_type_check_decorator" title="永久链接至目标">¶</a></dt>
 <dd><p>Decorator to give another decorator the <a class="reference internal" href="#typing.no_type_check" title="typing.no_type_check"><code class="xref py py-func docutils literal"><span class="pre">no_type_check()</span></code></a> effect.</p>
 <p>This wraps the decorator with something that wraps the decorated
 function in <a class="reference internal" href="#typing.no_type_check" title="typing.no_type_check"><code class="xref py py-func docutils literal"><span class="pre">no_type_check()</span></code></a>.</p>
@@ -1217,6 +1237,9 @@ type checkers. It is <code class="docutils literal"><span class="pre">False</spa
 “forward reference”, to hide the <code class="docutils literal"><span class="pre">expensive_mod</span></code> reference from the
 interpreter runtime.  Type annotations for local variables are not
 evaluated, so the second annotation does not need to be enclosed in quotes.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.5.2 新版功能.</span></p>
+</div>
 </dd></dl>
 
 </div>
@@ -1305,15 +1328,15 @@ evaluated, so the second annotation does not need to be enclosed in quotes.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

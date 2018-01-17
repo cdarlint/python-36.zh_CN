@@ -257,9 +257,9 @@ to <a class="reference internal" href="#asyncio-logger"><span class="std std-ref
 </div>
 <div class="section" id="detect-exceptions-never-consumed">
 <h2>18.5.9.7. Detect exceptions never consumed<a class="headerlink" href="#detect-exceptions-never-consumed" title="永久链接至标题">¶</a></h2>
-<p>Python usually calls <a class="reference internal" href="sys.html#sys.displayhook" title="sys.displayhook"><code class="xref py py-func docutils literal"><span class="pre">sys.displayhook()</span></code></a> on unhandled exceptions. If
+<p>Python usually calls <a class="reference internal" href="sys.html#sys.excepthook" title="sys.excepthook"><code class="xref py py-func docutils literal"><span class="pre">sys.excepthook()</span></code></a> on unhandled exceptions. If
 <a class="reference internal" href="asyncio-task.html#asyncio.Future.set_exception" title="asyncio.Future.set_exception"><code class="xref py py-meth docutils literal"><span class="pre">Future.set_exception()</span></code></a> is called, but the exception is never consumed,
-<a class="reference internal" href="sys.html#sys.displayhook" title="sys.displayhook"><code class="xref py py-func docutils literal"><span class="pre">sys.displayhook()</span></code></a> is not called. Instead, <a class="reference internal" href="#asyncio-logger"><span class="std std-ref">a log is emitted</span></a> when the future is deleted by the garbage collector, with the
+<a class="reference internal" href="sys.html#sys.excepthook" title="sys.excepthook"><code class="xref py py-func docutils literal"><span class="pre">sys.excepthook()</span></code></a> is not called. Instead, <a class="reference internal" href="#asyncio-logger"><span class="std std-ref">a log is emitted</span></a> when the future is deleted by the garbage collector, with the
 traceback where the exception was raised.</p>
 <p>Example of unhandled exception:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
@@ -531,15 +531,15 @@ resources. Event loops must also be closed explicitly.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

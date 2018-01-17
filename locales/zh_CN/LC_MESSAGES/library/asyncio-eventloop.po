@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -193,9 +194,9 @@ msgstr ""
 #: ../../library/asyncio-eventloop.rst:143
 #: ../../library/asyncio-eventloop.rst:185
 #: ../../library/asyncio-eventloop.rst:199
-#: ../../library/asyncio-eventloop.rst:516
-#: ../../library/asyncio-eventloop.rst:528
-#: ../../library/asyncio-eventloop.rst:682
+#: ../../library/asyncio-eventloop.rst:519
+#: ../../library/asyncio-eventloop.rst:531
+#: ../../library/asyncio-eventloop.rst:685
 msgid ""
 ":ref:`Use functools.partial to pass keywords to the callback <asyncio-pass-"
 "keywords>`."
@@ -623,14 +624,14 @@ msgstr ""
 
 #: ../../library/asyncio-eventloop.rst:460
 #: ../../library/asyncio-eventloop.rst:481
-#: ../../library/asyncio-eventloop.rst:555
-#: ../../library/asyncio-eventloop.rst:571
-#: ../../library/asyncio-eventloop.rst:581
-#: ../../library/asyncio-eventloop.rst:609
-#: ../../library/asyncio-eventloop.rst:648
-#: ../../library/asyncio-eventloop.rst:662
-#: ../../library/asyncio-eventloop.rst:713
-#: ../../library/asyncio-eventloop.rst:832
+#: ../../library/asyncio-eventloop.rst:558
+#: ../../library/asyncio-eventloop.rst:574
+#: ../../library/asyncio-eventloop.rst:584
+#: ../../library/asyncio-eventloop.rst:612
+#: ../../library/asyncio-eventloop.rst:651
+#: ../../library/asyncio-eventloop.rst:665
+#: ../../library/asyncio-eventloop.rst:716
+#: ../../library/asyncio-eventloop.rst:835
 msgid "This method is a :ref:`coroutine <coroutine>`."
 msgstr ""
 
@@ -671,79 +672,79 @@ msgid ""
 "coroutine returns a ``(transport, protocol)`` pair."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:504
+#: ../../library/asyncio-eventloop.rst:507
 msgid "Watch file descriptors"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:506
+#: ../../library/asyncio-eventloop.rst:509
 msgid ""
 "On Windows with :class:`SelectorEventLoop`, only socket handles are "
 "supported (ex: pipe file descriptors are not supported)."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:509
+#: ../../library/asyncio-eventloop.rst:512
 msgid ""
 "On Windows with :class:`ProactorEventLoop`, these methods are not supported."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:513
+#: ../../library/asyncio-eventloop.rst:516
 msgid ""
 "Start watching the file descriptor for read availability and then call the "
 "*callback* with specified arguments."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:521
+#: ../../library/asyncio-eventloop.rst:524
 msgid "Stop watching the file descriptor for read availability."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:525
+#: ../../library/asyncio-eventloop.rst:528
 msgid ""
 "Start watching the file descriptor for write availability and then call the "
 "*callback* with specified arguments."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:533
+#: ../../library/asyncio-eventloop.rst:536
 msgid "Stop watching the file descriptor for write availability."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:535
+#: ../../library/asyncio-eventloop.rst:538
 msgid ""
 "The :ref:`watch a file descriptor for read events <asyncio-watch-read-"
 "event>` example uses the low-level :meth:`AbstractEventLoop.add_reader` "
 "method to register the file descriptor of a socket."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:541
+#: ../../library/asyncio-eventloop.rst:544
 msgid "Low-level socket operations"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:545
+#: ../../library/asyncio-eventloop.rst:548
 msgid ""
 "Receive data from the socket.  Modeled after blocking "
 ":meth:`socket.socket.recv` method."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:548
+#: ../../library/asyncio-eventloop.rst:551
 msgid ""
 "The return value is a bytes object representing the data received.  The "
 "maximum amount of data to be received at once is specified by *nbytes*."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:552
-#: ../../library/asyncio-eventloop.rst:568
-#: ../../library/asyncio-eventloop.rst:578
+#: ../../library/asyncio-eventloop.rst:555
+#: ../../library/asyncio-eventloop.rst:571
+#: ../../library/asyncio-eventloop.rst:581
 msgid ""
 "With :class:`SelectorEventLoop` event loop, the socket *sock* must be non-"
 "blocking."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:559
+#: ../../library/asyncio-eventloop.rst:562
 msgid ""
 "Send data to the socket.  Modeled after blocking "
 ":meth:`socket.socket.sendall` method."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:562
+#: ../../library/asyncio-eventloop.rst:565
 msgid ""
 "The socket must be connected to a remote socket. This method continues to "
 "send data from *data* until either all data has been sent or an error "
@@ -752,13 +753,13 @@ msgid ""
 "processed by the receiving end of the connection."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:575
+#: ../../library/asyncio-eventloop.rst:578
 msgid ""
 "Connect to a remote socket at *address*.  Modeled after blocking "
 ":meth:`socket.socket.connect` method."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:583
+#: ../../library/asyncio-eventloop.rst:586
 msgid ""
 "``address`` no longer needs to be resolved.  ``sock_connect`` will try to "
 "check if the *address* is already resolved by calling "
@@ -766,18 +767,18 @@ msgid ""
 "will be used to resolve the *address*."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:592
+#: ../../library/asyncio-eventloop.rst:595
 msgid ""
 ":meth:`AbstractEventLoop.create_connection` and  "
 ":func:`asyncio.open_connection() <open_connection>`."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:598
+#: ../../library/asyncio-eventloop.rst:601
 msgid ""
 "Accept a connection.  Modeled after blocking :meth:`socket.socket.accept`."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:601
+#: ../../library/asyncio-eventloop.rst:604
 msgid ""
 "The socket must be bound to an address and listening for connections. The "
 "return value is a pair ``(conn, address)`` where *conn* is a *new* socket "
@@ -785,45 +786,45 @@ msgid ""
 "the address bound to the socket on the other end of the connection."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:607
+#: ../../library/asyncio-eventloop.rst:610
 msgid "The socket *sock* must be non-blocking."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:613
+#: ../../library/asyncio-eventloop.rst:616
 msgid ":meth:`AbstractEventLoop.create_server` and :func:`start_server`."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:617
+#: ../../library/asyncio-eventloop.rst:620
 msgid "Resolve host name"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:621
+#: ../../library/asyncio-eventloop.rst:624
 msgid ""
 "This method is a :ref:`coroutine <coroutine>`, similar to "
 ":meth:`socket.getaddrinfo` function but non-blocking."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:626
+#: ../../library/asyncio-eventloop.rst:629
 msgid ""
 "This method is a :ref:`coroutine <coroutine>`, similar to "
 ":meth:`socket.getnameinfo` function but non-blocking."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:631
+#: ../../library/asyncio-eventloop.rst:634
 msgid "Connect pipes"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:633
+#: ../../library/asyncio-eventloop.rst:636
 msgid ""
 "On Windows with :class:`SelectorEventLoop`, these methods are not supported."
 " Use :class:`ProactorEventLoop` to support pipes on Windows."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:638
+#: ../../library/asyncio-eventloop.rst:641
 msgid "Register read pipe in eventloop."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:640
+#: ../../library/asyncio-eventloop.rst:643
 msgid ""
 "*protocol_factory* should instantiate object with :class:`Protocol` "
 "interface.  *pipe* is a :term:`file-like object <file object>`. Return pair "
@@ -831,18 +832,18 @@ msgid ""
 ":class:`ReadTransport` interface."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:645
-#: ../../library/asyncio-eventloop.rst:659
+#: ../../library/asyncio-eventloop.rst:648
+#: ../../library/asyncio-eventloop.rst:662
 msgid ""
 "With :class:`SelectorEventLoop` event loop, the *pipe* is set to non-"
 "blocking mode."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:652
+#: ../../library/asyncio-eventloop.rst:655
 msgid "Register write pipe in eventloop."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:654
+#: ../../library/asyncio-eventloop.rst:657
 msgid ""
 "*protocol_factory* should instantiate object with :class:`BaseProtocol` "
 "interface. *pipe* is :term:`file-like object <file object>`. Return pair "
@@ -850,70 +851,70 @@ msgid ""
 ":class:`WriteTransport` interface."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:666
+#: ../../library/asyncio-eventloop.rst:669
 msgid ""
 "The :meth:`AbstractEventLoop.subprocess_exec` and "
 ":meth:`AbstractEventLoop.subprocess_shell` methods."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:671
+#: ../../library/asyncio-eventloop.rst:674
 msgid "UNIX signals"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:673
+#: ../../library/asyncio-eventloop.rst:676
 msgid "Availability: UNIX only."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:677
+#: ../../library/asyncio-eventloop.rst:680
 msgid "Add a handler for a signal."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:679
+#: ../../library/asyncio-eventloop.rst:682
 msgid ""
 "Raise :exc:`ValueError` if the signal number is invalid or uncatchable. "
 "Raise :exc:`RuntimeError` if there is a problem setting up the handler."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:687
+#: ../../library/asyncio-eventloop.rst:690
 msgid "Remove a handler for a signal."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:689
+#: ../../library/asyncio-eventloop.rst:692
 msgid "Return ``True`` if a signal handler was removed, ``False`` if not."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:693
+#: ../../library/asyncio-eventloop.rst:696
 msgid "The :mod:`signal` module."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:697
+#: ../../library/asyncio-eventloop.rst:700
 msgid "Executor"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:699
+#: ../../library/asyncio-eventloop.rst:702
 msgid ""
 "Call a function in an :class:`~concurrent.futures.Executor` (pool of threads"
 " or pool of processes). By default, an event loop uses a thread pool "
 "executor (:class:`~concurrent.futures.ThreadPoolExecutor`)."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:705
+#: ../../library/asyncio-eventloop.rst:708
 msgid "Arrange for a *func* to be called in the specified executor."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:707
+#: ../../library/asyncio-eventloop.rst:710
 msgid ""
 "The *executor* argument should be an :class:`~concurrent.futures.Executor` "
 "instance. The default executor is used if *executor* is ``None``."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:710
+#: ../../library/asyncio-eventloop.rst:713
 msgid ""
 ":ref:`Use functools.partial to pass keywords to the *func* <asyncio-pass-"
 "keywords>`."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:715
+#: ../../library/asyncio-eventloop.rst:718
 msgid ""
 ":meth:`BaseEventLoop.run_in_executor` no longer configures the "
 "``max_workers`` of the thread pool executor it creates, instead leaving it "
@@ -921,27 +922,27 @@ msgid ""
 "(:class:`~concurrent.futures.ThreadPoolExecutor`) to set the default."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:724
+#: ../../library/asyncio-eventloop.rst:727
 msgid "Set the default executor used by :meth:`run_in_executor`."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:728
+#: ../../library/asyncio-eventloop.rst:731
 msgid "Error Handling API"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:730
+#: ../../library/asyncio-eventloop.rst:733
 msgid "Allows customizing how exceptions are handled in the event loop."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:734
+#: ../../library/asyncio-eventloop.rst:737
 msgid "Set *handler* as the new event loop exception handler."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:736
+#: ../../library/asyncio-eventloop.rst:739
 msgid "If *handler* is ``None``, the default exception handler will be set."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:739
+#: ../../library/asyncio-eventloop.rst:742
 msgid ""
 "If *handler* is a callable object, it should have a matching signature to "
 "``(loop, context)``, where ``loop`` will be a reference to the active event "
@@ -949,226 +950,226 @@ msgid ""
 ":meth:`call_exception_handler` documentation for details about context)."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:747
+#: ../../library/asyncio-eventloop.rst:750
 msgid ""
 "Return the exception handler, or ``None`` if the default one is in use."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:754
+#: ../../library/asyncio-eventloop.rst:757
 msgid "Default exception handler."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:756
+#: ../../library/asyncio-eventloop.rst:759
 msgid ""
 "This is called when an exception occurs and no exception handler is set, and"
 " can be called by a custom exception handler that wants to defer to the "
 "default behavior."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:760
+#: ../../library/asyncio-eventloop.rst:763
 msgid ""
 "*context* parameter has the same meaning as in "
 ":meth:`call_exception_handler`."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:765
+#: ../../library/asyncio-eventloop.rst:768
 msgid "Call the current event loop exception handler."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:767
+#: ../../library/asyncio-eventloop.rst:770
 msgid ""
 "*context* is a ``dict`` object containing the following keys (new keys may "
 "be introduced later):"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:770
+#: ../../library/asyncio-eventloop.rst:773
 msgid "'message': Error message;"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:771
+#: ../../library/asyncio-eventloop.rst:774
 msgid "'exception' (optional): Exception object;"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:772
+#: ../../library/asyncio-eventloop.rst:775
 msgid "'future' (optional): :class:`asyncio.Future` instance;"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:773
+#: ../../library/asyncio-eventloop.rst:776
 msgid "'handle' (optional): :class:`asyncio.Handle` instance;"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:774
+#: ../../library/asyncio-eventloop.rst:777
 msgid "'protocol' (optional): :ref:`Protocol <asyncio-protocol>` instance;"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:775
+#: ../../library/asyncio-eventloop.rst:778
 msgid "'transport' (optional): :ref:`Transport <asyncio-transport>` instance;"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:776
+#: ../../library/asyncio-eventloop.rst:779
 msgid "'socket' (optional): :class:`socket.socket` instance."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:780
+#: ../../library/asyncio-eventloop.rst:783
 msgid ""
 "Note: this method should not be overloaded in subclassed event loops.  For "
 "any custom exception handling, use :meth:`set_exception_handler()` method."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:785
+#: ../../library/asyncio-eventloop.rst:788
 msgid "Debug mode"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:789
+#: ../../library/asyncio-eventloop.rst:792
 msgid "Get the debug mode (:class:`bool`) of the event loop."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:791
+#: ../../library/asyncio-eventloop.rst:794
 msgid ""
 "The default value is ``True`` if the environment variable "
 ":envvar:`PYTHONASYNCIODEBUG` is set to a non-empty string, ``False`` "
 "otherwise."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:799
+#: ../../library/asyncio-eventloop.rst:802
 msgid "Set the debug mode of the event loop."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:805
+#: ../../library/asyncio-eventloop.rst:808
 msgid "The :ref:`debug mode of asyncio <asyncio-debug-mode>`."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:808
+#: ../../library/asyncio-eventloop.rst:811
 msgid "Server"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:812
+#: ../../library/asyncio-eventloop.rst:815
 msgid "Server listening on sockets."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:814
+#: ../../library/asyncio-eventloop.rst:817
 msgid ""
 "Object created by the :meth:`AbstractEventLoop.create_server` method and the"
 " :func:`start_server` function. Don't instantiate the class directly."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:819
+#: ../../library/asyncio-eventloop.rst:822
 msgid ""
 "Stop serving: close listening sockets and set the :attr:`sockets` attribute "
 "to ``None``."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:822
+#: ../../library/asyncio-eventloop.rst:825
 msgid ""
 "The sockets that represent existing incoming client connections are left "
 "open."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:825
+#: ../../library/asyncio-eventloop.rst:828
 msgid ""
 "The server is closed asynchronously, use the :meth:`wait_closed` coroutine "
 "to wait until the server is closed."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:830
+#: ../../library/asyncio-eventloop.rst:833
 msgid "Wait until the :meth:`close` method completes."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:836
+#: ../../library/asyncio-eventloop.rst:839
 msgid ""
 "List of :class:`socket.socket` objects the server is listening to, or "
 "``None`` if the server is closed."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:841
+#: ../../library/asyncio-eventloop.rst:844
 msgid "Handle"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:845
+#: ../../library/asyncio-eventloop.rst:848
 msgid ""
 "A callback wrapper object returned by :func:`AbstractEventLoop.call_soon`, "
 ":func:`AbstractEventLoop.call_soon_threadsafe`, "
 ":func:`AbstractEventLoop.call_later`, and :func:`AbstractEventLoop.call_at`."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:851
+#: ../../library/asyncio-eventloop.rst:854
 msgid ""
 "Cancel the call.  If the callback is already canceled or executed, this "
 "method has no effect."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:856
+#: ../../library/asyncio-eventloop.rst:859
 msgid "Event loop examples"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:861
+#: ../../library/asyncio-eventloop.rst:864
 msgid "Hello World with call_soon()"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:863
+#: ../../library/asyncio-eventloop.rst:866
 msgid ""
 "Example using the :meth:`AbstractEventLoop.call_soon` method to schedule a "
 "callback. The callback displays ``\"Hello World\"`` and then stops the event"
 " loop::"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:884
+#: ../../library/asyncio-eventloop.rst:887
 msgid ""
 "The :ref:`Hello World coroutine <asyncio-hello-world-coroutine>` example "
 "uses a :ref:`coroutine <coroutine>`."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:891
+#: ../../library/asyncio-eventloop.rst:894
 msgid "Display the current date with call_later()"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:893
+#: ../../library/asyncio-eventloop.rst:896
 msgid ""
 "Example of callback displaying the current date every second. The callback "
 "uses the :meth:`AbstractEventLoop.call_later` method to reschedule itself "
 "during 5 seconds, and then stops the event loop::"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:919
+#: ../../library/asyncio-eventloop.rst:922
 msgid ""
 "The :ref:`coroutine displaying the current date <asyncio-date-coroutine>` "
 "example uses a :ref:`coroutine <coroutine>`."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:927
+#: ../../library/asyncio-eventloop.rst:930
 msgid "Watch a file descriptor for read events"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:929
+#: ../../library/asyncio-eventloop.rst:932
 msgid ""
 "Wait until a file descriptor received some data using the "
 ":meth:`AbstractEventLoop.add_reader` method and then close the event loop::"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:966
+#: ../../library/asyncio-eventloop.rst:969
 msgid ""
 "The :ref:`register an open socket to wait for data using a protocol "
 "<asyncio-register-socket>` example uses a low-level protocol created by the "
 ":meth:`AbstractEventLoop.create_connection` method."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:970
+#: ../../library/asyncio-eventloop.rst:973
 msgid ""
 "The :ref:`register an open socket to wait for data using streams <asyncio-"
 "register-socket-streams>` example uses high-level streams created by the "
 ":func:`open_connection` function in a coroutine."
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:976
+#: ../../library/asyncio-eventloop.rst:979
 msgid "Set signal handlers for SIGINT and SIGTERM"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:978
+#: ../../library/asyncio-eventloop.rst:981
 msgid ""
 "Register handlers for signals :py:data:`SIGINT` and :py:data:`SIGTERM` using"
 " the :meth:`AbstractEventLoop.add_signal_handler` method::"
 msgstr ""
 
-#: ../../library/asyncio-eventloop.rst:1002
+#: ../../library/asyncio-eventloop.rst:1005
 msgid "This example only works on UNIX."
 msgstr ""

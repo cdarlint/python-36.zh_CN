@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: 操旭 <caoxu3000@126.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
@@ -64,7 +65,7 @@ msgstr ""
 msgid ""
 "Let's create an extension module called ``spam`` (the favorite food of Monty"
 " Python fans...) and let's say we want to create a Python interface to the C"
-" library function :c:func:`system`. [#]_ This function takes a null-"
+" library function :c:func:`system` [#]_. This function takes a null-"
 "terminated character string as argument and returns an integer.  We want "
 "this function to be callable from Python as follows::"
 msgstr ""
@@ -873,7 +874,7 @@ msgid ""
 "borrower of a reference should not call :c:func:`Py_DECREF`.  The borrower "
 "must not hold on to the object longer than the owner from which it was "
 "borrowed. Using a borrowed reference after the owner has disposed of it "
-"risks using freed memory and should be avoided completely. [#]_"
+"risks using freed memory and should be avoided completely [#]_."
 msgstr ""
 
 #: ../../extending/extending.rst:922
@@ -1078,7 +1079,7 @@ msgstr ""
 msgid ""
 "The C function calling mechanism guarantees that the argument list passed to"
 " C functions (``args`` in the examples) is never *NULL* --- in fact it "
-"guarantees that it is always a tuple. [#]_"
+"guarantees that it is always a tuple [#]_."
 msgstr ""
 
 #: ../../extending/extending.rst:1093

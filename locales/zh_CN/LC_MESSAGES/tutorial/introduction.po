@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jerry Chen <jerrychen9657@gmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
@@ -167,13 +168,15 @@ msgid ""
 "readable output, by omitting the enclosing quotes and by printing escaped "
 "and special characters::"
 msgstr ""
+"在交互式解释器中，输出字符串是在引号中的，特殊字符是前置了反斜杠的。虽然看起来有可能不一样（单双引号可能不一样），两种字符串其实是一样的。如果字符串中有单引号而没有双引号，字符串就显示在双引号中，否则就显示在单引号中。函数"
+" :func:`print` 会产生更方便阅读的输出，就是不使用引号，也不转义特殊字符："
 
 #: ../../tutorial/introduction.rst:173
 msgid ""
 "If you don't want characters prefaced by ``\\`` to be interpreted as special"
 " characters, you can use *raw strings* by adding an ``r`` before the first "
 "quote::"
-msgstr ""
+msgstr "如果你不希望前置了 ``\\`` 的字符转义成特殊字符，可以使用 *原始字符串* 方式，在引号前添加 ``r`` 即可："
 
 #: ../../tutorial/introduction.rst:183
 msgid ""
@@ -182,64 +185,66 @@ msgid ""
 "included in the string, but it's possible to prevent this by adding a ``\\``"
 " at the end of the line.  The following example::"
 msgstr ""
+"字符串字面值可以跨行连续输入。一种方式是用三重引号：``\"\"\"...\"\"\"`` 或 "
+"``'''...'''``。字符串中的回车换行会自动包含到字符串中，如果不想包含，在行尾添加一个 ``\\`` 即可。如下例："
 
 #: ../../tutorial/introduction.rst:194
 msgid ""
 "produces the following output (note that the initial newline is not "
 "included):"
-msgstr ""
+msgstr "将产生如下输出（注意最开始的换行没有包括进来）："
 
 #: ../../tutorial/introduction.rst:202
 msgid ""
 "Strings can be concatenated (glued together) with the ``+`` operator, and "
 "repeated with ``*``::"
-msgstr ""
+msgstr "字符串可以用 ``+`` 进行连接（粘到一起），也可以用 ``*`` 进行重复："
 
 #: ../../tutorial/introduction.rst:209
 msgid ""
 "Two or more *string literals* (i.e. the ones enclosed between quotes) next "
 "to each other are automatically concatenated. ::"
-msgstr ""
+msgstr "相邻的两个或多个 *字符串字面值* （引号引起来的字符）将会自动连接到一起："
 
 #: ../../tutorial/introduction.rst:215
 msgid ""
+"This feature is particularly useful when you want to break long strings::"
+msgstr "把很长的字符串拆开分别输入的时候尤其有用："
+
+#: ../../tutorial/introduction.rst:222
+msgid ""
 "This only works with two literals though, not with variables or "
 "expressions::"
-msgstr ""
+msgstr "只能对两个字面值这样操作，变量或表达式不行："
 
-#: ../../tutorial/introduction.rst:225
+#: ../../tutorial/introduction.rst:232
 msgid ""
 "If you want to concatenate variables or a variable and a literal, use "
 "``+``::"
-msgstr ""
-
-#: ../../tutorial/introduction.rst:230
-msgid ""
-"This feature is particularly useful when you want to break long strings::"
-msgstr ""
+msgstr "如果你想连接变量，或者连接变量和字面值，可以用 ``+`` 号："
 
 #: ../../tutorial/introduction.rst:237
 msgid ""
 "Strings can be *indexed* (subscripted), with the first character having "
 "index 0. There is no separate character type; a character is simply a string"
 " of size one::"
-msgstr ""
+msgstr "字符串是可以被 *索引* （脚标访问）的，第一个字符索引是 0。单个字符并没有特殊的类型，只是一个长度为一的字符串："
 
 #: ../../tutorial/introduction.rst:247
 msgid ""
 "Indices may also be negative numbers, to start counting from the right::"
-msgstr ""
+msgstr "索引也可以用负数，这种会从右边开始数："
 
 #: ../../tutorial/introduction.rst:256
 msgid "Note that since -0 is the same as 0, negative indices start from -1."
-msgstr ""
+msgstr "注意 -0 和 0 是一样的，所以负数索引从 -1 开始。"
 
 #: ../../tutorial/introduction.rst:258
 msgid ""
 "In addition to indexing, *slicing* is also supported.  While indexing is "
 "used to obtain individual characters, *slicing* allows you to obtain "
 "substring::"
-msgstr ""
+msgstr "除了索引，字符串还支持 *切片*。索引可以得到单个字符，而 *切片* 可以获取子字符串："
 
 #: ../../tutorial/introduction.rst:266
 msgid ""
@@ -348,7 +353,7 @@ msgstr ""
 
 #: ../../tutorial/introduction.rst:367
 msgid "Lists"
-msgstr ""
+msgstr "列表"
 
 #: ../../tutorial/introduction.rst:369
 msgid ""

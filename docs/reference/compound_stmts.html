@@ -651,7 +651,6 @@ able to suspend execution in its <em>enter</em> and <em>exit</em> methods.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">mgr</span> <span class="o">=</span> <span class="p">(</span><span class="n">EXPR</span><span class="p">)</span>
 <span class="n">aexit</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">mgr</span><span class="p">)</span><span class="o">.</span><span class="fm">__aexit__</span>
 <span class="n">aenter</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">mgr</span><span class="p">)</span><span class="o">.</span><span class="fm">__aenter__</span><span class="p">(</span><span class="n">mgr</span><span class="p">)</span>
-<span class="n">exc</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="n">VAR</span> <span class="o">=</span> <span class="k">await</span> <span class="n">aenter</span>
 <span class="k">try</span><span class="p">:</span>
@@ -795,15 +794,15 @@ transformed into the namespace’s <code class="docutils literal"><span class="p
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

@@ -412,8 +412,6 @@ itself, or the quote character.</p>
 instance of the <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> type instead of the <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> type.  They
 may only contain ASCII characters; bytes with a numeric value of 128 or greater
 must be expressed with escapes.</p>
-<p>As of Python 3.3 it is possible again to prefix string literals with a
-<code class="docutils literal"><span class="pre">u</span></code> prefix to simplify maintenance of dual 2.x and 3.x codebases.</p>
 <p>Both string and bytes literals may optionally be prefixed with a letter <code class="docutils literal"><span class="pre">'r'</span></code>
 or <code class="docutils literal"><span class="pre">'R'</span></code>; such strings are called <em class="dfn">raw strings</em> and treat backslashes as
 literal characters.  As a result, in string literals, <code class="docutils literal"><span class="pre">'\U'</span></code> and <code class="docutils literal"><span class="pre">'\u'</span></code>
@@ -760,9 +758,6 @@ integer literals, underscores are supported for digit grouping.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="mf">3.14</span>    <span class="mf">10.</span>    <span class="o">.</span><span class="mi">001</span>    <span class="mf">1e100</span>    <span class="mf">3.14e-10</span>    <span class="mf">0e0</span>    <span class="mf">3.14</span><span class="n">_15_93</span>
 </pre></div>
 </div>
-<p>Note that numeric literals do not include a sign; a phrase like <code class="docutils literal"><span class="pre">-1</span></code> is
-actually an expression composed of the unary operator <code class="docutils literal"><span class="pre">-</span></code> and the literal
-<code class="docutils literal"><span class="pre">1</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.6 版更改: </span>Underscores are now allowed for grouping purposes in literals.</p>
 </div>
@@ -930,15 +925,15 @@ occurrence outside string literals and comments is an unconditional error:</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

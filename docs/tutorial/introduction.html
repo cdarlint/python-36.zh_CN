@@ -30,7 +30,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="copyright" title="版权信息" href="../copyright.html" />
-    <link rel="next" title="4. More Control Flow Tools" href="controlflow.html" />
+    <link rel="next" title="4. 其他的流程控制" href="controlflow.html" />
     <link rel="prev" title="2. 使用 Python 解释器" href="interpreter.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/tutorial/introduction.html" />
@@ -53,7 +53,7 @@
           <a href="../py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="controlflow.html" title="4. More Control Flow Tools"
+          <a href="controlflow.html" title="4. 其他的流程控制"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
           <a href="interpreter.html" title="2. 使用 Python 解释器"
@@ -186,14 +186,7 @@
 <span class="go">&#39;&quot;Isn\&#39;t,&quot; she said.&#39;</span>
 </pre></div>
 </div>
-<p>In the interactive interpreter, the output string is enclosed in quotes and
-special characters are escaped with backslashes.  While this might sometimes
-look different from the input (the enclosing quotes could change), the two
-strings are equivalent.  The string is enclosed in double quotes if
-the string contains a single quote and no double quotes, otherwise it is
-enclosed in single quotes.  The <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> function produces a more
-readable output, by omitting the enclosing quotes and by printing escaped
-and special characters:</p>
+<p>在交互式解释器中，输出字符串是在引号中的，特殊字符是前置了反斜杠的。虽然看起来有可能不一样（单双引号可能不一样），两种字符串其实是一样的。如果字符串中有单引号而没有双引号，字符串就显示在双引号中，否则就显示在单引号中。函数 <a class="reference internal" href="../library/functions.html#print" title="print"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> 会产生更方便阅读的输出，就是不使用引号，也不转义特殊字符：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;&quot;Isn</span><span class="se">\&#39;</span><span class="s1">t,&quot; she said.&#39;</span>
 <span class="go">&#39;&quot;Isn\&#39;t,&quot; she said.&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&quot;Isn</span><span class="se">\&#39;</span><span class="s1">t,&quot; she said.&#39;</span><span class="p">)</span>
@@ -206,9 +199,7 @@ and special characters:</p>
 <span class="go">Second line.</span>
 </pre></div>
 </div>
-<p>If you don’t want characters prefaced by <code class="docutils literal"><span class="pre">\</span></code> to be interpreted as
-special characters, you can use <em>raw strings</em> by adding an <code class="docutils literal"><span class="pre">r</span></code> before
-the first quote:</p>
+<p>如果你不希望前置了 <code class="docutils literal"><span class="pre">\</span></code> 的字符转义成特殊字符，可以使用 <em>原始字符串</em> 方式，在引号前添加 <code class="docutils literal"><span class="pre">r</span></code> 即可：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;C:\some</span><span class="se">\n</span><span class="s1">ame&#39;</span><span class="p">)</span>  <span class="c1"># here \n means newline!</span>
 <span class="go">C:\some</span>
 <span class="go">ame</span>
@@ -216,10 +207,7 @@ the first quote:</p>
 <span class="go">C:\some\name</span>
 </pre></div>
 </div>
-<p>String literals can span multiple lines.  One way is using triple-quotes:
-<code class="docutils literal"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code> or <code class="docutils literal"><span class="pre">'''...'''</span></code>.  End of lines are automatically
-included in the string, but it’s possible to prevent this by adding a <code class="docutils literal"><span class="pre">\</span></code> at
-the end of the line.  The following example:</p>
+<p>字符串字面值可以跨行连续输入。一种方式是用三重引号：<code class="docutils literal"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code> 或 <code class="docutils literal"><span class="pre">'''...'''</span></code>。字符串中的回车换行会自动包含到字符串中，如果不想包含，在行尾添加一个 <code class="docutils literal"><span class="pre">\</span></code> 即可。如下例：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
 <span class="s2">Usage: thingy [OPTIONS]</span>
 <span class="s2">     -h                        Display this usage message</span>
@@ -227,26 +215,31 @@ the end of the line.  The following example:</p>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>produces the following output (note that the initial newline is not included):</p>
+<p>将产生如下输出（注意最开始的换行没有包括进来）：</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>Usage: thingy [OPTIONS]
      -h                        Display this usage message
      -H hostname               Hostname to connect to
 </pre></div>
 </div>
-<p>Strings can be concatenated (glued together) with the <code class="docutils literal"><span class="pre">+</span></code> operator, and
-repeated with <code class="docutils literal"><span class="pre">*</span></code>:</p>
+<p>字符串可以用 <code class="docutils literal"><span class="pre">+</span></code> 进行连接（粘到一起），也可以用 <code class="docutils literal"><span class="pre">*</span></code> 进行重复：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 3 times &#39;un&#39;, followed by &#39;ium&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="s1">&#39;un&#39;</span> <span class="o">+</span> <span class="s1">&#39;ium&#39;</span>
 <span class="go">&#39;unununium&#39;</span>
 </pre></div>
 </div>
-<p>Two or more <em>string literals</em> (i.e. the ones enclosed between quotes) next
-to each other are automatically concatenated.</p>
+<p>相邻的两个或多个 <em>字符串字面值</em> （引号引起来的字符）将会自动连接到一起：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Py&#39;</span> <span class="s1">&#39;thon&#39;</span>
 <span class="go">&#39;Python&#39;</span>
 </pre></div>
 </div>
-<p>This only works with two literals though, not with variables or expressions:</p>
+<p>把很长的字符串拆开分别输入的时候尤其有用：</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Put several strings within parentheses &#39;</span>
+<span class="gp">... </span>        <span class="s1">&#39;to have them joined together.&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span>
+<span class="go">&#39;Put several strings within parentheses to have them joined together.&#39;</span>
+</pre></div>
+</div>
+<p>只能对两个字面值这样操作，变量或表达式不行：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;Py&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prefix</span> <span class="s1">&#39;thon&#39;</span>  <span class="c1"># can&#39;t concatenate a variable and a string literal</span>
 <span class="go">  ...</span>
@@ -256,21 +249,12 @@ to each other are automatically concatenated.</p>
 <span class="go">SyntaxError: invalid syntax</span>
 </pre></div>
 </div>
-<p>If you want to concatenate variables or a variable and a literal, use <code class="docutils literal"><span class="pre">+</span></code>:</p>
+<p>如果你想连接变量，或者连接变量和字面值，可以用 <code class="docutils literal"><span class="pre">+</span></code> 号：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;thon&#39;</span>
 <span class="go">&#39;Python&#39;</span>
 </pre></div>
 </div>
-<p>This feature is particularly useful when you want to break long strings:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Put several strings within parentheses &#39;</span>
-<span class="gp">... </span>        <span class="s1">&#39;to have them joined together.&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span>
-<span class="go">&#39;Put several strings within parentheses to have them joined together.&#39;</span>
-</pre></div>
-</div>
-<p>Strings can be <em>indexed</em> (subscripted), with the first character having index 0.
-There is no separate character type; a character is simply a string of size
-one:</p>
+<p>字符串是可以被 <em>索引</em> （脚标访问）的，第一个字符索引是 0。单个字符并没有特殊的类型，只是一个长度为一的字符串：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># character in position 0</span>
 <span class="go">&#39;P&#39;</span>
@@ -278,7 +262,7 @@ one:</p>
 <span class="go">&#39;n&#39;</span>
 </pre></div>
 </div>
-<p>Indices may also be negative numbers, to start counting from the right:</p>
+<p>索引也可以用负数，这种会从右边开始数：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># last character</span>
 <span class="go">&#39;n&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># second-last character</span>
@@ -287,9 +271,8 @@ one:</p>
 <span class="go">&#39;P&#39;</span>
 </pre></div>
 </div>
-<p>Note that since -0 is the same as 0, negative indices start from -1.</p>
-<p>In addition to indexing, <em>slicing</em> is also supported.  While indexing is used
-to obtain individual characters, <em>slicing</em> allows you to obtain substring:</p>
+<p>注意 -0 和 0 是一样的，所以负数索引从 -1 开始。</p>
+<p>除了索引，字符串还支持 <em>切片</em>。索引可以得到单个字符，而 <em>切片</em> 可以获取子字符串：</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># characters from position 0 (included) to 2 (excluded)</span>
 <span class="go">&#39;Py&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># characters from position 2 (included) to 5 (excluded)</span>
@@ -390,7 +373,7 @@ the left operand of the <code class="docutils literal"><span class="pre">%</span
 </div>
 </div>
 <div class="section" id="lists">
-<span id="tut-lists"></span><h3>3.1.3. Lists<a class="headerlink" href="#lists" title="永久链接至标题">¶</a></h3>
+<span id="tut-lists"></span><h3>3.1.3. 列表<a class="headerlink" href="#lists" title="永久链接至标题">¶</a></h3>
 <p>Python knows a number of <em>compound</em> data types, used to group together other
 values.  The most versatile is the <em>list</em>, which can be written as a list of
 comma-separated values (items) between square brackets.  Lists might contain
@@ -581,7 +564,7 @@ need to escape <code class="docutils literal"><span class="pre">&quot;</span></c
 <li><a class="reference internal" href="#using-python-as-a-calculator">3.1. Python 作为计算器使用</a><ul>
 <li><a class="reference internal" href="#numbers">3.1.1. 数字</a></li>
 <li><a class="reference internal" href="#strings">3.1.2. 字符串</a></li>
-<li><a class="reference internal" href="#lists">3.1.3. Lists</a></li>
+<li><a class="reference internal" href="#lists">3.1.3. 列表</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#first-steps-towards-programming">3.2. First Steps Towards Programming</a></li>
@@ -594,7 +577,7 @@ need to escape <code class="docutils literal"><span class="pre">&quot;</span></c
                         title="上一章">2. 使用 Python 解释器</a></p>
   <h4>下一个主题</h4>
   <p class="topless"><a href="controlflow.html"
-                        title="下一章">4. More Control Flow Tools</a></p>
+                        title="下一章">4. 其他的流程控制</a></p>
   <div role="note" aria-label="source link">
     <h3>当前页面</h3>
     <ul class="this-page-menu">
@@ -620,7 +603,7 @@ need to escape <code class="docutils literal"><span class="pre">&quot;</span></c
           <a href="../py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="controlflow.html" title="4. More Control Flow Tools"
+          <a href="controlflow.html" title="4. 其他的流程控制"
              >下一页</a> |</li>
         <li class="right" >
           <a href="interpreter.html" title="2. 使用 Python 解释器"
@@ -651,15 +634,15 @@ need to escape <code class="docutils literal"><span class="pre">&quot;</span></c
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 17, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

@@ -212,8 +212,8 @@ category in the Unicode database.</p>
 <code class="docutils literal"><span class="pre">[\s,.]</span></code> is a character class that will match any whitespace character, or
 <code class="docutils literal"><span class="pre">','</span></code> or <code class="docutils literal"><span class="pre">'.'</span></code>.</p>
 <p>The final metacharacter in this section is <code class="docutils literal"><span class="pre">.</span></code>.  It matches anything except a
-newline character, and there’s an alternate mode (<code class="docutils literal"><span class="pre">re.DOTALL</span></code>) where it will
-match even a newline.  <code class="docutils literal"><span class="pre">'.'</span></code> is often used where you want to match “any
+newline character, and there’s an alternate mode (<a class="reference internal" href="../library/re.html#re.DOTALL" title="re.DOTALL"><code class="xref py py-const docutils literal"><span class="pre">re.DOTALL</span></code></a>) where it will
+match even a newline.  <code class="docutils literal"><span class="pre">.</span></code> is often used where you want to match “any
 character”.</p>
 </div>
 <div class="section" id="repeating-things">
@@ -224,13 +224,10 @@ strings.  However, if that was the only additional capability of regexes, they
 wouldn’t be much of an advance. Another capability is that you can specify that
 portions of the RE must be repeated a certain number of times.</p>
 <p>The first metacharacter for repeating things that we’ll look at is <code class="docutils literal"><span class="pre">*</span></code>.  <code class="docutils literal"><span class="pre">*</span></code>
-doesn’t match the literal character <code class="docutils literal"><span class="pre">*</span></code>; instead, it specifies that the
+doesn’t match the literal character <code class="docutils literal"><span class="pre">'*'</span></code>; instead, it specifies that the
 previous character can be matched zero or more times, instead of exactly once.</p>
-<p>For example, <code class="docutils literal"><span class="pre">ca*t</span></code> will match <code class="docutils literal"><span class="pre">ct</span></code> (0 <code class="docutils literal"><span class="pre">a</span></code> characters), <code class="docutils literal"><span class="pre">cat</span></code> (1 <code class="docutils literal"><span class="pre">a</span></code>),
-<code class="docutils literal"><span class="pre">caaat</span></code> (3 <code class="docutils literal"><span class="pre">a</span></code> characters), and so forth.  The RE engine has various
-internal limitations stemming from the size of C’s <code class="docutils literal"><span class="pre">int</span></code> type that will
-prevent it from matching over 2 billion <code class="docutils literal"><span class="pre">a</span></code> characters; patterns
-are usually not written to match that much data.</p>
+<p>For example, <code class="docutils literal"><span class="pre">ca*t</span></code> will match <code class="docutils literal"><span class="pre">'ct'</span></code> (0 <code class="docutils literal"><span class="pre">'a'</span></code> characters), <code class="docutils literal"><span class="pre">'cat'</span></code> (1 <code class="docutils literal"><span class="pre">'a'</span></code>),
+<code class="docutils literal"><span class="pre">'caaat'</span></code> (3 <code class="docutils literal"><span class="pre">'a'</span></code> characters), and so forth.</p>
 <p>Repetitions such as <code class="docutils literal"><span class="pre">*</span></code> are <em class="dfn">greedy</em>; when repeating a RE, the matching
 engine will try to repeat it as many times as possible. If later portions of the
 pattern don’t match, the matching engine will then back up and try again with
@@ -238,7 +235,7 @@ fewer repetitions.</p>
 <p>A step-by-step example will make this more obvious.  Let’s consider the
 expression <code class="docutils literal"><span class="pre">a[bcd]*b</span></code>.  This matches the letter <code class="docutils literal"><span class="pre">'a'</span></code>, zero or more letters
 from the class <code class="docutils literal"><span class="pre">[bcd]</span></code>, and finally ends with a <code class="docutils literal"><span class="pre">'b'</span></code>.  Now imagine matching
-this RE against the string <code class="docutils literal"><span class="pre">abcbd</span></code>.</p>
+this RE against the string <code class="docutils literal"><span class="pre">'abcbd'</span></code>.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -295,7 +292,7 @@ it succeeds.</td>
 </tr>
 </tbody>
 </table>
-<p>The end of the RE has now been reached, and it has matched <code class="docutils literal"><span class="pre">abcb</span></code>.  This
+<p>The end of the RE has now been reached, and it has matched <code class="docutils literal"><span class="pre">'abcb'</span></code>.  This
 demonstrates how the matching engine goes as far as it can at first, and if no
 match is found it will then progressively back up and retry the rest of the RE
 again and again.  It will back up until it has tried zero matches for
@@ -305,21 +302,20 @@ string doesn’t match the RE at all.</p>
 careful attention to the difference between <code class="docutils literal"><span class="pre">*</span></code> and <code class="docutils literal"><span class="pre">+</span></code>; <code class="docutils literal"><span class="pre">*</span></code> matches
 <em>zero</em> or more times, so whatever’s being repeated may not be present at all,
 while <code class="docutils literal"><span class="pre">+</span></code> requires at least <em>one</em> occurrence.  To use a similar example,
-<code class="docutils literal"><span class="pre">ca+t</span></code> will match <code class="docutils literal"><span class="pre">cat</span></code> (1 <code class="docutils literal"><span class="pre">a</span></code>), <code class="docutils literal"><span class="pre">caaat</span></code> (3 <code class="docutils literal"><span class="pre">a</span></code>’s), but won’t match
-<code class="docutils literal"><span class="pre">ct</span></code>.</p>
+<code class="docutils literal"><span class="pre">ca+t</span></code> will match <code class="docutils literal"><span class="pre">'cat'</span></code> (1 <code class="docutils literal"><span class="pre">'a'</span></code>), <code class="docutils literal"><span class="pre">'caaat'</span></code> (3 <code class="docutils literal"><span class="pre">'a'</span></code>s), but won’t
+match <code class="docutils literal"><span class="pre">'ct'</span></code>.</p>
 <p>There are two more repeating qualifiers.  The question mark character, <code class="docutils literal"><span class="pre">?</span></code>,
 matches either once or zero times; you can think of it as marking something as
-being optional.  For example, <code class="docutils literal"><span class="pre">home-?brew</span></code> matches either <code class="docutils literal"><span class="pre">homebrew</span></code> or
-<code class="docutils literal"><span class="pre">home-brew</span></code>.</p>
+being optional.  For example, <code class="docutils literal"><span class="pre">home-?brew</span></code> matches either <code class="docutils literal"><span class="pre">'homebrew'</span></code> or
+<code class="docutils literal"><span class="pre">'home-brew'</span></code>.</p>
 <p>The most complicated repeated qualifier is <code class="docutils literal"><span class="pre">{m,n}</span></code>, where <em>m</em> and <em>n</em> are
 decimal integers.  This qualifier means there must be at least <em>m</em> repetitions,
-and at most <em>n</em>.  For example, <code class="docutils literal"><span class="pre">a/{1,3}b</span></code> will match <code class="docutils literal"><span class="pre">a/b</span></code>, <code class="docutils literal"><span class="pre">a//b</span></code>, and
-<code class="docutils literal"><span class="pre">a///b</span></code>.  It won’t match <code class="docutils literal"><span class="pre">ab</span></code>, which has no slashes, or <code class="docutils literal"><span class="pre">a////b</span></code>, which
+and at most <em>n</em>.  For example, <code class="docutils literal"><span class="pre">a/{1,3}b</span></code> will match <code class="docutils literal"><span class="pre">'a/b'</span></code>, <code class="docutils literal"><span class="pre">'a//b'</span></code>, and
+<code class="docutils literal"><span class="pre">'a///b'</span></code>.  It won’t match <code class="docutils literal"><span class="pre">'ab'</span></code>, which has no slashes, or <code class="docutils literal"><span class="pre">'a////b'</span></code>, which
 has four.</p>
 <p>You can omit either <em>m</em> or <em>n</em>; in that case, a reasonable value is assumed for
 the missing value.  Omitting <em>m</em> is interpreted as a lower limit of 0, while
-omitting <em>n</em> results in an upper bound of infinity — actually, the upper bound
-is the 2-billion limit mentioned earlier, but that might as well be infinity.</p>
+omitting <em>n</em> results in an upper bound of infinity.</p>
 <p>Readers of a reductionist bent may notice that the three other qualifiers can
 all be expressed using this notation.  <code class="docutils literal"><span class="pre">{0,}</span></code> is the same as <code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">{1,}</span></code>
 is equivalent to <code class="docutils literal"><span class="pre">+</span></code>, and <code class="docutils literal"><span class="pre">{0,1}</span></code> is the same as <code class="docutils literal"><span class="pre">?</span></code>.  It’s better to use
@@ -462,7 +458,7 @@ returns them as an <a class="reference internal" href="../glossary.html#term-ite
 </tr>
 </tbody>
 </table>
-<p><a class="reference internal" href="../library/re.html#re.regex.match" title="re.regex.match"><code class="xref py py-meth docutils literal"><span class="pre">match()</span></code></a> and <a class="reference internal" href="../library/re.html#re.regex.search" title="re.regex.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> return <code class="docutils literal"><span class="pre">None</span></code> if no match can be found.  If
+<p><code class="xref py py-meth docutils literal"><span class="pre">match()</span></code> and <code class="xref py py-meth docutils literal"><span class="pre">search()</span></code> return <code class="docutils literal"><span class="pre">None</span></code> if no match can be found.  If
 they’re successful, a <a class="reference internal" href="../library/re.html#match-objects"><span class="std std-ref">match object</span></a> instance is returned,
 containing information about the match: where it starts and ends, the substring
 it matched, and more.</p>
@@ -494,12 +490,12 @@ interpreter to print no output.  You can explicitly print the result of
 case, <code class="xref py py-meth docutils literal"><span class="pre">match()</span></code> will return a <a class="reference internal" href="../library/re.html#match-objects"><span class="std std-ref">match object</span></a>, so you
 should store the result in a variable for later use.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;tempo&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
 <span class="go">&lt;_sre.SRE_Match object; span=(0, 5), match=&#39;tempo&#39;&gt;</span>
 </pre></div>
 </div>
 <p>Now you can query the <a class="reference internal" href="../library/re.html#match-objects"><span class="std std-ref">match object</span></a> for information
-about the matching string.  <a class="reference internal" href="../library/re.html#match-objects"><span class="std std-ref">match object</span></a> instances
+about the matching string.  Match object instances
 also have several methods and attributes; the most important ones are:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -545,7 +541,7 @@ scans through the string, so  the match may not start at zero in that
 case.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;::: message&#39;</span><span class="p">))</span>
 <span class="go">None</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;::: message&#39;</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;::: message&#39;</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="go">&lt;_sre.SRE_Match object; span=(4, 11), match=&#39;message&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 <span class="go">&#39;message&#39;</span>
@@ -565,14 +561,14 @@ case.</p>
 </pre></div>
 </div>
 <p>Two pattern methods return all of the matches for a pattern.
-<a class="reference internal" href="../library/re.html#re.regex.findall" title="re.regex.findall"><code class="xref py py-meth docutils literal"><span class="pre">findall()</span></code></a> returns a list of matching strings:</p>
+<code class="xref py py-meth docutils literal"><span class="pre">findall()</span></code> returns a list of matching strings:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;\d+&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;12 drummers drumming, 11 pipers piping, 10 lords a-leaping&#39;</span><span class="p">)</span>
 <span class="go">[&#39;12&#39;, &#39;11&#39;, &#39;10&#39;]</span>
 </pre></div>
 </div>
 <p><code class="xref py py-meth docutils literal"><span class="pre">findall()</span></code> has to create the entire list before it can be returned as the
-result.  The <a class="reference internal" href="../library/re.html#re.regex.finditer" title="re.regex.finditer"><code class="xref py py-meth docutils literal"><span class="pre">finditer()</span></code></a> method returns a sequence of
+result.  The <code class="xref py py-meth docutils literal"><span class="pre">finditer()</span></code> method returns a sequence of
 <a class="reference internal" href="../library/re.html#match-objects"><span class="std std-ref">match object</span></a> instances as an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a>:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iterator</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s1">&#39;12 drummers drumming, 11 ... 10 ...&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">iterator</span>  
@@ -639,17 +635,17 @@ characters with the respective property.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-const docutils literal"><span class="pre">DOTALL</span></code>, <code class="xref py py-const docutils literal"><span class="pre">S</span></code></td>
 <td>Make <code class="docutils literal"><span class="pre">.</span></code> match any character, including
-newlines</td>
+newlines.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-const docutils literal"><span class="pre">IGNORECASE</span></code>, <code class="xref py py-const docutils literal"><span class="pre">I</span></code></td>
-<td>Do case-insensitive matches</td>
+<td>Do case-insensitive matches.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-const docutils literal"><span class="pre">LOCALE</span></code>, <code class="xref py py-const docutils literal"><span class="pre">L</span></code></td>
-<td>Do a locale-aware match</td>
+<td>Do a locale-aware match.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-const docutils literal"><span class="pre">MULTILINE</span></code>, <code class="xref py py-const docutils literal"><span class="pre">M</span></code></td>
 <td>Multi-line matching, affecting <code class="docutils literal"><span class="pre">^</span></code> and
-<code class="docutils literal"><span class="pre">$</span></code></td>
+<code class="docutils literal"><span class="pre">$</span></code>.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-const docutils literal"><span class="pre">VERBOSE</span></code>, <code class="xref py py-const docutils literal"><span class="pre">X</span></code>
 (for ‘extended’)</td>
@@ -665,9 +661,16 @@ more cleanly and understandably.</td>
 <code class="descname">IGNORECASE</code></dt>
 <dd><p>Perform case-insensitive matching; character class and literal strings will
 match letters by ignoring case.  For example, <code class="docutils literal"><span class="pre">[A-Z]</span></code> will match lowercase
-letters, too, and <code class="docutils literal"><span class="pre">Spam</span></code> will match <code class="docutils literal"><span class="pre">Spam</span></code>, <code class="docutils literal"><span class="pre">spam</span></code>, or <code class="docutils literal"><span class="pre">spAM</span></code>. This
-lowercasing doesn’t take the current locale into account; it will if you also
-set the <code class="xref py py-const docutils literal"><span class="pre">LOCALE</span></code> flag.</p>
+letters, too. Full Unicode matching also works unless the <code class="xref py py-const docutils literal"><span class="pre">ASCII</span></code>
+flag is used to disable non-ASCII matches.  When the Unicode patterns
+<code class="docutils literal"><span class="pre">[a-z]</span></code> or <code class="docutils literal"><span class="pre">[A-Z]</span></code> are used in combination with the <code class="xref py py-const docutils literal"><span class="pre">IGNORECASE</span></code>
+flag, they will match the 52 ASCII letters and 4 additional non-ASCII
+letters: ‘İ’ (U+0130, Latin capital letter I with dot above), ‘ı’ (U+0131,
+Latin small letter dotless i), ‘ſ’ (U+017F, Latin small letter long s) and
+‘K’ (U+212A, Kelvin sign).  <code class="docutils literal"><span class="pre">Spam</span></code> will match <code class="docutils literal"><span class="pre">'Spam'</span></code>, <code class="docutils literal"><span class="pre">'spam'</span></code>,
+<code class="docutils literal"><span class="pre">'spAM'</span></code>, or <code class="docutils literal"><span class="pre">'ſpam'</span></code> (the latter is matched only in Unicode mode).
+This lowercasing doesn’t take the current locale into account;
+it will if you also set the <code class="xref py py-const docutils literal"><span class="pre">LOCALE</span></code> flag.</p>
 </dd></dl>
 
 <dl class="data">
@@ -675,17 +678,24 @@ set the <code class="xref py py-const docutils literal"><span class="pre">LOCALE
 <code class="descname">L</code></dt>
 <dt>
 <code class="descname">LOCALE</code></dt>
-<dd><p>Make <code class="docutils literal"><span class="pre">\w</span></code>, <code class="docutils literal"><span class="pre">\W</span></code>, <code class="docutils literal"><span class="pre">\b</span></code>, and <code class="docutils literal"><span class="pre">\B</span></code>, dependent on the current locale
-instead of the Unicode database.</p>
-<p>Locales are a feature of the C library intended to help in writing programs that
-take account of language differences.  For example, if you’re processing French
-text, you’d want to be able to write <code class="docutils literal"><span class="pre">\w+</span></code> to match words, but <code class="docutils literal"><span class="pre">\w</span></code> only
-matches the character class <code class="docutils literal"><span class="pre">[A-Za-z]</span></code>; it won’t match <code class="docutils literal"><span class="pre">'é'</span></code> or <code class="docutils literal"><span class="pre">'ç'</span></code>.  If
-your system is configured properly and a French locale is selected, certain C
-functions will tell the program that <code class="docutils literal"><span class="pre">'é'</span></code> should also be considered a letter.
+<dd><p>Make <code class="docutils literal"><span class="pre">\w</span></code>, <code class="docutils literal"><span class="pre">\W</span></code>, <code class="docutils literal"><span class="pre">\b</span></code>, <code class="docutils literal"><span class="pre">\B</span></code> and case-insensitive matching dependent
+on the current locale instead of the Unicode database.</p>
+<p>Locales are a feature of the C library intended to help in writing programs
+that take account of language differences.  For example, if you’re
+processing encoded French text, you’d want to be able to write <code class="docutils literal"><span class="pre">\w+</span></code> to
+match words, but <code class="docutils literal"><span class="pre">\w</span></code> only matches the character class <code class="docutils literal"><span class="pre">[A-Za-z]</span></code> in
+bytes patterns; it won’t match bytes corresponding to <code class="docutils literal"><span class="pre">é</span></code> or <code class="docutils literal"><span class="pre">ç</span></code>.
+If your system is configured properly and a French locale is selected,
+certain C functions will tell the program that the byte corresponding to
+<code class="docutils literal"><span class="pre">é</span></code> should also be considered a letter.
 Setting the <code class="xref py py-const docutils literal"><span class="pre">LOCALE</span></code> flag when compiling a regular expression will cause
 the resulting compiled object to use these C functions for <code class="docutils literal"><span class="pre">\w</span></code>; this is
-slower, but also enables <code class="docutils literal"><span class="pre">\w+</span></code> to match French words as you’d expect.</p>
+slower, but also enables <code class="docutils literal"><span class="pre">\w+</span></code> to match French words as you’d expect.
+The use of this flag is discouraged in Python 3 as the locale mechanism
+is very unreliable, it only handles one “culture” at a time, and it only
+works with 8-bit locales.  Unicode matching is already enabled by default
+in Python 3 for Unicode (str) patterns, and it is able to handle different
+locales/languages.</p>
 </dd></dl>
 
 <dl class="data">
@@ -780,11 +790,11 @@ zero-width assertions should never be repeated, because if they match once at a
 given location, they can obviously be matched an infinite number of times.</p>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">|</span></code></dt>
-<dd><p class="first">Alternation, or the “or” operator.   If A and B are regular expressions,
-<code class="docutils literal"><span class="pre">A|B</span></code> will match any string that matches either <code class="docutils literal"><span class="pre">A</span></code> or <code class="docutils literal"><span class="pre">B</span></code>. <code class="docutils literal"><span class="pre">|</span></code> has very
+<dd><p class="first">Alternation, or the “or” operator.   If <em>A</em> and <em>B</em> are regular expressions,
+<code class="docutils literal"><span class="pre">A|B</span></code> will match any string that matches either <em>A</em> or <em>B</em>. <code class="docutils literal"><span class="pre">|</span></code> has very
 low precedence in order to make it work reasonably when you’re alternating
-multi-character strings. <code class="docutils literal"><span class="pre">Crow|Servo</span></code> will match either <code class="docutils literal"><span class="pre">Crow</span></code> or <code class="docutils literal"><span class="pre">Servo</span></code>,
-not <code class="docutils literal"><span class="pre">Cro</span></code>, a <code class="docutils literal"><span class="pre">'w'</span></code> or an <code class="docutils literal"><span class="pre">'S'</span></code>, and <code class="docutils literal"><span class="pre">ervo</span></code>.</p>
+multi-character strings. <code class="docutils literal"><span class="pre">Crow|Servo</span></code> will match either <code class="docutils literal"><span class="pre">'Crow'</span></code> or <code class="docutils literal"><span class="pre">'Servo'</span></code>,
+not <code class="docutils literal"><span class="pre">'Cro'</span></code>, a <code class="docutils literal"><span class="pre">'w'</span></code> or an <code class="docutils literal"><span class="pre">'S'</span></code>, and <code class="docutils literal"><span class="pre">'ervo'</span></code>.</p>
 <p class="last">To match a literal <code class="docutils literal"><span class="pre">'|'</span></code>, use <code class="docutils literal"><span class="pre">\|</span></code>, or enclose it inside a character class,
 as in <code class="docutils literal"><span class="pre">[|]</span></code>.</p>
 </dd>
@@ -794,12 +804,13 @@ set, this will only match at the beginning of the string.  In <code class="xref 
 mode, this also matches immediately after each newline within the string.</p>
 <p>For example, if you wish to match the word <code class="docutils literal"><span class="pre">From</span></code> only at the beginning of a
 line, the RE to use is <code class="docutils literal"><span class="pre">^From</span></code>.</p>
-<div class="last highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;^From&#39;</span><span class="p">,</span> <span class="s1">&#39;From Here to Eternity&#39;</span><span class="p">))</span>  
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;^From&#39;</span><span class="p">,</span> <span class="s1">&#39;From Here to Eternity&#39;</span><span class="p">))</span>  
 <span class="go">&lt;_sre.SRE_Match object; span=(0, 4), match=&#39;From&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;^From&#39;</span><span class="p">,</span> <span class="s1">&#39;Reciting From Memory&#39;</span><span class="p">))</span>
 <span class="go">None</span>
 </pre></div>
 </div>
+<p class="last">To match a literal <code class="docutils literal"><span class="pre">'^'</span></code>, use <code class="docutils literal"><span class="pre">\^</span></code>.</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">$</span></code></dt>
 <dd><p class="first">Matches at the end of a line, which is defined as either the end of the string,
@@ -830,7 +841,7 @@ non-alphanumeric character.</p>
 <p>The following example matches <code class="docutils literal"><span class="pre">class</span></code> only when it’s a complete word; it won’t
 match when it’s contained inside another word.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\bclass\b&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;no class at all&#39;</span><span class="p">))</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;no class at all&#39;</span><span class="p">))</span>
 <span class="go">&lt;_sre.SRE_Match object; span=(3, 8), match=&#39;class&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;the declassified algorithm&#39;</span><span class="p">))</span>
 <span class="go">None</span>
@@ -848,7 +859,7 @@ in front of the RE string.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\b</span><span class="s1">class</span><span class="se">\b</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;no class at all&#39;</span><span class="p">))</span>
 <span class="go">None</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\b</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;class&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\b</span><span class="s1">&#39;</span><span class="p">))</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\b</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;class&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\b</span><span class="s1">&#39;</span><span class="p">))</span>
 <span class="go">&lt;_sre.SRE_Match object; span=(0, 7), match=&#39;\x08class\x08&#39;&gt;</span>
 </pre></div>
 </div>
@@ -890,7 +901,8 @@ of a group with a repeating qualifier, such as <code class="docutils literal"><s
 </div>
 <p>Groups indicated with <code class="docutils literal"><span class="pre">'('</span></code>, <code class="docutils literal"><span class="pre">')'</span></code> also capture the starting and ending
 index of the text that they match; this can be retrieved by passing an argument
-to <code class="xref py py-meth docutils literal"><span class="pre">group()</span></code>, <code class="xref py py-meth docutils literal"><span class="pre">start()</span></code>, <code class="xref py py-meth docutils literal"><span class="pre">end()</span></code>, and <code class="xref py py-meth docutils literal"><span class="pre">span()</span></code>.  Groups are
+to <a class="reference internal" href="../library/re.html#re.match.group" title="re.match.group"><code class="xref py py-meth docutils literal"><span class="pre">group()</span></code></a>, <a class="reference internal" href="../library/re.html#re.match.start" title="re.match.start"><code class="xref py py-meth docutils literal"><span class="pre">start()</span></code></a>, <a class="reference internal" href="../library/re.html#re.match.end" title="re.match.end"><code class="xref py py-meth docutils literal"><span class="pre">end()</span></code></a>, and
+<a class="reference internal" href="../library/re.html#re.match.span" title="re.match.span"><code class="xref py py-meth docutils literal"><span class="pre">span()</span></code></a>.  Groups are
 numbered starting with 0.  Group 0 is always present; it’s the whole RE, so
 <a class="reference internal" href="../library/re.html#match-objects"><span class="std std-ref">match object</span></a> methods all have group 0 as their default
 argument.  Later we’ll see how to express groups that don’t capture the span
@@ -916,13 +928,13 @@ from left to right.</p>
 <span class="go">&#39;b&#39;</span>
 </pre></div>
 </div>
-<p><code class="xref py py-meth docutils literal"><span class="pre">group()</span></code> can be passed multiple group numbers at a time, in which case it
+<p><a class="reference internal" href="../library/re.html#re.match.group" title="re.match.group"><code class="xref py py-meth docutils literal"><span class="pre">group()</span></code></a> can be passed multiple group numbers at a time, in which case it
 will return a tuple containing the corresponding values for those groups.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">(&#39;b&#39;, &#39;abc&#39;, &#39;b&#39;)</span>
 </pre></div>
 </div>
-<p>The <code class="xref py py-meth docutils literal"><span class="pre">groups()</span></code> method returns a tuple containing the strings for all the
+<p>The <a class="reference internal" href="../library/re.html#re.match.groups" title="re.match.groups"><code class="xref py py-meth docutils literal"><span class="pre">groups()</span></code></a> method returns a tuple containing the strings for all the
 subgroups, from 1 up to however many there are.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
 <span class="go">(&#39;abc&#39;, &#39;b&#39;)</span>
@@ -936,7 +948,7 @@ literals also use a backslash followed by numbers to allow including arbitrary
 characters in a string, so be sure to use a raw string when incorporating
 backreferences in a RE.</p>
 <p>For example, the following RE detects doubled words in a string.</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\b\w+)\s+\1&#39;</span><span class="p">)</span>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b(\w+)\s+\1\b&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;Paris in the the spring&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 <span class="go">&#39;the the&#39;</span>
 </pre></div>
@@ -1026,8 +1038,8 @@ number of the group.  There’s naturally a variant that uses the group name
 instead of the number. This is another Python extension: <code class="docutils literal"><span class="pre">(?P=name)</span></code> indicates
 that the contents of the group called <em>name</em> should again be matched at the
 current point.  The regular expression for finding doubled words,
-<code class="docutils literal"><span class="pre">(\b\w+)\s+\1</span></code> can also be written as <code class="docutils literal"><span class="pre">(?P&lt;word&gt;\b\w+)\s+(?P=word)</span></code>:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?P&lt;word&gt;\b\w+)\s+(?P=word)&#39;</span><span class="p">)</span>
+<code class="docutils literal"><span class="pre">\b(\w+)\s+\1\b</span></code> can also be written as <code class="docutils literal"><span class="pre">\b(?P&lt;word&gt;\w+)\s+(?P=word)\b</span></code>:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b(?P&lt;word&gt;\w+)\s+(?P=word)\b&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;Paris in the the spring&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 <span class="go">&#39;the the&#39;</span>
 </pre></div>
@@ -1130,7 +1142,7 @@ replacements</td>
 <h3>Splitting Strings<a class="headerlink" href="#splitting-strings" title="永久链接至标题">¶</a></h3>
 <p>The <code class="xref py py-meth docutils literal"><span class="pre">split()</span></code> method of a pattern splits a string apart
 wherever the RE matches, returning a list of the pieces. It’s similar to the
-<code class="xref py py-meth docutils literal"><span class="pre">split()</span></code> method of strings but provides much more generality in the
+<a class="reference internal" href="../library/stdtypes.html#str.split" title="str.split"><code class="xref py py-meth docutils literal"><span class="pre">split()</span></code></a> method of strings but provides much more generality in the
 delimiters that you can split by; string <code class="xref py py-meth docutils literal"><span class="pre">split()</span></code> only supports splitting by
 whitespace or by a fixed string.  As you’d expect, there’s a module-level
 <a class="reference internal" href="../library/re.html#re.split" title="re.split"><code class="xref py py-func docutils literal"><span class="pre">re.split()</span></code></a> function, too.</p>
@@ -1280,22 +1292,22 @@ expect them to.  This section will point out some of the most common pitfalls.</
 <h3>Use String Methods<a class="headerlink" href="#use-string-methods" title="永久链接至标题">¶</a></h3>
 <p>Sometimes using the <a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal"><span class="pre">re</span></code></a> module is a mistake.  If you’re matching a fixed
 string, or a single character class, and you’re not using any <a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal"><span class="pre">re</span></code></a> features
-such as the <code class="xref py py-const docutils literal"><span class="pre">IGNORECASE</span></code> flag, then the full power of regular expressions
+such as the <a class="reference internal" href="../library/re.html#re.IGNORECASE" title="re.IGNORECASE"><code class="xref py py-const docutils literal"><span class="pre">IGNORECASE</span></code></a> flag, then the full power of regular expressions
 may not be required. Strings have several methods for performing operations with
 fixed strings and they’re usually much faster, because the implementation is a
 single small C loop that’s been optimized for the purpose, instead of the large,
 more generalized regular expression engine.</p>
 <p>One example might be replacing a single fixed string with another one; for
-example, you might replace <code class="docutils literal"><span class="pre">word</span></code> with <code class="docutils literal"><span class="pre">deed</span></code>.  <code class="docutils literal"><span class="pre">re.sub()</span></code> seems like the
-function to use for this, but consider the <code class="xref py py-meth docutils literal"><span class="pre">replace()</span></code> method.  Note that
-<code class="xref py py-func docutils literal"><span class="pre">replace()</span></code> will also replace <code class="docutils literal"><span class="pre">word</span></code> inside words, turning <code class="docutils literal"><span class="pre">swordfish</span></code>
+example, you might replace <code class="docutils literal"><span class="pre">word</span></code> with <code class="docutils literal"><span class="pre">deed</span></code>.  <a class="reference internal" href="../library/re.html#re.sub" title="re.sub"><code class="xref py py-func docutils literal"><span class="pre">re.sub()</span></code></a> seems like the
+function to use for this, but consider the <a class="reference internal" href="../library/stdtypes.html#str.replace" title="str.replace"><code class="xref py py-meth docutils literal"><span class="pre">replace()</span></code></a> method.  Note that
+<code class="xref py py-meth docutils literal"><span class="pre">replace()</span></code> will also replace <code class="docutils literal"><span class="pre">word</span></code> inside words, turning <code class="docutils literal"><span class="pre">swordfish</span></code>
 into <code class="docutils literal"><span class="pre">sdeedfish</span></code>, but the  naive RE <code class="docutils literal"><span class="pre">word</span></code> would have done that, too.  (To
 avoid performing the substitution on parts of words, the pattern would have to
 be <code class="docutils literal"><span class="pre">\bword\b</span></code>, in order to require that <code class="docutils literal"><span class="pre">word</span></code> have a word boundary on
 either side.  This takes the job beyond  <code class="xref py py-meth docutils literal"><span class="pre">replace()</span></code>’s abilities.)</p>
 <p>Another common task is deleting every occurrence of a single character from a
 string or replacing it with another single character.  You might do this with
-something like <code class="docutils literal"><span class="pre">re.sub('\n',</span> <span class="pre">'</span> <span class="pre">',</span> <span class="pre">S)</span></code>, but <code class="xref py py-meth docutils literal"><span class="pre">translate()</span></code> is capable of
+something like <code class="docutils literal"><span class="pre">re.sub('\n',</span> <span class="pre">'</span> <span class="pre">',</span> <span class="pre">S)</span></code>, but <a class="reference internal" href="../library/stdtypes.html#str.translate" title="str.translate"><code class="xref py py-meth docutils literal"><span class="pre">translate()</span></code></a> is capable of
 doing both tasks and will be faster than any regular expression operation can
 be.</p>
 <p>In short, before turning to the <a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal"><span class="pre">re</span></code></a> module, consider whether your problem
@@ -1303,8 +1315,8 @@ can be solved with a faster and simpler string method.</p>
 </div>
 <div class="section" id="match-versus-search">
 <h3>match() versus search()<a class="headerlink" href="#match-versus-search" title="永久链接至标题">¶</a></h3>
-<p>The <code class="xref py py-func docutils literal"><span class="pre">match()</span></code> function only checks if the RE matches at the beginning of the
-string while <code class="xref py py-func docutils literal"><span class="pre">search()</span></code> will scan forward through the string for a match.
+<p>The <a class="reference internal" href="../library/re.html#re.match" title="re.match"><code class="xref py py-func docutils literal"><span class="pre">match()</span></code></a> function only checks if the RE matches at the beginning of the
+string while <a class="reference internal" href="../library/re.html#re.search" title="re.search"><code class="xref py py-func docutils literal"><span class="pre">search()</span></code></a> will scan forward through the string for a match.
 It’s important to keep this distinction in mind.  Remember,  <code class="xref py py-func docutils literal"><span class="pre">match()</span></code> will
 only report a successful match which will start at 0; if the match wouldn’t
 start at zero,  <code class="xref py py-func docutils literal"><span class="pre">match()</span></code> will <em>not</em> report it.</p>
@@ -1314,7 +1326,7 @@ start at zero,  <code class="xref py py-func docutils literal"><span class="pre"
 <span class="go">None</span>
 </pre></div>
 </div>
-<p>On the other hand, <code class="xref py py-func docutils literal"><span class="pre">search()</span></code> will scan forward through the string,
+<p>On the other hand, <a class="reference internal" href="../library/re.html#re.search" title="re.search"><code class="xref py py-func docutils literal"><span class="pre">search()</span></code></a> will scan forward through the string,
 reporting the first match it finds.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;super&#39;</span><span class="p">,</span> <span class="s1">&#39;superstition&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>
 <span class="go">(0, 5)</span>
@@ -1350,12 +1362,12 @@ doesn’t work because of the greedy nature of <code class="docutils literal"><s
 <span class="go">&lt;html&gt;&lt;head&gt;&lt;title&gt;Title&lt;/title&gt;</span>
 </pre></div>
 </div>
-<p>The RE matches the <code class="docutils literal"><span class="pre">'&lt;'</span></code> in <code class="docutils literal"><span class="pre">&lt;html&gt;</span></code>, and the <code class="docutils literal"><span class="pre">.*</span></code> consumes the rest of
+<p>The RE matches the <code class="docutils literal"><span class="pre">'&lt;'</span></code> in <code class="docutils literal"><span class="pre">'&lt;html&gt;'</span></code>, and the <code class="docutils literal"><span class="pre">.*</span></code> consumes the rest of
 the string.  There’s still more left in the RE, though, and the <code class="docutils literal"><span class="pre">&gt;</span></code> can’t
 match at the end of the string, so the regular expression engine has to
 backtrack character by character until it finds a match for the <code class="docutils literal"><span class="pre">&gt;</span></code>.   The
-final match extends from the <code class="docutils literal"><span class="pre">'&lt;'</span></code> in <code class="docutils literal"><span class="pre">&lt;html&gt;</span></code> to the <code class="docutils literal"><span class="pre">'&gt;'</span></code> in
-<code class="docutils literal"><span class="pre">&lt;/title&gt;</span></code>, which isn’t what you want.</p>
+final match extends from the <code class="docutils literal"><span class="pre">'&lt;'</span></code> in <code class="docutils literal"><span class="pre">'&lt;html&gt;'</span></code> to the <code class="docutils literal"><span class="pre">'&gt;'</span></code> in
+<code class="docutils literal"><span class="pre">'&lt;/title&gt;'</span></code>, which isn’t what you want.</p>
 <p>In this case, the solution is to use the non-greedy qualifiers <code class="docutils literal"><span class="pre">*?</span></code>, <code class="docutils literal"><span class="pre">+?</span></code>,
 <code class="docutils literal"><span class="pre">??</span></code>, or <code class="docutils literal"><span class="pre">{m,n}?</span></code>, which match as <em>little</em> text as possible.  In the above
 example, the <code class="docutils literal"><span class="pre">'&gt;'</span></code> is tried immediately after the first <code class="docutils literal"><span class="pre">'&lt;'</span></code> matches, and
@@ -1377,7 +1389,7 @@ be <em>very</em> complicated.  Use an HTML or XML parser module for such tasks.)
 notation, but they’re not terribly readable.  REs of moderate complexity can
 become lengthy collections of backslashes, parentheses, and metacharacters,
 making them difficult to read and understand.</p>
-<p>For such REs, specifying the <code class="docutils literal"><span class="pre">re.VERBOSE</span></code> flag when compiling the regular
+<p>For such REs, specifying the <a class="reference internal" href="../library/re.html#re.VERBOSE" title="re.VERBOSE"><code class="xref py py-const docutils literal"><span class="pre">re.VERBOSE</span></code></a> flag when compiling the regular
 expression can be helpful, because it allows you to format the regular
 expression more clearly.</p>
 <p>The <code class="docutils literal"><span class="pre">re.VERBOSE</span></code> flag has several effects.  Whitespace in the regular
@@ -1528,15 +1540,15 @@ it out from your library.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

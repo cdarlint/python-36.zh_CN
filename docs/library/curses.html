@@ -101,6 +101,13 @@ designed to match the API of ncurses, an open-source curses library hosted on
 Linux and the BSD variants of Unix.</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
+<p>Whenever the documentation mentions a <em>character</em> it can be specified
+as an integer, a one-character Unicode string or a one-byte byte string.</p>
+<p class="last">Whenever the documentation mentions a <em>character string</em> it can be specified
+as a Unicode string or a byte string.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
 <p>Since version 5.4, the ncurses library decides how to interpret non-ASCII data
 using the <code class="docutils literal"><span class="pre">nl_langinfo</span></code> function.  That means that you have to call
 <a class="reference internal" href="locale.html#locale.setlocale" title="locale.setlocale"><code class="xref py py-func docutils literal"><span class="pre">locale.setlocale()</span></code></a> in the application and encode Unicode strings
@@ -181,8 +188,8 @@ first <a class="reference internal" href="#curses.raw" title="curses.raw"><code 
 <dt id="curses.color_content">
 <code class="descclassname">curses.</code><code class="descname">color_content</code><span class="sig-paren">(</span><em>color_number</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.color_content" title="永久链接至目标">¶</a></dt>
 <dd><p>Return the intensity of the red, green, and blue (RGB) components in the color
-<em>color_number</em>, which must be between <code class="docutils literal"><span class="pre">0</span></code> and <code class="xref py py-const docutils literal"><span class="pre">COLORS</span></code>.  A 3-tuple is
-returned, containing the R,G,B values for the given color, which will be between
+<em>color_number</em>, which must be between <code class="docutils literal"><span class="pre">0</span></code> and <code class="xref py py-const docutils literal"><span class="pre">COLORS</span></code>.  Return a 3-tuple,
+containing the R,G,B values for the given color, which will be between
 <code class="docutils literal"><span class="pre">0</span></code> (no component) and <code class="docutils literal"><span class="pre">1000</span></code> (maximum amount of component).</p>
 </dd></dl>
 
@@ -198,9 +205,9 @@ to this function.</p>
 <dl class="function">
 <dt id="curses.curs_set">
 <code class="descclassname">curses.</code><code class="descname">curs_set</code><span class="sig-paren">(</span><em>visibility</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.curs_set" title="永久链接至目标">¶</a></dt>
-<dd><p>Set the cursor state.  <em>visibility</em> can be set to 0, 1, or 2, for invisible,
-normal, or very visible.  If the terminal supports the visibility requested, the
-previous cursor state is returned; otherwise, an exception is raised.  On many
+<dd><p>Set the cursor state.  <em>visibility</em> can be set to <code class="docutils literal"><span class="pre">0</span></code>, <code class="docutils literal"><span class="pre">1</span></code>, or <code class="docutils literal"><span class="pre">2</span></code>, for invisible,
+normal, or very visible.  If the terminal supports the visibility requested, return the
+previous cursor state; otherwise raise an exception.  On many
 terminals, the “visible” mode is an underline cursor and the “very visible” mode
 is a block cursor.</p>
 </dd></dl>
@@ -236,12 +243,12 @@ program is using curses capabilities.) Subsequent calls to
 representing the current physical screen contents and a virtual screen
 representing the desired next state.  The <a class="reference internal" href="#curses.doupdate" title="curses.doupdate"><code class="xref py py-func docutils literal"><span class="pre">doupdate()</span></code></a> ground updates the
 physical screen to match the virtual screen.</p>
-<p>The virtual screen may be updated by a <code class="xref py py-meth docutils literal"><span class="pre">noutrefresh()</span></code> call after write
-operations such as <code class="xref py py-meth docutils literal"><span class="pre">addstr()</span></code> have been performed on a window.  The normal
-<code class="xref py py-meth docutils literal"><span class="pre">refresh()</span></code> call is simply <code class="xref py py-meth docutils literal"><span class="pre">noutrefresh()</span></code> followed by <a class="reference internal" href="#curses.doupdate" title="curses.doupdate"><code class="xref py py-func docutils literal"><span class="pre">doupdate()</span></code></a>;
+<p>The virtual screen may be updated by a <a class="reference internal" href="#curses.window.noutrefresh" title="curses.window.noutrefresh"><code class="xref py py-meth docutils literal"><span class="pre">noutrefresh()</span></code></a> call after write
+operations such as <a class="reference internal" href="#curses.window.addstr" title="curses.window.addstr"><code class="xref py py-meth docutils literal"><span class="pre">addstr()</span></code></a> have been performed on a window.  The normal
+<a class="reference internal" href="#curses.window.refresh" title="curses.window.refresh"><code class="xref py py-meth docutils literal"><span class="pre">refresh()</span></code></a> call is simply <code class="xref py py-meth docutils literal"><span class="pre">noutrefresh()</span></code> followed by <code class="xref py py-func docutils literal"><span class="pre">doupdate()</span></code>;
 if you have to update multiple windows, you can speed performance and perhaps
 reduce screen flicker by issuing <code class="xref py py-meth docutils literal"><span class="pre">noutrefresh()</span></code> calls on all windows,
-followed by a single <a class="reference internal" href="#curses.doupdate" title="curses.doupdate"><code class="xref py py-func docutils literal"><span class="pre">doupdate()</span></code></a>.</p>
+followed by a single <code class="xref py py-func docutils literal"><span class="pre">doupdate()</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -260,7 +267,7 @@ it is entered.</p>
 <dl class="function">
 <dt id="curses.erasechar">
 <code class="descclassname">curses.</code><code class="descname">erasechar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.erasechar" title="永久链接至目标">¶</a></dt>
-<dd><p>Return the user’s current erase character.  Under Unix operating systems this
+<dd><p>Return the user’s current erase character as a one-byte bytes object.  Under Unix operating systems this
 is a property of the controlling tty of the curses program, and is not set by
 the curses library itself.</p>
 </dd></dl>
@@ -269,9 +276,9 @@ the curses library itself.</p>
 <dt id="curses.filter">
 <code class="descclassname">curses.</code><code class="descname">filter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.filter" title="永久链接至目标">¶</a></dt>
 <dd><p>The <a class="reference internal" href="#curses.filter" title="curses.filter"><code class="xref py py-func docutils literal"><span class="pre">filter()</span></code></a> routine, if used, must be called before <a class="reference internal" href="#curses.initscr" title="curses.initscr"><code class="xref py py-func docutils literal"><span class="pre">initscr()</span></code></a> is
-called.  The effect is that, during those calls, <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal"><span class="pre">LINES</span></code> is set to 1; the
-capabilities clear, cup, cud, cud1, cuu1, cuu, vpa are disabled; and the home
-string is set to the value of cr. The effect is that the cursor is confined to
+called.  The effect is that, during those calls, <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal"><span class="pre">LINES</span></code> is set to <code class="docutils literal"><span class="pre">1</span></code>; the
+capabilities <code class="docutils literal"><span class="pre">clear</span></code>, <code class="docutils literal"><span class="pre">cup</span></code>, <code class="docutils literal"><span class="pre">cud</span></code>, <code class="docutils literal"><span class="pre">cud1</span></code>, <code class="docutils literal"><span class="pre">cuu1</span></code>, <code class="docutils literal"><span class="pre">cuu</span></code>, <code class="docutils literal"><span class="pre">vpa</span></code> are disabled; and the <code class="docutils literal"><span class="pre">home</span></code>
+string is set to the value of <code class="docutils literal"><span class="pre">cr</span></code>. The effect is that the cursor is confined to
 the current line, and so are screen updates.  This may be used for enabling
 character-at-a-time  line editing without touching the rest of the screen.</p>
 </dd></dl>
@@ -294,7 +301,7 @@ by the user and has not yet been processed by the program.</p>
 <dl class="function">
 <dt id="curses.getmouse">
 <code class="descclassname">curses.</code><code class="descname">getmouse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.getmouse" title="永久链接至目标">¶</a></dt>
-<dd><p>After <code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code> returns <code class="xref py py-const docutils literal"><span class="pre">KEY_MOUSE</span></code> to signal a mouse event, this
+<dd><p>After <a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code></a> returns <code class="xref py py-const docutils literal"><span class="pre">KEY_MOUSE</span></code> to signal a mouse event, this
 method should be call to retrieve the queued mouse event, represented as a
 5-tuple <code class="docutils literal"><span class="pre">(id,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z,</span> <span class="pre">bstate)</span></code>. <em>id</em> is an ID value used to distinguish
 multiple devices, and <em>x</em>, <em>y</em>, <em>z</em> are the event’s coordinates.  (<em>z</em> is
@@ -309,8 +316,8 @@ following constants, where <em>n</em> is the button number from 1 to 4:
 <dl class="function">
 <dt id="curses.getsyx">
 <code class="descclassname">curses.</code><code class="descname">getsyx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.getsyx" title="永久链接至目标">¶</a></dt>
-<dd><p>Return the current coordinates of the virtual screen cursor in y and x.  If
-leaveok is currently true, then -1,-1 is returned.</p>
+<dd><p>Return the current coordinates of the virtual screen cursor as a tuple
+<code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code>.  If <a class="reference internal" href="#curses.window.leaveok" title="curses.window.leaveok"><code class="xref py py-meth docutils literal"><span class="pre">leaveok</span></code></a> is currently <code class="docutils literal"><span class="pre">True</span></code>, then return <code class="docutils literal"><span class="pre">(-1,</span> <span class="pre">-1)</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -356,7 +363,7 @@ a key with that value.</p>
 <code class="descclassname">curses.</code><code class="descname">halfdelay</code><span class="sig-paren">(</span><em>tenths</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.halfdelay" title="永久链接至目标">¶</a></dt>
 <dd><p>Used for half-delay mode, which is similar to cbreak mode in that characters
 typed by the user are immediately available to the program. However, after
-blocking for <em>tenths</em> tenths of seconds, an exception is raised if nothing has
+blocking for <em>tenths</em> tenths of seconds, raise an exception if nothing has
 been typed.  The value of <em>tenths</em> must be a number between <code class="docutils literal"><span class="pre">1</span></code> and <code class="docutils literal"><span class="pre">255</span></code>.  Use
 <a class="reference internal" href="#curses.nocbreak" title="curses.nocbreak"><code class="xref py py-func docutils literal"><span class="pre">nocbreak()</span></code></a> to leave half-delay mode.</p>
 </dd></dl>
@@ -370,7 +377,7 @@ components).  The value of <em>color_number</em> must be between <code class="do
 <code class="xref py py-const docutils literal"><span class="pre">COLORS</span></code>.  Each of <em>r</em>, <em>g</em>, <em>b</em>, must be a value between <code class="docutils literal"><span class="pre">0</span></code> and
 <code class="docutils literal"><span class="pre">1000</span></code>.  When <a class="reference internal" href="#curses.init_color" title="curses.init_color"><code class="xref py py-func docutils literal"><span class="pre">init_color()</span></code></a> is used, all occurrences of that color on the
 screen immediately change to the new definition.  This function is a no-op on
-most terminals; it is active only if <a class="reference internal" href="#curses.can_change_color" title="curses.can_change_color"><code class="xref py py-func docutils literal"><span class="pre">can_change_color()</span></code></a> returns <code class="docutils literal"><span class="pre">1</span></code>.</p>
+most terminals; it is active only if <a class="reference internal" href="#curses.can_change_color" title="curses.can_change_color"><code class="xref py py-func docutils literal"><span class="pre">can_change_color()</span></code></a> returns <code class="docutils literal"><span class="pre">True</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -415,18 +422,18 @@ been deinitialized).</p>
 <dl class="function">
 <dt id="curses.keyname">
 <code class="descclassname">curses.</code><code class="descname">keyname</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.keyname" title="永久链接至目标">¶</a></dt>
-<dd><p>Return the name of the key numbered <em>k</em>.  The name of a key generating printable
+<dd><p>Return the name of the key numbered <em>k</em> as a bytes object.  The name of a key generating printable
 ASCII character is the key’s character.  The name of a control-key combination
-is a two-character string consisting of a caret followed by the corresponding
+is a two-byte bytes object consisting of a caret (<code class="docutils literal"><span class="pre">b'^'</span></code>) followed by the corresponding
 printable ASCII character.  The name of an alt-key combination (128–255) is a
-string consisting of the prefix ‘M-‘ followed by the name of the corresponding
+bytes object consisting of the prefix <code class="docutils literal"><span class="pre">b'M-'</span></code> followed by the name of the corresponding
 ASCII character.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="curses.killchar">
 <code class="descclassname">curses.</code><code class="descname">killchar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.killchar" title="永久链接至目标">¶</a></dt>
-<dd><p>Return the user’s current line kill character. Under Unix operating systems
+<dd><p>Return the user’s current line kill character as a one-byte bytes object. Under Unix operating systems
 this is a property of the controlling tty of the curses program, and is not set
 by the curses library itself.</p>
 </dd></dl>
@@ -434,16 +441,16 @@ by the curses library itself.</p>
 <dl class="function">
 <dt id="curses.longname">
 <code class="descclassname">curses.</code><code class="descname">longname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.longname" title="永久链接至目标">¶</a></dt>
-<dd><p>Return a string containing the terminfo long name field describing the current
+<dd><p>Return a bytes object containing the terminfo long name field describing the current
 terminal.  The maximum length of a verbose description is 128 characters.  It is
 defined only after the call to <a class="reference internal" href="#curses.initscr" title="curses.initscr"><code class="xref py py-func docutils literal"><span class="pre">initscr()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="curses.meta">
-<code class="descclassname">curses.</code><code class="descname">meta</code><span class="sig-paren">(</span><em>yes</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.meta" title="永久链接至目标">¶</a></dt>
-<dd><p>If <em>yes</em> is 1, allow 8-bit characters to be input. If <em>yes</em> is 0,  allow only
-7-bit chars.</p>
+<code class="descclassname">curses.</code><code class="descname">meta</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.meta" title="永久链接至目标">¶</a></dt>
+<dd><p>If <em>flag</em> is <code class="docutils literal"><span class="pre">True</span></code>, allow 8-bit characters to be input.  If
+<em>flag</em> is <code class="docutils literal"><span class="pre">False</span></code>,  allow only 7-bit chars.</p>
 </dd></dl>
 
 <dl class="function">
@@ -459,7 +466,7 @@ interval value.  The default value is 200 msec, or one fifth of a second.</p>
 <code class="descclassname">curses.</code><code class="descname">mousemask</code><span class="sig-paren">(</span><em>mousemask</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.mousemask" title="永久链接至目标">¶</a></dt>
 <dd><p>Set the mouse events to be reported, and return a tuple <code class="docutils literal"><span class="pre">(availmask,</span>
 <span class="pre">oldmask)</span></code>.   <em>availmask</em> indicates which of the specified mouse events can be
-reported; on complete failure it returns 0.  <em>oldmask</em> is the previous value of
+reported; on complete failure it returns <code class="docutils literal"><span class="pre">0</span></code>.  <em>oldmask</em> is the previous value of
 the given window’s mouse event mask.  If this function is never called, no mouse
 events are ever reported.</p>
 </dd></dl>
@@ -474,12 +481,12 @@ events are ever reported.</p>
 <dt id="curses.newpad">
 <code class="descclassname">curses.</code><code class="descname">newpad</code><span class="sig-paren">(</span><em>nlines</em>, <em>ncols</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.newpad" title="永久链接至目标">¶</a></dt>
 <dd><p>Create and return a pointer to a new pad data structure with the given number
-of lines and columns.  A pad is returned as a window object.</p>
+of lines and columns.  Return a pad as a window object.</p>
 <p>A pad is like a window, except that it is not restricted by the screen size, and
 is not necessarily associated with a particular part of the screen.  Pads can be
 used when a large window is needed, and only a part of the window will be on the
 screen at one time.  Automatic refreshes of pads (such as from scrolling or
-echoing of input) do not occur.  The <code class="xref py py-meth docutils literal"><span class="pre">refresh()</span></code> and <code class="xref py py-meth docutils literal"><span class="pre">noutrefresh()</span></code>
+echoing of input) do not occur.  The <a class="reference internal" href="#curses.window.refresh" title="curses.window.refresh"><code class="xref py py-meth docutils literal"><span class="pre">refresh()</span></code></a> and <a class="reference internal" href="#curses.window.noutrefresh" title="curses.window.noutrefresh"><code class="xref py py-meth docutils literal"><span class="pre">noutrefresh()</span></code></a>
 methods of a pad require 6 arguments to specify the part of the pad to be
 displayed and the location on the screen to be used for the display. The
 arguments are <em>pminrow</em>, <em>pmincol</em>, <em>sminrow</em>, <em>smincol</em>, <em>smaxrow</em>, <em>smaxcol</em>; the <em>p</em>
@@ -533,9 +540,9 @@ able to detect the return key on input.</p>
 <dl class="function">
 <dt id="curses.noqiflush">
 <code class="descclassname">curses.</code><code class="descname">noqiflush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.noqiflush" title="永久链接至目标">¶</a></dt>
-<dd><p>When the <a class="reference internal" href="#curses.noqiflush" title="curses.noqiflush"><code class="xref py py-func docutils literal"><span class="pre">noqiflush()</span></code></a> routine is used, normal flush of input and output queues
-associated with the INTR, QUIT and SUSP characters will not be done.  You may
-want to call <a class="reference internal" href="#curses.noqiflush" title="curses.noqiflush"><code class="xref py py-func docutils literal"><span class="pre">noqiflush()</span></code></a> in a signal handler if you want output to
+<dd><p>When the <code class="xref py py-func docutils literal"><span class="pre">noqiflush()</span></code> routine is used, normal flush of input and output queues
+associated with the <code class="docutils literal"><span class="pre">INTR</span></code>, <code class="docutils literal"><span class="pre">QUIT</span></code> and <code class="docutils literal"><span class="pre">SUSP</span></code> characters will not be done.  You may
+want to call <code class="xref py py-func docutils literal"><span class="pre">noqiflush()</span></code> in a signal handler if you want output to
 continue as though the interrupt had not occurred, after the handler exits.</p>
 </dd></dl>
 
@@ -561,7 +568,7 @@ The value of <em>pair_number</em> must be between <code class="docutils literal"
 
 <dl class="function">
 <dt id="curses.putp">
-<code class="descclassname">curses.</code><code class="descname">putp</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.putp" title="永久链接至目标">¶</a></dt>
+<code class="descclassname">curses.</code><code class="descname">putp</code><span class="sig-paren">(</span><em>str</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.putp" title="永久链接至目标">¶</a></dt>
 <dd><p>Equivalent to <code class="docutils literal"><span class="pre">tputs(str,</span> <span class="pre">1,</span> <span class="pre">putchar)</span></code>; emit the value of a specified
 terminfo capability for the current terminal.  Note that the output of <a class="reference internal" href="#curses.putp" title="curses.putp"><code class="xref py py-func docutils literal"><span class="pre">putp()</span></code></a>
 always goes to standard output.</p>
@@ -610,7 +617,7 @@ presented to curses input functions one by one.</p>
 <dd><p>Backend function used by <a class="reference internal" href="#curses.resizeterm" title="curses.resizeterm"><code class="xref py py-func docutils literal"><span class="pre">resizeterm()</span></code></a>, performing most of the work;
 when resizing the windows, <a class="reference internal" href="#curses.resize_term" title="curses.resize_term"><code class="xref py py-func docutils literal"><span class="pre">resize_term()</span></code></a> blank-fills the areas that are
 extended.  The calling application should fill in these areas with
-appropriate data.  The <a class="reference internal" href="#curses.resize_term" title="curses.resize_term"><code class="xref py py-func docutils literal"><span class="pre">resize_term()</span></code></a> function attempts to resize all
+appropriate data.  The <code class="xref py py-func docutils literal"><span class="pre">resize_term()</span></code> function attempts to resize all
 windows.  However, due to the calling convention of pads, it is not possible
 to resize these without additional interaction with the application.</p>
 </dd></dl>
@@ -633,17 +640,18 @@ window dimensions (in particular the SIGWINCH handler).</p>
 <dl class="function">
 <dt id="curses.setsyx">
 <code class="descclassname">curses.</code><code class="descname">setsyx</code><span class="sig-paren">(</span><em>y</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.setsyx" title="永久链接至目标">¶</a></dt>
-<dd><p>Set the virtual screen cursor to <em>y</em>, <em>x</em>. If <em>y</em> and <em>x</em> are both -1, then
-leaveok is set.</p>
+<dd><p>Set the virtual screen cursor to <em>y</em>, <em>x</em>. If <em>y</em> and <em>x</em> are both <code class="docutils literal"><span class="pre">-1</span></code>, then
+<a class="reference internal" href="#curses.window.leaveok" title="curses.window.leaveok"><code class="xref py py-meth docutils literal"><span class="pre">leaveok</span></code></a> is set <code class="docutils literal"><span class="pre">True</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="curses.setupterm">
-<code class="descclassname">curses.</code><code class="descname">setupterm</code><span class="sig-paren">(</span><span class="optional">[</span><em>termstr</em>, <em>fd</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.setupterm" title="永久链接至目标">¶</a></dt>
-<dd><p>Initialize the terminal.  <em>termstr</em> is a string giving the terminal name; if
-omitted, the value of the <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal"><span class="pre">TERM</span></code> environment variable will be used.  <em>fd</em> is the
+<code class="descclassname">curses.</code><code class="descname">setupterm</code><span class="sig-paren">(</span><em>term=None</em>, <em>fd=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.setupterm" title="永久链接至目标">¶</a></dt>
+<dd><p>Initialize the terminal.  <em>term</em> is a string giving
+the terminal name, or <code class="docutils literal"><span class="pre">None</span></code>; if omitted or <code class="docutils literal"><span class="pre">None</span></code>, the value of the
+<span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal"><span class="pre">TERM</span></code> environment variable will be used.  <em>fd</em> is the
 file descriptor to which any initialization sequences will be sent; if not
-supplied, the file descriptor for <code class="docutils literal"><span class="pre">sys.stdout</span></code> will be used.</p>
+supplied or <code class="docutils literal"><span class="pre">-1</span></code>, the file descriptor for <code class="docutils literal"><span class="pre">sys.stdout</span></code> will be used.</p>
 </dd></dl>
 
 <dl class="function">
@@ -670,14 +678,15 @@ appearance of the screen.</p>
 <dl class="function">
 <dt id="curses.termname">
 <code class="descclassname">curses.</code><code class="descname">termname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.termname" title="永久链接至目标">¶</a></dt>
-<dd><p>Return the value of the environment variable <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal"><span class="pre">TERM</span></code>, truncated to 14 characters.</p>
+<dd><p>Return the value of the environment variable <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal"><span class="pre">TERM</span></code>, as a bytes object,
+truncated to 14 characters.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="curses.tigetflag">
 <code class="descclassname">curses.</code><code class="descname">tigetflag</code><span class="sig-paren">(</span><em>capname</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.tigetflag" title="永久链接至目标">¶</a></dt>
 <dd><p>Return the value of the Boolean capability corresponding to the terminfo
-capability name <em>capname</em>.  The value <code class="docutils literal"><span class="pre">-1</span></code> is returned if <em>capname</em> is not a
+capability name <em>capname</em> as an integer.  Return the value <code class="docutils literal"><span class="pre">-1</span></code> if <em>capname</em> is not a
 Boolean capability, or <code class="docutils literal"><span class="pre">0</span></code> if it is canceled or absent from the terminal
 description.</p>
 </dd></dl>
@@ -686,7 +695,7 @@ description.</p>
 <dt id="curses.tigetnum">
 <code class="descclassname">curses.</code><code class="descname">tigetnum</code><span class="sig-paren">(</span><em>capname</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.tigetnum" title="永久链接至目标">¶</a></dt>
 <dd><p>Return the value of the numeric capability corresponding to the terminfo
-capability name <em>capname</em>.  The value <code class="docutils literal"><span class="pre">-2</span></code> is returned if <em>capname</em> is not a
+capability name <em>capname</em> as an integer.  Return the value <code class="docutils literal"><span class="pre">-2</span></code> if <em>capname</em> is not a
 numeric capability, or <code class="docutils literal"><span class="pre">-1</span></code> if it is canceled or absent from the terminal
 description.</p>
 </dd></dl>
@@ -695,14 +704,15 @@ description.</p>
 <dt id="curses.tigetstr">
 <code class="descclassname">curses.</code><code class="descname">tigetstr</code><span class="sig-paren">(</span><em>capname</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.tigetstr" title="永久链接至目标">¶</a></dt>
 <dd><p>Return the value of the string capability corresponding to the terminfo
-capability name <em>capname</em>.  <code class="docutils literal"><span class="pre">None</span></code> is returned if <em>capname</em> is not a string
-capability, or is canceled or absent from the terminal description.</p>
+capability name <em>capname</em> as a bytes object.  Return <code class="docutils literal"><span class="pre">None</span></code> if <em>capname</em>
+is not a terminfo “string capability”, or is canceled or absent from the
+terminal description.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="curses.tparm">
 <code class="descclassname">curses.</code><code class="descname">tparm</code><span class="sig-paren">(</span><em>str</em><span class="optional">[</span>, <em>...</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.tparm" title="永久链接至目标">¶</a></dt>
-<dd><p>Instantiate the string <em>str</em> with the supplied parameters, where <em>str</em> should
+<dd><p>Instantiate the bytes object <em>str</em> with the supplied parameters, where <em>str</em> should
 be a parameterized string obtained from the terminfo database.  E.g.
 <code class="docutils literal"><span class="pre">tparm(tigetstr(&quot;cup&quot;),</span> <span class="pre">5,</span> <span class="pre">3)</span></code> could result in <code class="docutils literal"><span class="pre">b'\033[6;4H'</span></code>, the exact
 result depending on terminal type.</p>
@@ -723,15 +733,15 @@ allows specifying a different file descriptor for typeahead checking.</p>
 <dl class="function">
 <dt id="curses.unctrl">
 <code class="descclassname">curses.</code><code class="descname">unctrl</code><span class="sig-paren">(</span><em>ch</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.unctrl" title="永久链接至目标">¶</a></dt>
-<dd><p>Return a string which is a printable representation of the character <em>ch</em>.
-Control characters are displayed as a caret followed by the character, for
-example as <code class="docutils literal"><span class="pre">^C</span></code>. Printing characters are left as they are.</p>
+<dd><p>Return a bytes object which is a printable representation of the character <em>ch</em>.
+Control characters are represented as a caret followed by the character, for
+example as <code class="docutils literal"><span class="pre">b'^C'</span></code>. Printing characters are left as they are.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="curses.ungetch">
 <code class="descclassname">curses.</code><code class="descname">ungetch</code><span class="sig-paren">(</span><em>ch</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.ungetch" title="永久链接至目标">¶</a></dt>
-<dd><p>Push <em>ch</em> so the next <code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code> will return it.</p>
+<dd><p>Push <em>ch</em> so the next <a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code></a> will return it.</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">Only one <em>ch</em> can be pushed before <code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code> is called.</p>
@@ -750,7 +760,7 @@ example as <code class="docutils literal"><span class="pre">^C</span></code>. Pr
 <dl class="function">
 <dt id="curses.unget_wch">
 <code class="descclassname">curses.</code><code class="descname">unget_wch</code><span class="sig-paren">(</span><em>ch</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.unget_wch" title="永久链接至目标">¶</a></dt>
-<dd><p>Push <em>ch</em> so the next <code class="xref py py-meth docutils literal"><span class="pre">get_wch()</span></code> will return it.</p>
+<dd><p>Push <em>ch</em> so the next <a class="reference internal" href="#curses.window.get_wch" title="curses.window.get_wch"><code class="xref py py-meth docutils literal"><span class="pre">get_wch()</span></code></a> will return it.</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">Only one <em>ch</em> can be pushed before <code class="xref py py-meth docutils literal"><span class="pre">get_wch()</span></code> is called.</p>
@@ -783,7 +793,7 @@ window (in which case default behavior would be to use the window size if
 <code class="descclassname">curses.</code><code class="descname">use_default_colors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.use_default_colors" title="永久链接至目标">¶</a></dt>
 <dd><p>Allow use of default values for colors on terminals supporting this feature. Use
 this to support transparency in your application.  The default color is assigned
-to the color number -1. After calling this function,  <code class="docutils literal"><span class="pre">init_pair(x,</span>
+to the color number <code class="docutils literal"><span class="pre">-1</span></code>. After calling this function,  <code class="docutils literal"><span class="pre">init_pair(x,</span>
 <span class="pre">curses.COLOR_RED,</span> <span class="pre">-1)</span></code> initializes, for instance, color pair <em>x</em> to a red
 foreground color on the default background.</p>
 </dd></dl>
@@ -796,7 +806,7 @@ rest of your curses-using application.  If the application raises an exception,
 this function will restore the terminal to a sane state before re-raising the
 exception and generating a traceback.  The callable object <em>func</em> is then passed
 the main window ‘stdscr’ as its first argument, followed by any other arguments
-passed to <a class="reference internal" href="#curses.wrapper" title="curses.wrapper"><code class="xref py py-func docutils literal"><span class="pre">wrapper()</span></code></a>.  Before calling <em>func</em>, <a class="reference internal" href="#curses.wrapper" title="curses.wrapper"><code class="xref py py-func docutils literal"><span class="pre">wrapper()</span></code></a> turns on
+passed to <code class="xref py py-func docutils literal"><span class="pre">wrapper()</span></code>.  Before calling <em>func</em>, <code class="xref py py-func docutils literal"><span class="pre">wrapper()</span></code> turns on
 cbreak mode, turns off echo, enables the terminal keypad, and initializes colors
 if the terminal has color support.  On exit (whether normally or by exception)
 it restores cooked mode, turns on echo, and disables the terminal keypad.</p>
@@ -812,14 +822,7 @@ the following methods and attributes:</p>
 <code class="descclassname">window.</code><code class="descname">addch</code><span class="sig-paren">(</span><em>ch</em><span class="optional">[</span>, <em>attr</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.addch" title="永久链接至目标">¶</a></dt>
 <dt>
 <code class="descclassname">window.</code><code class="descname">addch</code><span class="sig-paren">(</span><em>y</em>, <em>x</em>, <em>ch</em><span class="optional">[</span>, <em>attr</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><div class="admonition note">
-<p class="first admonition-title">注解</p>
-<p class="last">A <em>character</em> means a C character (an ASCII code), rather than a Python
-character (a string of length 1). (This note is true whenever the
-documentation mentions a character.) The built-in <a class="reference internal" href="functions.html#ord" title="ord"><code class="xref py py-func docutils literal"><span class="pre">ord()</span></code></a> is handy for
-conveying strings to codes.</p>
-</div>
-<p>Paint character <em>ch</em> at <code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code> with attributes <em>attr</em>, overwriting any
+<dd><p>Paint character <em>ch</em> at <code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code> with attributes <em>attr</em>, overwriting any
 character previously painter at that location.  By default, the character
 position and attributes are the current settings for the window object.</p>
 </dd></dl>
@@ -829,7 +832,8 @@ position and attributes are the current settings for the window object.</p>
 <code class="descclassname">window.</code><code class="descname">addnstr</code><span class="sig-paren">(</span><em>str</em>, <em>n</em><span class="optional">[</span>, <em>attr</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.addnstr" title="永久链接至目标">¶</a></dt>
 <dt>
 <code class="descclassname">window.</code><code class="descname">addnstr</code><span class="sig-paren">(</span><em>y</em>, <em>x</em>, <em>str</em>, <em>n</em><span class="optional">[</span>, <em>attr</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><p>Paint at most <em>n</em> characters of the  string <em>str</em> at <code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code> with attributes
+<dd><p>Paint at most <em>n</em> characters of the character string <em>str</em> at
+<code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code> with attributes
 <em>attr</em>, overwriting anything previously on the display.</p>
 </dd></dl>
 
@@ -838,8 +842,8 @@ position and attributes are the current settings for the window object.</p>
 <code class="descclassname">window.</code><code class="descname">addstr</code><span class="sig-paren">(</span><em>str</em><span class="optional">[</span>, <em>attr</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.addstr" title="永久链接至目标">¶</a></dt>
 <dt>
 <code class="descclassname">window.</code><code class="descname">addstr</code><span class="sig-paren">(</span><em>y</em>, <em>x</em>, <em>str</em><span class="optional">[</span>, <em>attr</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><p>Paint the string <em>str</em> at <code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code> with attributes <em>attr</em>, overwriting
-anything previously on the display.</p>
+<dd><p>Paint the character string <em>str</em> at <code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code> with attributes
+<em>attr</em>, overwriting anything previously on the display.</p>
 </dd></dl>
 
 <dl class="method">
@@ -859,8 +863,8 @@ current window.</p>
 <dl class="method">
 <dt id="curses.window.attrset">
 <code class="descclassname">window.</code><code class="descname">attrset</code><span class="sig-paren">(</span><em>attr</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.attrset" title="永久链接至目标">¶</a></dt>
-<dd><p>Set the “background” set of attributes to <em>attr</em>.  This set is initially 0 (no
-attributes).</p>
+<dd><p>Set the “background” set of attributes to <em>attr</em>.  This set is initially
+<code class="docutils literal"><span class="pre">0</span></code> (no attributes).</p>
 </dd></dl>
 
 <dl class="method">
@@ -893,8 +897,7 @@ the character through any scrolling and insert/delete line/character operations.
 <code class="descclassname">window.</code><code class="descname">border</code><span class="sig-paren">(</span><span class="optional">[</span><em>ls</em><span class="optional">[</span>, <em>rs</em><span class="optional">[</span>, <em>ts</em><span class="optional">[</span>, <em>bs</em><span class="optional">[</span>, <em>tl</em><span class="optional">[</span>, <em>tr</em><span class="optional">[</span>, <em>bl</em><span class="optional">[</span>, <em>br</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.border" title="永久链接至目标">¶</a></dt>
 <dd><p>Draw a border around the edges of the window. Each parameter specifies  the
 character to use for a specific part of the border; see the table below for more
-details.  The characters can be specified as integers or as one-character
-strings.</p>
+details.</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">A <code class="docutils literal"><span class="pre">0</span></code> value for any parameter will cause the default character to be used for
@@ -967,11 +970,11 @@ in this table:</p>
 <dt>
 <code class="descclassname">window.</code><code class="descname">chgat</code><span class="sig-paren">(</span><em>y</em>, <em>x</em>, <em>num</em>, <em>attr</em><span class="sig-paren">)</span></dt>
 <dd><p>Set the attributes of <em>num</em> characters at the current cursor position, or at
-position <code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code> if supplied. If no value of <em>num</em> is given or <em>num</em> = -1,
-the attribute will  be set on all the characters to the end of the line.  This
-function does not move the cursor. The changed line will be touched using the
-<a class="reference internal" href="#curses.window.touchline" title="curses.window.touchline"><code class="xref py py-meth docutils literal"><span class="pre">touchline()</span></code></a> method so that the contents will be redisplayed by the next
-window refresh.</p>
+position <code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code> if supplied. If <em>num</em> is not given or is <code class="docutils literal"><span class="pre">-1</span></code>,
+the attribute will be set on all the characters to the end of the line.  This
+function moves cursor to position <code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code> if supplied. The changed line
+will be touched using the <a class="reference internal" href="#curses.window.touchline" title="curses.window.touchline"><code class="xref py py-meth docutils literal"><span class="pre">touchline()</span></code></a> method so that the contents will
+be redisplayed by the next window refresh.</p>
 </dd></dl>
 
 <dl class="method">
@@ -983,8 +986,8 @@ call to <a class="reference internal" href="#curses.window.refresh" title="curse
 
 <dl class="method">
 <dt id="curses.window.clearok">
-<code class="descclassname">window.</code><code class="descname">clearok</code><span class="sig-paren">(</span><em>yes</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.clearok" title="永久链接至目标">¶</a></dt>
-<dd><p>If <em>yes</em> is 1, the next call to <a class="reference internal" href="#curses.window.refresh" title="curses.window.refresh"><code class="xref py py-meth docutils literal"><span class="pre">refresh()</span></code></a> will clear the window
+<code class="descclassname">window.</code><code class="descname">clearok</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.clearok" title="永久链接至目标">¶</a></dt>
+<dd><p>If <em>flag</em> is <code class="docutils literal"><span class="pre">True</span></code>, the next call to <a class="reference internal" href="#curses.window.refresh" title="curses.window.refresh"><code class="xref py py-meth docutils literal"><span class="pre">refresh()</span></code></a> will clear the window
 completely.</p>
 </dd></dl>
 
@@ -1081,16 +1084,17 @@ encoding is used (see <a class="reference internal" href="locale.html#locale.get
 <dt id="curses.window.getch">
 <code class="descclassname">window.</code><code class="descname">getch</code><span class="sig-paren">(</span><span class="optional">[</span><em>y</em>, <em>x</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.getch" title="永久链接至目标">¶</a></dt>
 <dd><p>Get a character. Note that the integer returned does <em>not</em> have to be in ASCII
-range: function keys, keypad keys and so on return numbers higher than 256. In
-no-delay mode, -1 is returned if there is no input, else <a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-func docutils literal"><span class="pre">getch()</span></code></a> waits
-until a key is pressed.</p>
+range: function keys, keypad keys and so on are represented by numbers higher
+than 255.  In no-delay mode, return <code class="docutils literal"><span class="pre">-1</span></code> if there is no input, otherwise
+wait until a key is pressed.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="curses.window.get_wch">
 <code class="descclassname">window.</code><code class="descname">get_wch</code><span class="sig-paren">(</span><span class="optional">[</span><em>y</em>, <em>x</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.get_wch" title="永久链接至目标">¶</a></dt>
 <dd><p>Get a wide character. Return a character for most keys, or an integer for
-function keys, keypad keys, and other special keys.</p>
+function keys, keypad keys, and other special keys.
+In no-delay mode, raise an exception if there is no input.</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.3 新版功能.</span></p>
 </div>
@@ -1101,7 +1105,7 @@ function keys, keypad keys, and other special keys.</p>
 <code class="descclassname">window.</code><code class="descname">getkey</code><span class="sig-paren">(</span><span class="optional">[</span><em>y</em>, <em>x</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.getkey" title="永久链接至目标">¶</a></dt>
 <dd><p>Get a character, returning a string instead of an integer, as <a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code></a>
 does. Function keys, keypad keys and other special keys return a multibyte
-string containing the key name.  In no-delay mode, an exception is raised if
+string containing the key name.  In no-delay mode, raise an exception if
 there is no input.</p>
 </dd></dl>
 
@@ -1115,14 +1119,20 @@ there is no input.</p>
 <dt id="curses.window.getparyx">
 <code class="descclassname">window.</code><code class="descname">getparyx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.getparyx" title="永久链接至目标">¶</a></dt>
 <dd><p>Return the beginning coordinates of this window relative to its parent window
-into two integer variables y and x.  Return <code class="docutils literal"><span class="pre">-1,</span> <span class="pre">-1</span></code> if this window has no
+as a tuple <code class="docutils literal"><span class="pre">(y,</span> <span class="pre">x)</span></code>.  Return <code class="docutils literal"><span class="pre">(-1,</span> <span class="pre">-1)</span></code> if this window has no
 parent.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="curses.window.getstr">
-<code class="descclassname">window.</code><code class="descname">getstr</code><span class="sig-paren">(</span><span class="optional">[</span><em>y</em>, <em>x</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.getstr" title="永久链接至目标">¶</a></dt>
-<dd><p>Read a string from the user, with primitive line editing capacity.</p>
+<code class="descclassname">window.</code><code class="descname">getstr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.getstr" title="永久链接至目标">¶</a></dt>
+<dt>
+<code class="descclassname">window.</code><code class="descname">getstr</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span></dt>
+<dt>
+<code class="descclassname">window.</code><code class="descname">getstr</code><span class="sig-paren">(</span><em>y</em>, <em>x</em><span class="sig-paren">)</span></dt>
+<dt>
+<code class="descclassname">window.</code><code class="descname">getstr</code><span class="sig-paren">(</span><em>y</em>, <em>x</em>, <em>n</em><span class="sig-paren">)</span></dt>
+<dd><p>Read a bytes object from the user, with primitive line editing capacity.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1152,8 +1162,8 @@ insert/delete is enabled by default.</p>
 
 <dl class="method">
 <dt id="curses.window.idlok">
-<code class="descclassname">window.</code><code class="descname">idlok</code><span class="sig-paren">(</span><em>yes</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.idlok" title="永久链接至目标">¶</a></dt>
-<dd><p>If called with <em>yes</em> equal to 1, <a class="reference internal" href="#module-curses" title="curses: An interface to the curses library, providing portable terminal handling. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">curses</span></code></a> will try and use hardware line
+<code class="descclassname">window.</code><code class="descname">idlok</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.idlok" title="永久链接至目标">¶</a></dt>
+<dd><p>If <em>flag</em> is <code class="docutils literal"><span class="pre">True</span></code>, <a class="reference internal" href="#module-curses" title="curses: An interface to the curses library, providing portable terminal handling. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">curses</span></code></a> will try and use hardware line
 editing facilities. Otherwise, line insertion/deletion are disabled.</p>
 </dd></dl>
 
@@ -1227,7 +1237,7 @@ position does not change (after moving to <em>y</em>, <em>x</em>, if specified).
 <code class="descclassname">window.</code><code class="descname">instr</code><span class="sig-paren">(</span><span class="optional">[</span><em>n</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.instr" title="永久链接至目标">¶</a></dt>
 <dt>
 <code class="descclassname">window.</code><code class="descname">instr</code><span class="sig-paren">(</span><em>y</em>, <em>x</em><span class="optional">[</span>, <em>n</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><p>Return a string of characters, extracted from the window starting at the
+<dd><p>Return a bytes object of characters, extracted from the window starting at the
 current cursor position, or at <em>y</em>, <em>x</em> if specified. Attributes are stripped
 from the characters.  If <em>n</em> is specified, <a class="reference internal" href="#curses.window.instr" title="curses.window.instr"><code class="xref py py-meth docutils literal"><span class="pre">instr()</span></code></a> returns a string
 at most <em>n</em> characters long (exclusive of the trailing NUL).</p>
@@ -1250,19 +1260,19 @@ exception if <em>line</em> is not valid for the given window.</p>
 
 <dl class="method">
 <dt id="curses.window.keypad">
-<code class="descclassname">window.</code><code class="descname">keypad</code><span class="sig-paren">(</span><em>yes</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.keypad" title="永久链接至目标">¶</a></dt>
-<dd><p>If <em>yes</em> is 1, escape sequences generated by some keys (keypad,  function keys)
-will be interpreted by <a class="reference internal" href="#module-curses" title="curses: An interface to the curses library, providing portable terminal handling. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">curses</span></code></a>. If <em>yes</em> is 0, escape sequences will be
+<code class="descclassname">window.</code><code class="descname">keypad</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.keypad" title="永久链接至目标">¶</a></dt>
+<dd><p>If <em>flag</em> is <code class="docutils literal"><span class="pre">True</span></code>, escape sequences generated by some keys (keypad,  function keys)
+will be interpreted by <a class="reference internal" href="#module-curses" title="curses: An interface to the curses library, providing portable terminal handling. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">curses</span></code></a>. If <em>flag</em> is <code class="docutils literal"><span class="pre">False</span></code>, escape sequences will be
 left as is in the input stream.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="curses.window.leaveok">
-<code class="descclassname">window.</code><code class="descname">leaveok</code><span class="sig-paren">(</span><em>yes</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.leaveok" title="永久链接至目标">¶</a></dt>
-<dd><p>If <em>yes</em> is 1, cursor is left where it is on update, instead of being at “cursor
+<code class="descclassname">window.</code><code class="descname">leaveok</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.leaveok" title="永久链接至目标">¶</a></dt>
+<dd><p>If <em>flag</em> is <code class="docutils literal"><span class="pre">True</span></code>, cursor is left where it is on update, instead of being at “cursor
 position.”  This reduces cursor movement where possible. If possible the cursor
 will be made invisible.</p>
-<p>If <em>yes</em> is 0, cursor will always be at “cursor position” after an update.</p>
+<p>If <em>flag</em> is <code class="docutils literal"><span class="pre">False</span></code>, cursor will always be at “cursor position” after an update.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1287,15 +1297,15 @@ the parent window at the same physical position on the screen.</p>
 
 <dl class="method">
 <dt id="curses.window.nodelay">
-<code class="descclassname">window.</code><code class="descname">nodelay</code><span class="sig-paren">(</span><em>yes</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.nodelay" title="永久链接至目标">¶</a></dt>
-<dd><p>If <em>yes</em> is <code class="docutils literal"><span class="pre">1</span></code>, <a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code></a> will be non-blocking.</p>
+<code class="descclassname">window.</code><code class="descname">nodelay</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.nodelay" title="永久链接至目标">¶</a></dt>
+<dd><p>If <em>flag</em> is <code class="docutils literal"><span class="pre">True</span></code>, <a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code></a> will be non-blocking.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="curses.window.notimeout">
-<code class="descclassname">window.</code><code class="descname">notimeout</code><span class="sig-paren">(</span><em>yes</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.notimeout" title="永久链接至目标">¶</a></dt>
-<dd><p>If <em>yes</em> is <code class="docutils literal"><span class="pre">1</span></code>, escape sequences will not be timed out.</p>
-<p>If <em>yes</em> is <code class="docutils literal"><span class="pre">0</span></code>, after a few milliseconds, an escape sequence will not be
+<code class="descclassname">window.</code><code class="descname">notimeout</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.notimeout" title="永久链接至目标">¶</a></dt>
+<dd><p>If <em>flag</em> is <code class="docutils literal"><span class="pre">True</span></code>, escape sequences will not be timed out.</p>
+<p>If <em>flag</em> is <code class="docutils literal"><span class="pre">False</span></code>, after a few milliseconds, an escape sequence will not be
 interpreted, and will be left in the input stream as is.</p>
 </dd></dl>
 
@@ -1391,8 +1401,8 @@ rendition (as set by <a class="reference internal" href="#curses.window.bkgdset"
 <code class="descclassname">window.</code><code class="descname">scrollok</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.scrollok" title="永久链接至目标">¶</a></dt>
 <dd><p>Control what happens when the cursor of a window is moved off the edge of the
 window or scrolling region, either as a result of a newline action on the bottom
-line, or typing the last character of the last line.  If <em>flag</em> is false, the
-cursor is left on the bottom line.  If <em>flag</em> is true, the window is scrolled up
+line, or typing the last character of the last line.  If <em>flag</em> is <code class="docutils literal"><span class="pre">False</span></code>, the
+cursor is left on the bottom line.  If <em>flag</em> is <code class="docutils literal"><span class="pre">True</span></code>, the window is scrolled up
 one line.  Note that in order to get the physical scrolling effect on the
 terminal, it is also necessary to call <a class="reference internal" href="#curses.window.idlok" title="curses.window.idlok"><code class="xref py py-meth docutils literal"><span class="pre">idlok()</span></code></a>.</p>
 </dd></dl>
@@ -1448,7 +1458,7 @@ be necessary to call it manually.</p>
 <dl class="method">
 <dt id="curses.window.syncok">
 <code class="descclassname">window.</code><code class="descname">syncok</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.syncok" title="永久链接至目标">¶</a></dt>
-<dd><p>If called with <em>flag</em> set to <code class="docutils literal"><span class="pre">True</span></code>, then <a class="reference internal" href="#curses.window.syncup" title="curses.window.syncup"><code class="xref py py-meth docutils literal"><span class="pre">syncup()</span></code></a> is called automatically
+<dd><p>If <em>flag</em> is <code class="docutils literal"><span class="pre">True</span></code>, then <a class="reference internal" href="#curses.window.syncup" title="curses.window.syncup"><code class="xref py py-meth docutils literal"><span class="pre">syncup()</span></code></a> is called automatically
 whenever there is a change in the window.</p>
 </dd></dl>
 
@@ -1464,9 +1474,9 @@ window.</p>
 <code class="descclassname">window.</code><code class="descname">timeout</code><span class="sig-paren">(</span><em>delay</em><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.timeout" title="永久链接至目标">¶</a></dt>
 <dd><p>Set blocking or non-blocking read behavior for the window.  If <em>delay</em> is
 negative, blocking read is used (which will wait indefinitely for input).  If
-<em>delay</em> is zero, then non-blocking read is used, and -1 will be returned by
-<a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code></a> if no input is waiting.  If <em>delay</em> is positive, then
-<a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code></a> will block for <em>delay</em> milliseconds, and return -1 if there is
+<em>delay</em> is zero, then non-blocking read is used, and <a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code></a> will
+return <code class="docutils literal"><span class="pre">-1</span></code> if no input is waiting.  If <em>delay</em> is positive, then
+<a class="reference internal" href="#curses.window.getch" title="curses.window.getch"><code class="xref py py-meth docutils literal"><span class="pre">getch()</span></code></a> will block for <em>delay</em> milliseconds, and return <code class="docutils literal"><span class="pre">-1</span></code> if there is
 still no input at the end of that time.</p>
 </dd></dl>
 
@@ -1475,7 +1485,7 @@ still no input at the end of that time.</p>
 <code class="descclassname">window.</code><code class="descname">touchline</code><span class="sig-paren">(</span><em>start</em>, <em>count</em><span class="optional">[</span>, <em>changed</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#curses.window.touchline" title="永久链接至目标">¶</a></dt>
 <dd><p>Pretend <em>count</em> lines have been changed, starting with line <em>start</em>.  If
 <em>changed</em> is supplied, it specifies whether the affected lines are marked as
-having been changed (<em>changed</em>=1) or unchanged (<em>changed</em>=0).</p>
+having been changed (<em>changed</em><code class="docutils literal"><span class="pre">=True</span></code>) or unchanged (<em>changed</em><code class="docutils literal"><span class="pre">=False</span></code>).</p>
 </dd></dl>
 
 <dl class="method">
@@ -1522,7 +1532,7 @@ character <em>ch</em>.</p>
 <dl class="data">
 <dt id="curses.version">
 <code class="descclassname">curses.</code><code class="descname">version</code><a class="headerlink" href="#curses.version" title="永久链接至目标">¶</a></dt>
-<dd><p>A string representing the current version of the module.  Also available as
+<dd><p>A bytes object representing the current version of the module.  Also available as
 <code class="xref py py-const docutils literal"><span class="pre">__version__</span></code>.</p>
 </dd></dl>
 
@@ -2393,15 +2403,15 @@ contents are gathered.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

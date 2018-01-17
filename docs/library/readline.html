@@ -403,13 +403,13 @@ sessions, by only appending the new history.</p>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">readline</span><span class="o">.</span><span class="n">read_history_file</span><span class="p">(</span><span class="n">histfile</span><span class="p">)</span>
-    <span class="n">h_len</span> <span class="o">=</span> <span class="n">readline</span><span class="o">.</span><span class="n">get_history_length</span><span class="p">()</span>
+    <span class="n">h_len</span> <span class="o">=</span> <span class="n">readline</span><span class="o">.</span><span class="n">get_current_history_length</span><span class="p">()</span>
 <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
     <span class="nb">open</span><span class="p">(</span><span class="n">histfile</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">h_len</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">prev_h_len</span><span class="p">,</span> <span class="n">histfile</span><span class="p">):</span>
-    <span class="n">new_h_len</span> <span class="o">=</span> <span class="n">readline</span><span class="o">.</span><span class="n">get_history_length</span><span class="p">()</span>
+    <span class="n">new_h_len</span> <span class="o">=</span> <span class="n">readline</span><span class="o">.</span><span class="n">get_current_history_length</span><span class="p">()</span>
     <span class="n">readline</span><span class="o">.</span><span class="n">set_history_length</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
     <span class="n">readline</span><span class="o">.</span><span class="n">append_history_file</span><span class="p">(</span><span class="n">new_h_len</span> <span class="o">-</span> <span class="n">prev_h_len</span><span class="p">,</span> <span class="n">histfile</span><span class="p">)</span>
 <span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">save</span><span class="p">,</span> <span class="n">h_len</span><span class="p">,</span> <span class="n">histfile</span><span class="p">)</span>
@@ -528,15 +528,15 @@ support history save/restore.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

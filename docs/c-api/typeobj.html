@@ -1081,7 +1081,7 @@ destructor <code class="descname">PyTypeObject.tp_free</code><a class="headerlin
 <div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">tp_free</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>An initializer that is compatible with this signature is <code class="xref c c-func docutils literal"><span class="pre">PyObject_Free()</span></code>.</p>
+<p>An initializer that is compatible with this signature is <a class="reference internal" href="memory.html#c.PyObject_Free" title="PyObject_Free"><code class="xref c c-func docutils literal"><span class="pre">PyObject_Free()</span></code></a>.</p>
 <p>This field is inherited by static subtypes, but not by dynamic subtypes
 (subtypes created by a class statement); in the latter, this field is set to a
 deallocator suitable to match <a class="reference internal" href="type.html#c.PyType_GenericAlloc" title="PyType_GenericAlloc"><code class="xref c c-func docutils literal"><span class="pre">PyType_GenericAlloc()</span></code></a> and the value of the
@@ -1625,15 +1625,15 @@ This slot may be set to <em>NULL</em>.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

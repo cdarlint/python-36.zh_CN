@@ -187,8 +187,8 @@ operator can be mapped across two vectors to form an efficient dot-product:
 <td><code class="docutils literal"><span class="pre">filterfalse(lambda</span> <span class="pre">x:</span> <span class="pre">x%2,</span> <span class="pre">range(10))</span> <span class="pre">--&gt;</span> <span class="pre">0</span> <span class="pre">2</span> <span class="pre">4</span> <span class="pre">6</span> <span class="pre">8</span></code></td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#itertools.groupby" title="itertools.groupby"><code class="xref py py-func docutils literal"><span class="pre">groupby()</span></code></a></td>
-<td>iterable[, keyfunc]</td>
-<td>sub-iterators grouped by value of keyfunc(v)</td>
+<td>iterable[, key]</td>
+<td>sub-iterators grouped by value of key(v)</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#itertools.islice" title="itertools.islice"><code class="xref py py-func docutils literal"><span class="pre">islice()</span></code></a></td>
@@ -950,15 +950,16 @@ which incur interpreter overhead.</p>
 <span class="k">def</span> <span class="nf">roundrobin</span><span class="p">(</span><span class="o">*</span><span class="n">iterables</span><span class="p">):</span>
     <span class="s2">&quot;roundrobin(&#39;ABC&#39;, &#39;D&#39;, &#39;EF&#39;) --&gt; A D E B F C&quot;</span>
     <span class="c1"># Recipe credited to George Sakkis</span>
-    <span class="n">pending</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">iterables</span><span class="p">)</span>
+    <span class="n">num_active</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">iterables</span><span class="p">)</span>
     <span class="n">nexts</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">it</span><span class="p">)</span><span class="o">.</span><span class="fm">__next__</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">iterables</span><span class="p">)</span>
-    <span class="k">while</span> <span class="n">pending</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">num_active</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">nexts</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="nb">next</span><span class="p">()</span>
         <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-            <span class="n">pending</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="n">nexts</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">nexts</span><span class="p">,</span> <span class="n">pending</span><span class="p">))</span>
+            <span class="c1"># Remove the iterator we just exhausted from the cycle.</span>
+            <span class="n">num_active</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="n">nexts</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">(</span><span class="n">islice</span><span class="p">(</span><span class="n">nexts</span><span class="p">,</span> <span class="n">num_active</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">iterable</span><span class="p">):</span>
     <span class="s1">&#39;Use a predicate to partition entries into false entries and true entries&#39;</span>
@@ -1144,15 +1145,15 @@ with local variables defined as default values.  For example, the
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

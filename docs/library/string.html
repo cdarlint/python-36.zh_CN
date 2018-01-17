@@ -875,8 +875,16 @@ string as needed.</p>
 </li>
 <li><p class="first"><em>idpattern</em> – This is the regular expression describing the pattern for
 non-braced placeholders (the braces will be added automatically as
-appropriate).  The default value is the regular expression
-<code class="docutils literal"><span class="pre">[_a-z][_a-z0-9]*</span></code>.</p>
+appropriate). The default value is the regular expression
+<code class="docutils literal"><span class="pre">(?-i:[_a-zA-Z][_a-zA-Z0-9]*)</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>Since default <em>flags</em> is <code class="docutils literal"><span class="pre">re.IGNORECASE</span></code>, pattern <code class="docutils literal"><span class="pre">[a-z]</span></code> can match
+with some non-ASCII characters. That’s why we use local <code class="docutils literal"><span class="pre">-i</span></code> flag here.</p>
+<p class="last">While <em>flags</em> is kept to <code class="docutils literal"><span class="pre">re.IGNORECASE</span></code> for backward compatibility,
+you can override it to <code class="docutils literal"><span class="pre">0</span></code> or <code class="docutils literal"><span class="pre">re.IGNORECASE</span> <span class="pre">|</span> <span class="pre">re.ASCII</span></code> when
+subclassing.</p>
+</div>
 </li>
 <li><p class="first"><em>flags</em> – The regular expression flags that will be applied when compiling
 the regular expression used for recognizing substitutions.  The default value
@@ -1005,15 +1013,15 @@ split and join the words.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

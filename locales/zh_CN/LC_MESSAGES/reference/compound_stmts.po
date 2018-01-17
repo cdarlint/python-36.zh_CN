@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jerry Chen <jerrychen9657@gmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
@@ -699,46 +700,46 @@ msgid ""
 " able to suspend execution in its *enter* and *exit* methods."
 msgstr ""
 
-#: ../../reference/compound_stmts.rst:787
+#: ../../reference/compound_stmts.rst:786
 msgid "See also :meth:`__aenter__` and :meth:`__aexit__` for details."
 msgstr ""
 
-#: ../../reference/compound_stmts.rst:789
+#: ../../reference/compound_stmts.rst:788
 msgid ""
 "It is a :exc:`SyntaxError` to use ``async with`` statement outside of an "
 ":keyword:`async def` function."
 msgstr ""
 
-#: ../../reference/compound_stmts.rst:794
+#: ../../reference/compound_stmts.rst:793
 msgid ":pep:`492` - Coroutines with async and await syntax"
 msgstr ""
 
-#: ../../reference/compound_stmts.rst:798
+#: ../../reference/compound_stmts.rst:797
 msgid "Footnotes"
 msgstr "脚注"
 
-#: ../../reference/compound_stmts.rst:799
+#: ../../reference/compound_stmts.rst:798
 msgid ""
 "The exception is propagated to the invocation stack unless there is a "
 ":keyword:`finally` clause which happens to raise another exception. That new"
 " exception causes the old one to be lost."
 msgstr ""
 
-#: ../../reference/compound_stmts.rst:803
+#: ../../reference/compound_stmts.rst:802
 msgid ""
 "Currently, control \"flows off the end\" except in the case of an exception "
 "or the execution of a :keyword:`return`, :keyword:`continue`, or "
 ":keyword:`break` statement."
 msgstr ""
 
-#: ../../reference/compound_stmts.rst:807
+#: ../../reference/compound_stmts.rst:806
 msgid ""
 "A string literal appearing as the first statement in the function body is "
 "transformed into the function's ``__doc__`` attribute and therefore the "
 "function's :term:`docstring`."
 msgstr ""
 
-#: ../../reference/compound_stmts.rst:811
+#: ../../reference/compound_stmts.rst:810
 msgid ""
 "A string literal appearing as the first statement in the class body is "
 "transformed into the namespace's ``__doc__`` item and therefore the class's "

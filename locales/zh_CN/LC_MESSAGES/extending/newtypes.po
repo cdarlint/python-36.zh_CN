@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jerry Chen <jerrychen9657@gmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
@@ -625,7 +626,7 @@ msgstr ""
 #: ../../extending/newtypes.rst:668
 msgid ""
 "In the second version of the :class:`Noddy` example, we allowed any kind of "
-"object to be stored in the :attr:`first` or :attr:`last` attributes. [#]_ "
+"object to be stored in the :attr:`first` or :attr:`last` attributes [#]_. "
 "This means that :class:`Noddy` objects can participate in cycles::"
 msgstr ""
 

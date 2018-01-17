@@ -875,7 +875,7 @@ streams which work in both read and write modes.</p>
 <a class="reference internal" href="#codecs.lookup" title="codecs.lookup"><code class="xref py py-func docutils literal"><span class="pre">lookup()</span></code></a> function to construct the instance.</p>
 <dl class="class">
 <dt id="codecs.StreamReaderWriter">
-<em class="property">class </em><code class="descclassname">codecs.</code><code class="descname">StreamReaderWriter</code><span class="sig-paren">(</span><em>stream</em>, <em>Reader</em>, <em>Writer</em>, <em>errors</em><span class="sig-paren">)</span><a class="headerlink" href="#codecs.StreamReaderWriter" title="永久链接至目标">¶</a></dt>
+<em class="property">class </em><code class="descclassname">codecs.</code><code class="descname">StreamReaderWriter</code><span class="sig-paren">(</span><em>stream</em>, <em>Reader</em>, <em>Writer</em>, <em>errors='strict'</em><span class="sig-paren">)</span><a class="headerlink" href="#codecs.StreamReaderWriter" title="永久链接至目标">¶</a></dt>
 <dd><p>Creates a <a class="reference internal" href="#codecs.StreamReaderWriter" title="codecs.StreamReaderWriter"><code class="xref py py-class docutils literal"><span class="pre">StreamReaderWriter</span></code></a> instance. <em>stream</em> must be a file-like
 object. <em>Reader</em> and <em>Writer</em> must be factory functions or classes providing the
 <a class="reference internal" href="#codecs.StreamReader" title="codecs.StreamReader"><code class="xref py py-class docutils literal"><span class="pre">StreamReader</span></code></a> and <a class="reference internal" href="#codecs.StreamWriter" title="codecs.StreamWriter"><code class="xref py py-class docutils literal"><span class="pre">StreamWriter</span></code></a> interface resp. Error handling
@@ -894,7 +894,7 @@ which is sometimes useful when dealing with different encoding environments.</p>
 <a class="reference internal" href="#codecs.lookup" title="codecs.lookup"><code class="xref py py-func docutils literal"><span class="pre">lookup()</span></code></a> function to construct the instance.</p>
 <dl class="class">
 <dt id="codecs.StreamRecoder">
-<em class="property">class </em><code class="descclassname">codecs.</code><code class="descname">StreamRecoder</code><span class="sig-paren">(</span><em>stream</em>, <em>encode</em>, <em>decode</em>, <em>Reader</em>, <em>Writer</em>, <em>errors</em><span class="sig-paren">)</span><a class="headerlink" href="#codecs.StreamRecoder" title="永久链接至目标">¶</a></dt>
+<em class="property">class </em><code class="descclassname">codecs.</code><code class="descname">StreamRecoder</code><span class="sig-paren">(</span><em>stream</em>, <em>encode</em>, <em>decode</em>, <em>Reader</em>, <em>Writer</em>, <em>errors='strict'</em><span class="sig-paren">)</span><a class="headerlink" href="#codecs.StreamRecoder" title="永久链接至目标">¶</a></dt>
 <dd><p>Creates a <a class="reference internal" href="#codecs.StreamRecoder" title="codecs.StreamRecoder"><code class="xref py py-class docutils literal"><span class="pre">StreamRecoder</span></code></a> instance which implements a two-way conversion:
 <em>encode</em> and <em>decode</em> work on the frontend&nbsp;— the data visible to
 code calling <code class="xref py py-meth docutils literal"><span class="pre">read()</span></code> and <code class="xref py py-meth docutils literal"><span class="pre">write()</span></code>, while <em>Reader</em> and <em>Writer</em>
@@ -1925,15 +1925,15 @@ optional UTF-8 encoded BOM at the start of the data will be skipped.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

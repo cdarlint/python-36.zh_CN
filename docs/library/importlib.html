@@ -1276,7 +1276,15 @@ module based on <a class="reference internal" href="#importlib.machinery.EXTENSI
 <dl class="class">
 <dt id="importlib.machinery.ModuleSpec">
 <em class="property">class </em><code class="descclassname">importlib.machinery.</code><code class="descname">ModuleSpec</code><span class="sig-paren">(</span><em>name</em>, <em>loader</em>, <em>*</em>, <em>origin=None</em>, <em>loader_state=None</em>, <em>is_package=None</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.ModuleSpec" title="永久链接至目标">¶</a></dt>
-<dd><p>A specification for a module’s import-system-related state.</p>
+<dd><p>A specification for a module’s import-system-related state.  This is
+typically exposed as the module’s <code class="docutils literal"><span class="pre">__spec__</span></code> attribute.  In the
+descriptions below, the names in parentheses give the corresponding
+attribute available directly on the module object.
+E.g. <code class="docutils literal"><span class="pre">module.__spec__.origin</span> <span class="pre">==</span> <span class="pre">module.__file__</span></code>.  Note however that
+while the <em>values</em> are usually equivalent, they can differ since there is
+no synchronization between the two objects.  Thus it is possible to update
+the module’s <code class="docutils literal"><span class="pre">__path__</span></code> at runtime, and this will not be automatically
+reflected in <code class="docutils literal"><span class="pre">__spec__.submodule_search_locations</span></code>.</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.4 新版功能.</span></p>
 </div>
@@ -1834,15 +1842,15 @@ Python 3.6 and newer for other parts of the code).</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

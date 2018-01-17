@@ -1143,7 +1143,7 @@ still has a reference from itself. Its reference count doesn’t drop to zero.
 Fortunately, Python’s cyclic-garbage collector will eventually figure out that
 the list is garbage and free it.</p>
 <p>In the second version of the <code class="xref py py-class docutils literal"><span class="pre">Noddy</span></code> example, we allowed any kind of
-object to be stored in the <code class="xref py py-attr docutils literal"><span class="pre">first</span></code> or <code class="xref py py-attr docutils literal"><span class="pre">last</span></code> attributes. <a class="footnote-reference" href="#id10" id="id5">[4]</a> This
+object to be stored in the <code class="xref py py-attr docutils literal"><span class="pre">first</span></code> or <code class="xref py py-attr docutils literal"><span class="pre">last</span></code> attributes <a class="footnote-reference" href="#id10" id="id5">[4]</a>. This
 means that <code class="xref py py-class docutils literal"><span class="pre">Noddy</span></code> objects can participate in cycles:</p>
 <div class="highlight-c"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">import</span> <span class="n">noddy2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="n">noddy2</span><span class="p">.</span><span class="n">Noddy</span><span class="p">()</span>
@@ -2426,15 +2426,15 @@ normal strings don’t.</td></tr>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

@@ -203,15 +203,8 @@ local time</td>
 </table>
 </li>
 </ul>
-<p>The module defines the following functions and data items:</p>
-<dl class="data">
-<dt id="time.altzone">
-<code class="descclassname">time.</code><code class="descname">altzone</code><a class="headerlink" href="#time.altzone" title="永久链接至目标">¶</a></dt>
-<dd><p>The offset of the local DST timezone, in seconds west of UTC, if one is defined.
-This is negative if the local DST timezone is east of UTC (as in Western Europe,
-including the UK).  Only use this if <code class="docutils literal"><span class="pre">daylight</span></code> is nonzero.</p>
-</dd></dl>
-
+<div class="section" id="functions">
+<span id="time-functions"></span><h2>16.3.1. Functions<a class="headerlink" href="#functions" title="永久链接至标题">¶</a></h2>
 <dl class="function">
 <dt id="time.asctime">
 <code class="descclassname">time.</code><code class="descname">asctime</code><span class="sig-paren">(</span><span class="optional">[</span><em>t</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#time.asctime" title="永久链接至目标">¶</a></dt>
@@ -247,7 +240,8 @@ requirements, to have a well defined behaviour.</p>
 <dl class="function">
 <dt id="time.clock_getres">
 <code class="descclassname">time.</code><code class="descname">clock_getres</code><span class="sig-paren">(</span><em>clk_id</em><span class="sig-paren">)</span><a class="headerlink" href="#time.clock_getres" title="永久链接至目标">¶</a></dt>
-<dd><p>Return the resolution (precision) of the specified clock <em>clk_id</em>.</p>
+<dd><p>Return the resolution (precision) of the specified clock <em>clk_id</em>.  Refer to
+<a class="reference internal" href="#time-clock-id-constants"><span class="std std-ref">Clock ID Constants</span></a> for a list of accepted values for <em>clk_id</em>.</p>
 <p>Availability: Unix.</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.3 新版功能.</span></p>
@@ -257,7 +251,8 @@ requirements, to have a well defined behaviour.</p>
 <dl class="function">
 <dt id="time.clock_gettime">
 <code class="descclassname">time.</code><code class="descname">clock_gettime</code><span class="sig-paren">(</span><em>clk_id</em><span class="sig-paren">)</span><a class="headerlink" href="#time.clock_gettime" title="永久链接至目标">¶</a></dt>
-<dd><p>Return the time of the specified clock <em>clk_id</em>.</p>
+<dd><p>Return the time of the specified clock <em>clk_id</em>.  Refer to
+<a class="reference internal" href="#time-clock-id-constants"><span class="std std-ref">Clock ID Constants</span></a> for a list of accepted values for <em>clk_id</em>.</p>
 <p>Availability: Unix.</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.3 新版功能.</span></p>
@@ -267,72 +262,8 @@ requirements, to have a well defined behaviour.</p>
 <dl class="function">
 <dt id="time.clock_settime">
 <code class="descclassname">time.</code><code class="descname">clock_settime</code><span class="sig-paren">(</span><em>clk_id</em>, <em>time</em><span class="sig-paren">)</span><a class="headerlink" href="#time.clock_settime" title="永久链接至目标">¶</a></dt>
-<dd><p>Set the time of the specified clock <em>clk_id</em>.</p>
-<p>Availability: Unix.</p>
-<div class="versionadded">
-<p><span class="versionmodified">3.3 新版功能.</span></p>
-</div>
-</dd></dl>
-
-<dl class="data">
-<dt id="time.CLOCK_HIGHRES">
-<code class="descclassname">time.</code><code class="descname">CLOCK_HIGHRES</code><a class="headerlink" href="#time.CLOCK_HIGHRES" title="永久链接至目标">¶</a></dt>
-<dd><p>The Solaris OS has a CLOCK_HIGHRES timer that attempts to use an optimal
-hardware source, and may give close to nanosecond resolution.  CLOCK_HIGHRES
-is the nonadjustable, high-resolution clock.</p>
-<p>Availability: Solaris.</p>
-<div class="versionadded">
-<p><span class="versionmodified">3.3 新版功能.</span></p>
-</div>
-</dd></dl>
-
-<dl class="data">
-<dt id="time.CLOCK_MONOTONIC">
-<code class="descclassname">time.</code><code class="descname">CLOCK_MONOTONIC</code><a class="headerlink" href="#time.CLOCK_MONOTONIC" title="永久链接至目标">¶</a></dt>
-<dd><p>Clock that cannot be set and represents monotonic time since some unspecified
-starting point.</p>
-<p>Availability: Unix.</p>
-<div class="versionadded">
-<p><span class="versionmodified">3.3 新版功能.</span></p>
-</div>
-</dd></dl>
-
-<dl class="data">
-<dt id="time.CLOCK_MONOTONIC_RAW">
-<code class="descclassname">time.</code><code class="descname">CLOCK_MONOTONIC_RAW</code><a class="headerlink" href="#time.CLOCK_MONOTONIC_RAW" title="永久链接至目标">¶</a></dt>
-<dd><p>Similar to <a class="reference internal" href="#time.CLOCK_MONOTONIC" title="time.CLOCK_MONOTONIC"><code class="xref py py-data docutils literal"><span class="pre">CLOCK_MONOTONIC</span></code></a>, but provides access to a raw
-hardware-based time that is not subject to NTP adjustments.</p>
-<p>Availability: Linux 2.6.28 or later.</p>
-<div class="versionadded">
-<p><span class="versionmodified">3.3 新版功能.</span></p>
-</div>
-</dd></dl>
-
-<dl class="data">
-<dt id="time.CLOCK_PROCESS_CPUTIME_ID">
-<code class="descclassname">time.</code><code class="descname">CLOCK_PROCESS_CPUTIME_ID</code><a class="headerlink" href="#time.CLOCK_PROCESS_CPUTIME_ID" title="永久链接至目标">¶</a></dt>
-<dd><p>High-resolution per-process timer from the CPU.</p>
-<p>Availability: Unix.</p>
-<div class="versionadded">
-<p><span class="versionmodified">3.3 新版功能.</span></p>
-</div>
-</dd></dl>
-
-<dl class="data">
-<dt id="time.CLOCK_REALTIME">
-<code class="descclassname">time.</code><code class="descname">CLOCK_REALTIME</code><a class="headerlink" href="#time.CLOCK_REALTIME" title="永久链接至目标">¶</a></dt>
-<dd><p>System-wide real-time clock.  Setting this clock requires appropriate
-privileges.</p>
-<p>Availability: Unix.</p>
-<div class="versionadded">
-<p><span class="versionmodified">3.3 新版功能.</span></p>
-</div>
-</dd></dl>
-
-<dl class="data">
-<dt id="time.CLOCK_THREAD_CPUTIME_ID">
-<code class="descclassname">time.</code><code class="descname">CLOCK_THREAD_CPUTIME_ID</code><a class="headerlink" href="#time.CLOCK_THREAD_CPUTIME_ID" title="永久链接至目标">¶</a></dt>
-<dd><p>Thread-specific CPU-time clock.</p>
+<dd><p>Set the time of the specified clock <em>clk_id</em>.  Currently,
+<a class="reference internal" href="#time.CLOCK_REALTIME" title="time.CLOCK_REALTIME"><code class="xref py py-data docutils literal"><span class="pre">CLOCK_REALTIME</span></code></a> is the only accepted value for <em>clk_id</em>.</p>
 <p>Availability: Unix.</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.3 新版功能.</span></p>
@@ -346,12 +277,6 @@ privileges.</p>
 local time. If <em>secs</em> is not provided or <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal"><span class="pre">None</span></code></a>, the current time as
 returned by <a class="reference internal" href="#time.time" title="time.time"><code class="xref py py-func docutils literal"><span class="pre">time()</span></code></a> is used.  <code class="docutils literal"><span class="pre">ctime(secs)</span></code> is equivalent to
 <code class="docutils literal"><span class="pre">asctime(localtime(secs))</span></code>. Locale information is not used by <a class="reference internal" href="#time.ctime" title="time.ctime"><code class="xref py py-func docutils literal"><span class="pre">ctime()</span></code></a>.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="time.daylight">
-<code class="descclassname">time.</code><code class="descname">daylight</code><a class="headerlink" href="#time.daylight" title="永久链接至目标">¶</a></dt>
-<dd><p>Nonzero if a DST timezone is defined.</p>
 </dd></dl>
 
 <dl class="function">
@@ -372,7 +297,7 @@ are:</p>
 <li><em>adjustable</em>: <code class="docutils literal"><span class="pre">True</span></code> if the clock can be changed automatically (e.g. by
 a NTP daemon) or manually by the system administrator, <code class="docutils literal"><span class="pre">False</span></code> otherwise</li>
 <li><em>implementation</em>: The name of the underlying C function used to get
-the clock value</li>
+the clock value.  Refer to <a class="reference internal" href="#time-clock-id-constants"><span class="std std-ref">Clock ID Constants</span></a> for possible values.</li>
 <li><em>monotonic</em>: <code class="docutils literal"><span class="pre">True</span></code> if the clock cannot go backward,
 <code class="docutils literal"><span class="pre">False</span></code> otherwise</li>
 <li><em>resolution</em>: The resolution of the clock in seconds (<a class="reference internal" href="functions.html#float" title="float"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a>)</li>
@@ -774,21 +699,6 @@ time format (i.e. year, month, day, hour, etc…) in UTC by passing it to
 of the calendar date may be accessed as attributes.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="time.timezone">
-<code class="descclassname">time.</code><code class="descname">timezone</code><a class="headerlink" href="#time.timezone" title="永久链接至目标">¶</a></dt>
-<dd><p>The offset of the local (non-DST) timezone, in seconds west of UTC (negative in
-most of Western Europe, positive in the US, zero in the UK).</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="time.tzname">
-<code class="descclassname">time.</code><code class="descname">tzname</code><a class="headerlink" href="#time.tzname" title="永久链接至目标">¶</a></dt>
-<dd><p>A tuple of two strings: the first is the name of the local non-DST timezone, the
-second is the name of the local DST timezone.  If no DST timezone is defined,
-the second string should not be used.</p>
-</dd></dl>
-
 <dl class="function">
 <dt id="time.tzset">
 <code class="descclassname">time.</code><code class="descname">tzset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#time.tzset" title="永久链接至目标">¶</a></dt>
@@ -867,6 +777,118 @@ the systems ‘zoneinfo’ timezone database, usually located at
 </div>
 </dd></dl>
 
+</div>
+<div class="section" id="clock-id-constants">
+<span id="time-clock-id-constants"></span><h2>16.3.2. Clock ID Constants<a class="headerlink" href="#clock-id-constants" title="永久链接至标题">¶</a></h2>
+<p>These constants are used as parameters for <a class="reference internal" href="#time.clock_getres" title="time.clock_getres"><code class="xref py py-func docutils literal"><span class="pre">clock_getres()</span></code></a> and
+<a class="reference internal" href="#time.clock_gettime" title="time.clock_gettime"><code class="xref py py-func docutils literal"><span class="pre">clock_gettime()</span></code></a>.</p>
+<dl class="data">
+<dt id="time.CLOCK_HIGHRES">
+<code class="descclassname">time.</code><code class="descname">CLOCK_HIGHRES</code><a class="headerlink" href="#time.CLOCK_HIGHRES" title="永久链接至目标">¶</a></dt>
+<dd><p>The Solaris OS has a <code class="docutils literal"><span class="pre">CLOCK_HIGHRES</span></code> timer that attempts to use an optimal
+hardware source, and may give close to nanosecond resolution.
+<code class="docutils literal"><span class="pre">CLOCK_HIGHRES</span></code> is the nonadjustable, high-resolution clock.</p>
+<p>Availability: Solaris.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.3 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.CLOCK_MONOTONIC">
+<code class="descclassname">time.</code><code class="descname">CLOCK_MONOTONIC</code><a class="headerlink" href="#time.CLOCK_MONOTONIC" title="永久链接至目标">¶</a></dt>
+<dd><p>Clock that cannot be set and represents monotonic time since some unspecified
+starting point.</p>
+<p>Availability: Unix.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.3 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.CLOCK_MONOTONIC_RAW">
+<code class="descclassname">time.</code><code class="descname">CLOCK_MONOTONIC_RAW</code><a class="headerlink" href="#time.CLOCK_MONOTONIC_RAW" title="永久链接至目标">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#time.CLOCK_MONOTONIC" title="time.CLOCK_MONOTONIC"><code class="xref py py-data docutils literal"><span class="pre">CLOCK_MONOTONIC</span></code></a>, but provides access to a raw
+hardware-based time that is not subject to NTP adjustments.</p>
+<p>Availability: Linux 2.6.28 or later.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.3 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.CLOCK_PROCESS_CPUTIME_ID">
+<code class="descclassname">time.</code><code class="descname">CLOCK_PROCESS_CPUTIME_ID</code><a class="headerlink" href="#time.CLOCK_PROCESS_CPUTIME_ID" title="永久链接至目标">¶</a></dt>
+<dd><p>High-resolution per-process timer from the CPU.</p>
+<p>Availability: Unix.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.3 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.CLOCK_THREAD_CPUTIME_ID">
+<code class="descclassname">time.</code><code class="descname">CLOCK_THREAD_CPUTIME_ID</code><a class="headerlink" href="#time.CLOCK_THREAD_CPUTIME_ID" title="永久链接至目标">¶</a></dt>
+<dd><p>Thread-specific CPU-time clock.</p>
+<p>Availability: Unix.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.3 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<p>The following constant is the only parameter that can be sent to
+<a class="reference internal" href="#time.clock_settime" title="time.clock_settime"><code class="xref py py-func docutils literal"><span class="pre">clock_settime()</span></code></a>.</p>
+<dl class="data">
+<dt id="time.CLOCK_REALTIME">
+<code class="descclassname">time.</code><code class="descname">CLOCK_REALTIME</code><a class="headerlink" href="#time.CLOCK_REALTIME" title="永久链接至目标">¶</a></dt>
+<dd><p>System-wide real-time clock.  Setting this clock requires appropriate
+privileges.</p>
+<p>Availability: Unix.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.3 新版功能.</span></p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="timezone-constants">
+<span id="time-timezone-constants"></span><h2>16.3.3. Timezone Constants<a class="headerlink" href="#timezone-constants" title="永久链接至标题">¶</a></h2>
+<dl class="data">
+<dt id="time.altzone">
+<code class="descclassname">time.</code><code class="descname">altzone</code><a class="headerlink" href="#time.altzone" title="永久链接至目标">¶</a></dt>
+<dd><p>The offset of the local DST timezone, in seconds west of UTC, if one is defined.
+This is negative if the local DST timezone is east of UTC (as in Western Europe,
+including the UK).  Only use this if <code class="docutils literal"><span class="pre">daylight</span></code> is nonzero.  See note below.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.daylight">
+<code class="descclassname">time.</code><code class="descname">daylight</code><a class="headerlink" href="#time.daylight" title="永久链接至目标">¶</a></dt>
+<dd><p>Nonzero if a DST timezone is defined.  See note below.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.timezone">
+<code class="descclassname">time.</code><code class="descname">timezone</code><a class="headerlink" href="#time.timezone" title="永久链接至目标">¶</a></dt>
+<dd><p>The offset of the local (non-DST) timezone, in seconds west of UTC (negative in
+most of Western Europe, positive in the US, zero in the UK).  See note below.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.tzname">
+<code class="descclassname">time.</code><code class="descname">tzname</code><a class="headerlink" href="#time.tzname" title="永久链接至目标">¶</a></dt>
+<dd><p>A tuple of two strings: the first is the name of the local non-DST timezone, the
+second is the name of the local DST timezone.  If no DST timezone is defined,
+the second string should not be used.  See note below.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">For the above Timezone constants (<a class="reference internal" href="#time.altzone" title="time.altzone"><code class="xref py py-data docutils literal"><span class="pre">altzone</span></code></a>, <a class="reference internal" href="#time.daylight" title="time.daylight"><code class="xref py py-data docutils literal"><span class="pre">daylight</span></code></a>, <a class="reference internal" href="#time.timezone" title="time.timezone"><code class="xref py py-data docutils literal"><span class="pre">timezone</span></code></a>,
+and <a class="reference internal" href="#time.tzname" title="time.tzname"><code class="xref py py-data docutils literal"><span class="pre">tzname</span></code></a>), the value is determined by the timezone rules in effect
+at module load time or the last time <a class="reference internal" href="#time.tzset" title="time.tzset"><code class="xref py py-func docutils literal"><span class="pre">tzset()</span></code></a> is called and may be incorrect
+for times in the past.  It is recommended to use the <code class="xref py py-attr docutils literal"><span class="pre">tm_gmtoff</span></code> and
+<code class="xref py py-attr docutils literal"><span class="pre">tm_zone</span></code> results from <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-func docutils literal"><span class="pre">localtime()</span></code></a> to obtain timezone information.</p>
+</div>
 <div class="admonition seealso">
 <p class="first admonition-title">参见</p>
 <dl class="last docutils">
@@ -893,6 +915,7 @@ been first recommended by <span class="target" id="index-16"></span><a class="rf
 </tbody>
 </table>
 </div>
+</div>
 
 
           </div>
@@ -900,6 +923,16 @@ been first recommended by <span class="target" id="index-16"></span><a class="rf
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">內容目录</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">16.3. <code class="docutils literal"><span class="pre">time</span></code> — Time access and conversions</a><ul>
+<li><a class="reference internal" href="#functions">16.3.1. Functions</a></li>
+<li><a class="reference internal" href="#clock-id-constants">16.3.2. Clock ID Constants</a></li>
+<li><a class="reference internal" href="#timezone-constants">16.3.3. Timezone Constants</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>上一个主题</h4>
   <p class="topless"><a href="io.html"
                         title="上一章">16.2. <code class="docutils literal"><span class="pre">io</span></code> — Core tools for working with streams</a></p>
@@ -963,15 +996,15 @@ been first recommended by <span class="target" id="index-16"></span><a class="rf
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

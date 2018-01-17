@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -70,7 +71,7 @@ msgid ""
 "Schedule a new event. The *time* argument should be a numeric type "
 "compatible with the return value of the *timefunc* function passed  to the "
 "constructor. Events scheduled for the same *time* will be executed in the "
-"order of their *priority*."
+"order of their *priority*. A lower number represents a higher priority."
 msgstr ""
 
 #: ../../library/sched.rst:74

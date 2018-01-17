@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: 操旭 <caoxu3000@126.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
@@ -296,7 +297,7 @@ msgstr ""
 #: ../../library/tkinter.rst:156
 msgid ""
 "When trying to answer questions of the form \"how do I do blah\", it is "
-"often best to find out how to do\"blah\" in straight Tk, and then convert "
+"often best to find out how to do \"blah\" in straight Tk, and then convert "
 "this back into the corresponding :mod:`tkinter` call. Python programmers can"
 " often guess at the correct Python command by looking at the Tk "
 "documentation. This means that in order to use Tkinter, you will have to "

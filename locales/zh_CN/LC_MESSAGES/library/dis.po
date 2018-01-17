@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -1053,7 +1054,7 @@ msgid ""
 "the function object to call is placed. Pops all function arguments, and the "
 "function itself off the stack, and pushes the return value. Note that this "
 "opcode pops at most three items from the stack. Var-positional and var-"
-"keyword arguments are packed by :opcode:`BUILD_MAP_UNPACK_WITH_CALL` and "
+"keyword arguments are packed by :opcode:`BUILD_TUPLE_UNPACK_WITH_CALL` and "
 ":opcode:`BUILD_MAP_UNPACK_WITH_CALL`."
 msgstr ""
 

@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2017, Python Software Foundation
+# Copyright (C) 2001-2018, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -8,6 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jerry Chen <jerrychen9657@gmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
@@ -1601,7 +1602,8 @@ msgstr ""
 msgid ""
 "The *capath* string, if present, is the path to a directory containing "
 "several CA certificates in PEM format, following an `OpenSSL specific layout"
-" <https://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html>`_."
+" "
+"<https://www.openssl.org/docs/man1.1.0/ssl/SSL_CTX_load_verify_locations.html>`_."
 msgstr ""
 
 #: ../../library/ssl.rst:1356
@@ -1884,9 +1886,9 @@ msgstr ""
 msgid ""
 "Get statistics about the SSL sessions created or managed by this context. A "
 "dictionary is returned which maps the names of each `piece of information "
-"<https://www.openssl.org/docs/ssl/SSL_CTX_sess_number.html>`_ to their "
-"numeric values.  For example, here is the total number of hits and misses in"
-" the session cache since the context was created::"
+"<https://www.openssl.org/docs/man1.1.0/ssl/SSL_CTX_sess_number.html>`_ to "
+"their numeric values.  For example, here is the total number of hits and "
+"misses in the session cache since the context was created::"
 msgstr ""
 
 #: ../../library/ssl.rst:1627

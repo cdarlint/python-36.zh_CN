@@ -264,7 +264,7 @@ descriptor is useful for monitoring just a few chosen attributes:</p>
 </div>
 <p>The protocol is simple and offers exciting possibilities.  Several use cases are
 so common that they have been packaged into individual function calls.
-Properties, bound and unbound methods, static methods, and class methods are all
+Properties, bound methods, static methods, and class methods are all
 based on the descriptor protocol.</p>
 </div>
 <div class="section" id="properties">
@@ -345,20 +345,21 @@ to wrap access to the value attribute in a property data descriptor:</p>
 <p>Python’s object oriented features are built upon a function based environment.
 Using non-data descriptors, the two are merged seamlessly.</p>
 <p>Class dictionaries store methods as functions.  In a class definition, methods
-are written using <a class="reference internal" href="../reference/compound_stmts.html#def"><code class="xref std std-keyword docutils literal"><span class="pre">def</span></code></a> and <a class="reference internal" href="../reference/expressions.html#lambda"><code class="xref std std-keyword docutils literal"><span class="pre">lambda</span></code></a>, the usual tools for
-creating functions.  The only difference from regular functions is that the
+are written using <a class="reference internal" href="../reference/compound_stmts.html#def"><code class="xref std std-keyword docutils literal"><span class="pre">def</span></code></a> or <a class="reference internal" href="../reference/expressions.html#lambda"><code class="xref std std-keyword docutils literal"><span class="pre">lambda</span></code></a>, the usual tools for
+creating functions.  Methods only differ from regular functions in that the
 first argument is reserved for the object instance.  By Python convention, the
 instance reference is called <em>self</em> but may be called <em>this</em> or any other
 variable name.</p>
 <p>To support method calls, functions include the <a class="reference internal" href="../reference/datamodel.html#object.__get__" title="object.__get__"><code class="xref py py-meth docutils literal"><span class="pre">__get__()</span></code></a> method for
 binding methods during attribute access.  This means that all functions are
-non-data descriptors which return bound or unbound methods depending whether
-they are invoked from an object or a class.  In pure python, it works like
-this:</p>
+non-data descriptors which return bound methods when they are invoked from an
+object.  In pure python, it works like this:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Function</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
     <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">objtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="s2">&quot;Simulate func_descr_get() in Objects/funcobject.c&quot;</span>
+        <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
         <span class="k">return</span> <span class="n">types</span><span class="o">.</span><span class="n">MethodType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -368,25 +369,36 @@ this:</p>
 <span class="gp">... </span>        <span class="k">return</span> <span class="n">x</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">]</span>  <span class="c1"># Stored internally as a function</span>
-<span class="go">&lt;function f at 0x00C45070&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">f</span>              <span class="c1"># Get from a class becomes an unbound method</span>
-<span class="go">&lt;unbound method D.f&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">f</span>              <span class="c1"># Get from an instance becomes a bound method</span>
+
+<span class="go"># Access through the class dictionary does not invoke __get__.</span>
+<span class="go"># It just returns the underlying function object.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">]</span>
+<span class="go">&lt;function D.f at 0x00C45070&gt;</span>
+
+<span class="go"># Dotted access from a class calls __get__() which just returns</span>
+<span class="go"># the underlying function unchanged.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">f</span>
+<span class="go">&lt;function D.f at 0x00C45070&gt;</span>
+
+<span class="go"># The function has a __qualname__ attribute to support introspection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="vm">__qualname__</span>
+<span class="go">&#39;D.f&#39;</span>
+
+<span class="go"># Dotted access from an instance calls __get__() which returns the</span>
+<span class="go"># function wrapped in a bound method object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">f</span>
 <span class="go">&lt;bound method D.f of &lt;__main__.D object at 0x00B18C90&gt;&gt;</span>
+
+<span class="go"># Internally, the bound method stores the underlying function,</span>
+<span class="go"># the bound instance, and the class of the bound instance.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="vm">__func__</span>
+<span class="go">&lt;function D.f at 0x1012e5ae8&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="vm">__self__</span>
+<span class="go">&lt;__main__.D object at 0x1012e1f98&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="vm">__class__</span>
+<span class="go">&lt;class &#39;method&#39;&gt;</span>
 </pre></div>
 </div>
-<p>The output suggests that bound and unbound methods are two different types.
-While they could have been implemented that way, the actual C implementation of
-<a class="reference internal" href="../c-api/method.html#c.PyMethod_Type" title="PyMethod_Type"><code class="xref c c-type docutils literal"><span class="pre">PyMethod_Type</span></code></a> in <a class="reference external" href="https://github.com/python/cpython/tree/3.6/Objects/classobject.c">Objects/classobject.c</a> is a single object
-with two different representations depending on whether the <code class="xref py py-attr docutils literal"><span class="pre">im_self</span></code>
-field is set or is <em>NULL</em> (the C equivalent of <code class="docutils literal"><span class="pre">None</span></code>).</p>
-<p>Likewise, the effects of calling a method object depend on the <code class="xref py py-attr docutils literal"><span class="pre">im_self</span></code>
-field. If set (meaning bound), the original function (stored in the
-<code class="xref py py-attr docutils literal"><span class="pre">im_func</span></code> field) is called as expected with the first argument set to the
-instance.  If unbound, all of the arguments are passed unchanged to the original
-function. The actual C implementation of <code class="xref py py-func docutils literal"><span class="pre">instancemethod_call()</span></code> is only
-slightly more complex in that it includes some type checking.</p>
 </div>
 <div class="section" id="static-methods-and-class-methods">
 <h2><a class="toc-backref" href="#id10">Static Methods and Class Methods</a><a class="headerlink" href="#static-methods-and-class-methods" title="永久链接至标题">¶</a></h2>
@@ -605,15 +617,15 @@ Python equivalent is:</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

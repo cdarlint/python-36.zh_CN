@@ -2595,8 +2595,9 @@ character at the same position in <em>to</em>; <em>from</em> and <em>to</em> mus
 <dt id="bytearray.partition">
 <code class="descclassname">bytearray.</code><code class="descname">partition</code><span class="sig-paren">(</span><em>sep</em><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.partition" title="永久链接至目标">¶</a></dt>
 <dd><p>Split the sequence at the first occurrence of <em>sep</em>, and return a 3-tuple
-containing the part before the separator, the separator, and the part
-after the separator.  If the separator is not found, return a 3-tuple
+containing the part before the separator, the separator itself or its
+bytearray copy, and the part after the separator.
+If the separator is not found, return a 3-tuple
 containing a copy of the original sequence, followed by two empty bytes or
 bytearray objects.</p>
 <p>The separator to search for may be any <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a>.</p>
@@ -2655,8 +2656,9 @@ integer in the range 0 to 255.</p>
 <dt id="bytearray.rpartition">
 <code class="descclassname">bytearray.</code><code class="descname">rpartition</code><span class="sig-paren">(</span><em>sep</em><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.rpartition" title="永久链接至目标">¶</a></dt>
 <dd><p>Split the sequence at the last occurrence of <em>sep</em>, and return a 3-tuple
-containing the part before the separator, the separator, and the part
-after the separator.  If the separator is not found, return a 3-tuple
+containing the part before the separator, the separator itself or its
+bytearray copy, and the part after the separator.
+If the separator is not found, return a 3-tuple
 containing a copy of the original sequence, followed by two empty bytes or
 bytearray objects.</p>
 <p>The separator to search for may be any <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a>.</p>
@@ -4882,15 +4884,15 @@ element is the tuple to be formatted.</td></tr>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

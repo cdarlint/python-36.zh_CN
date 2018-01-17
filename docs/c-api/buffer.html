@@ -723,7 +723,7 @@ int <code class="descname">PyBuffer_IsContiguous</code><span class="sig-paren">(
 
 <dl class="function">
 <dt id="c.PyBuffer_FillContiguousStrides">
-void <code class="descname">PyBuffer_FillContiguousStrides</code><span class="sig-paren">(</span>int<em>&nbsp;ndim</em>, Py_ssize_t<em>&nbsp;*shape</em>, Py_ssize_t<em>&nbsp;*strides</em>, Py_ssize_t<em>&nbsp;itemsize</em>, char<em>&nbsp;order</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyBuffer_FillContiguousStrides" title="永久链接至目标">¶</a></dt>
+void <code class="descname">PyBuffer_FillContiguousStrides</code><span class="sig-paren">(</span>int<em>&nbsp;ndims</em>, Py_ssize_t<em>&nbsp;*shape</em>, Py_ssize_t<em>&nbsp;*strides</em>, int<em>&nbsp;itemsize</em>, char<em>&nbsp;order</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyBuffer_FillContiguousStrides" title="永久链接至目标">¶</a></dt>
 <dd><p>Fill the <em>strides</em> array with byte-strides of a <a class="reference internal" href="../glossary.html#term-contiguous"><span class="xref std std-term">contiguous</span></a> (C-style if
 <em>order</em> is <code class="docutils literal"><span class="pre">'C'</span></code> or Fortran-style if <em>order</em> is <code class="docutils literal"><span class="pre">'F'</span></code>) array of the
 given shape with the given number of bytes per element.</p>
@@ -840,15 +840,15 @@ unmodified. Otherwise, <em>exporter</em> MUST be NULL.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

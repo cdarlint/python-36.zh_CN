@@ -702,8 +702,33 @@ library.</p>
 </div>
 <div class="section" id="access-to-message-catalogs">
 <span id="locale-gettext"></span><h2>23.2.3. Access to message catalogs<a class="headerlink" href="#access-to-message-catalogs" title="永久链接至标题">¶</a></h2>
+<dl class="function">
+<dt id="locale.gettext">
+<code class="descclassname">locale.</code><code class="descname">gettext</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#locale.gettext" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="locale.dgettext">
+<code class="descclassname">locale.</code><code class="descname">dgettext</code><span class="sig-paren">(</span><em>domain</em>, <em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#locale.dgettext" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="locale.dcgettext">
+<code class="descclassname">locale.</code><code class="descname">dcgettext</code><span class="sig-paren">(</span><em>domain</em>, <em>msg</em>, <em>category</em><span class="sig-paren">)</span><a class="headerlink" href="#locale.dcgettext" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="locale.textdomain">
+<code class="descclassname">locale.</code><code class="descname">textdomain</code><span class="sig-paren">(</span><em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#locale.textdomain" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="locale.bindtextdomain">
+<code class="descclassname">locale.</code><code class="descname">bindtextdomain</code><span class="sig-paren">(</span><em>domain</em>, <em>dir</em><span class="sig-paren">)</span><a class="headerlink" href="#locale.bindtextdomain" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
 <p>The locale module exposes the C library’s gettext interface on systems that
-provide this interface.  It consists of the functions <a class="reference internal" href="gettext.html#module-gettext" title="gettext: Multilingual internationalization services."><code class="xref py py-func docutils literal"><span class="pre">gettext()</span></code></a>,
+provide this interface.  It consists of the functions <code class="xref py py-func docutils literal"><span class="pre">gettext()</span></code>,
 <code class="xref py py-func docutils literal"><span class="pre">dgettext()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">dcgettext()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">textdomain()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">bindtextdomain()</span></code>,
 and <code class="xref py py-func docutils literal"><span class="pre">bind_textdomain_codeset()</span></code>.  These are similar to the same functions in
 the <a class="reference internal" href="gettext.html#module-gettext" title="gettext: Multilingual internationalization services."><code class="xref py py-mod docutils literal"><span class="pre">gettext</span></code></a> module, but use the C library’s binary format for message
@@ -711,7 +736,7 @@ catalogs, and the C library’s search algorithms for locating message catalogs.
 <p>Python applications should normally find no need to invoke these functions, and
 should use <a class="reference internal" href="gettext.html#module-gettext" title="gettext: Multilingual internationalization services."><code class="xref py py-mod docutils literal"><span class="pre">gettext</span></code></a> instead.  A known exception to this rule are
 applications that link with additional C libraries which internally invoke
-<code class="xref c c-func docutils literal"><span class="pre">gettext()</span></code> or <code class="xref py py-func docutils literal"><span class="pre">dcgettext()</span></code>.  For these applications, it may be
+<code class="xref c c-func docutils literal"><span class="pre">gettext()</span></code> or <code class="xref c c-func docutils literal"><span class="pre">dcgettext()</span></code>.  For these applications, it may be
 necessary to bind the text domain, so that the libraries can properly locate
 their message catalogs.</p>
 </div>
@@ -796,15 +821,15 @@ their message catalogs.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

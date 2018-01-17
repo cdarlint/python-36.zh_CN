@@ -1941,8 +1941,8 @@ from other machines (assuming that the firewalls involved allow it).</p>
 <p>Running the following commands creates a server for a single shared queue which
 remote clients can access:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">multiprocessing.managers</span> <span class="k">import</span> <span class="n">BaseManager</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">queue</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">queue</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">queue</span> <span class="k">import</span> <span class="n">Queue</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">QueueManager</span><span class="p">(</span><span class="n">BaseManager</span><span class="p">):</span> <span class="k">pass</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">QueueManager</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;get_queue&#39;</span><span class="p">,</span> <span class="n">callable</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span><span class="n">queue</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">QueueManager</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">50000</span><span class="p">),</span> <span class="n">authkey</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;abracadabra&#39;</span><span class="p">)</span>
@@ -2273,7 +2273,7 @@ to be iterables that are unpacked as arguments.</p>
 
 <dl class="method">
 <dt id="multiprocessing.pool.Pool.starmap_async">
-<code class="descname">starmap_async</code><span class="sig-paren">(</span><em>func</em>, <em>iterable</em><span class="optional">[</span>, <em>chunksize</em><span class="optional">[</span>, <em>callback</em><span class="optional">[</span>, <em>error_back</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.pool.Pool.starmap_async" title="永久链接至目标">¶</a></dt>
+<code class="descname">starmap_async</code><span class="sig-paren">(</span><em>func</em>, <em>iterable</em><span class="optional">[</span>, <em>chunksize</em><span class="optional">[</span>, <em>callback</em><span class="optional">[</span>, <em>error_callback</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.pool.Pool.starmap_async" title="永久链接至目标">¶</a></dt>
 <dd><p>A combination of <a class="reference internal" href="#multiprocessing.pool.Pool.starmap" title="multiprocessing.pool.Pool.starmap"><code class="xref py py-meth docutils literal"><span class="pre">starmap()</span></code></a> and <a class="reference internal" href="#multiprocessing.pool.Pool.map_async" title="multiprocessing.pool.Pool.map_async"><code class="xref py py-meth docutils literal"><span class="pre">map_async()</span></code></a> that iterates over
 <em>iterable</em> of iterables and calls <em>func</em> with the iterables unpacked.
 Returns a result object.</p>
@@ -2401,23 +2401,22 @@ key, and then send the digest back.</p>
 
 <dl class="function">
 <dt id="multiprocessing.connection.Client">
-<code class="descclassname">multiprocessing.connection.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>address</em><span class="optional">[</span>, <em>family</em><span class="optional">[</span>, <em>authenticate</em><span class="optional">[</span>, <em>authkey</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.connection.Client" title="永久链接至目标">¶</a></dt>
+<code class="descclassname">multiprocessing.connection.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>address</em><span class="optional">[</span>, <em>family</em><span class="optional">[</span>, <em>authkey</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.connection.Client" title="永久链接至目标">¶</a></dt>
 <dd><p>Attempt to set up a connection to the listener which is using address
 <em>address</em>, returning a <a class="reference internal" href="#multiprocessing.Connection" title="multiprocessing.Connection"><code class="xref py py-class docutils literal"><span class="pre">Connection</span></code></a>.</p>
 <p>The type of the connection is determined by <em>family</em> argument, but this can
 generally be omitted since it can usually be inferred from the format of
 <em>address</em>. (See <a class="reference internal" href="#multiprocessing-address-formats"><span class="std std-ref">Address Formats</span></a>)</p>
-<p>If <em>authenticate</em> is <code class="docutils literal"><span class="pre">True</span></code> or <em>authkey</em> is a byte string then digest
-authentication is used.  The key used for authentication will be either
-<em>authkey</em> or <code class="docutils literal"><span class="pre">current_process().authkey</span></code> if <em>authkey</em> is <code class="docutils literal"><span class="pre">None</span></code>.
-If authentication fails then
-<a class="reference internal" href="#multiprocessing.AuthenticationError" title="multiprocessing.AuthenticationError"><code class="xref py py-exc docutils literal"><span class="pre">AuthenticationError</span></code></a> is raised.  See
-<a class="reference internal" href="#multiprocessing-auth-keys"><span class="std std-ref">Authentication keys</span></a>.</p>
+<p>If <em>authkey</em> is given and not None, it should be a byte string and will be
+used as the secret key for an HMAC-based authentication challenge. No
+authentication is done if <em>authkey</em> is None.
+<a class="reference internal" href="#multiprocessing.AuthenticationError" title="multiprocessing.AuthenticationError"><code class="xref py py-exc docutils literal"><span class="pre">AuthenticationError</span></code></a> is raised if authentication fails.
+See <a class="reference internal" href="#multiprocessing-auth-keys"><span class="std std-ref">Authentication keys</span></a>.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="multiprocessing.connection.Listener">
-<em class="property">class </em><code class="descclassname">multiprocessing.connection.</code><code class="descname">Listener</code><span class="sig-paren">(</span><span class="optional">[</span><em>address</em><span class="optional">[</span>, <em>family</em><span class="optional">[</span>, <em>backlog</em><span class="optional">[</span>, <em>authenticate</em><span class="optional">[</span>, <em>authkey</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.connection.Listener" title="永久链接至目标">¶</a></dt>
+<em class="property">class </em><code class="descclassname">multiprocessing.connection.</code><code class="descname">Listener</code><span class="sig-paren">(</span><span class="optional">[</span><em>address</em><span class="optional">[</span>, <em>family</em><span class="optional">[</span>, <em>backlog</em><span class="optional">[</span>, <em>authkey</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#multiprocessing.connection.Listener" title="永久链接至目标">¶</a></dt>
 <dd><p>A wrapper for a bound socket or Windows named pipe which is ‘listening’ for
 connections.</p>
 <p><em>address</em> is the address to be used by the bound socket or named pipe of the
@@ -2441,15 +2440,10 @@ private temporary directory created using <a class="reference internal" href="te
 <p>If the listener object uses a socket then <em>backlog</em> (1 by default) is passed
 to the <a class="reference internal" href="socket.html#socket.socket.listen" title="socket.socket.listen"><code class="xref py py-meth docutils literal"><span class="pre">listen()</span></code></a> method of the socket once it has been
 bound.</p>
-<p>If <em>authenticate</em> is <code class="docutils literal"><span class="pre">True</span></code> (<code class="docutils literal"><span class="pre">False</span></code> by default) or <em>authkey</em> is not
-<code class="docutils literal"><span class="pre">None</span></code> then digest authentication is used.</p>
-<p>If <em>authkey</em> is a byte string then it will be used as the
-authentication key; otherwise it must be <code class="docutils literal"><span class="pre">None</span></code>.</p>
-<p>If <em>authkey</em> is <code class="docutils literal"><span class="pre">None</span></code> and <em>authenticate</em> is <code class="docutils literal"><span class="pre">True</span></code> then
-<code class="docutils literal"><span class="pre">current_process().authkey</span></code> is used as the authentication key.  If
-<em>authkey</em> is <code class="docutils literal"><span class="pre">None</span></code> and <em>authenticate</em> is <code class="docutils literal"><span class="pre">False</span></code> then no
-authentication is done.  If authentication fails then
-<a class="reference internal" href="#multiprocessing.AuthenticationError" title="multiprocessing.AuthenticationError"><code class="xref py py-exc docutils literal"><span class="pre">AuthenticationError</span></code></a> is raised.
+<p>If <em>authkey</em> is given and not None, it should be a byte string and will be
+used as the secret key for an HMAC-based authentication challenge. No
+authentication is done if <em>authkey</em> is None.
+<a class="reference internal" href="#multiprocessing.AuthenticationError" title="multiprocessing.AuthenticationError"><code class="xref py py-exc docutils literal"><span class="pre">AuthenticationError</span></code></a> is raised if authentication fails.
 See <a class="reference internal" href="#multiprocessing-auth-keys"><span class="std std-ref">Authentication keys</span></a>.</p>
 <dl class="method">
 <dt id="multiprocessing.connection.Listener.accept">
@@ -3348,15 +3342,15 @@ processes and collect the results:</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>

@@ -96,9 +96,10 @@
 <hr class="docutils" />
 <p>The <a class="reference internal" href="#module-operator" title="operator: Functions corresponding to the standard operators."><code class="xref py py-mod docutils literal"><span class="pre">operator</span></code></a> module exports a set of efficient functions corresponding to
 the intrinsic operators of Python.  For example, <code class="docutils literal"><span class="pre">operator.add(x,</span> <span class="pre">y)</span></code> is
-equivalent to the expression <code class="docutils literal"><span class="pre">x+y</span></code>.  The function names are those used for
-special class methods; variants without leading and trailing <code class="docutils literal"><span class="pre">__</span></code> are also
-provided for convenience.</p>
+equivalent to the expression <code class="docutils literal"><span class="pre">x+y</span></code>. Many function names are those used for
+special methods, without the double underscores.  For backward compatibility,
+many of these have a variant with the double underscores kept. The variants
+without the double underscores are preferred for clarity.</p>
 <p>The functions fall into categories that perform object comparisons, logical
 operations, mathematical operations and sequence operations.</p>
 <p>The object comparison functions are useful for all objects, and are named after
@@ -880,15 +881,15 @@ will perform the update, so no subsequent assignment is necessary:</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权信息</a> 2001-2017, Python Software Foundation.
+    &copy; <a href="../copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
     <br />
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 12月 25, 2017。
+    上次更新于 1月 15, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
     </div>
 
   </body>
