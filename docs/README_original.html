@@ -1,0 +1,278 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Python Documentation README &#8212; Python 3.6.5 文档</title>
+    <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.6.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.6.5 文档 中搜索"
+          href="_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="about.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="copyright" title="版权信息" href="copyright.html" />
+    <link rel="shortcut icon" type="image/png" href="_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/README_original.html" />
+    
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+    
+    
+ 
+
+  </head>
+  <body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="全文档索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li><img src="_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="index.html">3.6.5 Documentation</a> &#187;
+        </li>
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="python-documentation-readme">
+<h1>Python Documentation README<a class="headerlink" href="#python-documentation-readme" title="永久链接至标题">¶</a></h1>
+<p>This directory contains the reStructuredText (reST) sources to the Python
+documentation.  You don’t need to build them yourself, <a class="reference external" href="https://docs.python.org/dev/download.html">prebuilt versions are
+available</a>.</p>
+<p>Documentation on authoring Python documentation, including information about
+both style and markup, is available in the “<a class="reference external" href="https://devguide.python.org/documenting/">Documenting Python</a>” chapter of the
+developers guide.</p>
+<div class="section" id="building-the-docs">
+<h2>Building the docs<a class="headerlink" href="#building-the-docs" title="永久链接至标题">¶</a></h2>
+<p>The documentation is built with several tools which are not included in this
+tree but are maintained separately and are available from
+<a class="reference external" href="https://pypi.org/">PyPI</a>.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://pypi.org/project/Sphinx/">Sphinx</a></li>
+<li><a class="reference external" href="https://pypi.org/project/blurb/">blurb</a></li>
+</ul>
+<p>The easiest way to install these tools is to create a virtual environment and
+install the tools into there.</p>
+<div class="section" id="using-make">
+<h3>Using make<a class="headerlink" href="#using-make" title="永久链接至标题">¶</a></h3>
+<p>To get started on UNIX, you can create a virtual environment with the command</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">venv</span>
+</pre></div>
+</div>
+<p>That will install all the tools necessary to build the documentation. Assuming
+the virtual environment was created in the <code class="docutils literal"><span class="pre">env</span></code> directory (the default;
+configurable with the VENVDIR variable), you can run the following command to
+build the HTML output files:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>By default, if the virtual environment is not created, the Makefile will
+look for instances of sphinxbuild and blurb installed on your process PATH
+(configurable with the SPHINXBUILD and BLURB variables).</p>
+<p>On Windows, we try to emulate the Makefile as closely as possible with a
+<code class="docutils literal"><span class="pre">make.bat</span></code> file. If you need to specify the Python interpreter to use,
+set the PYTHON environment variable instead.</p>
+<p>Available make targets are:</p>
+<ul>
+<li><p class="first">“clean”, which removes all build files.</p>
+</li>
+<li><p class="first">“venv”, which creates a virtual environment with all necessary tools
+installed.</p>
+</li>
+<li><p class="first">“html”, which builds standalone HTML files for offline viewing.</p>
+</li>
+<li><p class="first">“htmlview”, which re-uses the “html” builder, but then opens the main page
+in your default web browser.</p>
+</li>
+<li><p class="first">“htmlhelp”, which builds HTML files and a HTML Help project file usable to
+convert them into a single Compiled HTML (.chm) file – these are popular
+under Microsoft Windows, but very handy on every platform.</p>
+<p>To create the CHM file, you need to run the Microsoft HTML Help Workshop
+over the generated project (.hhp) file.  The make.bat script does this for
+you on Windows.</p>
+</li>
+<li><p class="first">“latex”, which builds LaTeX source files as input to “pdflatex” to produce
+PDF documents.</p>
+</li>
+<li><p class="first">“text”, which builds a plain text file for each source file.</p>
+</li>
+<li><p class="first">“epub”, which builds an EPUB document, suitable to be viewed on e-book
+readers.</p>
+</li>
+<li><p class="first">“linkcheck”, which checks all external references to see whether they are
+broken, redirected or malformed, and outputs this information to stdout as
+well as a plain-text (.txt) file.</p>
+</li>
+<li><p class="first">“changes”, which builds an overview over all versionadded/versionchanged/
+deprecated items in the current version. This is meant as a help for the
+writer of the “What’s New” document.</p>
+</li>
+<li><p class="first">“coverage”, which builds a coverage overview for standard library modules and
+C API.</p>
+</li>
+<li><p class="first">“pydoc-topics”, which builds a Python module containing a dictionary with
+plain text documentation for the labels defined in
+<cite>tools/pyspecific.py</cite> – pydoc needs these to show topic and keyword help.</p>
+</li>
+<li><p class="first">“suspicious”, which checks the parsed markup for text that looks like
+malformed and thus unconverted reST.</p>
+</li>
+<li><p class="first">“check”, which checks for frequent markup errors.</p>
+</li>
+<li><p class="first">“serve”, which serves the build/html directory on port 8000.</p>
+</li>
+<li><p class="first">“dist”, (Unix only) which creates distributable archives of HTML, text,
+PDF, and EPUB builds.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="without-make">
+<h3>Without make<a class="headerlink" href="#without-make" title="永久链接至标题">¶</a></h3>
+<p>First, install the tool dependencies from PyPI.</p>
+<p>Then, from the <code class="docutils literal"><span class="pre">Doc</span></code> directory, run</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="o">-</span><span class="n">b</span><span class="o">&lt;</span><span class="n">builder</span><span class="o">&gt;</span> <span class="o">.</span> <span class="n">build</span><span class="o">/&lt;</span><span class="n">builder</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">&lt;builder&gt;</span></code> is one of html, text, latex, or htmlhelp (for explanations
+see the make targets above).</p>
+</div>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="永久链接至标题">¶</a></h2>
+<p>Bugs in the content should be reported to the
+<a class="reference external" href="https://bugs.python.org">Python bug tracker</a>.</p>
+<p>Bugs in the toolset should be reported to the tools themselves.</p>
+<p>You can also send a mail to the Python Documentation Team at <a class="reference external" href="mailto:docs&#37;&#52;&#48;python&#46;org">docs<span>&#64;</span>python<span>&#46;</span>org</a>,
+and we will process your request as soon as possible.</p>
+<p>If you want to help the Documentation Team, you are always welcome.  Just send
+a mail to <a class="reference external" href="mailto:docs&#37;&#52;&#48;python&#46;org">docs<span>&#64;</span>python<span>&#46;</span>org</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">內容目录</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Python Documentation README</a><ul>
+<li><a class="reference internal" href="#building-the-docs">Building the docs</a><ul>
+<li><a class="reference internal" href="#using-make">Using make</a></li>
+<li><a class="reference internal" href="#without-make">Without make</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>当前页面</h3>
+    <ul class="this-page-menu">
+      <li><a href="bugs.html">提交 Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.6/Doc/README_original.rst"
+            rel="nofollow">显示源码
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="全文档索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li><img src="_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <a href="index.html">3.6.5 Documentation</a> &#187;
+        </li>
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="立即搜索" type="text" name="q" />
+          <input type="submit" value="查找" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">版权信息</a> 2001-2018, Python Software Foundation.
+    <br />
+    Python 软件基金会是一个非盈利组织。
+    <a href="https://www.python.org/psf/donations/">请捐助。</a>
+    <br />
+    上次更新于 4月 24, 2018。
+    <a href="bugs.html">发现了问题</a>？
+    <br />
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
+    </div>
+
+  </body>
+</html>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6.2. re — Regular expression operations &#8212; Python 3.6.4 文档</title>
+    <title>6.2. re — Regular expression operations &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -140,8 +140,8 @@ string <em>pq</em> will match AB.  This holds unless <em>A</em> or <em>B</em> co
 operations; boundary conditions between <em>A</em> and <em>B</em>; or have numbered group
 references.  Thus, complex expressions can easily be constructed from simpler
 primitive expressions like the ones described here.  For details of the theory
-and implementation of regular expressions, consult the Friedl book referenced
-above, or almost any textbook about compiler construction.</p>
+and implementation of regular expressions, consult the Friedl book <a class="reference internal" href="#frie09" id="id1">[Frie09]</a>,
+or almost any textbook about compiler construction.</p>
 <p>A brief explanation of the format of regular expressions follows.  For further
 information and a gentler presentation, consult the <a class="reference internal" href="../howto/regex.html#regex-howto"><span class="std std-ref">Regular Expression HOWTO</span></a>.</p>
 <p>Regular expressions can contain both special and ordinary characters. Most
@@ -379,7 +379,7 @@ beginning of the string being searched; you will most likely want to use the
 </pre></div>
 </div>
 <p>This example looks for a word following a hyphen:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;(?&lt;=-)\w+&#39;</span><span class="p">,</span> <span class="s1">&#39;spam-egg&#39;</span><span class="p">)</span>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?&lt;=-)\w+&#39;</span><span class="p">,</span> <span class="s1">&#39;spam-egg&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">&#39;egg&#39;</span>
 </pre></div>
@@ -526,15 +526,6 @@ three digits in length.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.6 版更改: </span>Unknown escapes consisting of <code class="docutils literal"><span class="pre">'\'</span></code> and an ASCII letter now are errors.</p>
-</div>
-<div class="admonition seealso">
-<p class="first admonition-title">参见</p>
-<dl class="last docutils">
-<dt>Mastering Regular Expressions</dt>
-<dd>Book on regular expressions by Jeffrey Friedl, published by O’Reilly.  The
-second edition of the book no longer covers Python at all, but the first
-edition covered writing good regular expression patterns in great detail.</dd>
-</dl>
 </div>
 </div>
 <div class="section" id="module-contents">
@@ -790,8 +781,14 @@ a warning.  Patterns that can only match empty strings are now rejected.</p>
 strings.  The <em>string</em> is scanned left-to-right, and matches are returned in
 the order found.  If one or more groups are present in the pattern, return a
 list of groups; this will be a list of tuples if the pattern has more than
-one group.  Empty matches are included in the result unless they touch the
-beginning of another match.</p>
+one group.  Empty matches are included in the result.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Due to the limitation of the current implementation the character
+following an empty match is not included in a next match, so
+<code class="docutils literal"><span class="pre">findall(r'^|\w+',</span> <span class="pre">'two</span> <span class="pre">words')</span></code> returns <code class="docutils literal"><span class="pre">['',</span> <span class="pre">'wo',</span> <span class="pre">'words']</span></code>
+(note missed “t”).  This is changed in Python 3.7.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -800,8 +797,7 @@ beginning of another match.</p>
 <dd><p>Return an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> yielding <a class="reference internal" href="#match-objects"><span class="std std-ref">match objects</span></a> over
 all non-overlapping matches for the RE <em>pattern</em> in <em>string</em>.  The <em>string</em>
 is scanned left-to-right, and matches are returned in the order found.  Empty
-matches are included in the result unless they touch the beginning of another
-match.</p>
+matches are included in the result.  See also the note about <a class="reference internal" href="#re.findall" title="re.findall"><code class="xref py py-func docutils literal"><span class="pre">findall()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -859,7 +855,7 @@ substring matched by the RE.</p>
 now are errors.</p>
 </div>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.5, will be removed in version 3.7: </span>Unknown escapes in <em>repl</em> consisting of <code class="docutils literal"><span class="pre">'\'</span></code> and an ASCII letter now raise
+<p><span class="versionmodified">从版本 3.5 开始标记为过时，将在版本 3.7 中移除。: </span>Unknown escapes in <em>repl</em> consisting of <code class="docutils literal"><span class="pre">'\'</span></code> and an ASCII letter now raise
 a deprecation warning and will be forbidden in Python 3.7.</p>
 </div>
 </dd></dl>
@@ -1091,7 +1087,7 @@ pattern.</p>
 
 </div>
 <div class="section" id="match-objects">
-<span id="id1"></span><h2>6.2.4. Match Objects<a class="headerlink" href="#match-objects" title="永久链接至标题">¶</a></h2>
+<span id="id2"></span><h2>6.2.4. Match Objects<a class="headerlink" href="#match-objects" title="永久链接至标题">¶</a></h2>
 <p>Match objects always have a boolean value of <code class="docutils literal"><span class="pre">True</span></code>.
 Since <a class="reference internal" href="#re.regex.match" title="re.regex.match"><code class="xref py py-meth docutils literal"><span class="pre">match()</span></code></a> and <a class="reference internal" href="#re.regex.search" title="re.regex.search"><code class="xref py py-meth docutils literal"><span class="pre">search()</span></code></a> return <code class="docutils literal"><span class="pre">None</span></code>
 when there is no match, you can test whether there was a match with a simple
@@ -1419,7 +1415,7 @@ expressions.</p>
 </div>
 </div>
 <div class="section" id="search-vs-match">
-<span id="id2"></span><h3>6.2.5.3. search() vs. match()<a class="headerlink" href="#search-vs-match" title="永久链接至标题">¶</a></h3>
+<span id="id3"></span><h3>6.2.5.3. search() vs. match()<a class="headerlink" href="#search-vs-match" title="永久链接至标题">¶</a></h3>
 <p>Python offers two different primitive operations based on regular expressions:
 <a class="reference internal" href="#re.match" title="re.match"><code class="xref py py-func docutils literal"><span class="pre">re.match()</span></code></a> checks for a match only at the beginning of the string, while
 <a class="reference internal" href="#re.search" title="re.search"><code class="xref py py-func docutils literal"><span class="pre">re.search()</span></code></a> checks for a match anywhere in the string (this is what Perl
@@ -1639,6 +1635,15 @@ successive matches:</p>
 <span class="n">Token</span><span class="p">(</span><span class="n">typ</span><span class="o">=</span><span class="s1">&#39;END&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 </div>
+<table class="docutils citation" frame="void" id="frie09" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[Frie09]</a></td><td>Friedl, Jeffrey. Mastering Regular Expressions. 3rd ed., O’Reilly
+Media, 2009. The third edition of the book no longer covers Python at all,
+but the first edition covered writing good regular expression patterns in
+great detail.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1712,7 +1717,7 @@ successive matches:</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -1740,10 +1745,10 @@ successive matches:</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

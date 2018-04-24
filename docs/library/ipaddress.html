@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>21.28. ipaddress — IPv4/IPv6 manipulation library &#8212; Python 3.6.4 文档</title>
+    <title>21.28. ipaddress — IPv4/IPv6 manipulation library &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -167,7 +167,8 @@ directly.</p>
 <p>The <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal"><span class="pre">IPv4Address</span></code></a> and <a class="reference internal" href="#ipaddress.IPv6Address" title="ipaddress.IPv6Address"><code class="xref py py-class docutils literal"><span class="pre">IPv6Address</span></code></a> objects share a lot of common
 attributes.  Some attributes that are only meaningful for IPv6 addresses are
 also implemented by <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal"><span class="pre">IPv4Address</span></code></a> objects, in order to make it easier to
-write code that handles both IP versions correctly.</p>
+write code that handles both IP versions correctly.  Address objects are
+<a class="reference internal" href="../glossary.html#term-hashable"><span class="xref std std-term">hashable</span></a>, so they can be used as keys in dictionaries.</p>
 <dl class="class">
 <dt id="ipaddress.IPv4Address">
 <em class="property">class </em><code class="descclassname">ipaddress.</code><code class="descname">IPv4Address</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Address" title="永久链接至目标">¶</a></dt>
@@ -341,7 +342,7 @@ zeroes collapsed to a single empty group.</p>
 
 <p>The long form of the address representation, with all leading zeroes and
 groups consisting entirely of zeroes included.</p>
-<p>For the following attributes, see the corresponding documention of the
+<p>For the following attributes, see the corresponding documentation of the
 <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal"><span class="pre">IPv4Address</span></code></a> class:</p>
 <dl class="attribute">
 <dt id="ipaddress.IPv6Address.packed">
@@ -514,7 +515,9 @@ host mask equivalent to <code class="docutils literal"><span class="pre">/24</sp
 <p>All attributes implemented by address objects are implemented by network
 objects as well.  In addition, network objects implement additional attributes.
 All of these are common between <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal"><span class="pre">IPv4Network</span></code></a> and <a class="reference internal" href="#ipaddress.IPv6Network" title="ipaddress.IPv6Network"><code class="xref py py-class docutils literal"><span class="pre">IPv6Network</span></code></a>,
-so to avoid duplication they are only documented for <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal"><span class="pre">IPv4Network</span></code></a>.</p>
+so to avoid duplication they are only documented for <a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal"><span class="pre">IPv4Network</span></code></a>.
+Network objects are <a class="reference internal" href="../glossary.html#term-hashable"><span class="xref std std-term">hashable</span></a>, so they can be used as keys in
+dictionaries.</p>
 <dl class="class">
 <dt id="ipaddress.IPv4Network">
 <em class="property">class </em><code class="descclassname">ipaddress.</code><code class="descname">IPv4Network</code><span class="sig-paren">(</span><em>address</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network" title="永久链接至目标">¶</a></dt>
@@ -524,8 +527,9 @@ so to avoid duplication they are only documented for <a class="reference interna
 a slash (<code class="docutils literal"><span class="pre">/</span></code>).  The IP address is the network address, and the mask
 can be either a single number, which means it’s a <em>prefix</em>, or a string
 representation of an IPv4 address.  If it’s the latter, the mask is
-interpreted as a <em>net mask</em> if it starts with a non-zero field, or as
-a <em>host mask</em> if it starts with a zero field.  If no mask is provided,
+interpreted as a <em>net mask</em> if it starts with a non-zero field, or as a
+<em>host mask</em> if it starts with a zero field, with the single exception of
+an all-zero mask which is treated as a <em>net mask</em>.  If no mask is provided,
 it’s considered to be <code class="docutils literal"><span class="pre">/32</span></code>.</p>
 <p>For example, the following <em>address</em> specifications are equivalent:
 <code class="docutils literal"><span class="pre">192.168.1.0/24</span></code>, <code class="docutils literal"><span class="pre">192.168.1.0/255.255.255.0</span></code> and
@@ -553,7 +557,7 @@ then <a class="reference internal" href="exceptions.html#ValueError" title="Valu
 to determine the appropriate network address.</p>
 <p>Unless stated otherwise, all network methods accepting other network/address
 objects will raise <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code></a> if the argument’s IP version is
-incompatible to <code class="docutils literal"><span class="pre">self</span></code></p>
+incompatible to <code class="docutils literal"><span class="pre">self</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.5 版更改: </span>Added the two-tuple form for the <em>address</em> constructor parameter.</p>
 </div>
@@ -566,7 +570,7 @@ incompatible to <code class="docutils literal"><span class="pre">self</span></co
 <dt id="ipaddress.IPv4Network.max_prefixlen">
 <code class="descname">max_prefixlen</code><a class="headerlink" href="#ipaddress.IPv4Network.max_prefixlen" title="永久链接至目标">¶</a></dt>
 <dd><p>Refer to the corresponding attribute documentation in
-<a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal"><span class="pre">IPv4Address</span></code></a></p>
+<a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal"><span class="pre">IPv4Address</span></code></a>.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -598,7 +602,7 @@ incompatible to <code class="docutils literal"><span class="pre">self</span></co
 <dt id="ipaddress.IPv4Network.is_link_local">
 <code class="descname">is_link_local</code><a class="headerlink" href="#ipaddress.IPv4Network.is_link_local" title="永久链接至目标">¶</a></dt>
 <dd><p>These attributes are true for the network as a whole if they are true
-for both the network address and the broadcast address</p>
+for both the network address and the broadcast address.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -618,7 +622,13 @@ address should be received by every host on the network.</p>
 <dl class="attribute">
 <dt id="ipaddress.IPv4Network.hostmask">
 <code class="descname">hostmask</code><a class="headerlink" href="#ipaddress.IPv4Network.hostmask" title="永久链接至目标">¶</a></dt>
-<dd><p>The host mask, as a string.</p>
+<dd><p>The host mask, as an <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal"><span class="pre">IPv4Address</span></code></a> object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ipaddress.IPv4Network.netmask">
+<code class="descname">netmask</code><a class="headerlink" href="#ipaddress.IPv4Network.netmask" title="永久链接至目标">¶</a></dt>
+<dd><p>The net mask, as an <a class="reference internal" href="#ipaddress.IPv4Address" title="ipaddress.IPv4Address"><code class="xref py py-class docutils literal"><span class="pre">IPv4Address</span></code></a> object.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -672,11 +682,15 @@ notation.</p>
 <code class="descname">hosts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Network.hosts" title="永久链接至目标">¶</a></dt>
 <dd><p>Returns an iterator over the usable hosts in the network.  The usable
 hosts are all the IP addresses that belong to the network, except the
-network address itself and the network broadcast address.</p>
+network address itself and the network broadcast address.  For networks
+with a mask length of 31, the network address and network broadcast
+address are also included in the result.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/29&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hosts</span><span class="p">())</span>  
 <span class="go">[IPv4Address(&#39;192.0.2.1&#39;), IPv4Address(&#39;192.0.2.2&#39;),</span>
 <span class="go"> IPv4Address(&#39;192.0.2.3&#39;), IPv4Address(&#39;192.0.2.4&#39;),</span>
 <span class="go"> IPv4Address(&#39;192.0.2.5&#39;), IPv4Address(&#39;192.0.2.6&#39;)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">ip_network</span><span class="p">(</span><span class="s1">&#39;192.0.2.0/31&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hosts</span><span class="p">())</span>
+<span class="go">[IPv4Address(&#39;192.0.2.0&#39;), IPv4Address(&#39;192.0.2.1&#39;)]</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -774,14 +788,13 @@ addresses are considered; host bits aren’t.  Returns either <code class="docut
 <em class="property">class </em><code class="descclassname">ipaddress.</code><code class="descname">IPv6Network</code><span class="sig-paren">(</span><em>address</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network" title="永久链接至目标">¶</a></dt>
 <dd><p>Construct an IPv6 network definition.  <em>address</em> can be one of the following:</p>
 <ol class="arabic">
-<li><p class="first">A string consisting of an IP address and an optional mask, separated by
-a slash (<code class="docutils literal"><span class="pre">/</span></code>).  The IP address is the network address, and the mask
-can be either a single number, which means it’s a <em>prefix</em>, or a string
-representation of an IPv6 address.  If it’s the latter, the mask is
-interpreted as a <em>net mask</em>.  If no mask is provided, it’s considered to
-be <code class="docutils literal"><span class="pre">/128</span></code>.</p>
-<p>For example, the following <em>address</em> specifications are equivalent:
-<code class="docutils literal"><span class="pre">2001:db00::0/24</span></code> and <code class="docutils literal"><span class="pre">2001:db00::0/ffff:ff00::</span></code>.</p>
+<li><p class="first">A string consisting of an IP address and an optional prefix length,
+separated by a slash (<code class="docutils literal"><span class="pre">/</span></code>).  The IP address is the network address,
+and the prefix length must be a single number, the <em>prefix</em>.  If no
+prefix length is provided, it’s considered to be <code class="docutils literal"><span class="pre">/128</span></code>.</p>
+<p>Note that currently expanded netmasks are not supported.  That means
+<code class="docutils literal"><span class="pre">2001:db00::0/24</span></code> is a valid argument while <code class="docutils literal"><span class="pre">2001:db00::0/ffff:ff00::</span></code>
+not.</p>
 </li>
 <li><p class="first">An integer that fits into 128 bits.  This is equivalent to a
 single-address network, with the network address being <em>address</em> and
@@ -861,6 +874,11 @@ to determine the appropriate network address.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="ipaddress.IPv6Network.netmask">
+<code class="descname">netmask</code><a class="headerlink" href="#ipaddress.IPv6Network.netmask" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="ipaddress.IPv6Network.with_prefixlen">
 <code class="descname">with_prefixlen</code><a class="headerlink" href="#ipaddress.IPv6Network.with_prefixlen" title="永久链接至目标">¶</a></dt>
 <dd></dd></dl>
@@ -898,7 +916,11 @@ to determine the appropriate network address.</p>
 <dl class="method">
 <dt id="ipaddress.IPv6Network.hosts">
 <code class="descname">hosts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.hosts" title="永久链接至目标">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns an iterator over the usable hosts in the network.  The usable
+hosts are all the IP addresses that belong to the network, except the
+Subnet-Router anycast address.  For networks with a mask length of 127,
+the Subnet-Router anycast address is also included in the result.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="ipaddress.IPv6Network.overlaps">
@@ -924,14 +946,14 @@ to determine the appropriate network address.</p>
 <dt id="ipaddress.IPv6Network.compare_networks">
 <code class="descname">compare_networks</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv6Network.compare_networks" title="永久链接至目标">¶</a></dt>
 <dd><p>Refer to the corresponding attribute documentation in
-<a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal"><span class="pre">IPv4Network</span></code></a></p>
+<a class="reference internal" href="#ipaddress.IPv4Network" title="ipaddress.IPv4Network"><code class="xref py py-class docutils literal"><span class="pre">IPv4Network</span></code></a>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ipaddress.IPv6Network.is_site_local">
 <code class="descname">is_site_local</code><a class="headerlink" href="#ipaddress.IPv6Network.is_site_local" title="永久链接至目标">¶</a></dt>
 <dd><p>These attribute is true for the network as a whole if it is true
-for both the network address and the broadcast address</p>
+for both the network address and the broadcast address.</p>
 </dd></dl>
 
 </dd></dl>
@@ -944,8 +966,8 @@ only be applied between compatible objects (i.e. IPv4 with IPv4, IPv6 with
 IPv6).</p>
 <div class="section" id="logical-operators">
 <h4>21.28.3.3.1. Logical operators<a class="headerlink" href="#logical-operators" title="永久链接至标题">¶</a></h4>
-<p>Network objects can be compared with the usual set of logical operators,
-similarly to address objects.</p>
+<p>Network objects can be compared with the usual set of logical operators.
+Network objects are ordered first by network address, then by net mask.</p>
 </div>
 <div class="section" id="iteration">
 <h4>21.28.3.3.2. Iteration<a class="headerlink" href="#iteration" title="永久链接至标题">¶</a></h4>
@@ -993,6 +1015,8 @@ example:</p>
 </div>
 <div class="section" id="interface-objects">
 <h2>21.28.4. Interface objects<a class="headerlink" href="#interface-objects" title="永久链接至标题">¶</a></h2>
+<p>Interface objects are <a class="reference internal" href="../glossary.html#term-hashable"><span class="xref std std-term">hashable</span></a>, so they can be used as keys in
+dictionaries.</p>
 <dl class="class">
 <dt id="ipaddress.IPv4Interface">
 <em class="property">class </em><code class="descclassname">ipaddress.</code><code class="descname">IPv4Interface</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.IPv4Interface" title="永久链接至目标">¶</a></dt>
@@ -1097,6 +1121,24 @@ are available:</p>
 
 </dd></dl>
 
+<div class="section" id="id2">
+<h3>21.28.4.1. Operators<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>Interface objects support some operators.  Unless stated otherwise, operators
+can only be applied between compatible objects (i.e. IPv4 with IPv4, IPv6 with
+IPv6).</p>
+<div class="section" id="id3">
+<h4>21.28.4.1.1. Logical operators<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h4>
+<p>Interface objects can be compared with the usual set of logical operators.</p>
+<p>For equality comparison (<code class="docutils literal"><span class="pre">==</span></code> and <code class="docutils literal"><span class="pre">!=</span></code>), both the IP address and network
+must be the same for the objects to be equal.  An interface will not compare
+equal to any address or network object.</p>
+<p>For ordering (<code class="docutils literal"><span class="pre">&lt;</span></code>, <code class="docutils literal"><span class="pre">&gt;</span></code>, etc) the rules are different.  Interface and
+address objects with the same IP version can be compared, and the address
+objects will always sort before the interface objects.  Two interface objects
+are first compared by their networks and, if those are the same, then by their
+IP addresses.</p>
+</div>
+</div>
 </div>
 <div class="section" id="other-module-level-functions">
 <h2>21.28.5. Other Module Level Functions<a class="headerlink" href="#other-module-level-functions" title="永久链接至标题">¶</a></h2>
@@ -1169,7 +1211,7 @@ different, so the expression:</p>
 </div>
 <p>doesn’t make sense.  There are some times however, where you may wish to
 have <a class="reference internal" href="#module-ipaddress" title="ipaddress: IPv4/IPv6 manipulation library."><code class="xref py py-mod docutils literal"><span class="pre">ipaddress</span></code></a> sort these anyway.  If you need to do this, you can use
-this function as the <code class="docutils literal"><span class="pre">key</span></code> argument to <a class="reference internal" href="functions.html#sorted" title="sorted"><code class="xref py py-func docutils literal"><span class="pre">sorted()</span></code></a>.</p>
+this function as the <em>key</em> argument to <a class="reference internal" href="functions.html#sorted" title="sorted"><code class="xref py py-func docutils literal"><span class="pre">sorted()</span></code></a>.</p>
 <p><em>obj</em> is either a network or address object.</p>
 </dd></dl>
 
@@ -1187,7 +1229,7 @@ module defines the following exceptions:</p>
 <dl class="exception">
 <dt id="ipaddress.NetmaskValueError">
 <em class="property">exception </em><code class="descclassname">ipaddress.</code><code class="descname">NetmaskValueError</code><span class="sig-paren">(</span><em>ValueError</em><span class="sig-paren">)</span><a class="headerlink" href="#ipaddress.NetmaskValueError" title="永久链接至目标">¶</a></dt>
-<dd><p>Any value error related to the netmask.</p>
+<dd><p>Any value error related to the net mask.</p>
 </dd></dl>
 
 </div>
@@ -1224,7 +1266,13 @@ module defines the following exceptions:</p>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#interface-objects">21.28.4. Interface objects</a></li>
+<li><a class="reference internal" href="#interface-objects">21.28.4. Interface objects</a><ul>
+<li><a class="reference internal" href="#id2">21.28.4.1. Operators</a><ul>
+<li><a class="reference internal" href="#id3">21.28.4.1.1. Logical operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#other-module-level-functions">21.28.5. Other Module Level Functions</a></li>
 <li><a class="reference internal" href="#custom-exceptions">21.28.6. Custom Exceptions</a></li>
 </ul>
@@ -1271,7 +1319,7 @@ module defines the following exceptions:</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -1299,10 +1347,10 @@ module defines the following exceptions:</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4. Building C and C++ Extensions on Windows &#8212; Python 3.6.4 文档</title>
+    <title>5. Building C and C++ Extensions on Windows &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,14 +24,14 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="copyright" title="版权信息" href="../copyright.html" />
     <link rel="next" title="1. Embedding Python in Another Application" href="embedding.html" />
-    <link rel="prev" title="3. Building C and C++ Extensions" href="building.html" />
+    <link rel="prev" title="4. Building C and C++ Extensions" href="building.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/extending/windows.html" />
     
@@ -56,13 +56,13 @@
           <a href="embedding.html" title="1. Embedding Python in Another Application"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="building.html" title="3. Building C and C++ Extensions"
+          <a href="building.html" title="4. Building C and C++ Extensions"
              accesskey="P">上一页</a> |</li>
         <li><img src="../_static/py.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -90,7 +90,7 @@
           <div class="body" role="main">
             
   <div class="section" id="building-c-and-c-extensions-on-windows">
-<span id="building-on-windows"></span><h1>4. Building C and C++ Extensions on Windows<a class="headerlink" href="#building-c-and-c-extensions-on-windows" title="永久链接至标题">¶</a></h1>
+<span id="building-on-windows"></span><h1>5. Building C and C++ Extensions on Windows<a class="headerlink" href="#building-c-and-c-extensions-on-windows" title="永久链接至标题">¶</a></h1>
 <p>This chapter briefly explains how to create a Windows extension module for
 Python using Microsoft Visual C++, and follows with more detailed background
 information on how it works.  The explanatory material is useful for both the
@@ -110,7 +110,7 @@ will be the minor version number of the Python release you’re working with.  F
 example, if you are using Python 2.2.1, <code class="docutils literal"><span class="pre">XY</span></code> will actually be <code class="docutils literal"><span class="pre">22</span></code>.</p>
 </div>
 <div class="section" id="a-cookbook-approach">
-<span id="win-cookbook"></span><h2>4.1. A Cookbook Approach<a class="headerlink" href="#a-cookbook-approach" title="永久链接至标题">¶</a></h2>
+<span id="win-cookbook"></span><h2>5.1. A Cookbook Approach<a class="headerlink" href="#a-cookbook-approach" title="永久链接至标题">¶</a></h2>
 <p>There are two approaches to building extension modules on Windows, just as there
 are on Unix: use the <a class="reference internal" href="../library/distutils.html#module-distutils" title="distutils: Support for building and installing Python modules into an existing Python installation."><code class="xref py py-mod docutils literal"><span class="pre">distutils</span></code></a> package to control the build process, or
 do things manually.  The distutils approach works well for most extensions;
@@ -120,7 +120,7 @@ things manually, it may be instructive to study the project file for the
 <a class="reference external" href="https://github.com/python/cpython/tree/3.6/PCbuild/winsound.vcxproj">winsound</a> standard library module.</p>
 </div>
 <div class="section" id="differences-between-unix-and-windows">
-<span id="dynamic-linking"></span><h2>4.2. Differences Between Unix and Windows<a class="headerlink" href="#differences-between-unix-and-windows" title="永久链接至标题">¶</a></h2>
+<span id="dynamic-linking"></span><h2>5.2. Differences Between Unix and Windows<a class="headerlink" href="#differences-between-unix-and-windows" title="永久链接至标题">¶</a></h2>
 <p>Unix and Windows use completely different paradigms for run-time loading of
 code.  Before you try to build a module that can be dynamically loaded, be aware
 of how your system works.</p>
@@ -162,7 +162,7 @@ linking with a library is more like <code class="docutils literal"><span class="
 separate copy.</p>
 </div>
 <div class="section" id="using-dlls-in-practice">
-<span id="win-dlls"></span><h2>4.3. Using DLLs in Practice<a class="headerlink" href="#using-dlls-in-practice" title="永久链接至标题">¶</a></h2>
+<span id="win-dlls"></span><h2>5.3. Using DLLs in Practice<a class="headerlink" href="#using-dlls-in-practice" title="永久链接至标题">¶</a></h2>
 <p>Windows Python is built in Microsoft Visual C++; using other compilers may or
 may not work (though Borland seems to).  The rest of this section is MSVC++
 specific.</p>
@@ -199,17 +199,17 @@ correct <code class="file docutils literal"><span class="pre">msvcrtxx.lib</span
         <div class="sphinxsidebarwrapper">
   <h3><a href="../contents.html">內容目录</a></h3>
   <ul>
-<li><a class="reference internal" href="#">4. Building C and C++ Extensions on Windows</a><ul>
-<li><a class="reference internal" href="#a-cookbook-approach">4.1. A Cookbook Approach</a></li>
-<li><a class="reference internal" href="#differences-between-unix-and-windows">4.2. Differences Between Unix and Windows</a></li>
-<li><a class="reference internal" href="#using-dlls-in-practice">4.3. Using DLLs in Practice</a></li>
+<li><a class="reference internal" href="#">5. Building C and C++ Extensions on Windows</a><ul>
+<li><a class="reference internal" href="#a-cookbook-approach">5.1. A Cookbook Approach</a></li>
+<li><a class="reference internal" href="#differences-between-unix-and-windows">5.2. Differences Between Unix and Windows</a></li>
+<li><a class="reference internal" href="#using-dlls-in-practice">5.3. Using DLLs in Practice</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>上一个主题</h4>
   <p class="topless"><a href="building.html"
-                        title="上一章">3. Building C and C++ Extensions</a></p>
+                        title="上一章">4. Building C and C++ Extensions</a></p>
   <h4>下一个主题</h4>
   <p class="topless"><a href="embedding.html"
                         title="下一章">1. Embedding Python in Another Application</a></p>
@@ -241,13 +241,13 @@ correct <code class="file docutils literal"><span class="pre">msvcrtxx.lib</span
           <a href="embedding.html" title="1. Embedding Python in Another Application"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="building.html" title="3. Building C and C++ Extensions"
+          <a href="building.html" title="4. Building C and C++ Extensions"
              >上一页</a> |</li>
         <li><img src="../_static/py.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -274,10 +274,10 @@ correct <code class="file docutils literal"><span class="pre">msvcrtxx.lib</span
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

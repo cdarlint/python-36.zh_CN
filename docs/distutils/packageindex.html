@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6. The Python Package Index (PyPI) &#8212; Python 3.6.4 文档</title>
+    <title>6. The Python Package Index (PyPI) &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Distributing Python Modules (Legacy version)</a> &#187;</li>
@@ -199,14 +199,14 @@ existence of a <code class="file docutils literal"><span class="pre">.pypirc</sp
 If this file exists, the command uses the username, password, and repository
 URL configured in the file.  The format of a <code class="file docutils literal"><span class="pre">.pypirc</span></code> file is as
 follows:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">distutils</span><span class="p">]</span>
-<span class="n">index</span><span class="o">-</span><span class="n">servers</span> <span class="o">=</span>
-    <span class="n">pypi</span>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[distutils]</span>
+<span class="na">index-servers</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    pypi</span>
 
-<span class="p">[</span><span class="n">pypi</span><span class="p">]</span>
-<span class="n">repository</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;</span>
-<span class="n">username</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>
-<span class="n">password</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span>
+<span class="k">[pypi]</span>
+<span class="na">repository: &lt;repository-url&gt;</span>
+<span class="na">username: &lt;username&gt;</span>
+<span class="na">password: &lt;password&gt;</span>
 </pre></div>
 </div>
 <p>The <em>distutils</em> section defines an <em>index-servers</em> variable that lists the
@@ -227,20 +227,20 @@ name of all sections describing a repository.</p>
 </ul>
 <p>If you want to define another server a new section can be created and
 listed in the <em>index-servers</em> variable:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">distutils</span><span class="p">]</span>
-<span class="n">index</span><span class="o">-</span><span class="n">servers</span> <span class="o">=</span>
-    <span class="n">pypi</span>
-    <span class="n">other</span>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[distutils]</span>
+<span class="na">index-servers</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    pypi</span>
+<span class="s">    other</span>
 
-<span class="p">[</span><span class="n">pypi</span><span class="p">]</span>
-<span class="n">repository</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">repository</span><span class="o">-</span><span class="n">url</span><span class="o">&gt;</span>
-<span class="n">username</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>
-<span class="n">password</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span>
+<span class="k">[pypi]</span>
+<span class="na">repository: &lt;repository-url&gt;</span>
+<span class="na">username: &lt;username&gt;</span>
+<span class="na">password: &lt;password&gt;</span>
 
-<span class="p">[</span><span class="n">other</span><span class="p">]</span>
-<span class="n">repository</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pypi</span>
-<span class="n">username</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>
-<span class="n">password</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span>
+<span class="k">[other]</span>
+<span class="na">repository: https://example.com/pypi</span>
+<span class="na">username: &lt;username&gt;</span>
+<span class="na">password: &lt;password&gt;</span>
 </pre></div>
 </div>
 <p>This allows the <strong class="command">register</strong> and <strong class="command">upload</strong> commands to be
@@ -346,7 +346,7 @@ successfully.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Distributing Python Modules (Legacy version)</a> &#187;</li>
@@ -373,10 +373,10 @@ successfully.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

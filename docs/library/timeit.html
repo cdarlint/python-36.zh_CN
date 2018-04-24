@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>27.5. timeit — Measure execution time of small code snippets &#8212; Python 3.6.4 文档</title>
+    <title>27.5. timeit — Measure execution time of small code snippets &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -103,12 +103,12 @@ Cookbook</em>, published by O’Reilly.</p>
 <h2>27.5.1. Basic Examples<a class="headerlink" href="#basic-examples" title="永久链接至标题">¶</a></h2>
 <p>The following example shows how the <a class="reference internal" href="#timeit-command-line-interface"><span class="std std-ref">Command-Line Interface</span></a>
 can be used to compare three different expressions:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ python3 -m timeit <span class="s1">&#39;&quot;-&quot;.join(str(n) for n in range(100))&#39;</span>
-<span class="m">10000</span> loops, best of <span class="m">3</span>: <span class="m">30</span>.2 usec per loop
-$ python3 -m timeit <span class="s1">&#39;&quot;-&quot;.join([str(n) for n in range(100)])&#39;</span>
-<span class="m">10000</span> loops, best of <span class="m">3</span>: <span class="m">27</span>.5 usec per loop
-$ python3 -m timeit <span class="s1">&#39;&quot;-&quot;.join(map(str, range(100)))&#39;</span>
-<span class="m">10000</span> loops, best of <span class="m">3</span>: <span class="m">23</span>.2 usec per loop
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 -m timeit <span class="s1">&#39;&quot;-&quot;.join(str(n) for n in range(100))&#39;</span>
+<span class="go">10000 loops, best of 3: 30.2 usec per loop</span>
+<span class="gp">$</span> python3 -m timeit <span class="s1">&#39;&quot;-&quot;.join([str(n) for n in range(100)])&#39;</span>
+<span class="go">10000 loops, best of 3: 27.5 usec per loop</span>
+<span class="gp">$</span> python3 -m timeit <span class="s1">&#39;&quot;-&quot;.join(map(str, range(100)))&#39;</span>
+<span class="go">10000 loops, best of 3: 23.2 usec per loop</span>
 </pre></div>
 </div>
 <p>This can be achieved from the <a class="reference internal" href="#python-interface"><span class="std std-ref">Python Interface</span></a> with:</p>
@@ -356,10 +356,10 @@ and it might differ between Python versions.</p>
 <div class="section" id="examples">
 <span id="timeit-examples"></span><h2>27.5.4. Examples<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
 <p>It is possible to provide a setup statement that is executed only once at the beginning:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ python -m timeit -s <span class="s1">&#39;text = &quot;sample string&quot;; char = &quot;g&quot;&#39;</span>  <span class="s1">&#39;char in text&#39;</span>
-<span class="m">10000000</span> loops, best of <span class="m">3</span>: <span class="m">0</span>.0877 usec per loop
-$ python -m timeit -s <span class="s1">&#39;text = &quot;sample string&quot;; char = &quot;g&quot;&#39;</span>  <span class="s1">&#39;text.find(char)&#39;</span>
-<span class="m">1000000</span> loops, best of <span class="m">3</span>: <span class="m">0</span>.342 usec per loop
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m timeit -s <span class="s1">&#39;text = &quot;sample string&quot;; char = &quot;g&quot;&#39;</span>  <span class="s1">&#39;char in text&#39;</span>
+<span class="go">10000000 loops, best of 3: 0.0877 usec per loop</span>
+<span class="gp">$</span> python -m timeit -s <span class="s1">&#39;text = &quot;sample string&quot;; char = &quot;g&quot;&#39;</span>  <span class="s1">&#39;text.find(char)&#39;</span>
+<span class="go">1000000 loops, best of 3: 0.342 usec per loop</span>
 </pre></div>
 </div>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">timeit</span>
@@ -381,15 +381,15 @@ $ python -m timeit -s <span class="s1">&#39;text = &quot;sample string&quot;; ch
 <p>The following examples show how to time expressions that contain multiple lines.
 Here we compare the cost of using <a class="reference internal" href="functions.html#hasattr" title="hasattr"><code class="xref py py-func docutils literal"><span class="pre">hasattr()</span></code></a> vs. <a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal"><span class="pre">try</span></code></a>/<a class="reference internal" href="../reference/compound_stmts.html#except"><code class="xref std std-keyword docutils literal"><span class="pre">except</span></code></a>
 to test for missing and present object attributes:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ python -m timeit <span class="s1">&#39;try:&#39;</span> <span class="s1">&#39;  str.__bool__&#39;</span> <span class="s1">&#39;except AttributeError:&#39;</span> <span class="s1">&#39;  pass&#39;</span>
-<span class="m">100000</span> loops, best of <span class="m">3</span>: <span class="m">15</span>.7 usec per loop
-$ python -m timeit <span class="s1">&#39;if hasattr(str, &quot;__bool__&quot;): pass&#39;</span>
-<span class="m">100000</span> loops, best of <span class="m">3</span>: <span class="m">4</span>.26 usec per loop
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m timeit <span class="s1">&#39;try:&#39;</span> <span class="s1">&#39;  str.__bool__&#39;</span> <span class="s1">&#39;except AttributeError:&#39;</span> <span class="s1">&#39;  pass&#39;</span>
+<span class="go">100000 loops, best of 3: 15.7 usec per loop</span>
+<span class="gp">$</span> python -m timeit <span class="s1">&#39;if hasattr(str, &quot;__bool__&quot;): pass&#39;</span>
+<span class="go">100000 loops, best of 3: 4.26 usec per loop</span>
 
-$ python -m timeit <span class="s1">&#39;try:&#39;</span> <span class="s1">&#39;  int.__bool__&#39;</span> <span class="s1">&#39;except AttributeError:&#39;</span> <span class="s1">&#39;  pass&#39;</span>
-<span class="m">1000000</span> loops, best of <span class="m">3</span>: <span class="m">1</span>.43 usec per loop
-$ python -m timeit <span class="s1">&#39;if hasattr(int, &quot;__bool__&quot;): pass&#39;</span>
-<span class="m">100000</span> loops, best of <span class="m">3</span>: <span class="m">2</span>.23 usec per loop
+<span class="gp">$</span> python -m timeit <span class="s1">&#39;try:&#39;</span> <span class="s1">&#39;  int.__bool__&#39;</span> <span class="s1">&#39;except AttributeError:&#39;</span> <span class="s1">&#39;  pass&#39;</span>
+<span class="go">1000000 loops, best of 3: 1.43 usec per loop</span>
+<span class="gp">$</span> python -m timeit <span class="s1">&#39;if hasattr(int, &quot;__bool__&quot;): pass&#39;</span>
+<span class="go">100000 loops, best of 3: 2.23 usec per loop</span>
 </pre></div>
 </div>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">timeit</span>
@@ -505,7 +505,7 @@ than individually specifying imports:</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -533,10 +533,10 @@ than individually specifying imports:</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Installing Python Modules (Legacy version) &#8212; Python 3.6.4 文档</title>
+    <title>Installing Python Modules (Legacy version) &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -58,7 +58,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
     <li class="right">
@@ -333,13 +333,13 @@ Python (command line)</span>.   Once the interpreter is started, you type Python
 at the prompt.  For example, on my Linux system, I type the three Python
 statements shown below, and get the output as shown, to find out my
 <code class="file docutils literal"><em><span class="pre">prefix</span></em></code> and <code class="file docutils literal"><em><span class="pre">exec-prefix</span></em></code>:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Python 2.4 (#26, Aug  7 2004, 17:19:02)
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-&gt;&gt;&gt; import sys
-&gt;&gt;&gt; sys.prefix
-&#39;/usr&#39;
-&gt;&gt;&gt; sys.exec_prefix
-&#39;/usr&#39;
+<div class="highlight-pycon"><div class="highlight"><pre><span></span><span class="go">Python 2.4 (#26, Aug  7 2004, 17:19:02)</span>
+<span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">prefix</span>
+<span class="go">&#39;/usr&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">exec_prefix</span>
+<span class="go">&#39;/usr&#39;</span>
 </pre></div>
 </div>
 <p>A few other placeholders are used in this document: <code class="file docutils literal"><em><span class="pre">X.Y</span></em></code> stands for the
@@ -731,21 +731,21 @@ parsing your configuration file(s).</p>
 <p>Obviously, specifying the entire installation scheme every time you install a
 new module distribution would be very tedious.  Thus, you can put these options
 into your Distutils config file (see section <a class="reference internal" href="#inst-config-files"><span class="std std-ref">Distutils Configuration Files</span></a>):</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>[install]
-install-base=$HOME
-install-purelib=python/lib
-install-platlib=python/lib.$PLAT
-install-scripts=python/scripts
-install-data=python/data
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[install]</span>
+<span class="na">install-base</span><span class="o">=</span><span class="s">$HOME</span>
+<span class="na">install-purelib</span><span class="o">=</span><span class="s">python/lib</span>
+<span class="na">install-platlib</span><span class="o">=</span><span class="s">python/lib.$PLAT</span>
+<span class="na">install-scripts</span><span class="o">=</span><span class="s">python/scripts</span>
+<span class="na">install-data</span><span class="o">=</span><span class="s">python/data</span>
 </pre></div>
 </div>
 <p>or, equivalently,</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>[install]
-install-base=$HOME/python
-install-purelib=lib
-install-platlib=lib.$PLAT
-install-scripts=scripts
-install-data=data
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[install]</span>
+<span class="na">install-base</span><span class="o">=</span><span class="s">$HOME/python</span>
+<span class="na">install-purelib</span><span class="o">=</span><span class="s">lib</span>
+<span class="na">install-platlib</span><span class="o">=</span><span class="s">lib.$PLAT</span>
+<span class="na">install-scripts</span><span class="o">=</span><span class="s">scripts</span>
+<span class="na">install-data</span><span class="o">=</span><span class="s">data</span>
 </pre></div>
 </div>
 <p>Note that these two are <em>not</em> equivalent if you supply a different installation
@@ -814,8 +814,8 @@ standard library, and modify <code class="docutils literal"><span class="pre">sy
 imported when the Python interpreter is executed, unless the <a class="reference internal" href="../using/cmdline.html#id3"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> switch
 is supplied to suppress this behaviour.  So you could simply edit
 <code class="file docutils literal"><span class="pre">site.py</span></code> and add two lines to it:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>import sys
-sys.path.append(&#39;/www/python/&#39;)
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/www/python/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>However, if you reinstall the same major version of Python (perhaps when
@@ -942,8 +942,8 @@ plus a <code class="docutils literal"><span class="pre">global</span></code> sec
 section consists of one option per line, specified as <code class="docutils literal"><span class="pre">option=value</span></code>.</p>
 <p>For example, the following is a complete config file that just forces all
 commands to run quietly by default:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>[global]
-verbose=0
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[global]</span>
+<span class="na">verbose</span><span class="o">=</span><span class="s">0</span>
 </pre></div>
 </div>
 <p>If this is installed as the system config file, it will affect all processing of
@@ -955,9 +955,9 @@ distribution.</p>
 <p>You could override the default “build base” directory and make the
 <strong class="command">build*</strong> commands always forcibly rebuild all files with the
 following:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>[build]
-build-base=blib
-force=1
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[build]</span>
+<span class="na">build-base</span><span class="o">=</span><span class="s">blib</span>
+<span class="na">force</span><span class="o">=</span><span class="s">1</span>
 </pre></div>
 </div>
 <p>which corresponds to the command-line arguments</p>
@@ -1262,7 +1262,7 @@ information</td></tr>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
     <li class="right">
@@ -1288,10 +1288,10 @@ information</td></tr>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

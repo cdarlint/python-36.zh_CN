@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>1. Embedding Python in Another Application &#8212; Python 3.6.4 文档</title>
+    <title>1. Embedding Python in Another Application &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,14 +24,14 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="copyright" title="版权信息" href="../copyright.html" />
     <link rel="next" title="Python/C API Reference Manual" href="../c-api/index.html" />
-    <link rel="prev" title="4. Building C and C++ Extensions on Windows" href="windows.html" />
+    <link rel="prev" title="5. Building C and C++ Extensions on Windows" href="windows.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/extending/embedding.html" />
     
@@ -56,13 +56,13 @@
           <a href="../c-api/index.html" title="Python/C API Reference Manual"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="windows.html" title="4. Building C and C++ Extensions on Windows"
+          <a href="windows.html" title="5. Building C and C++ Extensions on Windows"
              accesskey="P">上一页</a> |</li>
         <li><img src="../_static/py.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -430,7 +430,7 @@ to find its location) and compilation
 options.  In this case, the <a class="reference internal" href="../library/sysconfig.html#module-sysconfig" title="sysconfig: Python's configuration information"><code class="xref py py-mod docutils literal"><span class="pre">sysconfig</span></code></a> module is a useful tool to
 programmatically extract the configuration values that you will want to
 combine together.  For example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sysconfig</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sysconfig</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_config_var</span><span class="p">(</span><span class="s1">&#39;LIBS&#39;</span><span class="p">)</span>
 <span class="go">&#39;-lpthread -ldl  -lutil&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_config_var</span><span class="p">(</span><span class="s1">&#39;LINKFORSHARED&#39;</span><span class="p">)</span>
@@ -461,7 +461,7 @@ combine together.  For example:</p>
 
   <h4>上一个主题</h4>
   <p class="topless"><a href="windows.html"
-                        title="上一章">4. Building C and C++ Extensions on Windows</a></p>
+                        title="上一章">5. Building C and C++ Extensions on Windows</a></p>
   <h4>下一个主题</h4>
   <p class="topless"><a href="../c-api/index.html"
                         title="下一章">Python/C API Reference Manual</a></p>
@@ -493,13 +493,13 @@ combine together.  For example:</p>
           <a href="../c-api/index.html" title="Python/C API Reference Manual"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="windows.html" title="4. Building C and C++ Extensions on Windows"
+          <a href="windows.html" title="5. Building C and C++ Extensions on Windows"
              >上一页</a> |</li>
         <li><img src="../_static/py.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -526,10 +526,10 @@ combine together.  For example:</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

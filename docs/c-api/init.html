@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Initialization, Finalization, and Threads &#8212; Python 3.6.4 文档</title>
+    <title>Initialization, Finalization, and Threads &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python/C API Reference Manual</a> &#187;</li>
@@ -137,8 +137,8 @@ Python/C API functions, and destroy all sub-interpreters (see
 the last call to <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal"><span class="pre">Py_Initialize()</span></code></a>.  Ideally, this frees all memory
 allocated by the Python interpreter.  This is a no-op when called for a second
 time (without calling <a class="reference internal" href="#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal"><span class="pre">Py_Initialize()</span></code></a> again first).  Normally the
-return value is 0.  If there were errors during finalization
-(flushing buffered data), -1 is returned.</p>
+return value is <code class="docutils literal"><span class="pre">0</span></code>.  If there were errors during finalization
+(flushing buffered data), <code class="docutils literal"><span class="pre">-1</span></code> is returned.</p>
 <p>This function is provided for a number of reasons.  An embedding application
 might want to restart Python without having to restart the application itself.
 An application that has loaded the Python interpreter from a dynamically
@@ -1042,14 +1042,14 @@ pertains, <em>what</em> is one of the constants <code class="xref py py-const do
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="xref py py-const docutils literal"><span class="pre">PyTrace_CALL</span></code></td>
-<td>Always <em>NULL</em>.</td>
+<td>Always <a class="reference internal" href="none.html#c.Py_None" title="Py_None"><code class="xref c c-data docutils literal"><span class="pre">Py_None</span></code></a>.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-const docutils literal"><span class="pre">PyTrace_EXCEPTION</span></code></td>
 <td>Exception information as returned by
 <a class="reference internal" href="../library/sys.html#sys.exc_info" title="sys.exc_info"><code class="xref py py-func docutils literal"><span class="pre">sys.exc_info()</span></code></a>.</td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-const docutils literal"><span class="pre">PyTrace_LINE</span></code></td>
-<td>Always <em>NULL</em>.</td>
+<td>Always <a class="reference internal" href="none.html#c.Py_None" title="Py_None"><code class="xref c c-data docutils literal"><span class="pre">Py_None</span></code></a>.</td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-const docutils literal"><span class="pre">PyTrace_RETURN</span></code></td>
 <td>Value being returned to the caller,
@@ -1101,7 +1101,7 @@ profiling function) when a line-number event is being reported.</p>
 <dt id="c.PyTrace_RETURN">
 int <code class="descname">PyTrace_RETURN</code><a class="headerlink" href="#c.PyTrace_RETURN" title="永久链接至目标">¶</a></dt>
 <dd><p>The value for the <em>what</em> parameter to <a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc"><code class="xref c c-type docutils literal"><span class="pre">Py_tracefunc</span></code></a> functions when a
-call is returning without propagating an exception.</p>
+call is about to return.</p>
 </dd></dl>
 
 <dl class="var">
@@ -1132,8 +1132,8 @@ void <code class="descname">PyEval_SetProfile</code><span class="sig-paren">(</s
 function as its first parameter, and may be any Python object, or <em>NULL</em>.  If
 the profile function needs to maintain state, using a different value for <em>obj</em>
 for each thread provides a convenient and thread-safe place to store it.  The
-profile function is called for all monitored events except the line-number
-events.</p>
+profile function is called for all monitored events except <code class="xref py py-const docutils literal"><span class="pre">PyTrace_LINE</span></code>
+and <code class="xref py py-const docutils literal"><span class="pre">PyTrace_EXCEPTION</span></code>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1141,7 +1141,10 @@ events.</p>
 void <code class="descname">PyEval_SetTrace</code><span class="sig-paren">(</span><a class="reference internal" href="#c.Py_tracefunc" title="Py_tracefunc">Py_tracefunc</a><em>&nbsp;func</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*obj</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyEval_SetTrace" title="永久链接至目标">¶</a></dt>
 <dd><p>Set the tracing function to <em>func</em>.  This is similar to
 <a class="reference internal" href="#c.PyEval_SetProfile" title="PyEval_SetProfile"><code class="xref c c-func docutils literal"><span class="pre">PyEval_SetProfile()</span></code></a>, except the tracing function does receive line-number
-events.</p>
+events and does not receive any event related to C function objects being called. Any
+trace function registered using <a class="reference internal" href="#c.PyEval_SetTrace" title="PyEval_SetTrace"><code class="xref c c-func docutils literal"><span class="pre">PyEval_SetTrace()</span></code></a> will not receive
+<code class="xref py py-const docutils literal"><span class="pre">PyTrace_C_CALL</span></code>, <code class="xref py py-const docutils literal"><span class="pre">PyTrace_C_EXCEPTION</span></code> or <code class="xref py py-const docutils literal"><span class="pre">PyTrace_C_RETURN</span></code>
+as a value for the <em>what</em> parameter.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1307,7 +1310,7 @@ objects belonging to the same <a class="reference internal" href="#c.PyInterpret
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -1334,10 +1337,10 @@ objects belonging to the same <a class="reference internal" href="#c.PyInterpret
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

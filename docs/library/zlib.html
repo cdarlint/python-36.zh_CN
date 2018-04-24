@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>13.1. zlib — Compression compatible with gzip &#8212; Python 3.6.4 文档</title>
+    <title>13.1. zlib — Compression compatible with gzip &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -135,9 +135,9 @@ platforms, use <code class="docutils literal"><span class="pre">adler32(data)</s
 <code class="descclassname">zlib.</code><code class="descname">compress</code><span class="sig-paren">(</span><em>data</em>, <em>level=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#zlib.compress" title="永久链接至目标">¶</a></dt>
 <dd><p>Compresses the bytes in <em>data</em>, returning a bytes object containing compressed data.
 <em>level</em> is an integer from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">9</span></code> or <code class="docutils literal"><span class="pre">-1</span></code> controlling the level of compression;
-<code class="docutils literal"><span class="pre">1</span></code> is fastest and produces the least compression, <code class="docutils literal"><span class="pre">9</span></code> is slowest and
-produces the most.  <code class="docutils literal"><span class="pre">0</span></code> is no compression.  The default value is <code class="docutils literal"><span class="pre">-1</span></code>
-(Z_DEFAULT_COMPRESSION).  Z_DEFAULT_COMPRESSION represents a default
+<code class="docutils literal"><span class="pre">1</span></code> (Z_BEST_SPEED) is fastest and produces the least compression, <code class="docutils literal"><span class="pre">9</span></code> (Z_BEST_COMPRESSION)
+is slowest and produces the most.  <code class="docutils literal"><span class="pre">0</span></code> (Z_NO_COMPRESSION) is no compression.
+The default value is <code class="docutils literal"><span class="pre">-1</span></code> (Z_DEFAULT_COMPRESSION).  Z_DEFAULT_COMPRESSION represents a default
 compromise between speed and compression (currently equivalent to level 6).
 Raises the <a class="reference internal" href="#zlib.error" title="zlib.error"><code class="xref py py-exc docutils literal"><span class="pre">error</span></code></a> exception if any error occurs.</p>
 <div class="versionchanged">
@@ -147,19 +147,21 @@ Raises the <a class="reference internal" href="#zlib.error" title="zlib.error"><
 
 <dl class="function">
 <dt id="zlib.compressobj">
-<code class="descclassname">zlib.</code><code class="descname">compressobj</code><span class="sig-paren">(</span><em>level=-1</em>, <em>method=DEFLATED</em>, <em>wbits=15</em>, <em>memLevel=8</em>, <em>strategy=Z_DEFAULT_STRATEGY</em><span class="optional">[</span>, <em>zdict</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#zlib.compressobj" title="永久链接至目标">¶</a></dt>
+<code class="descclassname">zlib.</code><code class="descname">compressobj</code><span class="sig-paren">(</span><em>level=-1</em>, <em>method=DEFLATED</em>, <em>wbits=MAX_WBITS</em>, <em>memLevel=DEF_MEM_LEVEL</em>, <em>strategy=Z_DEFAULT_STRATEGY</em><span class="optional">[</span>, <em>zdict</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#zlib.compressobj" title="永久链接至目标">¶</a></dt>
 <dd><p>Returns a compression object, to be used for compressing data streams that won’t
 fit into memory at once.</p>
 <p><em>level</em> is the compression level – an integer from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">9</span></code> or <code class="docutils literal"><span class="pre">-1</span></code>.
-A value of <code class="docutils literal"><span class="pre">1</span></code> is fastest and produces the least compression, while a value of
-<code class="docutils literal"><span class="pre">9</span></code> is slowest and produces the most. <code class="docutils literal"><span class="pre">0</span></code> is no compression. The default
-value is <code class="docutils literal"><span class="pre">-1</span></code> (Z_DEFAULT_COMPRESSION). Z_DEFAULT_COMPRESSION represents a default
-compromise between speed and compression (currently equivalent to level 6).</p>
+A value of <code class="docutils literal"><span class="pre">1</span></code> (Z_BEST_SPEED) is fastest and produces the least compression,
+while a value of <code class="docutils literal"><span class="pre">9</span></code> (Z_BEST_COMPRESSION) is slowest and produces the most.
+<code class="docutils literal"><span class="pre">0</span></code> (Z_NO_COMPRESSION) is no compression.  The default value is <code class="docutils literal"><span class="pre">-1</span></code> (Z_DEFAULT_COMPRESSION).
+Z_DEFAULT_COMPRESSION represents a default compromise between speed and compression
+(currently equivalent to level 6).</p>
 <p><em>method</em> is the compression algorithm. Currently, the only supported value is
-<code class="docutils literal"><span class="pre">DEFLATED</span></code>.</p>
+<code class="xref py py-const docutils literal"><span class="pre">DEFLATED</span></code>.</p>
 <p>The <em>wbits</em> argument controls the size of the history buffer (or the
 “window size”) used when compressing data, and whether a header and
-trailer is included in the output.  It can take several ranges of values:</p>
+trailer is included in the output.  It can take several ranges of values,
+defaulting to <code class="docutils literal"><span class="pre">15</span></code> (MAX_WBITS):</p>
 <ul class="simple">
 <li>+9 to +15: The base-two logarithm of the window size, which
 therefore ranges between 512 and 32768.  Larger values produce
@@ -176,7 +178,8 @@ and trailing checksum in the output.</li>
 internal compression state. Valid values range from <code class="docutils literal"><span class="pre">1</span></code> to <code class="docutils literal"><span class="pre">9</span></code>.
 Higher values use more memory, but are faster and produce smaller output.</p>
 <p><em>strategy</em> is used to tune the compression algorithm. Possible values are
-<code class="docutils literal"><span class="pre">Z_DEFAULT_STRATEGY</span></code>, <code class="docutils literal"><span class="pre">Z_FILTERED</span></code>, and <code class="docutils literal"><span class="pre">Z_HUFFMAN_ONLY</span></code>.</p>
+<code class="xref py py-const docutils literal"><span class="pre">Z_DEFAULT_STRATEGY</span></code>, <code class="xref py py-const docutils literal"><span class="pre">Z_FILTERED</span></code>, <code class="xref py py-const docutils literal"><span class="pre">Z_HUFFMAN_ONLY</span></code>,
+<code class="xref py py-const docutils literal"><span class="pre">Z_RLE</span></code> (zlib 1.2.0.1) and <code class="xref py py-const docutils literal"><span class="pre">Z_FIXED</span></code> (zlib 1.2.2.2).</p>
 <p><em>zdict</em> is a predefined compression dictionary. This is a sequence of bytes
 (such as a <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> object) containing subsequences that are expected
 to occur frequently in the data that is to be compressed. Those subsequences
@@ -246,7 +249,7 @@ to <code class="xref c c-func docutils literal"><span class="pre">malloc()</span
 
 <dl class="function">
 <dt id="zlib.decompressobj">
-<code class="descclassname">zlib.</code><code class="descname">decompressobj</code><span class="sig-paren">(</span><em>wbits=15</em><span class="optional">[</span>, <em>zdict</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#zlib.decompressobj" title="永久链接至目标">¶</a></dt>
+<code class="descclassname">zlib.</code><code class="descname">decompressobj</code><span class="sig-paren">(</span><em>wbits=MAX_WBITS</em><span class="optional">[</span>, <em>zdict</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#zlib.decompressobj" title="永久链接至目标">¶</a></dt>
 <dd><p>Returns a decompression object, to be used for decompressing data streams that
 won’t fit into memory at once.</p>
 <p>The <em>wbits</em> parameter controls the size of the history buffer (or the
@@ -281,13 +284,13 @@ be kept in internal buffers for later processing.</p>
 <code class="descclassname">Compress.</code><code class="descname">flush</code><span class="sig-paren">(</span><span class="optional">[</span><em>mode</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#zlib.Compress.flush" title="永久链接至目标">¶</a></dt>
 <dd><p>All pending input is processed, and a bytes object containing the remaining compressed
 output is returned.  <em>mode</em> can be selected from the constants
-<code class="xref py py-const docutils literal"><span class="pre">Z_SYNC_FLUSH</span></code>,  <code class="xref py py-const docutils literal"><span class="pre">Z_FULL_FLUSH</span></code>,  or  <code class="xref py py-const docutils literal"><span class="pre">Z_FINISH</span></code>,
-defaulting to <code class="xref py py-const docutils literal"><span class="pre">Z_FINISH</span></code>.  <code class="xref py py-const docutils literal"><span class="pre">Z_SYNC_FLUSH</span></code> and
-<code class="xref py py-const docutils literal"><span class="pre">Z_FULL_FLUSH</span></code> allow compressing further bytestrings of data, while
-<code class="xref py py-const docutils literal"><span class="pre">Z_FINISH</span></code> finishes the compressed stream and  prevents compressing any
-more data.  After calling <a class="reference internal" href="#zlib.Compress.flush" title="zlib.Compress.flush"><code class="xref py py-meth docutils literal"><span class="pre">flush()</span></code></a> with <em>mode</em> set to <code class="xref py py-const docutils literal"><span class="pre">Z_FINISH</span></code>,
-the <a class="reference internal" href="#zlib.compress" title="zlib.compress"><code class="xref py py-meth docutils literal"><span class="pre">compress()</span></code></a> method cannot be called again; the only realistic action is
-to delete the object.</p>
+<code class="xref py py-const docutils literal"><span class="pre">Z_NO_FLUSH</span></code>, <code class="xref py py-const docutils literal"><span class="pre">Z_PARTIAL_FLUSH</span></code>, <code class="xref py py-const docutils literal"><span class="pre">Z_SYNC_FLUSH</span></code>,
+<code class="xref py py-const docutils literal"><span class="pre">Z_FULL_FLUSH</span></code>, <code class="xref py py-const docutils literal"><span class="pre">Z_BLOCK</span></code> (zlib 1.2.3.4), or <code class="xref py py-const docutils literal"><span class="pre">Z_FINISH</span></code>,
+defaulting to <code class="xref py py-const docutils literal"><span class="pre">Z_FINISH</span></code>.  Except <code class="xref py py-const docutils literal"><span class="pre">Z_FINISH</span></code>, all constants
+allow compressing further bytestrings of data, while <code class="xref py py-const docutils literal"><span class="pre">Z_FINISH</span></code> finishes the
+compressed stream and prevents compressing any more data.  After calling <a class="reference internal" href="#zlib.Compress.flush" title="zlib.Compress.flush"><code class="xref py py-meth docutils literal"><span class="pre">flush()</span></code></a>
+with <em>mode</em> set to <code class="xref py py-const docutils literal"><span class="pre">Z_FINISH</span></code>, the <a class="reference internal" href="#zlib.compress" title="zlib.compress"><code class="xref py py-meth docutils literal"><span class="pre">compress()</span></code></a> method cannot be called again;
+the only realistic action is to delete the object.</p>
 </dd></dl>
 
 <dl class="method">
@@ -445,7 +448,7 @@ functions.</dd>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -473,10 +476,10 @@ functions.</dd>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

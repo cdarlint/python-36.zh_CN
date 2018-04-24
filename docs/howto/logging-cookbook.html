@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Logging Cookbook &#8212; Python 3.6.4 文档</title>
+    <title>Logging Cookbook &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">如何使用 Python 来做……</a> &#187;</li>
@@ -162,26 +162,26 @@ child will pass up to the parent.  Here is a main module:</p>
 </pre></div>
 </div>
 <p>The output looks like this:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">663</span> <span class="o">-</span> <span class="n">spam_application</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span>
-   <span class="n">creating</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">auxiliary_module</span><span class="o">.</span><span class="n">Auxiliary</span>
-<span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">665</span> <span class="o">-</span> <span class="n">spam_application</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">Auxiliary</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span>
-   <span class="n">creating</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">Auxiliary</span>
-<span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">665</span> <span class="o">-</span> <span class="n">spam_application</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span>
-   <span class="n">created</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">auxiliary_module</span><span class="o">.</span><span class="n">Auxiliary</span>
-<span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">668</span> <span class="o">-</span> <span class="n">spam_application</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span>
-   <span class="n">calling</span> <span class="n">auxiliary_module</span><span class="o">.</span><span class="n">Auxiliary</span><span class="o">.</span><span class="n">do_something</span>
-<span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">668</span> <span class="o">-</span> <span class="n">spam_application</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">Auxiliary</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span>
-   <span class="n">doing</span> <span class="n">something</span>
-<span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">669</span> <span class="o">-</span> <span class="n">spam_application</span><span class="o">.</span><span class="n">auxiliary</span><span class="o">.</span><span class="n">Auxiliary</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span>
-   <span class="n">done</span> <span class="n">doing</span> <span class="n">something</span>
-<span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">670</span> <span class="o">-</span> <span class="n">spam_application</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span>
-   <span class="n">finished</span> <span class="n">auxiliary_module</span><span class="o">.</span><span class="n">Auxiliary</span><span class="o">.</span><span class="n">do_something</span>
-<span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">671</span> <span class="o">-</span> <span class="n">spam_application</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span>
-   <span class="n">calling</span> <span class="n">auxiliary_module</span><span class="o">.</span><span class="n">some_function</span><span class="p">()</span>
-<span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">672</span> <span class="o">-</span> <span class="n">spam_application</span><span class="o">.</span><span class="n">auxiliary</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span>
-   <span class="n">received</span> <span class="n">a</span> <span class="n">call</span> <span class="n">to</span> <span class="s1">&#39;some_function&#39;</span>
-<span class="mi">2005</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">673</span> <span class="o">-</span> <span class="n">spam_application</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span>
-   <span class="n">done</span> <span class="k">with</span> <span class="n">auxiliary_module</span><span class="o">.</span><span class="n">some_function</span><span class="p">()</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>2005-03-23 23:47:11,663 - spam_application - INFO -
+   creating an instance of auxiliary_module.Auxiliary
+2005-03-23 23:47:11,665 - spam_application.auxiliary.Auxiliary - INFO -
+   creating an instance of Auxiliary
+2005-03-23 23:47:11,665 - spam_application - INFO -
+   created an instance of auxiliary_module.Auxiliary
+2005-03-23 23:47:11,668 - spam_application - INFO -
+   calling auxiliary_module.Auxiliary.do_something
+2005-03-23 23:47:11,668 - spam_application.auxiliary.Auxiliary - INFO -
+   doing something
+2005-03-23 23:47:11,669 - spam_application.auxiliary.Auxiliary - INFO -
+   done doing something
+2005-03-23 23:47:11,670 - spam_application - INFO -
+   finished auxiliary_module.Auxiliary.do_something
+2005-03-23 23:47:11,671 - spam_application - INFO -
+   calling auxiliary_module.some_function()
+2005-03-23 23:47:11,672 - spam_application.auxiliary - INFO -
+   received a call to &#39;some_function&#39;
+2005-03-23 23:47:11,673 - spam_application - INFO -
+   done with auxiliary_module.some_function()
 </pre></div>
 </div>
 </div>
@@ -217,23 +217,23 @@ shows logging from the main (initial) thread and another thread:</p>
 </pre></div>
 </div>
 <p>When run, the script should print something like the following:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span>   <span class="mi">0</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span> <span class="n">Hi</span> <span class="kn">from</span> <span class="nn">myfunc</span>
-   <span class="mi">3</span> <span class="n">MainThread</span> <span class="n">Hello</span> <span class="kn">from</span> <span class="nn">main</span>
- <span class="mi">505</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span> <span class="n">Hi</span> <span class="kn">from</span> <span class="nn">myfunc</span>
- <span class="mi">755</span> <span class="n">MainThread</span> <span class="n">Hello</span> <span class="kn">from</span> <span class="nn">main</span>
-<span class="mi">1007</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span> <span class="n">Hi</span> <span class="kn">from</span> <span class="nn">myfunc</span>
-<span class="mi">1507</span> <span class="n">MainThread</span> <span class="n">Hello</span> <span class="kn">from</span> <span class="nn">main</span>
-<span class="mi">1508</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span> <span class="n">Hi</span> <span class="kn">from</span> <span class="nn">myfunc</span>
-<span class="mi">2010</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span> <span class="n">Hi</span> <span class="kn">from</span> <span class="nn">myfunc</span>
-<span class="mi">2258</span> <span class="n">MainThread</span> <span class="n">Hello</span> <span class="kn">from</span> <span class="nn">main</span>
-<span class="mi">2512</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span> <span class="n">Hi</span> <span class="kn">from</span> <span class="nn">myfunc</span>
-<span class="mi">3009</span> <span class="n">MainThread</span> <span class="n">Hello</span> <span class="kn">from</span> <span class="nn">main</span>
-<span class="mi">3013</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span> <span class="n">Hi</span> <span class="kn">from</span> <span class="nn">myfunc</span>
-<span class="mi">3515</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span> <span class="n">Hi</span> <span class="kn">from</span> <span class="nn">myfunc</span>
-<span class="mi">3761</span> <span class="n">MainThread</span> <span class="n">Hello</span> <span class="kn">from</span> <span class="nn">main</span>
-<span class="mi">4017</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span> <span class="n">Hi</span> <span class="kn">from</span> <span class="nn">myfunc</span>
-<span class="mi">4513</span> <span class="n">MainThread</span> <span class="n">Hello</span> <span class="kn">from</span> <span class="nn">main</span>
-<span class="mi">4518</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span> <span class="n">Hi</span> <span class="kn">from</span> <span class="nn">myfunc</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>   0 Thread-1 Hi from myfunc
+   3 MainThread Hello from main
+ 505 Thread-1 Hi from myfunc
+ 755 MainThread Hello from main
+1007 Thread-1 Hi from myfunc
+1507 MainThread Hello from main
+1508 Thread-1 Hi from myfunc
+2010 Thread-1 Hi from myfunc
+2258 MainThread Hello from main
+2512 Thread-1 Hi from myfunc
+3009 MainThread Hello from main
+3013 Thread-1 Hi from myfunc
+3515 Thread-1 Hi from myfunc
+3761 MainThread Hello from main
+4017 Thread-1 Hi from myfunc
+4513 MainThread Hello from main
+4518 Thread-1 Hi from myfunc
 </pre></div>
 </div>
 <p>This shows the logging output interspersed as one might expect. This approach
@@ -325,18 +325,18 @@ messages should not. Here’s how you can achieve this:</p>
 </pre></div>
 </div>
 <p>When you run this, on the console you will see</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">root</span>        <span class="p">:</span> <span class="n">INFO</span>     <span class="n">Jackdaws</span> <span class="n">love</span> <span class="n">my</span> <span class="n">big</span> <span class="n">sphinx</span> <span class="n">of</span> <span class="n">quartz</span><span class="o">.</span>
-<span class="n">myapp</span><span class="o">.</span><span class="n">area1</span> <span class="p">:</span> <span class="n">INFO</span>     <span class="n">How</span> <span class="n">quickly</span> <span class="n">daft</span> <span class="n">jumping</span> <span class="n">zebras</span> <span class="n">vex</span><span class="o">.</span>
-<span class="n">myapp</span><span class="o">.</span><span class="n">area2</span> <span class="p">:</span> <span class="n">WARNING</span>  <span class="n">Jail</span> <span class="n">zesty</span> <span class="n">vixen</span> <span class="n">who</span> <span class="n">grabbed</span> <span class="n">pay</span> <span class="kn">from</span> <span class="nn">quack.</span>
-<span class="n">myapp</span><span class="o">.</span><span class="n">area2</span> <span class="p">:</span> <span class="n">ERROR</span>    <span class="n">The</span> <span class="n">five</span> <span class="n">boxing</span> <span class="n">wizards</span> <span class="n">jump</span> <span class="n">quickly</span><span class="o">.</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>root        : INFO     Jackdaws love my big sphinx of quartz.
+myapp.area1 : INFO     How quickly daft jumping zebras vex.
+myapp.area2 : WARNING  Jail zesty vixen who grabbed pay from quack.
+myapp.area2 : ERROR    The five boxing wizards jump quickly.
 </pre></div>
 </div>
 <p>and in the file you will see something like</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">-</span><span class="mi">22</span> <span class="mi">22</span><span class="p">:</span><span class="mi">19</span> <span class="n">root</span>         <span class="n">INFO</span>     <span class="n">Jackdaws</span> <span class="n">love</span> <span class="n">my</span> <span class="n">big</span> <span class="n">sphinx</span> <span class="n">of</span> <span class="n">quartz</span><span class="o">.</span>
-<span class="mi">10</span><span class="o">-</span><span class="mi">22</span> <span class="mi">22</span><span class="p">:</span><span class="mi">19</span> <span class="n">myapp</span><span class="o">.</span><span class="n">area1</span>  <span class="n">DEBUG</span>    <span class="n">Quick</span> <span class="n">zephyrs</span> <span class="n">blow</span><span class="p">,</span> <span class="n">vexing</span> <span class="n">daft</span> <span class="n">Jim</span><span class="o">.</span>
-<span class="mi">10</span><span class="o">-</span><span class="mi">22</span> <span class="mi">22</span><span class="p">:</span><span class="mi">19</span> <span class="n">myapp</span><span class="o">.</span><span class="n">area1</span>  <span class="n">INFO</span>     <span class="n">How</span> <span class="n">quickly</span> <span class="n">daft</span> <span class="n">jumping</span> <span class="n">zebras</span> <span class="n">vex</span><span class="o">.</span>
-<span class="mi">10</span><span class="o">-</span><span class="mi">22</span> <span class="mi">22</span><span class="p">:</span><span class="mi">19</span> <span class="n">myapp</span><span class="o">.</span><span class="n">area2</span>  <span class="n">WARNING</span>  <span class="n">Jail</span> <span class="n">zesty</span> <span class="n">vixen</span> <span class="n">who</span> <span class="n">grabbed</span> <span class="n">pay</span> <span class="kn">from</span> <span class="nn">quack.</span>
-<span class="mi">10</span><span class="o">-</span><span class="mi">22</span> <span class="mi">22</span><span class="p">:</span><span class="mi">19</span> <span class="n">myapp</span><span class="o">.</span><span class="n">area2</span>  <span class="n">ERROR</span>    <span class="n">The</span> <span class="n">five</span> <span class="n">boxing</span> <span class="n">wizards</span> <span class="n">jump</span> <span class="n">quickly</span><span class="o">.</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>10-22 22:19 root         INFO     Jackdaws love my big sphinx of quartz.
+10-22 22:19 myapp.area1  DEBUG    Quick zephyrs blow, vexing daft Jim.
+10-22 22:19 myapp.area1  INFO     How quickly daft jumping zebras vex.
+10-22 22:19 myapp.area2  WARNING  Jail zesty vixen who grabbed pay from quack.
+10-22 22:19 myapp.area2  ERROR    The five boxing wizards jump quickly.
 </pre></div>
 </div>
 <p>As you can see, the DEBUG message only shows up in the file. The other messages
@@ -585,12 +585,12 @@ module. Here is a basic working example:</p>
 </div>
 <p>First run the server, and then the client. On the client side, nothing is
 printed on the console; on the server side, you should see something like:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">About</span> <span class="n">to</span> <span class="n">start</span> <span class="n">TCP</span> <span class="n">server</span><span class="o">...</span>
-   <span class="mi">59</span> <span class="n">root</span>            <span class="n">INFO</span>     <span class="n">Jackdaws</span> <span class="n">love</span> <span class="n">my</span> <span class="n">big</span> <span class="n">sphinx</span> <span class="n">of</span> <span class="n">quartz</span><span class="o">.</span>
-   <span class="mi">59</span> <span class="n">myapp</span><span class="o">.</span><span class="n">area1</span>     <span class="n">DEBUG</span>    <span class="n">Quick</span> <span class="n">zephyrs</span> <span class="n">blow</span><span class="p">,</span> <span class="n">vexing</span> <span class="n">daft</span> <span class="n">Jim</span><span class="o">.</span>
-   <span class="mi">69</span> <span class="n">myapp</span><span class="o">.</span><span class="n">area1</span>     <span class="n">INFO</span>     <span class="n">How</span> <span class="n">quickly</span> <span class="n">daft</span> <span class="n">jumping</span> <span class="n">zebras</span> <span class="n">vex</span><span class="o">.</span>
-   <span class="mi">69</span> <span class="n">myapp</span><span class="o">.</span><span class="n">area2</span>     <span class="n">WARNING</span>  <span class="n">Jail</span> <span class="n">zesty</span> <span class="n">vixen</span> <span class="n">who</span> <span class="n">grabbed</span> <span class="n">pay</span> <span class="kn">from</span> <span class="nn">quack.</span>
-   <span class="mi">69</span> <span class="n">myapp</span><span class="o">.</span><span class="n">area2</span>     <span class="n">ERROR</span>    <span class="n">The</span> <span class="n">five</span> <span class="n">boxing</span> <span class="n">wizards</span> <span class="n">jump</span> <span class="n">quickly</span><span class="o">.</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>About to start TCP server...
+   59 root            INFO     Jackdaws love my big sphinx of quartz.
+   59 myapp.area1     DEBUG    Quick zephyrs blow, vexing daft Jim.
+   69 myapp.area1     INFO     How quickly daft jumping zebras vex.
+   69 myapp.area2     WARNING  Jail zesty vixen who grabbed pay from quack.
+   69 myapp.area2     ERROR    The five boxing wizards jump quickly.
 </pre></div>
 </div>
 <p>Note that there are some security issues with pickle in some scenarios. If
@@ -730,18 +730,18 @@ script:</p>
 </pre></div>
 </div>
 <p>which, when run, produces something like:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">292</span> <span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">c</span> <span class="n">DEBUG</span>    <span class="n">IP</span><span class="p">:</span> <span class="mf">123.231</span><span class="o">.</span><span class="mf">231.123</span> <span class="n">User</span><span class="p">:</span> <span class="n">fred</span>     <span class="n">A</span> <span class="n">debug</span> <span class="n">message</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">300</span> <span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">c</span> <span class="n">INFO</span>     <span class="n">IP</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">0.1</span>     <span class="n">User</span><span class="p">:</span> <span class="n">sheila</span>   <span class="n">An</span> <span class="n">info</span> <span class="n">message</span> <span class="k">with</span> <span class="n">some</span> <span class="n">parameters</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">300</span> <span class="n">d</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="n">f</span> <span class="n">CRITICAL</span> <span class="n">IP</span><span class="p">:</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>       <span class="n">User</span><span class="p">:</span> <span class="n">sheila</span>   <span class="n">A</span> <span class="n">message</span> <span class="n">at</span> <span class="n">CRITICAL</span> <span class="n">level</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">parameters</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">300</span> <span class="n">d</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="n">f</span> <span class="n">ERROR</span>    <span class="n">IP</span><span class="p">:</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>       <span class="n">User</span><span class="p">:</span> <span class="n">jim</span>      <span class="n">A</span> <span class="n">message</span> <span class="n">at</span> <span class="n">ERROR</span> <span class="n">level</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">parameters</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">300</span> <span class="n">d</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="n">f</span> <span class="n">DEBUG</span>    <span class="n">IP</span><span class="p">:</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>       <span class="n">User</span><span class="p">:</span> <span class="n">sheila</span>   <span class="n">A</span> <span class="n">message</span> <span class="n">at</span> <span class="n">DEBUG</span> <span class="n">level</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">parameters</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">300</span> <span class="n">d</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="n">f</span> <span class="n">ERROR</span>    <span class="n">IP</span><span class="p">:</span> <span class="mf">123.231</span><span class="o">.</span><span class="mf">231.123</span> <span class="n">User</span><span class="p">:</span> <span class="n">fred</span>     <span class="n">A</span> <span class="n">message</span> <span class="n">at</span> <span class="n">ERROR</span> <span class="n">level</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">parameters</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">300</span> <span class="n">d</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="n">f</span> <span class="n">CRITICAL</span> <span class="n">IP</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">0.1</span>     <span class="n">User</span><span class="p">:</span> <span class="n">jim</span>      <span class="n">A</span> <span class="n">message</span> <span class="n">at</span> <span class="n">CRITICAL</span> <span class="n">level</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">parameters</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">300</span> <span class="n">d</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="n">f</span> <span class="n">CRITICAL</span> <span class="n">IP</span><span class="p">:</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>       <span class="n">User</span><span class="p">:</span> <span class="n">sheila</span>   <span class="n">A</span> <span class="n">message</span> <span class="n">at</span> <span class="n">CRITICAL</span> <span class="n">level</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">parameters</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">300</span> <span class="n">d</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="n">f</span> <span class="n">DEBUG</span>    <span class="n">IP</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">0.1</span>     <span class="n">User</span><span class="p">:</span> <span class="n">jim</span>      <span class="n">A</span> <span class="n">message</span> <span class="n">at</span> <span class="n">DEBUG</span> <span class="n">level</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">parameters</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">301</span> <span class="n">d</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="n">f</span> <span class="n">ERROR</span>    <span class="n">IP</span><span class="p">:</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span>       <span class="n">User</span><span class="p">:</span> <span class="n">sheila</span>   <span class="n">A</span> <span class="n">message</span> <span class="n">at</span> <span class="n">ERROR</span> <span class="n">level</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">parameters</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">301</span> <span class="n">d</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="n">f</span> <span class="n">DEBUG</span>    <span class="n">IP</span><span class="p">:</span> <span class="mf">123.231</span><span class="o">.</span><span class="mf">231.123</span> <span class="n">User</span><span class="p">:</span> <span class="n">fred</span>     <span class="n">A</span> <span class="n">message</span> <span class="n">at</span> <span class="n">DEBUG</span> <span class="n">level</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">parameters</span>
-<span class="mi">2010</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">06</span> <span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="mi">301</span> <span class="n">d</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="n">f</span> <span class="n">INFO</span>     <span class="n">IP</span><span class="p">:</span> <span class="mf">123.231</span><span class="o">.</span><span class="mf">231.123</span> <span class="n">User</span><span class="p">:</span> <span class="n">fred</span>     <span class="n">A</span> <span class="n">message</span> <span class="n">at</span> <span class="n">INFO</span> <span class="n">level</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">parameters</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>2010-09-06 22:38:15,292 a.b.c DEBUG    IP: 123.231.231.123 User: fred     A debug message
+2010-09-06 22:38:15,300 a.b.c INFO     IP: 192.168.0.1     User: sheila   An info message with some parameters
+2010-09-06 22:38:15,300 d.e.f CRITICAL IP: 127.0.0.1       User: sheila   A message at CRITICAL level with 2 parameters
+2010-09-06 22:38:15,300 d.e.f ERROR    IP: 127.0.0.1       User: jim      A message at ERROR level with 2 parameters
+2010-09-06 22:38:15,300 d.e.f DEBUG    IP: 127.0.0.1       User: sheila   A message at DEBUG level with 2 parameters
+2010-09-06 22:38:15,300 d.e.f ERROR    IP: 123.231.231.123 User: fred     A message at ERROR level with 2 parameters
+2010-09-06 22:38:15,300 d.e.f CRITICAL IP: 192.168.0.1     User: jim      A message at CRITICAL level with 2 parameters
+2010-09-06 22:38:15,300 d.e.f CRITICAL IP: 127.0.0.1       User: sheila   A message at CRITICAL level with 2 parameters
+2010-09-06 22:38:15,300 d.e.f DEBUG    IP: 192.168.0.1     User: jim      A message at DEBUG level with 2 parameters
+2010-09-06 22:38:15,301 d.e.f ERROR    IP: 127.0.0.1       User: sheila   A message at ERROR level with 2 parameters
+2010-09-06 22:38:15,301 d.e.f DEBUG    IP: 123.231.231.123 User: fred     A message at DEBUG level with 2 parameters
+2010-09-06 22:38:15,301 d.e.f INFO     IP: 123.231.231.123 User: fred     A message at INFO level with 2 parameters
 </pre></div>
 </div>
 </div>
@@ -1021,12 +1021,12 @@ logging package provides a <code class="xref py py-class docutils literal"><span
 </div>
 <p>The result should be 6 separate files, each with part of the log history for the
 application:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">logging_rotatingfile_example</span><span class="o">.</span><span class="n">out</span>
-<span class="n">logging_rotatingfile_example</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="mi">1</span>
-<span class="n">logging_rotatingfile_example</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="mi">2</span>
-<span class="n">logging_rotatingfile_example</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="mi">3</span>
-<span class="n">logging_rotatingfile_example</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="mi">4</span>
-<span class="n">logging_rotatingfile_example</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="mi">5</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>logging_rotatingfile_example.out
+logging_rotatingfile_example.out.1
+logging_rotatingfile_example.out.2
+logging_rotatingfile_example.out.3
+logging_rotatingfile_example.out.4
+logging_rotatingfile_example.out.5
 </pre></div>
 </div>
 <p>The most current file is always <code class="file docutils literal"><span class="pre">logging_rotatingfile_example.out</span></code>,
@@ -1709,7 +1709,7 @@ which uses JSON to serialise the event in a machine-parseable manner:</p>
 </pre></div>
 </div>
 <p>If the above script is run, it prints:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="mi">1</span> <span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s2">&quot;fnum&quot;</span><span class="p">:</span> <span class="mf">123.456</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">}</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>message 1 &gt;&gt;&gt; {&quot;fnum&quot;: 123.456, &quot;num&quot;: 123, &quot;bar&quot;: &quot;baz&quot;, &quot;foo&quot;: &quot;bar&quot;}
 </pre></div>
 </div>
 <p>Note that the order of items might be different according to the version of
@@ -1755,7 +1755,7 @@ as in the following complete example:</p>
 </pre></div>
 </div>
 <p>When the above script is run, it prints:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="mi">1</span> <span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s2">&quot;snowman&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\u2603</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;set_value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>message 1 &gt;&gt;&gt; {&quot;snowman&quot;: &quot;\u2603&quot;, &quot;set_value&quot;: [1, 2, 3]}
 </pre></div>
 </div>
 <p>Note that the order of items might be different according to the version of
@@ -2053,7 +2053,7 @@ most obvious, but you can provide any callable which returns a
 <p>This example shows how you can pass configuration data to the callable which
 constructs the instance, in the form of keyword parameters. When run, the above
 script will print:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">changed</span><span class="p">:</span> <span class="n">hello</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>changed: hello
 </pre></div>
 </div>
 <p>which shows that the filter is working as configured.</p>
@@ -2115,8 +2115,8 @@ class, as shown in the following example:</p>
 </pre></div>
 </div>
 <p>When run, this produces a file with exactly two lines:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="mi">28</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">2015</span> <span class="mi">07</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">23</span><span class="o">|</span><span class="n">INFO</span><span class="o">|</span><span class="n">Sample</span> <span class="n">message</span><span class="o">|</span>
-<span class="mi">28</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">2015</span> <span class="mi">07</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">23</span><span class="o">|</span><span class="n">ERROR</span><span class="o">|</span><span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">integer</span> <span class="n">division</span> <span class="ow">or</span> <span class="n">modulo</span> <span class="n">by</span> <span class="n">zero</span><span class="o">|</span><span class="s1">&#39;Traceback (most recent call last):</span><span class="se">\n</span><span class="s1">  File &quot;logtest7.py&quot;, line 30, in main</span><span class="se">\n</span><span class="s1">    x = 1 / 0</span><span class="se">\n</span><span class="s1">ZeroDivisionError: integer division or modulo by zero&#39;</span><span class="o">|</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>28/01/2015 07:21:23|INFO|Sample message|
+28/01/2015 07:21:23|ERROR|ZeroDivisionError: integer division or modulo by zero|&#39;Traceback (most recent call last):\n  File &quot;logtest7.py&quot;, line 30, in main\n    x = 1 / 0\nZeroDivisionError: integer division or modulo by zero&#39;|
 </pre></div>
 </div>
 <p>While the above treatment is simplistic, it points the way to how exception
@@ -2265,31 +2265,31 @@ default to a <a class="reference internal" href="../library/logging.handlers.htm
 </pre></div>
 </div>
 <p>When this script is run, the following output should be observed:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">Calling</span> <span class="n">undecorated</span> <span class="n">foo</span> <span class="k">with</span> <span class="kc">False</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">DEBUG</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">INFO</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">WARNING</span> <span class="o">...</span>
-<span class="n">Calling</span> <span class="n">undecorated</span> <span class="n">foo</span> <span class="k">with</span> <span class="kc">True</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">DEBUG</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">INFO</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">WARNING</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">ERROR</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">CRITICAL</span> <span class="o">...</span>
-<span class="n">Calling</span> <span class="n">decorated</span> <span class="n">foo</span> <span class="k">with</span> <span class="kc">False</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">DEBUG</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">INFO</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">WARNING</span> <span class="o">...</span>
-<span class="n">Calling</span> <span class="n">decorated</span> <span class="n">foo</span> <span class="k">with</span> <span class="kc">True</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">DEBUG</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">INFO</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">WARNING</span> <span class="o">...</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">ERROR</span> <span class="o">...</span>
-<span class="n">Actually</span> <span class="n">logged</span> <span class="n">at</span> <span class="n">DEBUG</span>
-<span class="n">Actually</span> <span class="n">logged</span> <span class="n">at</span> <span class="n">INFO</span>
-<span class="n">Actually</span> <span class="n">logged</span> <span class="n">at</span> <span class="n">WARNING</span>
-<span class="n">Actually</span> <span class="n">logged</span> <span class="n">at</span> <span class="n">ERROR</span>
-<span class="n">about</span> <span class="n">to</span> <span class="n">log</span> <span class="n">at</span> <span class="n">CRITICAL</span> <span class="o">...</span>
-<span class="n">Actually</span> <span class="n">logged</span> <span class="n">at</span> <span class="n">CRITICAL</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Calling undecorated foo with False
+about to log at DEBUG ...
+about to log at INFO ...
+about to log at WARNING ...
+Calling undecorated foo with True
+about to log at DEBUG ...
+about to log at INFO ...
+about to log at WARNING ...
+about to log at ERROR ...
+about to log at CRITICAL ...
+Calling decorated foo with False
+about to log at DEBUG ...
+about to log at INFO ...
+about to log at WARNING ...
+Calling decorated foo with True
+about to log at DEBUG ...
+about to log at INFO ...
+about to log at WARNING ...
+about to log at ERROR ...
+Actually logged at DEBUG
+Actually logged at INFO
+Actually logged at WARNING
+Actually logged at ERROR
+about to log at CRITICAL ...
+Actually logged at CRITICAL
 </pre></div>
 </div>
 <p>As you can see, actual logging output only occurs when an event is logged whose
@@ -2357,8 +2357,8 @@ the following complete example:</p>
 </pre></div>
 </div>
 <p>When this script is run, it should print something like:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="mi">2015</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">17</span> <span class="mi">12</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">29</span><span class="p">,</span><span class="mi">501</span> <span class="n">The</span> <span class="n">local</span> <span class="n">time</span> <span class="ow">is</span> <span class="n">Sat</span> <span class="n">Oct</span> <span class="mi">17</span> <span class="mi">13</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">29</span> <span class="mi">2015</span>
-<span class="mi">2015</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">17</span> <span class="mi">13</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">29</span><span class="p">,</span><span class="mi">501</span> <span class="n">The</span> <span class="n">local</span> <span class="n">time</span> <span class="ow">is</span> <span class="n">Sat</span> <span class="n">Oct</span> <span class="mi">17</span> <span class="mi">13</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">29</span> <span class="mi">2015</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>2015-10-17 12:53:29,501 The local time is Sat Oct 17 13:53:29 2015
+2015-10-17 13:53:29,501 The local time is Sat Oct 17 13:53:29 2015
 </pre></div>
 </div>
 <p>showing how the time is formatted both as local time and UTC, one for each
@@ -2552,7 +2552,7 @@ as Python 3.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >如何使用 Python 来做……</a> &#187;</li>
@@ -2579,10 +2579,10 @@ as Python 3.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

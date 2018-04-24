@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Instrumenting CPython with DTrace and SystemTap &#8212; Python 3.6.4 文档</title>
+    <title>Instrumenting CPython with DTrace and SystemTap &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">如何使用 Python 来做……</a> &#187;</li>
@@ -326,11 +326,11 @@ probe process(&quot;python&quot;).mark(&quot;function__return&quot;) {
 <p>For a <cite>–enable-shared</cite> build of CPython, the markers are contained within the
 libpython shared library, and the probe’s dotted path needs to reflect this. For
 example, this line from the above example:</p>
-<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="go">probe process(&quot;python&quot;).mark(&quot;function__entry&quot;) {</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>probe process(&quot;python&quot;).mark(&quot;function__entry&quot;) {
 </pre></div>
 </div>
 <p>should instead read:</p>
-<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="go">probe process(&quot;python&quot;).library(&quot;libpython3.6dm.so.1.0&quot;).mark(&quot;function__entry&quot;) {</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>probe process(&quot;python&quot;).library(&quot;libpython3.6dm.so.1.0&quot;).mark(&quot;function__entry&quot;) {
 </pre></div>
 </div>
 <p>(assuming a debug build of CPython 3.6)</p>
@@ -537,7 +537,7 @@ probe timer.ms(1000) {
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >如何使用 Python 来做……</a> &#187;</li>
@@ -564,10 +564,10 @@ probe timer.ms(1000) {
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

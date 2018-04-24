@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>1. Extending Python with C or C++ &#8212; Python 3.6.4 文档</title>
+    <title>1. Extending Python with C or C++ &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,13 +24,13 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="copyright" title="版权信息" href="../copyright.html" />
-    <link rel="next" title="2. Defining New Types" href="newtypes.html" />
+    <link rel="next" title="2. Defining Extension Types: Tutorial" href="newtypes_tutorial.html" />
     <link rel="prev" title="Extending and Embedding the Python Interpreter" href="index.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
     <link rel="canonical" href="https://docs.python.org/3/extending/extending.html" />
@@ -53,7 +53,7 @@
           <a href="../py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="newtypes.html" title="2. Defining New Types"
+          <a href="newtypes_tutorial.html" title="2. Defining Extension Types: Tutorial"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
           <a href="index.html" title="Extending and Embedding the Python Interpreter"
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -119,8 +119,8 @@ Python fans…) and let’s say we want to create a Python interface to the C
 library function <code class="xref c c-func docutils literal"><span class="pre">system()</span></code> <a class="footnote-reference" href="#id5" id="id1">[1]</a>. This function takes a null-terminated
 character string as argument and returns an integer.  We want this function to
 be callable from Python as follows:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">import</span> <span class="n">spam</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">status</span> <span class="o">=</span> <span class="n">spam</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;ls -l&quot;</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">spam</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">status</span> <span class="o">=</span> <span class="n">spam</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;ls -l&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Begin by creating a file <code class="file docutils literal"><span class="pre">spammodule.c</span></code>.  (Historically, if a module is
@@ -471,7 +471,7 @@ and rebuild the interpreter.  Luckily, this is very simple on Unix: just place
 your file (<code class="file docutils literal"><span class="pre">spammodule.c</span></code> for example) in the <code class="file docutils literal"><span class="pre">Modules/</span></code> directory
 of an unpacked source distribution, add a line to the file
 <code class="file docutils literal"><span class="pre">Modules/Setup.local</span></code> describing your file:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">spam</span> <span class="n">spammodule</span><span class="p">.</span><span class="n">o</span>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>spam spammodule.o
 </pre></div>
 </div>
 <p>and rebuild the interpreter by running <strong class="program">make</strong> in the toplevel
@@ -481,7 +481,7 @@ subdirectory, but then you must first rebuild <code class="file docutils literal
 <code class="file docutils literal"><span class="pre">Setup</span></code> file.)</p>
 <p>If your module requires additional libraries to link with, these can be listed
 on the line in the configuration file as well, for instance:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">spam</span> <span class="n">spammodule</span><span class="p">.</span><span class="n">o</span> <span class="o">-</span><span class="n">lX11</span>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>spam spammodule.o -lX11
 </pre></div>
 </div>
 </div>
@@ -1319,8 +1319,8 @@ this is still found in much existing code.</td></tr>
   <p class="topless"><a href="index.html"
                         title="上一章">Extending and Embedding the Python Interpreter</a></p>
   <h4>下一个主题</h4>
-  <p class="topless"><a href="newtypes.html"
-                        title="下一章">2. Defining New Types</a></p>
+  <p class="topless"><a href="newtypes_tutorial.html"
+                        title="下一章">2. Defining Extension Types: Tutorial</a></p>
   <div role="note" aria-label="source link">
     <h3>当前页面</h3>
     <ul class="this-page-menu">
@@ -1346,7 +1346,7 @@ this is still found in much existing code.</td></tr>
           <a href="../py-modindex.html" title="Python 模块索引"
              >模块</a> |</li>
         <li class="right" >
-          <a href="newtypes.html" title="2. Defining New Types"
+          <a href="newtypes_tutorial.html" title="2. Defining Extension Types: Tutorial"
              >下一页</a> |</li>
         <li class="right" >
           <a href="index.html" title="Extending and Embedding the Python Interpreter"
@@ -1355,7 +1355,7 @@ this is still found in much existing code.</td></tr>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Extending and Embedding the Python Interpreter</a> &#187;</li>
@@ -1382,10 +1382,10 @@ this is still found in much existing code.</td></tr>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

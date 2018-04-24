@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6.1. string — Common string operations &#8212; Python 3.6.4 文档</title>
+    <title>6.1. string — Common string operations &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -296,9 +296,9 @@ literal text, it can be escaped by doubling: <code class="docutils literal"><spa
 <div><pre>
 <strong id="grammar-token-replacement_field">replacement_field</strong> ::=  &quot;{&quot; [<a class="reference internal" href="#grammar-token-field_name"><code class="xref docutils literal"><span class="pre">field_name</span></code></a>] [&quot;!&quot; <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-conversion"><code class="xref docutils literal"><span class="pre">conversion</span></code></a>] [&quot;:&quot; <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-format_spec"><code class="xref docutils literal"><span class="pre">format_spec</span></code></a>] &quot;}&quot;
 <strong id="grammar-token-field_name">field_name       </strong> ::=  arg_name (&quot;.&quot; <a class="reference internal" href="#grammar-token-attribute_name"><code class="xref docutils literal"><span class="pre">attribute_name</span></code></a> | &quot;[&quot; <a class="reference internal" href="#grammar-token-element_index"><code class="xref docutils literal"><span class="pre">element_index</span></code></a> &quot;]&quot;)*
-<strong id="grammar-token-arg_name">arg_name         </strong> ::=  [<a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-identifier"><code class="xref docutils literal"><span class="pre">identifier</span></code></a> | <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-integer"><code class="xref docutils literal"><span class="pre">integer</span></code></a>]
+<strong id="grammar-token-arg_name">arg_name         </strong> ::=  [<a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-identifier"><code class="xref docutils literal"><span class="pre">identifier</span></code></a> | <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-digit"><code class="xref docutils literal"><span class="pre">digit</span></code></a>+]
 <strong id="grammar-token-attribute_name">attribute_name   </strong> ::=  <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-identifier"><code class="xref docutils literal"><span class="pre">identifier</span></code></a>
-<strong id="grammar-token-element_index">element_index    </strong> ::=  <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-integer"><code class="xref docutils literal"><span class="pre">integer</span></code></a> | <a class="reference internal" href="#grammar-token-index_string"><code class="xref docutils literal"><span class="pre">index_string</span></code></a>
+<strong id="grammar-token-element_index">element_index    </strong> ::=  <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-digit"><code class="xref docutils literal"><span class="pre">digit</span></code></a>+ | <a class="reference internal" href="#grammar-token-index_string"><code class="xref docutils literal"><span class="pre">index_string</span></code></a>
 <strong id="grammar-token-index_string">index_string     </strong> ::=  &lt;any source character except &quot;]&quot;&gt; +
 <strong id="grammar-token-conversion">conversion       </strong> ::=  &quot;r&quot; | &quot;s&quot; | &quot;a&quot;
 <strong id="grammar-token-format_spec">format_spec      </strong> ::=  &lt;described in the next section&gt;
@@ -382,9 +382,9 @@ non-empty format string typically modifies the result.</p>
 <strong id="grammar-token-fill">fill           </strong> ::=  &lt;any character&gt;
 <strong id="grammar-token-align">align          </strong> ::=  &quot;&lt;&quot; | &quot;&gt;&quot; | &quot;=&quot; | &quot;^&quot;
 <strong id="grammar-token-sign">sign           </strong> ::=  &quot;+&quot; | &quot;-&quot; | &quot; &quot;
-<strong id="grammar-token-width">width          </strong> ::=  <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-integer"><code class="xref docutils literal"><span class="pre">integer</span></code></a>
+<strong id="grammar-token-width">width          </strong> ::=  <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-digit"><code class="xref docutils literal"><span class="pre">digit</span></code></a>+
 <strong id="grammar-token-grouping_option">grouping_option</strong> ::=  &quot;_&quot; | &quot;,&quot;
-<strong id="grammar-token-precision">precision      </strong> ::=  <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-integer"><code class="xref docutils literal"><span class="pre">integer</span></code></a>
+<strong id="grammar-token-precision">precision      </strong> ::=  <a class="reference internal" href="../reference/lexical_analysis.html#grammar-token-digit"><code class="xref docutils literal"><span class="pre">digit</span></code></a>+
 <strong id="grammar-token-type">type           </strong> ::=  &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;E&quot; | &quot;f&quot; | &quot;F&quot; | &quot;g&quot; | &quot;G&quot; | &quot;n&quot; | &quot;o&quot; | &quot;s&quot; | &quot;x&quot; | &quot;X&quot; | &quot;%&quot;
 </pre>
 <p>If a valid <em>align</em> value is specified, it can be preceded by a <em>fill</em>
@@ -990,7 +990,7 @@ split and join the words.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -1018,10 +1018,10 @@ split and join the words.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

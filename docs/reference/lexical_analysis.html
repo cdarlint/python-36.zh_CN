@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2. Lexical analysis &#8212; Python 3.6.4 文档</title>
+    <title>2. Lexical analysis &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Language Reference</a> &#187;</li>
@@ -578,7 +578,7 @@ that a single backslash followed by a newline is interpreted as those two
 characters as part of the literal, <em>not</em> as a line continuation.</p>
 </div>
 <div class="section" id="string-literal-concatenation">
-<span id="string-catenation"></span><h3>2.4.2. String literal concatenation<a class="headerlink" href="#string-literal-concatenation" title="永久链接至标题">¶</a></h3>
+<span id="string-concatenation"></span><h3>2.4.2. String literal concatenation<a class="headerlink" href="#string-literal-concatenation" title="永久链接至标题">¶</a></h3>
 <p>Multiple adjacent string or bytes literals (delimited by whitespace), possibly
 using different quoting conventions, are allowed, and their meaning is the same
 as their concatenation.  Thus, <code class="docutils literal"><span class="pre">&quot;hello&quot;</span> <span class="pre">'world'</span></code> is equivalent to
@@ -642,9 +642,10 @@ format specifier is passed to the <a class="reference internal" href="datamodel.
 expression or conversion result.  An empty string is passed when the
 format specifier is omitted.  The formatted result is then included in
 the final value of the whole string.</p>
-<p>Top-level format specifiers may include nested replacement fields.
-These nested fields may include their own conversion fields and
-format specifiers, but may not include more deeply-nested replacement fields.</p>
+<p>Top-level format specifiers may include nested replacement fields. These nested
+fields may include their own conversion fields and <a class="reference internal" href="../library/string.html#formatspec"><span class="std std-ref">format specifiers</span></a>, but may not include more deeply-nested replacement fields. The
+<a class="reference internal" href="../library/string.html#formatspec"><span class="std std-ref">format specifier mini-language</span></a> is the same as that used by
+the string .format() method.</p>
 <p>Formatted string literals may be concatenated, but replacement fields
 cannot be split across literals.</p>
 <p>Some examples of formatted string literals:</p>
@@ -659,7 +660,7 @@ cannot be split across literals.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="s2">&quot;result: {value:</span><span class="si">{width}</span><span class="s2">.</span><span class="si">{precision}</span><span class="s2">}&quot;</span>  <span class="c1"># nested fields</span>
 <span class="go">&#39;result:      12.35&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="s2">&quot;{today:%b </span><span class="si">%d</span><span class="s2">, %Y}&quot;</span>  <span class="c1"># using date format specifier</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="s2">&quot;{today:%B </span><span class="si">%d</span><span class="s2">, %Y}&quot;</span>  <span class="c1"># using date format specifier</span>
 <span class="go">&#39;January 27, 2017&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">number</span> <span class="o">=</span> <span class="mi">1024</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{number:#0x}</span><span class="s2">&quot;</span>  <span class="c1"># using integer format specifier</span>
@@ -903,7 +904,7 @@ occurrence outside string literals and comments is an unconditional error:</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Language Reference</a> &#187;</li>
@@ -930,10 +931,10 @@ occurrence outside string literals and comments is an unconditional error:</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

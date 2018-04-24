@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>17.1. threading — Thread-based parallelism &#8212; Python 3.6.4 文档</title>
+    <title>17.1. threading — Thread-based parallelism &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -724,8 +724,8 @@ finds that it is zero, it blocks, waiting until some other thread calls
 <dl class="class">
 <dt id="threading.Semaphore">
 <em class="property">class </em><code class="descclassname">threading.</code><code class="descname">Semaphore</code><span class="sig-paren">(</span><em>value=1</em><span class="sig-paren">)</span><a class="headerlink" href="#threading.Semaphore" title="永久链接至目标">¶</a></dt>
-<dd><p>This class implements semaphore objects.  A semaphore manages a counter
-representing the number of <a class="reference internal" href="#threading.Semaphore.release" title="threading.Semaphore.release"><code class="xref py py-meth docutils literal"><span class="pre">release()</span></code></a> calls minus the number of
+<dd><p>This class implements semaphore objects.  A semaphore manages an atomic
+counter representing the number of <a class="reference internal" href="#threading.Semaphore.release" title="threading.Semaphore.release"><code class="xref py py-meth docutils literal"><span class="pre">release()</span></code></a> calls minus the number of
 <a class="reference internal" href="#threading.Semaphore.acquire" title="threading.Semaphore.acquire"><code class="xref py py-meth docutils literal"><span class="pre">acquire()</span></code></a> calls, plus an initial value.  The <a class="reference internal" href="#threading.Semaphore.acquire" title="threading.Semaphore.acquire"><code class="xref py py-meth docutils literal"><span class="pre">acquire()</span></code></a> method
 blocks if necessary until it can return without making the counter negative.
 If not given, <em>value</em> defaults to 1.</p>
@@ -739,18 +739,19 @@ raised.</p>
 <dt id="threading.Semaphore.acquire">
 <code class="descname">acquire</code><span class="sig-paren">(</span><em>blocking=True</em>, <em>timeout=None</em><span class="sig-paren">)</span><a class="headerlink" href="#threading.Semaphore.acquire" title="永久链接至目标">¶</a></dt>
 <dd><p>Acquire a semaphore.</p>
-<p>When invoked without arguments: if the internal counter is larger than
-zero on entry, decrement it by one and return immediately.  If it is zero
-on entry, block, waiting until some other thread has called
-<a class="reference internal" href="#threading.Semaphore.release" title="threading.Semaphore.release"><code class="xref py py-meth docutils literal"><span class="pre">release()</span></code></a> to make it larger than zero.  This is done
-with proper interlocking so that if multiple <a class="reference internal" href="#threading.Semaphore.acquire" title="threading.Semaphore.acquire"><code class="xref py py-meth docutils literal"><span class="pre">acquire()</span></code></a> calls are
-blocked, <a class="reference internal" href="#threading.Semaphore.release" title="threading.Semaphore.release"><code class="xref py py-meth docutils literal"><span class="pre">release()</span></code></a> will wake exactly one of them up.
-The implementation may pick one at random, so the order in which
-blocked threads are awakened should not be relied on.  Returns
-true (or blocks indefinitely).</p>
+<p>When invoked without arguments:</p>
+<ul class="simple">
+<li>If the internal counter is larger than zero on entry, decrement it by
+one and return true immediately.</li>
+<li>If the internal counter is zero on entry, block until awoken by a call to
+<a class="reference internal" href="#threading.Semaphore.release" title="threading.Semaphore.release"><code class="xref py py-meth docutils literal"><span class="pre">release()</span></code></a>.  Once awoken (and the counter is greater
+than 0), decrement the counter by 1 and return true.  Exactly one
+thread will be awoken by each call to <a class="reference internal" href="#threading.Semaphore.release" title="threading.Semaphore.release"><code class="xref py py-meth docutils literal"><span class="pre">release()</span></code></a>.  The
+order in which threads are awoken should not be relied on.</li>
+</ul>
 <p>When invoked with <em>blocking</em> set to false, do not block.  If a call
-without an argument would block, return false immediately; otherwise,
-do the same thing as when called without arguments, and return true.</p>
+without an argument would block, return false immediately; otherwise, do
+the same thing as when called without arguments, and return true.</p>
 <p>When invoked with a <em>timeout</em> other than <code class="docutils literal"><span class="pre">None</span></code>, it will block for at
 most <em>timeout</em> seconds.  If acquire does not complete successfully in
 that interval, return false.  Return true otherwise.</p>
@@ -1105,7 +1106,7 @@ the following snippet:</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -1133,10 +1134,10 @@ the following snippet:</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Argument Clinic How-To &#8212; Python 3.6.4 文档</title>
+    <title>Argument Clinic How-To &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">如何使用 Python 来做……</a> &#187;</li>
@@ -328,12 +328,12 @@ this class, and a pointer to the <a class="reference internal" href="../c-api/ty
 should get its own line.  All the parameter lines should be
 indented from the function name and the docstring.</p>
 <p>The general form of these parameter lines is as follows:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="nl">name_of_parameter</span><span class="p">:</span> <span class="n">converter</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>name_of_parameter: converter
 </pre></div>
 </div>
 <p>If the parameter has a default value, add that after the
 converter:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="nl">name_of_parameter</span><span class="p">:</span> <span class="n">converter</span> <span class="o">=</span> <span class="n">default_value</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>name_of_parameter: converter = default_value
 </pre></div>
 </div>
 <p>Argument Clinic’s support for “default values” is quite sophisticated;
@@ -1011,15 +1011,15 @@ hard-coded encoding strings for parameters whose format units start with <code c
 <span id="default-values"></span><h3>Parameter default values<a class="headerlink" href="#parameter-default-values" title="永久链接至标题">¶</a></h3>
 <p>Default values for parameters can be any of a number of values.
 At their simplest, they can be string, int, or float literals:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="nl">foo</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;abc&quot;</span>
-<span class="nl">bar</span><span class="p">:</span> <span class="kt">int</span> <span class="o">=</span> <span class="mi">123</span>
-<span class="nl">bat</span><span class="p">:</span> <span class="kt">float</span> <span class="o">=</span> <span class="mf">45.6</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>foo: str = &quot;abc&quot;
+bar: int = 123
+bat: float = 45.6
 </pre></div>
 </div>
 <p>They can also use any of Python’s built-in constants:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="nl">yep</span><span class="p">:</span>  <span class="kt">bool</span> <span class="o">=</span> <span class="n">True</span>
-<span class="nl">nope</span><span class="p">:</span> <span class="kt">bool</span> <span class="o">=</span> <span class="n">False</span>
-<span class="nl">nada</span><span class="p">:</span> <span class="n">object</span> <span class="o">=</span> <span class="n">None</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>yep:  bool = True
+nope: bool = False
+nada: object = None
 </pre></div>
 </div>
 <p>There’s also special support for a default value of <code class="docutils literal"><span class="pre">NULL</span></code>, and
@@ -1041,7 +1041,7 @@ It can be an entire expression, using math operators and looking up attributes
 on objects.  However, this support isn’t exactly simple, because of some
 non-obvious semantics.</p>
 <p>Consider the following example:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="nl">foo</span><span class="p">:</span> <span class="n">Py_ssize_t</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">maxsize</span> <span class="o">-</span> <span class="mi">1</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>foo: Py_ssize_t = sys.maxsize - 1
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">sys.maxsize</span></code> can have different values on different platforms.  Therefore
@@ -1051,7 +1051,7 @@ runtime, when the user asks for the function’s signature.</p>
 <p>What namespace is available when the expression is evaluated?  It’s evaluated
 in the context of the module the builtin came from.  So, if your module has an
 attribute called “<code class="docutils literal"><span class="pre">max_widgets</span></code>”, you may simply use it:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="nl">foo</span><span class="p">:</span> <span class="n">Py_ssize_t</span> <span class="o">=</span> <span class="n">max_widgets</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>foo: Py_ssize_t = max_widgets
 </pre></div>
 </div>
 <p>If the symbol isn’t found in the current module, it fails over to looking in
@@ -1062,7 +1062,7 @@ it’s best to restrict yourself to modules that are preloaded by Python itself.
 the correct equivalent C default value.  So you need to tell it explicitly.
 When you use an expression, you must also specify the equivalent expression
 in C, using the <code class="docutils literal"><span class="pre">c_default</span></code> parameter to the converter:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="nl">foo</span><span class="p">:</span> <span class="n">Py_ssize_t</span><span class="p">(</span><span class="n">c_default</span><span class="o">=</span><span class="s">&quot;PY_SSIZE_T_MAX - 1&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">maxsize</span> <span class="o">-</span> <span class="mi">1</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>foo: Py_ssize_t(c_default=&quot;PY_SSIZE_T_MAX - 1&quot;) = sys.maxsize - 1
 </pre></div>
 </div>
 <p>Another complication: Argument Clinic can’t know in advance whether or not the
@@ -1386,13 +1386,13 @@ code to fix definition-before-use problems.)</p>
 For example, the <code class="docutils literal"><span class="pre">#define</span></code> for the <code class="docutils literal"><span class="pre">PyMethodDef</span></code> structure
 is a field, called <code class="docutils literal"><span class="pre">methoddef_define</span></code>.  Clinic has seven
 different fields it can output per function definition:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">docstring_prototype</span>
-<span class="n">docstring_definition</span>
-<span class="n">methoddef_define</span>
-<span class="n">impl_prototype</span>
-<span class="n">parser_prototype</span>
-<span class="n">parser_definition</span>
-<span class="n">impl_definition</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>docstring_prototype
+docstring_definition
+methoddef_define
+impl_prototype
+parser_prototype
+parser_definition
+impl_definition
 </pre></div>
 </div>
 <p class="last">All the names are of the form <code class="docutils literal"><span class="pre">&quot;&lt;a&gt;_&lt;b&gt;&quot;</span></code>,
@@ -1439,7 +1439,7 @@ all processing, even from Clinic blocks <em>after</em> the dumping point.</dd>
 </dl>
 <p>Clinic defines five new directives that let you reconfigure its output.</p>
 <p>The first new directive is <code class="docutils literal"><span class="pre">dump</span></code>:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">dump</span> <span class="o">&lt;</span><span class="n">destination</span><span class="o">&gt;</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>dump &lt;destination&gt;
 </pre></div>
 </div>
 <p>This dumps the current contents of the named destination into the output of
@@ -1447,16 +1447,16 @@ the current block, and empties it.  This only works with <code class="docutils l
 <code class="docutils literal"><span class="pre">two-pass</span></code> destinations.</p>
 <p>The second new directive is <code class="docutils literal"><span class="pre">output</span></code>.  The most basic form of <code class="docutils literal"><span class="pre">output</span></code>
 is like this:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">&lt;</span><span class="n">field</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">destination</span><span class="o">&gt;</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>output &lt;field&gt; &lt;destination&gt;
 </pre></div>
 </div>
 <p>This tells Clinic to output <em>field</em> to <em>destination</em>.  <code class="docutils literal"><span class="pre">output</span></code> also
 supports a special meta-destination, called <code class="docutils literal"><span class="pre">everything</span></code>, which tells
 Clinic to output <em>all</em> fields to that <em>destination</em>.</p>
 <p><code class="docutils literal"><span class="pre">output</span></code> has a number of other functions:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="n">push</span>
-<span class="n">output</span> <span class="n">pop</span>
-<span class="n">output</span> <span class="n">preset</span> <span class="o">&lt;</span><span class="n">preset</span><span class="o">&gt;</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>output push
+output pop
+output preset &lt;preset&gt;
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">output</span> <span class="pre">push</span></code> and <code class="docutils literal"><span class="pre">output</span> <span class="pre">pop</span></code> allow you to push and pop
@@ -1524,13 +1524,13 @@ and <code class="docutils literal"><span class="pre">parser_definition</span></c
 </dl>
 </div></blockquote>
 <p>The third new directive is <code class="docutils literal"><span class="pre">destination</span></code>:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">destination</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span> <span class="p">[...]</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>destination &lt;name&gt; &lt;command&gt; [...]
 </pre></div>
 </div>
 <p>This performs an operation on the destination named <code class="docutils literal"><span class="pre">name</span></code>.</p>
 <p>There are two defined subcommands: <code class="docutils literal"><span class="pre">new</span></code> and <code class="docutils literal"><span class="pre">clear</span></code>.</p>
 <p>The <code class="docutils literal"><span class="pre">new</span></code> subcommand works like this:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">destination</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="n">new</span> <span class="o">&lt;</span><span class="n">type</span><span class="o">&gt;</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>destination &lt;name&gt; new &lt;type&gt;
 </pre></div>
 </div>
 <p>This creates a new destination with name <code class="docutils literal"><span class="pre">&lt;name&gt;</span></code> and type <code class="docutils literal"><span class="pre">&lt;type&gt;</span></code>.</p>
@@ -1576,15 +1576,15 @@ is always exactly the same as “{filename}”.”</p>
 </dl>
 </div></blockquote>
 <p>The <code class="docutils literal"><span class="pre">clear</span></code> subcommand works like this:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">destination</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="n">clear</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>destination &lt;name&gt; clear
 </pre></div>
 </div>
 <p>It removes all the accumulated text up to this point in the destination.
 (I don’t know what you’d need this for, but I thought maybe it’d be
 useful while someone’s experimenting.)</p>
 <p>The fourth new directive is <code class="docutils literal"><span class="pre">set</span></code>:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">set</span> <span class="n">line_prefix</span> <span class="s">&quot;string&quot;</span>
-<span class="n">set</span> <span class="n">line_suffix</span> <span class="s">&quot;string&quot;</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>set line_prefix &quot;string&quot;
+set line_suffix &quot;string&quot;
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">set</span></code> lets you set two internal variables in Clinic.
@@ -1601,7 +1601,7 @@ useful while someone’s experimenting.)</p>
 </div></blockquote>
 <p>The final new directive is one you shouldn’t need to use directly,
 called <code class="docutils literal"><span class="pre">preserve</span></code>:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">preserve</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>preserve
 </pre></div>
 </div>
 <p>This tells Clinic that the current contents of the output should be kept, unmodified.
@@ -1645,7 +1645,7 @@ like so:</p>
 </div>
 <p>Then, remove those three lines from the <code class="docutils literal"><span class="pre">PyMethodDef</span></code> structure,
 replacing them with the macro Argument Clinic generated:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">MODULE_FUNCTIONNAME_METHODDEF</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>MODULE_FUNCTIONNAME_METHODDEF
 </pre></div>
 </div>
 <p>(You can find the real name for this macro inside the generated code.
@@ -1777,7 +1777,7 @@ blocks embedded in Python files look slightly different.  They look like this:</
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >如何使用 Python 来做……</a> &#187;</li>
@@ -1804,10 +1804,10 @@ blocks embedded in Python files look slightly different.  They look like this:</
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

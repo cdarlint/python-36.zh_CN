@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>19.2. json — JSON encoder and decoder &#8212; Python 3.6.4 文档</title>
+    <title>19.2. json — JSON encoder and decoder &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -181,12 +181,12 @@ is a lightweight data interchange format inspired by
 </pre></div>
 </div>
 <p>Using <a class="reference internal" href="#module-json.tool" title="json.tool: A command line to validate and pretty-print JSON."><code class="xref py py-mod docutils literal"><span class="pre">json.tool</span></code></a> from the shell to validate and pretty-print:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s1">&#39;{&quot;json&quot;:&quot;obj&quot;}&#39;</span> <span class="p">|</span> python -m json.tool
-<span class="o">{</span>
-    <span class="s2">&quot;json&quot;</span>: <span class="s2">&quot;obj&quot;</span>
-<span class="o">}</span>
-$ <span class="nb">echo</span> <span class="s1">&#39;{1.2:3.4}&#39;</span> <span class="p">|</span> python -m json.tool
-Expecting property name enclosed in double quotes: line <span class="m">1</span> column <span class="m">2</span> <span class="o">(</span>char <span class="m">1</span><span class="o">)</span>
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;{&quot;json&quot;:&quot;obj&quot;}&#39;</span> <span class="p">|</span> python -m json.tool
+<span class="go">{</span>
+<span class="go">    &quot;json&quot;: &quot;obj&quot;</span>
+<span class="go">}</span>
+<span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;{1.2:3.4}&#39;</span> <span class="p">|</span> python -m json.tool
+<span class="go">Expecting property name enclosed in double quotes: line 1 column 2 (char 1)</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#json-commandline"><span class="std std-ref">Command Line Interface</span></a> for detailed documentation.</p>
@@ -727,12 +727,12 @@ when serializing instances of “exotic” numerical types such as
 and pretty-print JSON objects.</p>
 <p>If the optional <code class="docutils literal"><span class="pre">infile</span></code> and <code class="docutils literal"><span class="pre">outfile</span></code> arguments are not
 specified, <a class="reference internal" href="sys.html#sys.stdin" title="sys.stdin"><code class="xref py py-attr docutils literal"><span class="pre">sys.stdin</span></code></a> and <a class="reference internal" href="sys.html#sys.stdout" title="sys.stdout"><code class="xref py py-attr docutils literal"><span class="pre">sys.stdout</span></code></a> will be used respectively:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s1">&#39;{&quot;json&quot;: &quot;obj&quot;}&#39;</span> <span class="p">|</span> python -m json.tool
-<span class="o">{</span>
-    <span class="s2">&quot;json&quot;</span>: <span class="s2">&quot;obj&quot;</span>
-<span class="o">}</span>
-$ <span class="nb">echo</span> <span class="s1">&#39;{1.2:3.4}&#39;</span> <span class="p">|</span> python -m json.tool
-Expecting property name enclosed in double quotes: line <span class="m">1</span> column <span class="m">2</span> <span class="o">(</span>char <span class="m">1</span><span class="o">)</span>
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;{&quot;json&quot;: &quot;obj&quot;}&#39;</span> <span class="p">|</span> python -m json.tool
+<span class="go">{</span>
+<span class="go">    &quot;json&quot;: &quot;obj&quot;</span>
+<span class="go">}</span>
+<span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;{1.2:3.4}&#39;</span> <span class="p">|</span> python -m json.tool
+<span class="go">Expecting property name enclosed in double quotes: line 1 column 2 (char 1)</span>
 </pre></div>
 </div>
 <div class="versionchanged">
@@ -746,17 +746,17 @@ alphabetically by key.</p>
 <dt id="cmdoption-arg-infile">
 <code class="descname">infile</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-arg-infile" title="永久链接至目标">¶</a></dt>
 <dd><p>The JSON file to be validated or pretty-printed:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ python -m json.tool mp_films.json
-<span class="o">[</span>
-    <span class="o">{</span>
-        <span class="s2">&quot;title&quot;</span>: <span class="s2">&quot;And Now for Something Completely Different&quot;</span>,
-        <span class="s2">&quot;year&quot;</span>: <span class="m">1971</span>
-    <span class="o">}</span>,
-    <span class="o">{</span>
-        <span class="s2">&quot;title&quot;</span>: <span class="s2">&quot;Monty Python and the Holy Grail&quot;</span>,
-        <span class="s2">&quot;year&quot;</span>: <span class="m">1975</span>
-    <span class="o">}</span>
-<span class="o">]</span>
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m json.tool mp_films.json
+<span class="go">[</span>
+<span class="go">    {</span>
+<span class="go">        &quot;title&quot;: &quot;And Now for Something Completely Different&quot;,</span>
+<span class="go">        &quot;year&quot;: 1971</span>
+<span class="go">    },</span>
+<span class="go">    {</span>
+<span class="go">        &quot;title&quot;: &quot;Monty Python and the Holy Grail&quot;,</span>
+<span class="go">        &quot;year&quot;: 1975</span>
+<span class="go">    }</span>
+<span class="go">]</span>
 </pre></div>
 </div>
 <p>If <em>infile</em> is not specified, read from <a class="reference internal" href="sys.html#sys.stdin" title="sys.stdin"><code class="xref py py-attr docutils literal"><span class="pre">sys.stdin</span></code></a>.</p>
@@ -866,7 +866,7 @@ U+2029 (PARAGRAPH SEPARATOR) characters in strings, whereas JavaScript
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -894,10 +894,10 @@ U+2029 (PARAGRAPH SEPARATOR) characters in strings, whereas JavaScript
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

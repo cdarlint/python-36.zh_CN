@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>29.1. sys — System-specific parameters and functions &#8212; Python 3.6.4 文档</title>
+    <title>29.1. sys — System-specific parameters and functions &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -1231,12 +1231,33 @@ can be found in the <a class="reference internal" href="os.html#module-os" title
 <dd><p id="index-20">Set the system’s profile function, which allows you to implement a Python source
 code profiler in Python.  See chapter <a class="reference internal" href="profile.html#profile"><span class="std std-ref">The Python Profilers</span></a> for more information on the
 Python profiler.  The system’s profile function is called similarly to the
-system’s trace function (see <a class="reference internal" href="#sys.settrace" title="sys.settrace"><code class="xref py py-func docutils literal"><span class="pre">settrace()</span></code></a>), but it isn’t called for each
-executed line of code (only on call and return, but the return event is reported
-even when an exception has been set).  The function is thread-specific, but
-there is no way for the profiler to know about context switches between threads,
-so it does not make sense to use this in the presence of multiple threads. Also,
+system’s trace function (see <a class="reference internal" href="#sys.settrace" title="sys.settrace"><code class="xref py py-func docutils literal"><span class="pre">settrace()</span></code></a>), but it is called with different events,
+for example it isn’t called for each executed line of code (only on call and return,
+but the return event is reported even when an exception has been set). The function is
+thread-specific, but there is no way for the profiler to know about context switches between
+threads, so it does not make sense to use this in the presence of multiple threads. Also,
 its return value is not used, so it can simply return <code class="docutils literal"><span class="pre">None</span></code>.</p>
+<p>Profile functions should have three arguments: <em>frame</em>, <em>event</em>, and
+<em>arg</em>. <em>frame</em> is the current stack frame.  <em>event</em> is a string: <code class="docutils literal"><span class="pre">'call'</span></code>,
+<code class="docutils literal"><span class="pre">'return'</span></code>, <code class="docutils literal"><span class="pre">'c_call'</span></code>, <code class="docutils literal"><span class="pre">'c_return'</span></code>, or <code class="docutils literal"><span class="pre">'c_exception'</span></code>. <em>arg</em> depends
+on the event type.</p>
+<p>The events have the following meaning:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">'call'</span></code></dt>
+<dd>A function is called (or some other code block entered).  The
+profile function is called; <em>arg</em> is <code class="docutils literal"><span class="pre">None</span></code>.</dd>
+<dt><code class="docutils literal"><span class="pre">'return'</span></code></dt>
+<dd>A function (or other code block) is about to return.  The profile
+function is called; <em>arg</em> is the value that will be returned, or <code class="docutils literal"><span class="pre">None</span></code>
+if the event is caused by an exception being raised.</dd>
+<dt><code class="docutils literal"><span class="pre">'c_call'</span></code></dt>
+<dd>A C function is about to be called.  This may be an extension function or
+a built-in.  <em>arg</em> is the C function object.</dd>
+<dt><code class="docutils literal"><span class="pre">'c_return'</span></code></dt>
+<dd>A C function has returned. <em>arg</em> is the C function object.</dd>
+<dt><code class="docutils literal"><span class="pre">'c_exception'</span></code></dt>
+<dd>A C function has raised an exception.  <em>arg</em> is the C function object.</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -1281,8 +1302,8 @@ debugger to support multiple threads, it must be registered using
 <a class="reference internal" href="#sys.settrace" title="sys.settrace"><code class="xref py py-func docutils literal"><span class="pre">settrace()</span></code></a> for each thread being debugged.</p>
 <p>Trace functions should have three arguments: <em>frame</em>, <em>event</em>, and
 <em>arg</em>. <em>frame</em> is the current stack frame.  <em>event</em> is a string: <code class="docutils literal"><span class="pre">'call'</span></code>,
-<code class="docutils literal"><span class="pre">'line'</span></code>, <code class="docutils literal"><span class="pre">'return'</span></code>, <code class="docutils literal"><span class="pre">'exception'</span></code>, <code class="docutils literal"><span class="pre">'c_call'</span></code>, <code class="docutils literal"><span class="pre">'c_return'</span></code>, or
-<code class="docutils literal"><span class="pre">'c_exception'</span></code>. <em>arg</em> depends on the event type.</p>
+<code class="docutils literal"><span class="pre">'line'</span></code>, <code class="docutils literal"><span class="pre">'return'</span></code> or <code class="docutils literal"><span class="pre">'exception'</span></code>.  <em>arg</em> depends on
+the event type.</p>
 <p>The trace function is invoked (with <em>event</em> set to <code class="docutils literal"><span class="pre">'call'</span></code>) whenever a new
 local scope is entered; it should return a reference to a local trace
 function to be used that scope, or <code class="docutils literal"><span class="pre">None</span></code> if the scope shouldn’t be traced.</p>
@@ -1310,13 +1331,6 @@ return value is ignored.</dd>
 <dd>An exception has occurred.  The local trace function is called; <em>arg</em> is a
 tuple <code class="docutils literal"><span class="pre">(exception,</span> <span class="pre">value,</span> <span class="pre">traceback)</span></code>; the return value specifies the
 new local trace function.</dd>
-<dt><code class="docutils literal"><span class="pre">'c_call'</span></code></dt>
-<dd>A C function is about to be called.  This may be an extension function or
-a built-in.  <em>arg</em> is the C function object.</dd>
-<dt><code class="docutils literal"><span class="pre">'c_return'</span></code></dt>
-<dd>A C function has returned. <em>arg</em> is the C function object.</dd>
-<dt><code class="docutils literal"><span class="pre">'c_exception'</span></code></dt>
-<dd>A C function has raised an exception.  <em>arg</em> is the C function object.</dd>
 </dl>
 <p>Note that as an exception is propagated down the chain of callers, an
 <code class="docutils literal"><span class="pre">'exception'</span></code> event is generated at each level.</p>
@@ -1660,7 +1674,7 @@ means, or not at all.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -1688,10 +1702,10 @@ means, or not at all.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

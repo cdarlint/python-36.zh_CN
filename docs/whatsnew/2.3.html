@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>What’s New in Python 2.3 &#8212; Python 3.6.4 文档</title>
+    <title>What’s New in Python 2.3 &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python 有什么新变化？</a> &#187;</li>
@@ -1750,7 +1750,7 @@ you accidentally called mismatched functions the error wouldn’t be noticeable.
 When the object allocator is enabled, these functions aren’t aliases of
 <code class="xref c c-func docutils literal"><span class="pre">malloc()</span></code> and <code class="xref c c-func docutils literal"><span class="pre">free()</span></code> any more, and calling the wrong function to
 free memory may get you a core dump.  For example, if memory was allocated using
-<code class="xref c c-func docutils literal"><span class="pre">PyObject_Malloc()</span></code>, it has to be freed using <code class="xref c c-func docutils literal"><span class="pre">PyObject_Free()</span></code>, not
+<a class="reference internal" href="../c-api/memory.html#c.PyObject_Malloc" title="PyObject_Malloc"><code class="xref c c-func docutils literal"><span class="pre">PyObject_Malloc()</span></code></a>, it has to be freed using <a class="reference internal" href="../c-api/memory.html#c.PyObject_Free" title="PyObject_Free"><code class="xref c c-func docutils literal"><span class="pre">PyObject_Free()</span></code></a>, not
 <code class="xref c c-func docutils literal"><span class="pre">free()</span></code>.  A few modules included with Python fell afoul of this and had to
 be fixed; doubtless there are more third-party modules that will have the same
 problem.</p>
@@ -1764,7 +1764,7 @@ specifically for allocating Python objects.</p>
 family: <a class="reference internal" href="../c-api/memory.html#c.PyMem_Malloc" title="PyMem_Malloc"><code class="xref c c-func docutils literal"><span class="pre">PyMem_Malloc()</span></code></a>, <a class="reference internal" href="../c-api/memory.html#c.PyMem_Realloc" title="PyMem_Realloc"><code class="xref c c-func docutils literal"><span class="pre">PyMem_Realloc()</span></code></a>, and <a class="reference internal" href="../c-api/memory.html#c.PyMem_Free" title="PyMem_Free"><code class="xref c c-func docutils literal"><span class="pre">PyMem_Free()</span></code></a>.</li>
 <li>The “object memory” family is the interface to the pymalloc facility described
 above and is biased towards a large number of “small” allocations:
-<code class="xref c c-func docutils literal"><span class="pre">PyObject_Malloc()</span></code>, <code class="xref c c-func docutils literal"><span class="pre">PyObject_Realloc()</span></code>, and <code class="xref c c-func docutils literal"><span class="pre">PyObject_Free()</span></code>.</li>
+<a class="reference internal" href="../c-api/memory.html#c.PyObject_Malloc" title="PyObject_Malloc"><code class="xref c c-func docutils literal"><span class="pre">PyObject_Malloc()</span></code></a>, <a class="reference internal" href="../c-api/memory.html#c.PyObject_Realloc" title="PyObject_Realloc"><code class="xref c c-func docutils literal"><span class="pre">PyObject_Realloc()</span></code></a>, and <a class="reference internal" href="../c-api/memory.html#c.PyObject_Free" title="PyObject_Free"><code class="xref c c-func docutils literal"><span class="pre">PyObject_Free()</span></code></a>.</li>
 <li>To allocate and free Python objects, use the “object” family
 <a class="reference internal" href="../c-api/allocation.html#c.PyObject_New" title="PyObject_New"><code class="xref c c-func docutils literal"><span class="pre">PyObject_New()</span></code></a>, <a class="reference internal" href="../c-api/allocation.html#c.PyObject_NewVar" title="PyObject_NewVar"><code class="xref c c-func docutils literal"><span class="pre">PyObject_NewVar()</span></code></a>, and <a class="reference internal" href="../c-api/allocation.html#c.PyObject_Del" title="PyObject_Del"><code class="xref c c-func docutils literal"><span class="pre">PyObject_Del()</span></code></a>.</li>
 </ul>
@@ -2056,7 +2056,7 @@ Suzi, Jason Tishler, Just van Rossum.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 有什么新变化？</a> &#187;</li>
@@ -2083,10 +2083,10 @@ Suzi, Jason Tishler, Just van Rossum.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 13, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>语句解释及变量编译 &#8212; Python 3.6.4 文档</title>
+    <title>语句解释及变量编译 &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -146,16 +146,35 @@ objects.</dd>
 <dd>要求Python对象是一个 <a class="reference internal" href="../library/stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal"><span class="pre">bytearray</span></code></a> 类型对象，没有尝试任何的转换。如果不是一个 <a class="reference internal" href="../library/stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal"><span class="pre">bytearray</span></code></a> 类型对象会引发 <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code></a> 异常。C变量也可能声明为 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal"><span class="pre">PyObject*</span></code></a> 类型。</dd>
 <dt><code class="docutils literal"><span class="pre">u</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) [Py_UNICODE *]</dt>
 <dd><p class="first">将一个Python Unicode对象转化成指向一个以空终止的Unicode字符缓冲区的指针。你必须传入一个 <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> 指针变量的地址，存储了一个指向已经存在的Unicode缓冲区的指针。请注意一个 <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> 类型的字符宽度取决于编译选项(16位或者32位)。Python字符串必须不能包含嵌入的null代码点；如果有，引发一个 <a class="reference internal" href="../library/exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code></a> 异常。</p>
-<div class="last versionchanged">
+<div class="versionchanged">
 <p><span class="versionmodified">在 3.5 版更改: </span>以前，当Python字符串中遇到了嵌入的null代码点会引发 <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code></a> 。</p>
+</div>
+<div class="last deprecated-removed">
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<a class="reference internal" href="unicode.html#c.PyUnicode_AsWideCharString" title="PyUnicode_AsWideCharString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsWideCharString()</span></code></a>.</p>
 </div>
 </dd>
 <dt><code class="docutils literal"><span class="pre">u#</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) [Py_UNICODE *, int]</dt>
-<dd><code class="docutils literal"><span class="pre">u</span></code> 的变式，存储两个C变量，第一个指针指向一个Unicode数据缓存区，第二个是它的长度。它允许null代码点。</dd>
+<dd><p class="first"><code class="docutils literal"><span class="pre">u</span></code> 的变式，存储两个C变量，第一个指针指向一个Unicode数据缓存区，第二个是它的长度。它允许null代码点。</p>
+<div class="last deprecated-removed">
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<a class="reference internal" href="unicode.html#c.PyUnicode_AsWideCharString" title="PyUnicode_AsWideCharString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsWideCharString()</span></code></a>.</p>
+</div>
+</dd>
 <dt><code class="docutils literal"><span class="pre">Z</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> or <code class="docutils literal"><span class="pre">None</span></code>) [Py_UNICODE *]</dt>
-<dd>像 <code class="docutils literal"><span class="pre">u</span></code>，但是这个Python对象也有可能是 <code class="docutils literal"><span class="pre">None</span></code>，那么对应的 <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> 指针指向 <em>NULL</em>。</dd>
+<dd><p class="first">像 <code class="docutils literal"><span class="pre">u</span></code>，但是这个Python对象也有可能是 <code class="docutils literal"><span class="pre">None</span></code>，那么对应的 <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> 指针指向 <em>NULL</em>。</p>
+<div class="last deprecated-removed">
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<a class="reference internal" href="unicode.html#c.PyUnicode_AsWideCharString" title="PyUnicode_AsWideCharString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsWideCharString()</span></code></a>.</p>
+</div>
+</dd>
 <dt><code class="docutils literal"><span class="pre">Z#</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> or <code class="docutils literal"><span class="pre">None</span></code>) [Py_UNICODE *, int]</dt>
-<dd>像 <code class="docutils literal"><span class="pre">u#</span></code>，但是这个Python对象也有可能是 <code class="docutils literal"><span class="pre">None</span></code>，那么对应的 <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> 指针指向 <em>NULL</em>。</dd>
+<dd><p class="first">像 <code class="docutils literal"><span class="pre">u#</span></code>，但是这个Python对象也有可能是 <code class="docutils literal"><span class="pre">None</span></code>，那么对应的 <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> 指针指向 <em>NULL</em>。</p>
+<div class="last deprecated-removed">
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="unicode.html#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<a class="reference internal" href="unicode.html#c.PyUnicode_AsWideCharString" title="PyUnicode_AsWideCharString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsWideCharString()</span></code></a>.</p>
+</div>
+</dd>
 <dt><code class="docutils literal"><span class="pre">U</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) [PyObject *]</dt>
 <dd>要求Python对象是一个Unicode对象，没有尝试任何的转换。如果不是一个Unicode对象会引发 <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code></a> 异常。C变量也可能声明为 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal"><span class="pre">PyObject*</span></code></a> 类型。</dd>
 <dt><code class="docutils literal"><span class="pre">w*</span></code> (可读写 <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a>) [Py_buffer]</dt>
@@ -377,10 +396,14 @@ int <code class="descname">PyArg_UnpackTuple</code><span class="sig-paren">(</sp
 <dd>和``s``一样。</dd>
 <dt><code class="docutils literal"><span class="pre">z#</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> 或者 <code class="docutils literal"><span class="pre">None</span></code>) [char *, int]</dt>
 <dd>和``s#``一样。</dd>
-<dt><code class="docutils literal"><span class="pre">u</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) [Py_UNICODE *]</dt>
-<dd>将一个以空结束的Unicode(UCS-2或者UCS-4)数据缓存区转化成Python Unicode对象。如果这个Unicode缓存区指针是 <em>NULL</em>，返回``None``</dd>
-<dt><code class="docutils literal"><span class="pre">u#</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) [Py_UNICODE *, int]</dt>
-<dd>将一个Unicode(UCS-2或者UCS-4)数据缓存区和它的长度转化成Python Unicode对象。如果这个Unicode缓存区指针是 <em>NULL</em>，长度将被忽略并且返回``None``</dd>
+<dt><code class="docutils literal"><span class="pre">u</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) [wchar_t *]</dt>
+<dd>Convert a null-terminated <code class="xref c c-type docutils literal"><span class="pre">wchar_t</span></code> buffer of Unicode (UTF-16 or UCS-4)
+data to a Python Unicode object.  If the Unicode buffer pointer is <em>NULL</em>,
+<code class="docutils literal"><span class="pre">None</span></code> is returned.</dd>
+<dt><code class="docutils literal"><span class="pre">u#</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>) [wchar_t *, int]</dt>
+<dd>Convert a Unicode (UTF-16 or UCS-4) data buffer and its length to a Python
+Unicode object.   If the Unicode buffer pointer is <em>NULL</em>, the length is ignored
+and <code class="docutils literal"><span class="pre">None</span></code> is returned.</dd>
 <dt><code class="docutils literal"><span class="pre">U</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> 或者 <code class="docutils literal"><span class="pre">None</span></code>) [char *]</dt>
 <dd>和``s``一样。</dd>
 <dt><code class="docutils literal"><span class="pre">U#</span></code> (<a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> 或者 <code class="docutils literal"><span class="pre">None</span></code>) [char *, int]</dt>
@@ -505,7 +528,7 @@ int <code class="descname">PyArg_UnpackTuple</code><span class="sig-paren">(</sp
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -533,10 +556,10 @@ int <code class="descname">PyArg_UnpackTuple</code><span class="sig-paren">(</sp
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

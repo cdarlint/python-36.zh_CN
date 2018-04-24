@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>HOWTO Fetch Internet Resources Using The urllib Package &#8212; Python 3.6.4 文档</title>
+    <title>HOWTO Fetch Internet Resources Using The urllib Package &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">如何使用 Python 来做……</a> &#187;</li>
@@ -144,11 +144,19 @@ the <a class="reference internal" href="../library/urllib.request.html#module-ur
    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>If you wish to retrieve a resource via URL and store it in a temporary location,
-you can do so via the <a class="reference internal" href="../library/urllib.request.html#urllib.request.urlretrieve" title="urllib.request.urlretrieve"><code class="xref py py-func docutils literal"><span class="pre">urlretrieve()</span></code></a> function:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
-<span class="n">local_filename</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s1">&#39;http://python.org/&#39;</span><span class="p">)</span>
-<span class="n">html</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">local_filename</span><span class="p">)</span>
+<p>If you wish to retrieve a resource via URL and store it in a temporary
+location, you can do so via the <a class="reference internal" href="../library/shutil.html#shutil.copyfileobj" title="shutil.copyfileobj"><code class="xref py py-func docutils literal"><span class="pre">shutil.copyfileobj()</span></code></a> and
+<a class="reference internal" href="../library/tempfile.html#tempfile.NamedTemporaryFile" title="tempfile.NamedTemporaryFile"><code class="xref py py-func docutils literal"><span class="pre">tempfile.NamedTemporaryFile()</span></code></a> functions:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://python.org/&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">tmp_file</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">tmp_file</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmp_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">as</span> <span class="n">html</span><span class="p">:</span>
+    <span class="k">pass</span>
 </pre></div>
 </div>
 <p>Many uses of urllib will be that simple (note that instead of an ‘http:’ URL we
@@ -506,7 +514,7 @@ error code) requesting authentication.  This specifies the authentication scheme
 and a ‘realm’. The header looks like: <code class="docutils literal"><span class="pre">WWW-Authenticate:</span> <span class="pre">SCHEME</span>
 <span class="pre">realm=&quot;REALM&quot;</span></code>.</p>
 <p>e.g.</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">WWW</span><span class="o">-</span><span class="n">Authenticate</span><span class="p">:</span> <span class="n">Basic</span> <span class="n">realm</span><span class="o">=</span><span class="s2">&quot;cPanel Users&quot;</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>WWW-Authenticate: Basic realm=&quot;cPanel Users&quot;
 </pre></div>
 </div>
 <p>The client should then retry the request with the appropriate name and password
@@ -739,7 +747,7 @@ the proxy.</td></tr>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >如何使用 Python 来做……</a> &#187;</li>
@@ -766,10 +774,10 @@ the proxy.</td></tr>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

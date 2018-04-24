@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Python on Windows FAQ &#8212; Python 3.6.4 文档</title>
+    <title>Python on Windows FAQ &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python Frequently Asked Questions</a> &#187;</li>
@@ -129,12 +129,12 @@ Start menu; under Windows 7 the menu selection is <span class="menuselection">St
 Programs ‣ Accessories ‣ Command Prompt</span>.  You should be able to recognize
 when you have started such a window because you will see a Windows “command
 prompt”, which usually looks like this:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span>
+<div class="highlight-doscon"><div class="highlight"><pre><span></span><span class="gp">C:\&gt;</span>
 </pre></div>
 </div>
 <p>The letter may be different, and there might be other things after it, so you
 might just as easily see something like:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">:</span>\<span class="n">YourName</span>\<span class="n">Projects</span>\<span class="n">Python</span><span class="o">&gt;</span>
+<div class="highlight-doscon"><div class="highlight"><pre><span></span><span class="gp">D:\YourName\Projects\Python&gt;</span>
 </pre></div>
 </div>
 <p>depending on how your computer has been set up and what else you have recently
@@ -147,21 +147,21 @@ program. So, how do you arrange for the interpreter to handle your Python?</p>
 <p>First, you need to make sure that your command window recognises the word
 “python” as an instruction to start the interpreter.  If you have opened a
 command window, you should try entering the command <code class="docutils literal"><span class="pre">python</span></code> and hitting
-return.:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">YourName</span><span class="o">&gt;</span> <span class="n">python</span>
+return:</p>
+<div class="highlight-doscon"><div class="highlight"><pre><span></span><span class="gp">C:\Users\YourName&gt;</span> python
 </pre></div>
 </div>
 <p>You should then see something like:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.3</span><span class="o">.</span><span class="mi">0</span> <span class="p">(</span><span class="n">v3</span><span class="o">.</span><span class="mf">3.0</span><span class="p">:</span><span class="n">bd8afb90ebf2</span><span class="p">,</span> <span class="n">Sep</span> <span class="mi">29</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">48</span><span class="p">)</span> <span class="p">[</span><span class="n">MSC</span> <span class="n">v</span><span class="o">.</span><span class="mi">1600</span> <span class="mi">32</span> <span class="n">bit</span> <span class="p">(</span><span class="n">Intel</span><span class="p">)]</span> <span class="n">on</span> <span class="n">win32</span>
-<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
-<span class="o">&gt;&gt;&gt;</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span><span class="go">Python 3.3.0 (v3.3.0:bd8afb90ebf2, Sep 29 2012, 10:55:48) [MSC v.1600 32 bit (Intel)] on win32</span>
+<span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
+<span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>You have started the interpreter in “interactive mode”. That means you can enter
 Python statements or expressions interactively and have them executed or
 evaluated while you wait.  This is one of Python’s strongest features.  Check it
 by entering a few expressions of your choice and seeing the results:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
 <span class="go">Hello</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Hello&quot;</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="go">&#39;HelloHelloHello&#39;</span>
@@ -178,7 +178,7 @@ after you enter the <code class="kbd docutils literal"><span class="pre">Ctrl-Z<
 command in the window, and closes it when you terminate the interpreter.</p>
 <p>If the <code class="docutils literal"><span class="pre">python</span></code> command, instead of displaying the interpreter prompt <code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code>,
 gives you a message like:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="s1">&#39;python&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">recognized</span> <span class="k">as</span> <span class="n">an</span> <span class="n">internal</span> <span class="ow">or</span> <span class="n">external</span> <span class="n">command</span><span class="p">,</span> <span class="n">operable</span> <span class="n">program</span> <span class="ow">or</span> <span class="n">batch</span> <span class="n">file</span><span class="o">.</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&#39;python&#39; is not recognized as an internal or external command, operable program or batch file.
 </pre></div>
 </div>
 <div class="sidebar">
@@ -189,7 +189,7 @@ you through the steps to add the correct entry to the <cite>System Path</cite>, 
 Python to be executed from the command-line by all users.</p>
 </div>
 <p>or:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">Bad</span> <span class="n">command</span> <span class="ow">or</span> <span class="n">filename</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Bad command or filename
 </pre></div>
 </div>
 <p>then you need to make sure that your computer knows where to find the Python
@@ -198,7 +198,7 @@ a list of directories where Windows will look for programs.</p>
 <p>You should arrange for Python’s installation directory to be added to the PATH
 of every command window as it starts.  If you installed Python fairly recently
 then the command</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="nb">dir</span> <span class="n">C</span><span class="p">:</span>\<span class="n">py</span><span class="o">*</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>dir C:\py*
 </pre></div>
 </div>
 <p>will probably tell you where it is installed; the usual location is something
@@ -207,7 +207,7 @@ disk … use <span class="menuselection">Tools ‣ Find</span> or hit the <span 
 button and look for “python.exe”.  Supposing you discover that Python is
 installed in the <code class="docutils literal"><span class="pre">C:\Python33</span></code> directory (the default at the time of writing),
 you should make sure that entering the command</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">c</span><span class="p">:</span>\<span class="n">Python33</span>\<span class="n">python</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>c:\Python33\python
 </pre></div>
 </div>
 <p>starts up the interpreter as above (and don’t forget you’ll need a “<code class="kbd docutils literal"><span class="pre">Ctrl-Z</span></code>” and
@@ -368,7 +368,7 @@ present, and <code class="docutils literal"><span class="pre">getch()</span></co
 <div class="section" id="how-do-i-emulate-os-kill-in-windows">
 <h2><a class="toc-backref" href="#id11">How do I emulate os.kill() in Windows?</a><a class="headerlink" href="#how-do-i-emulate-os-kill-in-windows" title="永久链接至标题">¶</a></h2>
 <p>Prior to Python 2.7 and 3.2, to terminate a process, you can use <a class="reference internal" href="../library/ctypes.html#module-ctypes" title="ctypes: A foreign function library for Python."><code class="xref py py-mod docutils literal"><span class="pre">ctypes</span></code></a>:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctypes</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ctypes</span>
 
 <span class="k">def</span> <span class="nf">kill</span><span class="p">(</span><span class="n">pid</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;kill function for Win32&quot;&quot;&quot;</span>
@@ -456,7 +456,7 @@ able to handle it.  (If your copy of WinZip doesn’t, get a newer one from
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python Frequently Asked Questions</a> &#187;</li>
@@ -483,10 +483,10 @@ able to handle it.  (If your copy of WinZip doesn’t, get a newer one from
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

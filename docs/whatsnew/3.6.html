@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>What’s New In Python 3.6 &#8212; Python 3.6.4 文档</title>
+    <title>What’s New In Python 3.6 &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python 有什么新变化？</a> &#187;</li>
@@ -606,12 +606,12 @@ compiled in release mode using <code class="docutils literal"><span class="pre">
 <li>Newly allocated memory is filled with the byte <code class="docutils literal"><span class="pre">0xCB</span></code></li>
 <li>Freed memory is filled with the byte <code class="docutils literal"><span class="pre">0xDB</span></code></li>
 <li>Detect violations of the Python memory allocator API. For example,
-<code class="xref c c-func docutils literal"><span class="pre">PyObject_Free()</span></code> called on a memory block allocated by
+<a class="reference internal" href="../c-api/memory.html#c.PyObject_Free" title="PyObject_Free"><code class="xref c c-func docutils literal"><span class="pre">PyObject_Free()</span></code></a> called on a memory block allocated by
 <a class="reference internal" href="../c-api/memory.html#c.PyMem_Malloc" title="PyMem_Malloc"><code class="xref c c-func docutils literal"><span class="pre">PyMem_Malloc()</span></code></a>.</li>
 <li>Detect writes before the start of a buffer (buffer underflows)</li>
 <li>Detect writes after the end of a buffer (buffer overflows)</li>
 <li>Check that the <a class="reference internal" href="../glossary.html#term-global-interpreter-lock"><span class="xref std std-term">GIL</span></a> is held when allocator
-functions of <a class="reference internal" href="../c-api/memory.html#c.PYMEM_DOMAIN_OBJ" title="PYMEM_DOMAIN_OBJ"><code class="xref c c-data docutils literal"><span class="pre">PYMEM_DOMAIN_OBJ</span></code></a> (ex: <code class="xref c c-func docutils literal"><span class="pre">PyObject_Malloc()</span></code>) and
+functions of <a class="reference internal" href="../c-api/memory.html#c.PYMEM_DOMAIN_OBJ" title="PYMEM_DOMAIN_OBJ"><code class="xref c c-data docutils literal"><span class="pre">PYMEM_DOMAIN_OBJ</span></code></a> (ex: <a class="reference internal" href="../c-api/memory.html#c.PyObject_Malloc" title="PyObject_Malloc"><code class="xref c c-func docutils literal"><span class="pre">PyObject_Malloc()</span></code></a>) and
 <a class="reference internal" href="../c-api/memory.html#c.PYMEM_DOMAIN_MEM" title="PYMEM_DOMAIN_MEM"><code class="xref c c-data docutils literal"><span class="pre">PYMEM_DOMAIN_MEM</span></code></a> (ex: <a class="reference internal" href="../c-api/memory.html#c.PyMem_Malloc" title="PyMem_Malloc"><code class="xref c c-func docutils literal"><span class="pre">PyMem_Malloc()</span></code></a>) domains are called.</li>
 </ul>
 <p>Checking if the GIL is held is also a new feature of Python 3.6.</p>
@@ -909,6 +909,10 @@ with a positive denominator:</p>
 attribute defaults to <code class="docutils literal"><span class="pre">['gztar']</span></code>. Although not anticipated,
 any code relying on the presence of <code class="docutils literal"><span class="pre">default_format</span></code> may
 need to be adapted. See <a class="reference external" href="https://bugs.python.org/issue27819">bpo-27819</a> for more details.</p>
+<p>The <code class="docutils literal"><span class="pre">upload</span></code> command now longer tries to change CR end-of-line characters
+to CRLF.  This fixes a corruption issue with sdists that ended with a byte
+equivalent to CR.
+(Contributed by Bo Bayles in <a class="reference external" href="https://bugs.python.org/issue32304">bpo-32304</a>.)</p>
 </div>
 <div class="section" id="email">
 <h3>email<a class="headerlink" href="#email" title="永久链接至标题">¶</a></h3>
@@ -1532,7 +1536,7 @@ with only about 16 tests failures. See the Android meta-issue <a class="referenc
 will activate expensive optimizations like PGO.
 (Original patch by Alecsandru Patrascu of Intel in <a class="reference external" href="https://bugs.python.org/issue26359">bpo-26359</a>.)</li>
 <li>The <a class="reference internal" href="../glossary.html#term-global-interpreter-lock"><span class="xref std std-term">GIL</span></a> must now be held when allocator
-functions of <a class="reference internal" href="../c-api/memory.html#c.PYMEM_DOMAIN_OBJ" title="PYMEM_DOMAIN_OBJ"><code class="xref c c-data docutils literal"><span class="pre">PYMEM_DOMAIN_OBJ</span></code></a> (ex: <code class="xref c c-func docutils literal"><span class="pre">PyObject_Malloc()</span></code>) and
+functions of <a class="reference internal" href="../c-api/memory.html#c.PYMEM_DOMAIN_OBJ" title="PYMEM_DOMAIN_OBJ"><code class="xref c c-data docutils literal"><span class="pre">PYMEM_DOMAIN_OBJ</span></code></a> (ex: <a class="reference internal" href="../c-api/memory.html#c.PyObject_Malloc" title="PyObject_Malloc"><code class="xref c c-func docutils literal"><span class="pre">PyObject_Malloc()</span></code></a>) and
 <a class="reference internal" href="../c-api/memory.html#c.PYMEM_DOMAIN_MEM" title="PYMEM_DOMAIN_MEM"><code class="xref c c-data docutils literal"><span class="pre">PYMEM_DOMAIN_MEM</span></code></a> (ex: <a class="reference internal" href="../c-api/memory.html#c.PyMem_Malloc" title="PyMem_Malloc"><code class="xref c c-func docutils literal"><span class="pre">PyMem_Malloc()</span></code></a>) domains are called.</li>
 <li>New <a class="reference internal" href="../c-api/init.html#c.Py_FinalizeEx" title="Py_FinalizeEx"><code class="xref c c-func docutils literal"><span class="pre">Py_FinalizeEx()</span></code></a> API which indicates if flushing buffered data
 failed.
@@ -1555,6 +1559,10 @@ representation of a <a class="reference internal" href="../glossary.html#term-pa
 (Contributed by Brett Cannon in <a class="reference external" href="https://bugs.python.org/issue27186">bpo-27186</a>.)</li>
 <li>The <a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_FSConverter" title="PyUnicode_FSConverter"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_FSConverter()</span></code></a> and <a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_FSDecoder" title="PyUnicode_FSDecoder"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_FSDecoder()</span></code></a>
 functions will now accept <a class="reference internal" href="../glossary.html#term-path-like-object"><span class="xref std std-term">path-like objects</span></a>.</li>
+<li>The <code class="docutils literal"><span class="pre">PyExc_RecursionErrorInst</span></code> singleton that was part of the public API
+has been removed as its members being never cleared may cause a segfault
+during finalization of the interpreter. Contributed by Xavier de Gaye in
+<a class="reference external" href="https://bugs.python.org/issue22898">bpo-22898</a> and <a class="reference external" href="https://bugs.python.org/issue30697">bpo-30697</a>.</li>
 </ul>
 </div>
 <div class="section" id="other-improvements">
@@ -1860,8 +1868,8 @@ platform-specific selection is made.
 In environments where distributions are
 built on Windows and zip distributions are required, configure
 the project with a <code class="docutils literal"><span class="pre">setup.cfg</span></code> file containing the following:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">sdist</span><span class="p">]</span>
-<span class="n">formats</span><span class="o">=</span><span class="nb">zip</span>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[sdist]</span>
+<span class="na">formats</span><span class="o">=</span><span class="s">zip</span>
 </pre></div>
 </div>
 <p>This behavior has also been backported to earlier Python versions
@@ -1995,6 +2003,12 @@ of generated files by updating their modification times has been removed.</p>
 <p><span class="versionmodified">在 3.6.2 版更改.</span></p>
 </div>
 </div>
+</div>
+<div class="section" id="notable-changes-in-python-3-6-5">
+<h2>Notable changes in Python 3.6.5<a class="headerlink" href="#notable-changes-in-python-3-6-5" title="永久链接至标题">¶</a></h2>
+<p>The <a class="reference internal" href="../library/locale.html#locale.localeconv" title="locale.localeconv"><code class="xref py py-func docutils literal"><span class="pre">locale.localeconv()</span></code></a> function now sets temporarily the <code class="docutils literal"><span class="pre">LC_CTYPE</span></code>
+locale to the <code class="docutils literal"><span class="pre">LC_NUMERIC</span></code> locale in some cases.
+(Contributed by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue31900">bpo-31900</a>.)</p>
 </div>
 </div>
 
@@ -2139,6 +2153,7 @@ of generated files by updating their modification times has been removed.</p>
 <li><a class="reference internal" href="#removal-of-make-touch-build-target">Removal of <code class="docutils literal"><span class="pre">make</span> <span class="pre">touch</span></code> build target</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#notable-changes-in-python-3-6-5">Notable changes in Python 3.6.5</a></li>
 </ul>
 </li>
 </ul>
@@ -2183,7 +2198,7 @@ of generated files by updating their modification times has been removed.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 有什么新变化？</a> &#187;</li>
@@ -2210,10 +2225,10 @@ of generated files by updating their modification times has been removed.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 13, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>25.1. tkinter — Python interface to Tcl/Tk &#8212; Python 3.6.4 文档</title>
+    <title>25.1. tkinter — Python interface to Tcl/Tk &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -811,11 +811,12 @@ literals, instead.</li>
 </div>
 <div class="section" id="images">
 <h3>25.1.6.9. Images<a class="headerlink" href="#images" title="永久链接至标题">¶</a></h3>
-<p>Bitmap/Pixelmap images can be created through the subclasses of
-<code class="xref py py-class docutils literal"><span class="pre">tkinter.Image</span></code>:</p>
+<p>Images of different formats can be created through the corresponding subclass
+of <code class="xref py py-class docutils literal"><span class="pre">tkinter.Image</span></code>:</p>
 <ul class="simple">
-<li><code class="xref py py-class docutils literal"><span class="pre">BitmapImage</span></code> can be used for X11 bitmap data.</li>
-<li><code class="xref py py-class docutils literal"><span class="pre">PhotoImage</span></code> can be used for GIF and PPM/PGM color bitmaps.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">BitmapImage</span></code> for images in XBM format.</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">PhotoImage</span></code> for images in PGM, PPM, GIF and PNG formats. The latter
+is supported starting with Tk 8.6.</li>
 </ul>
 <p>Either type of image is created through either the <code class="docutils literal"><span class="pre">file</span></code> or the <code class="docutils literal"><span class="pre">data</span></code>
 option (other options are available as well).</p>
@@ -824,6 +825,11 @@ some widget (e.g. labels, buttons, menus). In these cases, Tk will not keep a
 reference to the image. When the last Python reference to the image object is
 deleted, the image data is deleted as well, and Tk will display an empty box
 wherever the image was used.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<p class="last">The <a class="reference external" href="http://python-pillow.org/">Pillow</a> package adds support for
+formats such as BMP, JPEG, TIFF, and WebP, among others.</p>
+</div>
 </div>
 </div>
 <div class="section" id="file-handlers">
@@ -954,7 +960,7 @@ The callback is called as follows:</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -982,10 +988,10 @@ The callback is called as follows:</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

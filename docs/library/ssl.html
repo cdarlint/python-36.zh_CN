@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>18.2. ssl — TLS/SSL wrapper for socket objects &#8212; Python 3.6.4 文档</title>
+    <title>18.2. ssl — TLS/SSL wrapper for socket objects &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -1674,7 +1674,7 @@ CA certificates in PEM format. See the discussion of
 certificates in this file.</p>
 <p>The <em>capath</em> string, if present, is
 the path to a directory containing several CA certificates in PEM format,
-following an <a class="reference external" href="https://www.openssl.org/docs/ssl/SSL_CTX_load_verify_locations.html">OpenSSL specific layout</a>.</p>
+following an <a class="reference external" href="https://www.openssl.org/docs/man1.1.0/ssl/SSL_CTX_load_verify_locations.html">OpenSSL specific layout</a>.</p>
 <p>The <em>cadata</em> object, if present, is either an ASCII string of one or more
 PEM-encoded certificates or a <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> of DER-encoded
 certificates. Like with <em>capath</em> extra lines around PEM-encoded
@@ -1874,7 +1874,7 @@ had OPENSSL_NO_TLSEXT defined when it was built.</p>
 <dl class="method">
 <dt id="ssl.SSLContext.load_dh_params">
 <code class="descclassname">SSLContext.</code><code class="descname">load_dh_params</code><span class="sig-paren">(</span><em>dhfile</em><span class="sig-paren">)</span><a class="headerlink" href="#ssl.SSLContext.load_dh_params" title="永久链接至目标">¶</a></dt>
-<dd><p>Load the key generation parameters for Diffie-Helman (DH) key exchange.
+<dd><p>Load the key generation parameters for Diffie-Hellman (DH) key exchange.
 Using DH key exchange improves forward secrecy at the expense of
 computational resources (both on the server and on the client).
 The <em>dhfile</em> parameter should be the path to a file containing DH
@@ -1951,7 +1951,7 @@ same meaning as in <a class="reference internal" href="#ssl.SSLContext.wrap_sock
 <dt id="ssl.SSLContext.session_stats">
 <code class="descclassname">SSLContext.</code><code class="descname">session_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ssl.SSLContext.session_stats" title="永久链接至目标">¶</a></dt>
 <dd><p>Get statistics about the SSL sessions created or managed by this context.
-A dictionary is returned which maps the names of each <a class="reference external" href="https://www.openssl.org/docs/ssl/SSL_CTX_sess_number.html">piece of information</a> to their
+A dictionary is returned which maps the names of each <a class="reference external" href="https://www.openssl.org/docs/man1.1.0/ssl/SSL_CTX_sess_number.html">piece of information</a> to their
 numeric values.  For example, here is the total number of hits and misses
 in the session cache since the context was created:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">session_stats</span><span class="p">()</span>
@@ -1972,7 +1972,7 @@ in the session cache since the context was created:</p>
 <p>Example:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">ssl</span>
 
-<span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="p">(</span><span class="n">ssl</span><span class="o">.</span><span class="n">PROTOCOL_TLSv1</span><span class="p">)</span>
+<span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="p">()</span>
 <span class="n">context</span><span class="o">.</span><span class="n">verify_mode</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">CERT_REQUIRED</span>
 <span class="n">context</span><span class="o">.</span><span class="n">check_hostname</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">context</span><span class="o">.</span><span class="n">load_default_certs</span><span class="p">()</span>
@@ -2202,7 +2202,7 @@ for client sockets, including automatic certificate verification:</p>
 <p>If you prefer to tune security settings yourself, you might create
 a context from scratch (but beware that you might not get the settings
 right):</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="p">(</span><span class="n">ssl</span><span class="o">.</span><span class="n">PROTOCOL_TLS</span><span class="p">)</span>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">context</span><span class="o">.</span><span class="n">verify_mode</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">CERT_REQUIRED</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">context</span><span class="o">.</span><span class="n">check_hostname</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">context</span><span class="o">.</span><span class="n">load_verify_locations</span><span class="p">(</span><span class="s2">&quot;/etc/ssl/certs/ca-bundle.crt&quot;</span><span class="p">)</span>
@@ -2666,13 +2666,28 @@ handle forked processes.  Applications must change the PRNG state of the
 parent process if they use any SSL feature with <a class="reference internal" href="os.html#os.fork" title="os.fork"><code class="xref py py-func docutils literal"><span class="pre">os.fork()</span></code></a>.  Any
 successful call of <a class="reference internal" href="#ssl.RAND_add" title="ssl.RAND_add"><code class="xref py py-func docutils literal"><span class="pre">RAND_add()</span></code></a>, <a class="reference internal" href="#ssl.RAND_bytes" title="ssl.RAND_bytes"><code class="xref py py-func docutils literal"><span class="pre">RAND_bytes()</span></code></a> or
 <a class="reference internal" href="#ssl.RAND_pseudo_bytes" title="ssl.RAND_pseudo_bytes"><code class="xref py py-func docutils literal"><span class="pre">RAND_pseudo_bytes()</span></code></a> is sufficient.</p>
+</div>
+</div>
+<div class="section" id="libressl-support">
+<h2>18.2.10. LibreSSL support<a class="headerlink" href="#libressl-support" title="永久链接至标题">¶</a></h2>
+<p>LibreSSL is a fork of OpenSSL 1.0.1. The ssl module has limited support for
+LibreSSL. Some features are not available when the ssl module is compiled
+with LibreSSL.</p>
+<ul class="simple">
+<li>LibreSSL &gt;= 2.6.1 no longer supports NPN. The methods
+<a class="reference internal" href="#ssl.SSLContext.set_npn_protocols" title="ssl.SSLContext.set_npn_protocols"><code class="xref py py-meth docutils literal"><span class="pre">SSLContext.set_npn_protocols()</span></code></a> and
+<a class="reference internal" href="#ssl.SSLSocket.selected_npn_protocol" title="ssl.SSLSocket.selected_npn_protocol"><code class="xref py py-meth docutils literal"><span class="pre">SSLSocket.selected_npn_protocol()</span></code></a> are not available.</li>
+<li><a class="reference internal" href="#ssl.SSLContext.set_default_verify_paths" title="ssl.SSLContext.set_default_verify_paths"><code class="xref py py-meth docutils literal"><span class="pre">SSLContext.set_default_verify_paths()</span></code></a> ignores the env vars
+<span class="target" id="index-18"></span><code class="xref std std-envvar docutils literal"><span class="pre">SSL_CERT_FILE</span></code> and <span class="target" id="index-19"></span><code class="xref std std-envvar docutils literal"><span class="pre">SSL_CERT_PATH</span></code> although
+<a class="reference internal" href="#ssl.get_default_verify_paths" title="ssl.get_default_verify_paths"><code class="xref py py-func docutils literal"><span class="pre">get_default_verify_paths()</span></code></a> still reports them.</li>
+</ul>
 <div class="admonition seealso">
 <p class="first admonition-title">参见</p>
 <dl class="last docutils">
 <dt>Class <a class="reference internal" href="socket.html#socket.socket" title="socket.socket"><code class="xref py py-class docutils literal"><span class="pre">socket.socket</span></code></a></dt>
 <dd>Documentation of underlying <a class="reference internal" href="socket.html#module-socket" title="socket: Low-level networking interface."><code class="xref py py-mod docutils literal"><span class="pre">socket</span></code></a> class</dd>
 <dt><a class="reference external" href="https://httpd.apache.org/docs/trunk/en/ssl/ssl_intro.html">SSL/TLS Strong Encryption: An Introduction</a></dt>
-<dd>Intro from the Apache webserver documentation</dd>
+<dd>Intro from the Apache HTTP Server documentation</dd>
 <dt><a class="reference external" href="https://www.ietf.org/rfc/rfc1422">RFC 1422: Privacy Enhancement for Internet Electronic Mail: Part II: Certificate-Based Key Management</a></dt>
 <dd>Steve Kent</dd>
 <dt><a class="reference external" href="http://datatracker.ietf.org/doc/rfc4086/">RFC 4086: Randomness Requirements for Security</a></dt>
@@ -2690,7 +2705,6 @@ successful call of <a class="reference internal" href="#ssl.RAND_add" title="ssl
 <dt><a class="reference external" href="https://wiki.mozilla.org/Security/Server_Side_TLS">Mozilla’s Server Side TLS recommendations</a></dt>
 <dd>Mozilla</dd>
 </dl>
-</div>
 </div>
 </div>
 </div>
@@ -2741,6 +2755,7 @@ successful call of <a class="reference internal" href="#ssl.RAND_add" title="ssl
 <li><a class="reference internal" href="#multi-processing">18.2.9.3. Multi-processing</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#libressl-support">18.2.10. LibreSSL support</a></li>
 </ul>
 </li>
 </ul>
@@ -2785,7 +2800,7 @@ successful call of <a class="reference internal" href="#ssl.RAND_add" title="ssl
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -2813,10 +2828,10 @@ successful call of <a class="reference internal" href="#ssl.RAND_add" title="ssl
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>28.4. zipapp — Manage executable python zip archives &#8212; Python 3.6.4 文档</title>
+    <title>28.4. zipapp — Manage executable python zip archives &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -106,16 +106,16 @@ Python code, which can be  <a class="reference internal" href="../using/cmdline.
 can be used to create an executable archive from a directory containing
 Python code.  When run, the archive will execute the <code class="docutils literal"><span class="pre">main</span></code> function from
 the module <code class="docutils literal"><span class="pre">myapp</span></code> in the archive.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ python -m zipapp myapp -m <span class="s2">&quot;myapp:main&quot;</span>
-$ python myapp.pyz
-&lt;output from myapp&gt;
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m zipapp myapp -m <span class="s2">&quot;myapp:main&quot;</span>
+<span class="gp">$</span> python myapp.pyz
+<span class="go">&lt;output from myapp&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="command-line-interface">
 <span id="zipapp-command-line-interface"></span><h2>28.4.2. Command-Line Interface<a class="headerlink" href="#command-line-interface" title="永久链接至标题">¶</a></h2>
 <p>When called as a program from the command line, the following form is used:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ python -m zipapp <span class="nb">source</span> <span class="o">[</span>options<span class="o">]</span>
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m zipapp <span class="nb">source</span> <span class="o">[</span>options<span class="o">]</span>
 </pre></div>
 </div>
 <p>If <em>source</em> is a directory, this will create an archive from the contents of
@@ -236,9 +236,9 @@ for reading in bytes mode.  It is assumed to be at the start of the archive.</p>
 <div class="section" id="examples">
 <span id="zipapp-examples"></span><h2>28.4.4. Examples<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
 <p>Pack up a directory into an archive, and run it.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ python -m zipapp myapp
-$ python myapp.pyz
-&lt;output from myapp&gt;
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m zipapp myapp
+<span class="gp">$</span> python myapp.pyz
+<span class="go">&lt;output from myapp&gt;</span>
 </pre></div>
 </div>
 <p>The same can be done using the <a class="reference internal" href="#zipapp.create_archive" title="zipapp.create_archive"><code class="xref py py-func docutils literal"><span class="pre">create_archive()</span></code></a> functon:</p>
@@ -248,9 +248,9 @@ $ python myapp.pyz
 </div>
 <p>To make the application directly executable on POSIX, specify an interpreter
 to use.</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ python -m zipapp myapp -p <span class="s2">&quot;/usr/bin/env python&quot;</span>
-$ ./myapp.pyz
-&lt;output from myapp&gt;
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m zipapp myapp -p <span class="s2">&quot;/usr/bin/env python&quot;</span>
+<span class="gp">$</span> ./myapp.pyz
+<span class="go">&lt;output from myapp&gt;</span>
 </pre></div>
 </div>
 <p>To replace the shebang line on an existing archive, create a modified archive
@@ -273,6 +273,9 @@ fits in memory:</p>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="specifying-the-interpreter">
+<span id="zipapp-specifying-the-interpreter"></span><h2>28.4.5. Specifying the Interpreter<a class="headerlink" href="#specifying-the-interpreter" title="永久链接至标题">¶</a></h2>
 <p>Note that if you specify an interpreter and then distribute your application
 archive, you need to ensure that the interpreter used is portable.  The Python
 launcher for Windows supports most common forms of POSIX <code class="docutils literal"><span class="pre">#!</span></code> line, but there
@@ -289,9 +292,155 @@ may be what you want if you have not made your code Python 2 compatible).</li>
 exact version like “/usr/bin/env python3.4” as you will need to change your
 shebang line for users of Python 3.5, for example.</li>
 </ul>
+<p>Typically, you should use an “/usr/bin/env python2” or “/usr/bin/env python3”,
+depending on whether your code is written for Python 2 or 3.</p>
+</div>
+<div class="section" id="creating-standalone-applications-with-zipapp">
+<h2>28.4.6. Creating Standalone Applications with zipapp<a class="headerlink" href="#creating-standalone-applications-with-zipapp" title="永久链接至标题">¶</a></h2>
+<p>Using the <a class="reference internal" href="#module-zipapp" title="zipapp: Manage executable python zip archives"><code class="xref py py-mod docutils literal"><span class="pre">zipapp</span></code></a> module, it is possible to create self-contained Python
+programs, which can be distributed to end users who only need to have a
+suitable version of Python installed on their system.  The key to doing this
+is to bundle all of the application’s dependencies into the archive, along
+with the application code.</p>
+<p>The steps to create a standalone archive are as follows:</p>
+<ol class="arabic">
+<li><p class="first">Create your application in a directory as normal, so you have a <code class="docutils literal"><span class="pre">myapp</span></code>
+directory containing a <code class="docutils literal"><span class="pre">__main__.py</span></code> file, and any supporting application
+code.</p>
+</li>
+<li><p class="first">Install all of your application’s dependencies into the <code class="docutils literal"><span class="pre">myapp</span></code> directory,
+using pip:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m pip install -r requirements.txt --target myapp
+</pre></div>
+</div>
+<p>(this assumes you have your project requirements in a <code class="docutils literal"><span class="pre">requirements.txt</span></code>
+file - if not, you can just list the dependencies manually on the pip command
+line).</p>
+</li>
+<li><p class="first">Optionally, delete the <code class="docutils literal"><span class="pre">.dist-info</span></code> directories created by pip in the
+<code class="docutils literal"><span class="pre">myapp</span></code> directory. These hold metadata for pip to manage the packages, and
+as you won’t be making any further use of pip they aren’t required -
+although it won’t do any harm if you leave them.</p>
+</li>
+<li><p class="first">Package the application using:</p>
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m zipapp -p <span class="s2">&quot;interpreter&quot;</span> myapp
+</pre></div>
+</div>
+</li>
+</ol>
+<p>This will produce a standalone executable, which can be run on any machine with
+the appropriate interpreter available. See <a class="reference internal" href="#zipapp-specifying-the-interpreter"><span class="std std-ref">Specifying the Interpreter</span></a>
+for details. It can be shipped to users as a single file.</p>
+<p>On Unix, the <code class="docutils literal"><span class="pre">myapp.pyz</span></code> file is executable as it stands.  You can rename the
+file to remove the <code class="docutils literal"><span class="pre">.pyz</span></code> extension if you prefer a “plain” command name.  On
+Windows, the <code class="docutils literal"><span class="pre">myapp.pyz[w]</span></code> file is executable by virtue of the fact that
+the Python interpreter registers the <code class="docutils literal"><span class="pre">.pyz</span></code> and <code class="docutils literal"><span class="pre">.pyzw</span></code> file extensions
+when installed.</p>
+<div class="section" id="making-a-windows-executable">
+<h3>28.4.6.1. Making a Windows executable<a class="headerlink" href="#making-a-windows-executable" title="永久链接至标题">¶</a></h3>
+<p>On Windows, registration of the <code class="docutils literal"><span class="pre">.pyz</span></code> extension is optional, and
+furthermore, there are certain places that don’t recognise registered
+extensions “transparently” (the simplest example is that
+<code class="docutils literal"><span class="pre">subprocess.run(['myapp'])</span></code> won’t find your application - you need to
+explicitly specify the extension).</p>
+<p>On Windows, therefore, it is often preferable to create an executable from the
+zipapp.  This is relatively easy, although it does require a C compiler.  The
+basic approach relies on the fact that zipfiles can have arbitrary data
+prepended, and Windows exe files can have arbitrary data appended.  So by
+creating a suitable launcher and tacking the <code class="docutils literal"><span class="pre">.pyz</span></code> file onto the end of it,
+you end up with a single-file executable that runs your application.</p>
+<p>A suitable launcher can be as simple as the following:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="c1">#define Py_LIMITED_API 1</span>
+<span class="c1">#include &quot;Python.h&quot;</span>
+
+<span class="c1">#define WIN32_LEAN_AND_MEAN</span>
+<span class="c1">#include &lt;windows.h&gt;</span>
+
+<span class="c1">#ifdef WINDOWS</span>
+<span class="nb">int</span> <span class="n">WINAPI</span> <span class="n">wWinMain</span><span class="p">(</span>
+    <span class="n">HINSTANCE</span> <span class="n">hInstance</span><span class="p">,</span>      <span class="o">/*</span> <span class="n">handle</span> <span class="n">to</span> <span class="n">current</span> <span class="n">instance</span> <span class="o">*/</span>
+    <span class="n">HINSTANCE</span> <span class="n">hPrevInstance</span><span class="p">,</span>  <span class="o">/*</span> <span class="n">handle</span> <span class="n">to</span> <span class="n">previous</span> <span class="n">instance</span> <span class="o">*/</span>
+    <span class="n">LPWSTR</span> <span class="n">lpCmdLine</span><span class="p">,</span>         <span class="o">/*</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">command</span> <span class="n">line</span> <span class="o">*/</span>
+    <span class="nb">int</span> <span class="n">nCmdShow</span>              <span class="o">/*</span> <span class="n">show</span> <span class="n">state</span> <span class="n">of</span> <span class="n">window</span> <span class="o">*/</span>
+<span class="p">)</span>
+<span class="c1">#else</span>
+<span class="nb">int</span> <span class="n">wmain</span><span class="p">()</span>
+<span class="c1">#endif</span>
+<span class="p">{</span>
+    <span class="n">wchar_t</span> <span class="o">**</span><span class="n">myargv</span> <span class="o">=</span> <span class="n">_alloca</span><span class="p">((</span><span class="n">__argc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">wchar_t</span><span class="o">*</span><span class="p">));</span>
+    <span class="n">myargv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">__wargv</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">myargv</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">__wargv</span><span class="p">,</span> <span class="n">__argc</span> <span class="o">*</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">wchar_t</span> <span class="o">*</span><span class="p">));</span>
+    <span class="k">return</span> <span class="n">Py_Main</span><span class="p">(</span><span class="n">__argc</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">myargv</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you define the <code class="docutils literal"><span class="pre">WINDOWS</span></code> preprocessor symbol, this will generate a
+GUI executable, and without it, a console executable.</p>
+<p>To compile the executable, you can either just use the standard MSVC
+command line tools, or you can take advantage of the fact that distutils
+knows how to compile Python source:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">distutils.ccompiler</span> <span class="k">import</span> <span class="n">new_compiler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">distutils.sysconfig</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">compile</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">src</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">cc</span> <span class="o">=</span> <span class="n">new_compiler</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">exe</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">stem</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">cc</span><span class="o">.</span><span class="n">add_include_dir</span><span class="p">(</span><span class="n">distutils</span><span class="o">.</span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_python_inc</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">cc</span><span class="o">.</span><span class="n">add_library_dir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">base_exec_prefix</span><span class="p">,</span> <span class="s1">&#39;libs&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c1"># First the CLI executable</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">objs</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">compile</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">src</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">cc</span><span class="o">.</span><span class="n">link_executable</span><span class="p">(</span><span class="n">objs</span><span class="p">,</span> <span class="n">exe</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c1"># Now the GUI executable</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">cc</span><span class="o">.</span><span class="n">define_macro</span><span class="p">(</span><span class="s1">&#39;WINDOWS&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">objs</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">compile</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">src</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">cc</span><span class="o">.</span><span class="n">link_executable</span><span class="p">(</span><span class="n">objs</span><span class="p">,</span> <span class="n">exe</span> <span class="o">+</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">compile</span><span class="p">(</span><span class="s2">&quot;zastub.c&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The resulting launcher uses the “Limited ABI”, so it will run unchanged with
+any version of Python 3.x.  All it needs is for Python (<code class="docutils literal"><span class="pre">python3.dll</span></code>) to be
+on the user’s <code class="docutils literal"><span class="pre">PATH</span></code>.</p>
+<p>For a fully standalone distribution, you can distribute the launcher with your
+application appended, bundled with the Python “embedded” distribution.  This
+will run on any PC with the appropriate architecture (32 bit or 64 bit).</p>
+</div>
+<div class="section" id="caveats">
+<h3>28.4.6.2. Caveats<a class="headerlink" href="#caveats" title="永久链接至标题">¶</a></h3>
+<p>There are some limitations to the process of bundling your application into
+a single file.  In most, if not all, cases they can be addressed without
+needing major changes to your application.</p>
+<ol class="arabic simple">
+<li>If your application depends on a package that includes a C extension, that
+package cannot be run from a zip file (this is an OS limitation, as executable
+code must be present in the filesystem for the OS loader to load it). In this
+case, you can exclude that dependency from the zipfile, and either require
+your users to have it installed, or ship it alongside your zipfile and add code
+to your <code class="docutils literal"><span class="pre">__main__.py</span></code> to include the directory containing the unzipped
+module in <code class="docutils literal"><span class="pre">sys.path</span></code>. In this case, you will need to make sure to ship
+appropriate binaries for your target architecture(s) (and potentially pick the
+correct version to add to <code class="docutils literal"><span class="pre">sys.path</span></code> at runtime, based on the user’s machine).</li>
+<li>If you are shipping a Windows executable as described above, you either need to
+ensure that your users have <code class="docutils literal"><span class="pre">python3.dll</span></code> on their PATH (which is not the
+default behaviour of the installer) or you should bundle your application with
+the embedded distribution.</li>
+<li>The suggested launcher above uses the Python embedding API.  This means that in
+your application, <code class="docutils literal"><span class="pre">sys.executable</span></code> will be your application, and <em>not</em> a
+conventional Python interpreter.  Your code and its dependencies need to be
+prepared for this possibility.  For example, if your application uses the
+<a class="reference internal" href="multiprocessing.html#module-multiprocessing" title="multiprocessing: Process-based parallelism."><code class="xref py py-mod docutils literal"><span class="pre">multiprocessing</span></code></a> module, it will need to call
+<a class="reference internal" href="multiprocessing.html#multiprocessing.set_executable" title="multiprocessing.set_executable"><code class="xref py py-func docutils literal"><span class="pre">multiprocessing.set_executable()</span></code></a> to let the module know where to find the
+standard Python interpreter.</li>
+</ol>
+</div>
 </div>
 <div class="section" id="the-python-zip-application-archive-format">
-<h2>28.4.5. The Python Zip Application Archive Format<a class="headerlink" href="#the-python-zip-application-archive-format" title="永久链接至标题">¶</a></h2>
+<h2>28.4.7. The Python Zip Application Archive Format<a class="headerlink" href="#the-python-zip-application-archive-format" title="永久链接至标题">¶</a></h2>
 <p>Python has been able to execute zip files which contain a <code class="docutils literal"><span class="pre">__main__.py</span></code> file
 since version 2.6.  In order to be executed by Python, an application archive
 simply has to be a standard zip file containing a <code class="docutils literal"><span class="pre">__main__.py</span></code> file which
@@ -334,7 +483,13 @@ format created by any means are acceptable to Python.</p>
 <li><a class="reference internal" href="#command-line-interface">28.4.2. Command-Line Interface</a></li>
 <li><a class="reference internal" href="#python-api">28.4.3. Python API</a></li>
 <li><a class="reference internal" href="#examples">28.4.4. Examples</a></li>
-<li><a class="reference internal" href="#the-python-zip-application-archive-format">28.4.5. The Python Zip Application Archive Format</a></li>
+<li><a class="reference internal" href="#specifying-the-interpreter">28.4.5. Specifying the Interpreter</a></li>
+<li><a class="reference internal" href="#creating-standalone-applications-with-zipapp">28.4.6. Creating Standalone Applications with zipapp</a><ul>
+<li><a class="reference internal" href="#making-a-windows-executable">28.4.6.1. Making a Windows executable</a></li>
+<li><a class="reference internal" href="#caveats">28.4.6.2. Caveats</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-python-zip-application-archive-format">28.4.7. The Python Zip Application Archive Format</a></li>
 </ul>
 </li>
 </ul>
@@ -379,7 +534,7 @@ format created by any means are acceptable to Python.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -407,10 +562,10 @@ format created by any means are acceptable to Python.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

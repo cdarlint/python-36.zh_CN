@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>16.7. logging.config — Logging configuration &#8212; Python 3.6.4 文档</title>
+    <title>16.7. logging.config — Logging configuration &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -584,13 +584,13 @@ id.  If, however, a user defines a <code class="docutils literal"><span class="p
 an <code class="docutils literal"><span class="pre">alternate</span></code> handler, the configuration system would not know that
 the <code class="docutils literal"><span class="pre">alternate</span></code> referred to a handler.  To cater for this, a generic
 resolution system allows the user to specify:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">handlers</span><span class="p">:</span>
-  <span class="n">file</span><span class="p">:</span>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">handlers</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">file</span><span class="p p-Indicator">:</span>
     <span class="c1"># configuration of file handler goes here</span>
 
-  <span class="n">custom</span><span class="p">:</span>
-    <span class="p">():</span> <span class="n">my</span><span class="o">.</span><span class="n">package</span><span class="o">.</span><span class="n">MyHandler</span>
-    <span class="n">alternate</span><span class="p">:</span> <span class="n">cfg</span><span class="p">:</span><span class="o">//</span><span class="n">handlers</span><span class="o">.</span><span class="n">file</span>
+  <span class="l l-Scalar l-Scalar-Plain">custom</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">()</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my.package.MyHandler</span>
+    <span class="l l-Scalar l-Scalar-Plain">alternate</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cfg://handlers.file</span>
 </pre></div>
 </div>
 <p>The literal string <code class="docutils literal"><span class="pre">'cfg://handlers.file'</span></code> will be resolved in an
@@ -598,15 +598,15 @@ analogous way to strings with the <code class="docutils literal"><span class="pr
 in the configuration itself rather than the import namespace.  The
 mechanism allows access by dot or by index, in a similar way to
 that provided by <code class="docutils literal"><span class="pre">str.format</span></code>.  Thus, given the following snippet:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">handlers</span><span class="p">:</span>
-  <span class="n">email</span><span class="p">:</span>
-    <span class="n">class</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">SMTPHandler</span>
-    <span class="n">mailhost</span><span class="p">:</span> <span class="n">localhost</span>
-    <span class="n">fromaddr</span><span class="p">:</span> <span class="n">my_app</span><span class="nd">@domain</span><span class="o">.</span><span class="n">tld</span>
-    <span class="n">toaddrs</span><span class="p">:</span>
-      <span class="o">-</span> <span class="n">support_team</span><span class="nd">@domain</span><span class="o">.</span><span class="n">tld</span>
-      <span class="o">-</span> <span class="n">dev_team</span><span class="nd">@domain</span><span class="o">.</span><span class="n">tld</span>
-    <span class="n">subject</span><span class="p">:</span> <span class="n">Houston</span><span class="p">,</span> <span class="n">we</span> <span class="n">have</span> <span class="n">a</span> <span class="n">problem</span><span class="o">.</span>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">handlers</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">email</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">logging.handlers.SMTPHandler</span>
+    <span class="l l-Scalar l-Scalar-Plain">mailhost</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+    <span class="l l-Scalar l-Scalar-Plain">fromaddr</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my_app@domain.tld</span>
+    <span class="l l-Scalar l-Scalar-Plain">toaddrs</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">support_team@domain.tld</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dev_team@domain.tld</span>
+    <span class="l l-Scalar l-Scalar-Plain">subject</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Houston, we have a problem.</span>
 </pre></div>
 </div>
 <p>in the configuration, the string <code class="docutils literal"><span class="pre">'cfg://handlers'</span></code> would resolve to
@@ -893,7 +893,7 @@ multiple users with no mutual trust run code on the same machine; see the
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -921,10 +921,10 @@ multiple users with no mutual trust run code on the same machine; see the
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 13, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

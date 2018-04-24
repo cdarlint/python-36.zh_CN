@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>16.1. os — Miscellaneous operating system interfaces &#8212; Python 3.6.4 文档</title>
+    <title>16.1. os — Miscellaneous operating system interfaces &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -396,10 +396,11 @@ obtained with <a class="reference internal" href="sysconfig.html#sysconfig.get_c
 <dt id="os.getlogin">
 <code class="descclassname">os.</code><code class="descname">getlogin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#os.getlogin" title="永久链接至目标">¶</a></dt>
 <dd><p>Return the name of the user logged in on the controlling terminal of the
-process.  For most purposes, it is more useful to use the environment
-variables <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal"><span class="pre">LOGNAME</span></code> or <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal"><span class="pre">USERNAME</span></code> to find out who the user
-is, or <code class="docutils literal"><span class="pre">pwd.getpwuid(os.getuid())[0]</span></code> to get the login name of the current
-real user id.</p>
+process.  For most purposes, it is more useful to use
+<a class="reference internal" href="getpass.html#getpass.getuser" title="getpass.getuser"><code class="xref py py-func docutils literal"><span class="pre">getpass.getuser()</span></code></a> since the latter checks the environment variables
+<span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal"><span class="pre">LOGNAME</span></code> or <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal"><span class="pre">USERNAME</span></code> to find out who the user is, and
+falls back to <code class="docutils literal"><span class="pre">pwd.getpwuid(os.getuid())[0]</span></code> to get the login name of the
+current real user id.</p>
 <p>Availability: Unix, Windows.</p>
 </dd></dl>
 
@@ -2817,7 +2818,7 @@ used to prune the search, impose a specific order of visiting, or even to inform
 <a class="reference internal" href="#os.walk" title="os.walk"><code class="xref py py-func docutils literal"><span class="pre">walk()</span></code></a> again.  Modifying <em>dirnames</em> when <em>topdown</em> is <code class="docutils literal"><span class="pre">False</span></code> has
 no effect on the behavior of the walk, because in bottom-up mode the directories
 in <em>dirnames</em> are generated before <em>dirpath</em> itself is generated.</p>
-<p>By default, errors from the <a class="reference internal" href="#os.listdir" title="os.listdir"><code class="xref py py-func docutils literal"><span class="pre">listdir()</span></code></a> call are ignored.  If optional
+<p>By default, errors from the <a class="reference internal" href="#os.scandir" title="os.scandir"><code class="xref py py-func docutils literal"><span class="pre">scandir()</span></code></a> call are ignored.  If optional
 argument <em>onerror</em> is specified, it should be a function; it will be called with
 one argument, an <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal"><span class="pre">OSError</span></code></a> instance.  It can report the error to continue
 with the walk, or raise the exception to abort the walk.  Note that the filename
@@ -4211,7 +4212,7 @@ block in these cases, but instead immediately raises <a class="reference interna
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -4239,10 +4240,10 @@ block in these cases, but instead immediately raises <a class="reference interna
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

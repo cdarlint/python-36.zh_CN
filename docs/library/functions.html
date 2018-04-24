@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2. 内建函数 &#8212; Python 3.6.4 文档</title>
+    <title>2. 内建函数 &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Standard Library</a> &#187;</li>
@@ -399,6 +399,12 @@ and <a class="reference internal" href="exceptions.html#ValueError" title="Value
 <code class="docutils literal"><span class="pre">'eval'</span></code> mode, input must be terminated by at least one newline
 character.  This is to facilitate detection of incomplete and complete
 statements in the <a class="reference internal" href="code.html#module-code" title="code: Facilities to implement read-eval-print loops."><code class="xref py py-mod docutils literal"><span class="pre">code</span></code></a> module.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">It is possible to crash the Python interpreter with a
+sufficiently large/complex string when compiling to an AST
+object due to stack depth limitations in Python’s AST compiler.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.2 版更改: </span>Allowed use of Windows and Mac newlines.  Also input in <code class="docutils literal"><span class="pre">'exec'</span></code> mode
@@ -843,8 +849,11 @@ to provide elaborate line editing and history features.</p>
 <em class="property">class </em><code class="descname">int</code><span class="sig-paren">(</span><em>x</em>, <em>base=10</em><span class="sig-paren">)</span></dt>
 <dd><p>Return an integer object constructed from a number or string <em>x</em>, or return
 <code class="docutils literal"><span class="pre">0</span></code> if no arguments are given.  If <em>x</em> is a number, return
-<a class="reference internal" href="../reference/datamodel.html#object.__int__" title="object.__int__"><code class="xref py py-meth docutils literal"><span class="pre">x.__int__()</span></code></a>.  For floating point numbers, this
-truncates towards zero.</p>
+<a class="reference internal" href="../reference/datamodel.html#object.__int__" title="object.__int__"><code class="xref py py-meth docutils literal"><span class="pre">x.__int__()</span></code></a>. If <em>x</em> defines
+<a class="reference internal" href="../reference/datamodel.html#object.__trunc__" title="object.__trunc__"><code class="xref py py-meth docutils literal"><span class="pre">x.__trunc__()</span></code></a> but not
+<a class="reference internal" href="../reference/datamodel.html#object.__int__" title="object.__int__"><code class="xref py py-meth docutils literal"><span class="pre">x.__int__()</span></code></a>, then return
+if <a class="reference internal" href="../reference/datamodel.html#object.__trunc__" title="object.__trunc__"><code class="xref py py-meth docutils literal"><span class="pre">x.__trunc__()</span></code></a>.  For floating point numbers,
+this truncates towards zero.</p>
 <p>If <em>x</em> is not a number or if <em>base</em> is given, then <em>x</em> must be a string,
 <a class="reference internal" href="stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a>, or <a class="reference internal" href="stdtypes.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal"><span class="pre">bytearray</span></code></a> instance representing an <a class="reference internal" href="../reference/lexical_analysis.html#integers"><span class="std std-ref">integer
 literal</span></a> in radix <em>base</em>.  Optionally, the literal can be
@@ -1256,7 +1265,7 @@ creation mode (<code class="docutils literal"><span class="pre">'x'</span></code
 </div></blockquote>
 </div>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.4, will be removed in version 4.0: </span>The <code class="docutils literal"><span class="pre">'U'</span></code> mode.</p>
+<p><span class="versionmodified">从版本 3.4 开始标记为过时，将在版本 4.0 中移除。: </span>The <code class="docutils literal"><span class="pre">'U'</span></code> mode.</p>
 </div>
 <div class="versionchanged">
 <blockquote>
@@ -1534,12 +1543,10 @@ a regular function and do something with its result.  This is needed
 in some cases where you need a reference to a function from a class
 body and you want to avoid the automatic transformation to instance
 method.  For these cases, use this idiom:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>class C:</dt>
-<dd>builtin_open = staticmethod(open)</dd>
-</dl>
-</div></blockquote>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+    <span class="n">builtin_open</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="nb">open</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>For more information on static methods, consult the documentation on the
 standard type hierarchy in <a class="reference internal" href="../reference/datamodel.html#types"><span class="std std-ref">The standard type hierarchy</span></a>.</p>
 </dd></dl>
@@ -1832,7 +1839,7 @@ mode to convert Windows or Mac-style newlines.</td></tr>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -1859,10 +1866,10 @@ mode to convert Windows or Mac-style newlines.</td></tr>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

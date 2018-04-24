@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2. 在Unix平台中使用Python &#8212; Python 3.6.4 文档</title>
+    <title>2. 在Unix平台中使用Python &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">安装和使用 Python</a> &#187;</li>
@@ -120,12 +120,14 @@ following links:</p>
 <h3>2.1.2. On FreeBSD and OpenBSD<a class="headerlink" href="#on-freebsd-and-openbsd" title="永久链接至标题">¶</a></h3>
 <ul>
 <li><p class="first">FreeBSD users, to add the package use:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>pkg_add -r python
+<div class="highlight-sh"><div class="highlight"><pre><span></span>pkg install python3
 </pre></div>
 </div>
 </li>
-<li><p class="first">OpenBSD users use:</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>pkg_add ftp://ftp.openbsd.org/pub/OpenBSD/4.2/packages/&lt;insert your architecture here&gt;/python-&lt;version&gt;.tgz
+<li><p class="first">OpenBSD users, to add the package use:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>pkg_add -r python
+
+pkg_add ftp://ftp.openbsd.org/pub/OpenBSD/4.2/packages/&lt;insert your architecture here&gt;/python-&lt;version&gt;.tgz
 </pre></div>
 </div>
 <p>For example i386 users get the 2.5.1 version of Python using:</p>
@@ -203,7 +205,7 @@ embedding the interpreter.</td>
 <h2>2.4. Miscellaneous<a class="headerlink" href="#miscellaneous" title="永久链接至标题">¶</a></h2>
 <p>To easily use Python scripts on Unix, you need to make them executable,
 e.g. with</p>
-<div class="highlight-sh"><div class="highlight"><pre><span></span>$ chmod +x script
+<div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> chmod +x script
 </pre></div>
 </div>
 <p>and put an appropriate Shebang line at the top of the script.  A good choice is
@@ -289,7 +291,7 @@ for a comprehensive list.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >安装和使用 Python</a> &#187;</li>
@@ -316,10 +318,10 @@ for a comprehensive list.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>32.12. dis — Disassembler for Python bytecode &#8212; Python 3.6.4 文档</title>
+    <title>32.12. dis — Disassembler for Python bytecode &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -422,6 +422,9 @@ three.</p>
 <dt id="opcode-DUP_TOP">
 <code class="descname">DUP_TOP</code><a class="headerlink" href="#opcode-DUP_TOP" title="永久链接至目标">¶</a></dt>
 <dd><p>Duplicates the reference on top of the stack.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.2 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -429,6 +432,9 @@ three.</p>
 <code class="descname">DUP_TOP_TWO</code><a class="headerlink" href="#opcode-DUP_TOP_TWO" title="永久链接至目标">¶</a></dt>
 <dd><p>Duplicates the two references on top of the stack, leaving them in the
 same order.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.2 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <p><strong>Unary operations</strong></p>
@@ -671,6 +677,9 @@ the original TOS1.</p>
 returns <code class="docutils literal"><span class="pre">o</span></code> if <code class="docutils literal"><span class="pre">o</span></code> is a coroutine object or a generator object with
 the CO_ITERABLE_COROUTINE flag, or resolves
 <code class="docutils literal"><span class="pre">o.__await__</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.5 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -678,6 +687,9 @@ the CO_ITERABLE_COROUTINE flag, or resolves
 <code class="descname">GET_AITER</code><a class="headerlink" href="#opcode-GET_AITER" title="永久链接至目标">¶</a></dt>
 <dd><p>Implements <code class="docutils literal"><span class="pre">TOS</span> <span class="pre">=</span> <span class="pre">get_awaitable(TOS.__aiter__())</span></code>.  See <code class="docutils literal"><span class="pre">GET_AWAITABLE</span></code>
 for details about <code class="docutils literal"><span class="pre">get_awaitable</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">3.5 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -685,6 +697,9 @@ for details about <code class="docutils literal"><span class="pre">get_awaitable
 <code class="descname">GET_ANEXT</code><a class="headerlink" href="#opcode-GET_ANEXT" title="永久链接至目标">¶</a></dt>
 <dd><p>Implements <code class="docutils literal"><span class="pre">PUSH(get_awaitable(TOS.__anext__()))</span></code>.  See <code class="docutils literal"><span class="pre">GET_AWAITABLE</span></code>
 for details about <code class="docutils literal"><span class="pre">get_awaitable</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified">3.5 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -692,12 +707,18 @@ for details about <code class="docutils literal"><span class="pre">get_awaitable
 <code class="descname">BEFORE_ASYNC_WITH</code><a class="headerlink" href="#opcode-BEFORE_ASYNC_WITH" title="永久链接至目标">¶</a></dt>
 <dd><p>Resolves <code class="docutils literal"><span class="pre">__aenter__</span></code> and <code class="docutils literal"><span class="pre">__aexit__</span></code> from the object on top of the
 stack.  Pushes <code class="docutils literal"><span class="pre">__aexit__</span></code> and result of <code class="docutils literal"><span class="pre">__aenter__()</span></code> to the stack.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.5 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
 <dt id="opcode-SETUP_ASYNC_WITH">
 <code class="descname">SETUP_ASYNC_WITH</code><a class="headerlink" href="#opcode-SETUP_ASYNC_WITH" title="永久链接至目标">¶</a></dt>
 <dd><p>Creates a new frame object.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.5 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <p><strong>Miscellaneous opcodes</strong></p>
@@ -739,6 +760,9 @@ address to jump to (which should be a <a class="reference internal" href="#opcod
 <code class="descname">MAP_ADD</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-MAP_ADD" title="永久链接至目标">¶</a></dt>
 <dd><p>Calls <code class="docutils literal"><span class="pre">dict.setitem(TOS1[-i],</span> <span class="pre">TOS,</span> <span class="pre">TOS1)</span></code>.  Used to implement dict
 comprehensions.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.1 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <p>For all of the <a class="reference internal" href="#opcode-SET_ADD"><code class="xref std std-opcode docutils literal"><span class="pre">SET_ADD</span></code></a>, <a class="reference internal" href="#opcode-LIST_APPEND"><code class="xref std std-opcode docutils literal"><span class="pre">LIST_APPEND</span></code></a> and <a class="reference internal" href="#opcode-MAP_ADD"><code class="xref std std-opcode docutils literal"><span class="pre">MAP_ADD</span></code></a>
@@ -828,6 +852,9 @@ is pushed.  Finally, the result of calling the enter method is pushed onto
 the stack.  The next opcode will either ignore it (<a class="reference internal" href="#opcode-POP_TOP"><code class="xref std std-opcode docutils literal"><span class="pre">POP_TOP</span></code></a>), or
 store it in (a) variable(s) (<a class="reference internal" href="#opcode-STORE_FAST"><code class="xref std std-opcode docutils literal"><span class="pre">STORE_FAST</span></code></a>, <a class="reference internal" href="#opcode-STORE_NAME"><code class="xref std std-opcode docutils literal"><span class="pre">STORE_NAME</span></code></a>, or
 <a class="reference internal" href="#opcode-UNPACK_SEQUENCE"><code class="xref std std-opcode docutils literal"><span class="pre">UNPACK_SEQUENCE</span></code></a>).</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.2 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -1092,12 +1119,18 @@ resulting object is pushed onto the stack, to be subsequently stored by a
 <dt id="opcode-POP_JUMP_IF_TRUE">
 <code class="descname">POP_JUMP_IF_TRUE</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-POP_JUMP_IF_TRUE" title="永久链接至目标">¶</a></dt>
 <dd><p>If TOS is true, sets the bytecode counter to <em>target</em>.  TOS is popped.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.1 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
 <dt id="opcode-POP_JUMP_IF_FALSE">
 <code class="descname">POP_JUMP_IF_FALSE</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-POP_JUMP_IF_FALSE" title="永久链接至目标">¶</a></dt>
 <dd><p>If TOS is false, sets the bytecode counter to <em>target</em>.  TOS is popped.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.1 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -1105,6 +1138,9 @@ resulting object is pushed onto the stack, to be subsequently stored by a
 <code class="descname">JUMP_IF_TRUE_OR_POP</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-JUMP_IF_TRUE_OR_POP" title="永久链接至目标">¶</a></dt>
 <dd><p>If TOS is true, sets the bytecode counter to <em>target</em> and leaves TOS on the
 stack.  Otherwise (TOS is false), TOS is popped.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.1 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -1112,6 +1148,9 @@ stack.  Otherwise (TOS is false), TOS is popped.</p>
 <code class="descname">JUMP_IF_FALSE_OR_POP</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-JUMP_IF_FALSE_OR_POP" title="永久链接至目标">¶</a></dt>
 <dd><p>If TOS is false, sets the bytecode counter to <em>target</em> and leaves TOS on the
 stack.  Otherwise (TOS is true), TOS is popped.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.1 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -1205,6 +1244,9 @@ Pushes a reference to the object the cell contains on the stack.</p>
 <dd><p>Much like <a class="reference internal" href="#opcode-LOAD_DEREF"><code class="xref std std-opcode docutils literal"><span class="pre">LOAD_DEREF</span></code></a> but first checks the locals dictionary before
 consulting the cell.  This is used for loading free variables in class
 bodies.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.4 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -1219,6 +1261,9 @@ storage.</p>
 <code class="descname">DELETE_DEREF</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-DELETE_DEREF" title="永久链接至目标">¶</a></dt>
 <dd><p>Empties the cell contained in slot <em>i</em> of the cell and free variable storage.
 Used by the <a class="reference internal" href="../reference/simple_stmts.html#del"><code class="xref std std-keyword docutils literal"><span class="pre">del</span></code></a> statement.</p>
+<div class="versionadded">
+<p><span class="versionmodified">3.2 新版功能.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -1472,7 +1517,7 @@ scopes or names in outer scopes that are referenced from this scope.  It does
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -1500,10 +1545,10 @@ scopes or names in outer scopes that are referenced from this scope.  It does
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

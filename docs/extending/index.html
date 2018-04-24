@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Extending and Embedding the Python Interpreter &#8212; Python 3.6.4 文档</title>
+    <title>Extending and Embedding the Python Interpreter &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
     <li class="right">
@@ -107,9 +107,11 @@ Python) that give the language its wide application range.</p>
 <div class="section" id="recommended-third-party-tools">
 <h2>Recommended third party tools<a class="headerlink" href="#recommended-third-party-tools" title="永久链接至标题">¶</a></h2>
 <p>This guide only covers the basic tools for creating extensions provided
-as part of this version of CPython. Third party tools like Cython,
-<code class="docutils literal"><span class="pre">cffi</span></code>, SWIG and Numba offer both simpler and more sophisticated
-approaches to creating C and C++ extensions for Python.</p>
+as part of this version of CPython. Third party tools like
+<a class="reference external" href="http://cython.org/">Cython</a>, <a class="reference external" href="https://cffi.readthedocs.io">cffi</a>,
+<a class="reference external" href="http://www.swig.org">SWIG</a> and <a class="reference external" href="https://numba.pydata.org/">Numba</a>
+offer both simpler and more sophisticated approaches to creating C and C++
+extensions for Python.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参见</p>
 <dl class="last docutils">
@@ -144,20 +146,33 @@ C extensions.</p>
 <li class="toctree-l2"><a class="reference internal" href="extending.html#providing-a-c-api-for-an-extension-module">1.12. Providing a C API for an Extension Module</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="newtypes.html">2. Defining New Types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="newtypes.html#the-basics">2.1. The Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="newtypes.html#type-methods">2.2. Type Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="newtypes_tutorial.html">2. Defining Extension Types: Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="newtypes_tutorial.html#the-basics">2.1. The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newtypes_tutorial.html#adding-data-and-methods-to-the-basic-example">2.2. Adding data and methods to the Basic example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newtypes_tutorial.html#providing-finer-control-over-data-attributes">2.3. Providing finer control over data attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newtypes_tutorial.html#supporting-cyclic-garbage-collection">2.4. Supporting cyclic garbage collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newtypes_tutorial.html#subclassing-other-types">2.5. Subclassing other types</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="building.html">3. Building C and C++ Extensions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="building.html#building-c-and-c-extensions-with-distutils">3.1. Building C and C++ Extensions with distutils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="building.html#distributing-your-extension-modules">3.2. Distributing your extension modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="newtypes.html">3. Defining Extension Types: Assorted Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="newtypes.html#finalization-and-de-allocation">3.1. Finalization and De-allocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newtypes.html#object-presentation">3.2. Object Presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newtypes.html#attribute-management">3.3. Attribute Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newtypes.html#object-comparison">3.4. Object Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newtypes.html#abstract-protocol-support">3.5. Abstract Protocol Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newtypes.html#weak-reference-support">3.6. Weak Reference Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="newtypes.html#more-suggestions">3.7. More Suggestions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="windows.html">4. Building C and C++ Extensions on Windows</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="windows.html#a-cookbook-approach">4.1. A Cookbook Approach</a></li>
-<li class="toctree-l2"><a class="reference internal" href="windows.html#differences-between-unix-and-windows">4.2. Differences Between Unix and Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="windows.html#using-dlls-in-practice">4.3. Using DLLs in Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">4. Building C and C++ Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building.html#building-c-and-c-extensions-with-distutils">4.1. Building C and C++ Extensions with distutils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html#distributing-your-extension-modules">4.2. Distributing your extension modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="windows.html">5. Building C and C++ Extensions on Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="windows.html#a-cookbook-approach">5.1. A Cookbook Approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows.html#differences-between-unix-and-windows">5.2. Differences Between Unix and Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows.html#using-dlls-in-practice">5.3. Using DLLs in Practice</a></li>
 </ul>
 </li>
 </ul>
@@ -241,7 +256,7 @@ some of the details involved in doing that successfully.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
     <li class="right">
@@ -267,10 +282,10 @@ some of the details involved in doing that successfully.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

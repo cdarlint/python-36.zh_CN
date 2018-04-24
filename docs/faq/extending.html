@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Extending/Embedding FAQ &#8212; Python 3.6.4 文档</title>
+    <title>Extending/Embedding FAQ &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python Frequently Asked Questions</a> &#187;</li>
@@ -140,14 +140,14 @@ C code.  Cython and Pyrex make it possible to write an extension without having
 to learn Python’s C API.</p>
 <p>If you need to interface to some C or C++ library for which no Python extension
 currently exists, you can try wrapping the library’s data types and functions
-with a tool such as <a class="reference external" href="http://www.swig.org">SWIG</a>.  <a class="reference external" href="https://riverbankcomputing.com/software/sip/intro">SIP</a>, <a class="reference external" href="http://cxx.sourceforge.net/">CXX</a> <a class="reference external" href="http://www.boost.org/libs/python/doc/index.html">Boost</a>, or <a class="reference external" href="https://scipy.github.io/devdocs/tutorial/weave.html">Weave</a> are also
+with a tool such as <a class="reference external" href="http://www.swig.org">SWIG</a>.  <a class="reference external" href="https://riverbankcomputing.com/software/sip/intro">SIP</a>, <a class="reference external" href="http://cxx.sourceforge.net/">CXX</a> <a class="reference external" href="http://www.boost.org/libs/python/doc/index.html">Boost</a>, or <a class="reference external" href="https://github.com/scipy/weave">Weave</a> are also
 alternatives for wrapping C++ libraries.</p>
 </div>
 <div class="section" id="how-can-i-execute-arbitrary-python-statements-from-c">
 <h2><a class="toc-backref" href="#id7">How can I execute arbitrary Python statements from C?</a><a class="headerlink" href="#how-can-i-execute-arbitrary-python-statements-from-c" title="永久链接至标题">¶</a></h2>
 <p>The highest-level function to do this is <a class="reference internal" href="../c-api/veryhigh.html#c.PyRun_SimpleString" title="PyRun_SimpleString"><code class="xref c c-func docutils literal"><span class="pre">PyRun_SimpleString()</span></code></a> which takes
 a single string argument to be executed in the context of the module
-<code class="docutils literal"><span class="pre">__main__</span></code> and returns 0 for success and -1 when an exception occurred
+<code class="docutils literal"><span class="pre">__main__</span></code> and returns <code class="docutils literal"><span class="pre">0</span></code> for success and <code class="docutils literal"><span class="pre">-1</span></code> when an exception occurred
 (including <code class="docutils literal"><span class="pre">SyntaxError</span></code>).  If you want more control, use
 <a class="reference internal" href="../c-api/veryhigh.html#c.PyRun_String" title="PyRun_String"><code class="xref c c-func docutils literal"><span class="pre">PyRun_String()</span></code></a>; see the source for <a class="reference internal" href="../c-api/veryhigh.html#c.PyRun_SimpleString" title="PyRun_SimpleString"><code class="xref c c-func docutils literal"><span class="pre">PyRun_SimpleString()</span></code></a> in
 <code class="docutils literal"><span class="pre">Python/pythonrun.c</span></code>.</p>
@@ -556,7 +556,7 @@ class written in C++ using the BPL).</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python Frequently Asked Questions</a> &#187;</li>
@@ -583,10 +583,10 @@ class written in C++ using the BPL).</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

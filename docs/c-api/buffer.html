@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Buffer Protocol &#8212; Python 3.6.4 文档</title>
+    <title>Buffer Protocol &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -722,6 +722,15 @@ int <code class="descname">PyBuffer_IsContiguous</code><span class="sig-paren">(
 </dd></dl>
 
 <dl class="function">
+<dt id="c.PyBuffer_ToContiguous">
+int <code class="descname">PyBuffer_ToContiguous</code><span class="sig-paren">(</span>void<em>&nbsp;*buf</em>, <a class="reference internal" href="#c.Py_buffer" title="Py_buffer">Py_buffer</a><em>&nbsp;*src</em>, Py_ssize_t<em>&nbsp;len</em>, char<em>&nbsp;order</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyBuffer_ToContiguous" title="永久链接至目标">¶</a></dt>
+<dd><p>Copy <em>len</em> bytes from <em>src</em> to its contiguous representation in <em>buf</em>.
+<em>order</em> can be <code class="docutils literal"><span class="pre">'C'</span></code> or <code class="docutils literal"><span class="pre">'F'</span></code> (for C-style or Fortran-style ordering).
+<code class="docutils literal"><span class="pre">0</span></code> is returned on success, <code class="docutils literal"><span class="pre">-1</span></code> on error.</p>
+<p>This function fails if <em>len</em> != <em>src-&gt;len</em>.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="c.PyBuffer_FillContiguousStrides">
 void <code class="descname">PyBuffer_FillContiguousStrides</code><span class="sig-paren">(</span>int<em>&nbsp;ndims</em>, Py_ssize_t<em>&nbsp;*shape</em>, Py_ssize_t<em>&nbsp;*strides</em>, int<em>&nbsp;itemsize</em>, char<em>&nbsp;order</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyBuffer_FillContiguousStrides" title="永久链接至目标">¶</a></dt>
 <dd><p>Fill the <em>strides</em> array with byte-strides of a <a class="reference internal" href="../glossary.html#term-contiguous"><span class="xref std std-term">contiguous</span></a> (C-style if
@@ -817,7 +826,7 @@ unmodified. Otherwise, <em>exporter</em> MUST be NULL.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -845,10 +854,10 @@ unmodified. Otherwise, <em>exporter</em> MUST be NULL.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

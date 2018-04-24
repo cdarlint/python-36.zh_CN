@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Unicode Objects and Codecs &#8212; Python 3.6.4 文档</title>
+    <title>Unicode Objects and Codecs &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -317,7 +317,7 @@ Py_ssize_t <code class="descname">PyUnicode_GET_SIZE</code><span class="sig-pare
 code units (this includes surrogate pairs as 2 units).  <em>o</em> has to be a
 Unicode object (not checked).</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style Unicode API, please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style Unicode API, please migrate to using
 <a class="reference internal" href="#c.PyUnicode_GET_LENGTH" title="PyUnicode_GET_LENGTH"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_GET_LENGTH()</span></code></a>.</p>
 </div>
 </dd></dl>
@@ -328,7 +328,7 @@ Py_ssize_t <code class="descname">PyUnicode_GET_DATA_SIZE</code><span class="sig
 <dd><p>Return the size of the deprecated <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> representation in
 bytes.  <em>o</em> has to be a Unicode object (not checked).</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style Unicode API, please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style Unicode API, please migrate to using
 <a class="reference internal" href="#c.PyUnicode_GET_LENGTH" title="PyUnicode_GET_LENGTH"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_GET_LENGTH()</span></code></a>.</p>
 </div>
 </dd></dl>
@@ -352,7 +352,7 @@ code to use the new <code class="xref c c-func docutils literal"><span class="pr
 <a class="reference internal" href="#c.PyUnicode_WRITE" title="PyUnicode_WRITE"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_WRITE()</span></code></a> or <a class="reference internal" href="#c.PyUnicode_READ" title="PyUnicode_READ"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_READ()</span></code></a>.</p>
 </div>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style Unicode API, please migrate to using the
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style Unicode API, please migrate to using the
 <code class="xref c c-func docutils literal"><span class="pre">PyUnicode_nBYTE_DATA()</span></code> family of macros.</p>
 </div>
 </dd></dl>
@@ -842,7 +842,7 @@ null code point appended.</p>
 <div class="section" id="deprecated-py-unicode-apis">
 <h3>Deprecated Py_UNICODE APIs<a class="headerlink" href="#deprecated-py-unicode-apis" title="永久链接至标题">¶</a></h3>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0.</span></p>
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。.</span></p>
 </div>
 <p>These API functions are deprecated with the implementation of <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0393"><strong>PEP 393</strong></a>.
 Extension modules can continue using them, as they will not be removed in Python
@@ -955,6 +955,12 @@ Python startup).</p>
 <div class="versionadded">
 <p><span class="versionmodified">3.3 新版功能.</span></p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified">在 3.6.5 版更改: </span>The function now also uses the current locale encoding for the
+<code class="docutils literal"><span class="pre">surrogateescape</span></code> error handler. Previously, <a class="reference internal" href="sys.html#c.Py_DecodeLocale" title="Py_DecodeLocale"><code class="xref c c-func docutils literal"><span class="pre">Py_DecodeLocale()</span></code></a>
+was used for the <code class="docutils literal"><span class="pre">surrogateescape</span></code>, and the current locale encoding was
+used for <code class="docutils literal"><span class="pre">strict</span></code>.</p>
+</div>
 </dd></dl>
 
 <dl class="function">
@@ -984,6 +990,12 @@ Python startup).</p>
 </div>
 <div class="versionadded">
 <p><span class="versionmodified">3.3 新版功能.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">在 3.6.5 版更改: </span>The function now also uses the current locale encoding for the
+<code class="docutils literal"><span class="pre">surrogateescape</span></code> error handler. Previously, <a class="reference internal" href="sys.html#c.Py_EncodeLocale" title="Py_EncodeLocale"><code class="xref c c-func docutils literal"><span class="pre">Py_EncodeLocale()</span></code></a>
+was used for the <code class="docutils literal"><span class="pre">surrogateescape</span></code>, and the current locale encoding was
+used for <code class="docutils literal"><span class="pre">strict</span></code>.</p>
 </div>
 </dd></dl>
 
@@ -1185,7 +1197,7 @@ parameters of the same name in the Unicode <a class="reference internal" href=".
 to be used is looked up using the Python codec registry.  Return <em>NULL</em> if an
 exception was raised by the codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsEncodedString" title="PyUnicode_AsEncodedString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsEncodedString()</span></code></a>.</p>
 </div>
 </dd></dl>
@@ -1252,7 +1264,7 @@ char* <code class="descname">PyUnicode_AsUTF8</code><span class="sig-paren">(</s
 return a Python bytes object.  Return <em>NULL</em> if an exception was raised by
 the codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsUTF8String" title="PyUnicode_AsUTF8String"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsUTF8String()</span></code></a>, <a class="reference internal" href="#c.PyUnicode_AsUTF8AndSize" title="PyUnicode_AsUTF8AndSize"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsUTF8AndSize()</span></code></a> or
 <a class="reference internal" href="#c.PyUnicode_AsEncodedString" title="PyUnicode_AsEncodedString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsEncodedString()</span></code></a>.</p>
 </div>
@@ -1319,7 +1331,7 @@ mark (U+FEFF). In the other two modes, no BOM mark is prepended.</p>
 as a single code point.</p>
 <p>Return <em>NULL</em> if an exception was raised by the codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsUTF32String" title="PyUnicode_AsUTF32String"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsUTF32String()</span></code></a> or <a class="reference internal" href="#c.PyUnicode_AsEncodedString" title="PyUnicode_AsEncodedString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsEncodedString()</span></code></a>.</p>
 </div>
 </dd></dl>
@@ -1387,7 +1399,7 @@ represented as a surrogate pair. If it is not defined, each <a class="reference 
 values is interpreted as a UCS-2 character.</p>
 <p>Return <em>NULL</em> if an exception was raised by the codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsUTF16String" title="PyUnicode_AsUTF16String"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsUTF16String()</span></code></a> or <a class="reference internal" href="#c.PyUnicode_AsEncodedString" title="PyUnicode_AsEncodedString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsEncodedString()</span></code></a>.</p>
 </div>
 </dd></dl>
@@ -1423,7 +1435,7 @@ special meaning) will be encoded in base-64.  If <em>base64WhiteSpace</em> is
 nonzero, whitespace will be encoded in base-64.  Both are set to zero for the
 Python “utf-7” codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsEncodedString" title="PyUnicode_AsEncodedString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsEncodedString()</span></code></a>.</p>
 </div>
 </dd></dl>
@@ -1453,7 +1465,7 @@ raised by the codec.</p>
 <dd><em class="refcount">Return value: New reference.</em><p>Encode the <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> buffer of the given <em>size</em> using Unicode-Escape and
 return a bytes object.  Return <em>NULL</em> if an exception was raised by the codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsUnicodeEscapeString" title="PyUnicode_AsUnicodeEscapeString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsUnicodeEscapeString()</span></code></a>.</p>
 </div>
 </dd></dl>
@@ -1483,7 +1495,7 @@ was raised by the codec.</p>
 <dd><em class="refcount">Return value: New reference.</em><p>Encode the <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> buffer of the given <em>size</em> using Raw-Unicode-Escape
 and return a bytes object.  Return <em>NULL</em> if an exception was raised by the codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsRawUnicodeEscapeString" title="PyUnicode_AsRawUnicodeEscapeString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsRawUnicodeEscapeString()</span></code></a> or
 <a class="reference internal" href="#c.PyUnicode_AsEncodedString" title="PyUnicode_AsEncodedString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsEncodedString()</span></code></a>.</p>
 </div>
@@ -1516,7 +1528,7 @@ raised by the codec.</p>
 return a Python bytes object.  Return <em>NULL</em> if an exception was raised by
 the codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsLatin1String" title="PyUnicode_AsLatin1String"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsLatin1String()</span></code></a> or
 <a class="reference internal" href="#c.PyUnicode_AsEncodedString" title="PyUnicode_AsEncodedString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsEncodedString()</span></code></a>.</p>
 </div>
@@ -1549,7 +1561,7 @@ raised by the codec.</p>
 return a Python bytes object.  Return <em>NULL</em> if an exception was raised by
 the codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsASCIIString" title="PyUnicode_AsASCIIString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsASCIIString()</span></code></a> or
 <a class="reference internal" href="#c.PyUnicode_AsEncodedString" title="PyUnicode_AsEncodedString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsEncodedString()</span></code></a>.</p>
 </div>
@@ -1598,7 +1610,7 @@ ordinals (ones which cause a <a class="reference internal" href="../library/exce
 <em>mapping</em> object and return the result as a bytes object.  Return <em>NULL</em> if
 an exception was raised by the codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsCharmapString" title="PyUnicode_AsCharmapString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsCharmapString()</span></code></a> or
 <a class="reference internal" href="#c.PyUnicode_AsEncodedString" title="PyUnicode_AsEncodedString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsEncodedString()</span></code></a>.</p>
 </div>
@@ -1624,7 +1636,7 @@ which cause a <a class="reference internal" href="../library/exceptions.html#Loo
 character <em>mapping</em> table to it and return the resulting Unicode object.
 Return <em>NULL</em> when an exception was raised by the codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_Translate" title="PyUnicode_Translate"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_Translate()</span></code></a>. or <a class="reference internal" href="codec.html#codec-registry"><span class="std std-ref">generic codec based API</span></a></p>
 </div>
 </dd></dl>
@@ -1678,7 +1690,7 @@ bytes object.  Return <em>NULL</em> if an exception was raised by the codec. Use
 a Python bytes object.  Return <em>NULL</em> if an exception was raised by the
 codec.</p>
 <div class="deprecated-removed">
-<p><span class="versionmodified">Deprecated since version 3.3, will be removed in version 4.0: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
+<p><span class="versionmodified">从版本 3.3 开始标记为过时，将在版本 4.0 中移除。: </span>Part of the old-style <a class="reference internal" href="#c.Py_UNICODE" title="Py_UNICODE"><code class="xref c c-type docutils literal"><span class="pre">Py_UNICODE</span></code></a> API; please migrate to using
 <a class="reference internal" href="#c.PyUnicode_AsMBCSString" title="PyUnicode_AsMBCSString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsMBCSString()</span></code></a>, <a class="reference internal" href="#c.PyUnicode_EncodeCodePage" title="PyUnicode_EncodeCodePage"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_EncodeCodePage()</span></code></a> or
 <a class="reference internal" href="#c.PyUnicode_AsEncodedString" title="PyUnicode_AsEncodedString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_AsEncodedString()</span></code></a>.</p>
 </div>
@@ -1938,7 +1950,7 @@ interned string object with the same value.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
@@ -1966,10 +1978,10 @@ interned string object with the same value.</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 15, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

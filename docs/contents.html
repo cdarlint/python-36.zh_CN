@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Python文档内容 &#8212; Python 3.6.4 文档</title>
+    <title>Python文档内容 &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="about.html" />
     <link rel="index" title="索引" href="genindex.html" />
@@ -58,7 +58,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="index.html">3.6.4 Documentation</a> &#187;
+          <a href="index.html">3.6.5 Documentation</a> &#187;
         </li>
 
     <li class="right">
@@ -222,6 +222,7 @@
 <li class="toctree-l4"><a class="reference internal" href="whatsnew/3.6.html#removal-of-make-touch-build-target">Removal of <code class="docutils literal"><span class="pre">make</span> <span class="pre">touch</span></code> build target</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="whatsnew/3.6.html#notable-changes-in-python-3-6-5">Notable changes in Python 3.6.5</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="whatsnew/3.5.html">What’s New In Python 3.5</a><ul>
@@ -1309,10 +1310,11 @@
 <li class="toctree-l3"><a class="reference internal" href="reference/datamodel.html#special-method-names">3.3. Special method names</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="reference/datamodel.html#basic-customization">3.3.1. Basic customization</a></li>
 <li class="toctree-l4"><a class="reference internal" href="reference/datamodel.html#customizing-attribute-access">3.3.2. Customizing attribute access</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="reference/datamodel.html#implementing-descriptors">3.3.2.1. Implementing Descriptors</a></li>
-<li class="toctree-l5"><a class="reference internal" href="reference/datamodel.html#invoking-descriptors">3.3.2.2. Invoking Descriptors</a></li>
-<li class="toctree-l5"><a class="reference internal" href="reference/datamodel.html#slots">3.3.2.3. __slots__</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="reference/datamodel.html#notes-on-using-slots">3.3.2.3.1. Notes on using <em>__slots__</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/datamodel.html#customizing-module-attribute-access">3.3.2.1. Customizing module attribute access</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/datamodel.html#implementing-descriptors">3.3.2.2. Implementing Descriptors</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/datamodel.html#invoking-descriptors">3.3.2.3. Invoking Descriptors</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reference/datamodel.html#slots">3.3.2.4. __slots__</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="reference/datamodel.html#notes-on-using-slots">3.3.2.4.1. Notes on using <em>__slots__</em></a></li>
 </ul>
 </li>
 </ul>
@@ -2534,6 +2536,7 @@
 <li class="toctree-l5"><a class="reference internal" href="library/ssl.html#multi-processing">18.2.9.3. Multi-processing</a></li>
 </ul>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="library/ssl.html#libressl-support">18.2.10. LibreSSL support</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="library/select.html">18.3. <code class="docutils literal"><span class="pre">select</span></code> — Waiting for I/O completion</a><ul>
@@ -3119,7 +3122,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="library/ipaddress.html#interface-objects">21.28.4. Interface objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/ipaddress.html#interface-objects">21.28.4. Interface objects</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="library/ipaddress.html#id2">21.28.4.1. Operators</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="library/ipaddress.html#id3">21.28.4.1.1. Logical operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="library/ipaddress.html#other-module-level-functions">21.28.5. Other Module Level Functions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="library/ipaddress.html#custom-exceptions">21.28.6. Custom Exceptions</a></li>
 </ul>
@@ -3622,7 +3631,13 @@
 <li class="toctree-l4"><a class="reference internal" href="library/zipapp.html#command-line-interface">28.4.2. Command-Line Interface</a></li>
 <li class="toctree-l4"><a class="reference internal" href="library/zipapp.html#python-api">28.4.3. Python API</a></li>
 <li class="toctree-l4"><a class="reference internal" href="library/zipapp.html#examples">28.4.4. Examples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="library/zipapp.html#the-python-zip-application-archive-format">28.4.5. The Python Zip Application Archive Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/zipapp.html#specifying-the-interpreter">28.4.5. Specifying the Interpreter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="library/zipapp.html#creating-standalone-applications-with-zipapp">28.4.6. Creating Standalone Applications with zipapp</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="library/zipapp.html#making-a-windows-executable">28.4.6.1. Making a Windows executable</a></li>
+<li class="toctree-l5"><a class="reference internal" href="library/zipapp.html#caveats">28.4.6.2. Caveats</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="library/zipapp.html#the-python-zip-application-archive-format">28.4.7. The Python Zip Application Archive Format</a></li>
 </ul>
 </li>
 </ul>
@@ -3989,39 +4004,37 @@
 <li class="toctree-l4"><a class="reference internal" href="extending/extending.html#providing-a-c-api-for-an-extension-module">1.12. Providing a C API for an Extension Module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="extending/newtypes.html">2. Defining New Types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="extending/newtypes.html#the-basics">2.1. The Basics</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#adding-data-and-methods-to-the-basic-example">2.1.1. Adding data and methods to the Basic example</a></li>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#providing-finer-control-over-data-attributes">2.1.2. Providing finer control over data attributes</a></li>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#supporting-cyclic-garbage-collection">2.1.3. Supporting cyclic garbage collection</a></li>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#subclassing-other-types">2.1.4. Subclassing other types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extending/newtypes_tutorial.html">2. Defining Extension Types: Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes_tutorial.html#the-basics">2.1. The Basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes_tutorial.html#adding-data-and-methods-to-the-basic-example">2.2. Adding data and methods to the Basic example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes_tutorial.html#providing-finer-control-over-data-attributes">2.3. Providing finer control over data attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes_tutorial.html#supporting-cyclic-garbage-collection">2.4. Supporting cyclic garbage collection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes_tutorial.html#subclassing-other-types">2.5. Subclassing other types</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="extending/newtypes.html#type-methods">2.2. Type Methods</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#finalization-and-de-allocation">2.2.1. Finalization and De-allocation</a></li>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#object-presentation">2.2.2. Object Presentation</a></li>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#attribute-management">2.2.3. Attribute Management</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="extending/newtypes.html#generic-attribute-management">2.2.3.1. Generic Attribute Management</a></li>
-<li class="toctree-l6"><a class="reference internal" href="extending/newtypes.html#type-specific-attribute-management">2.2.3.2. Type-specific Attribute Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extending/newtypes.html">3. Defining Extension Types: Assorted Topics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes.html#finalization-and-de-allocation">3.1. Finalization and De-allocation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes.html#object-presentation">3.2. Object Presentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes.html#attribute-management">3.3. Attribute Management</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#generic-attribute-management">3.3.1. Generic Attribute Management</a></li>
+<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#type-specific-attribute-management">3.3.2. Type-specific Attribute Management</a></li>
 </ul>
 </li>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#object-comparison">2.2.4. Object Comparison</a></li>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#abstract-protocol-support">2.2.5. Abstract Protocol Support</a></li>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#weak-reference-support">2.2.6. Weak Reference Support</a></li>
-<li class="toctree-l5"><a class="reference internal" href="extending/newtypes.html#more-suggestions">2.2.7. More Suggestions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes.html#object-comparison">3.4. Object Comparison</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes.html#abstract-protocol-support">3.5. Abstract Protocol Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes.html#weak-reference-support">3.6. Weak Reference Support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/newtypes.html#more-suggestions">3.7. More Suggestions</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="extending/building.html">4. Building C and C++ Extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="extending/building.html#building-c-and-c-extensions-with-distutils">4.1. Building C and C++ Extensions with distutils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/building.html#distributing-your-extension-modules">4.2. Distributing your extension modules</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="extending/building.html">3. Building C and C++ Extensions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="extending/building.html#building-c-and-c-extensions-with-distutils">3.1. Building C and C++ Extensions with distutils</a></li>
-<li class="toctree-l4"><a class="reference internal" href="extending/building.html#distributing-your-extension-modules">3.2. Distributing your extension modules</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="extending/windows.html">4. Building C and C++ Extensions on Windows</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="extending/windows.html#a-cookbook-approach">4.1. A Cookbook Approach</a></li>
-<li class="toctree-l4"><a class="reference internal" href="extending/windows.html#differences-between-unix-and-windows">4.2. Differences Between Unix and Windows</a></li>
-<li class="toctree-l4"><a class="reference internal" href="extending/windows.html#using-dlls-in-practice">4.3. Using DLLs in Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extending/windows.html">5. Building C and C++ Extensions on Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="extending/windows.html#a-cookbook-approach">5.1. A Cookbook Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/windows.html#differences-between-unix-and-windows">5.2. Differences Between Unix and Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extending/windows.html#using-dlls-in-practice">5.3. Using DLLs in Practice</a></li>
 </ul>
 </li>
 </ul>
@@ -4794,7 +4807,7 @@
 <li class="toctree-l1"><a class="reference internal" href="license.html">History and License</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="license.html#history-of-the-software">History of the software</a></li>
 <li class="toctree-l2"><a class="reference internal" href="license.html#terms-and-conditions-for-accessing-or-otherwise-using-python">Terms and conditions for accessing or otherwise using Python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="license.html#psf-license-agreement-for-python-release">PSF LICENSE AGREEMENT FOR PYTHON 3.6.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="license.html#psf-license-agreement-for-python-release">PSF LICENSE AGREEMENT FOR PYTHON 3.6.5</a></li>
 <li class="toctree-l3"><a class="reference internal" href="license.html#beopen-com-license-agreement-for-python-2-0">BEOPEN.COM LICENSE AGREEMENT FOR PYTHON 2.0</a></li>
 <li class="toctree-l3"><a class="reference internal" href="license.html#cnri-license-agreement-for-python-1-6-1">CNRI LICENSE AGREEMENT FOR PYTHON 1.6.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="license.html#cwi-license-agreement-for-python-0-9-0-through-1-2">CWI LICENSE AGREEMENT FOR PYTHON 0.9.0 THROUGH 1.2</a></li>
@@ -4869,7 +4882,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="index.html">3.6.4 Documentation</a> &#187;
+          <a href="index.html">3.6.5 Documentation</a> &#187;
         </li>
 
     <li class="right">
@@ -4895,10 +4908,10 @@
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 17, 2018。
+    上次更新于 4月 24, 2018。
     <a href="bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Glossary &#8212; Python 3.6.4 文档</title>
+    <title>Glossary &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="about.html" />
     <link rel="index" title="索引" href="genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="index.html">3.6.4 Documentation</a> &#187;
+          <a href="index.html">3.6.5 Documentation</a> &#187;
         </li>
 
     <li class="right">
@@ -432,7 +432,8 @@ becomes the default:</p>
 <dt id="term-garbage-collection">garbage collection</dt>
 <dd>The process of freeing memory when it is not used anymore.  Python
 performs garbage collection via reference counting and a cyclic garbage
-collector that is able to detect and break reference cycles.</dd>
+collector that is able to detect and break reference cycles.  The
+garbage collector can be controlled using the <a class="reference internal" href="library/gc.html#module-gc" title="gc: Interface to the cycle-detecting garbage collector."><code class="xref py py-mod docutils literal"><span class="pre">gc</span></code></a> module.</dd>
 <dt id="index-17"><span id="term-generator"></span>generator</dt>
 <dd><p class="first">A function which returns a <a class="reference internal" href="#term-generator-iterator"><span class="xref std std-term">generator iterator</span></a>.  It looks like a
 normal function except that it contains <a class="reference internal" href="reference/simple_stmts.html#yield"><code class="xref std std-keyword docutils literal"><span class="pre">yield</span></code></a> expressions
@@ -551,11 +552,13 @@ exceptions as the resources it relies on may not function anymore
 or the script being run has finished executing.</p>
 </dd>
 <dt id="term-iterable">iterable</dt>
-<dd>An object capable of returning its members one at a time. Examples of
+<dd><p class="first">An object capable of returning its members one at a time. Examples of
 iterables include all sequence types (such as <a class="reference internal" href="library/stdtypes.html#list" title="list"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a>, <a class="reference internal" href="library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>,
 and <a class="reference internal" href="library/stdtypes.html#tuple" title="tuple"><code class="xref py py-class docutils literal"><span class="pre">tuple</span></code></a>) and some non-sequence types like <a class="reference internal" href="library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a>,
 <a class="reference internal" href="#term-file-object"><span class="xref std std-term">file objects</span></a>, and objects of any classes you define
-with an <a class="reference internal" href="reference/datamodel.html#object.__iter__" title="object.__iter__"><code class="xref py py-meth docutils literal"><span class="pre">__iter__()</span></code></a> or <a class="reference internal" href="reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal"><span class="pre">__getitem__()</span></code></a> method.  Iterables can be
+with an <a class="reference internal" href="reference/datamodel.html#object.__iter__" title="object.__iter__"><code class="xref py py-meth docutils literal"><span class="pre">__iter__()</span></code></a> method or with a <a class="reference internal" href="reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal"><span class="pre">__getitem__()</span></code></a> method
+that implements <a class="reference internal" href="#term-sequence"><span class="xref std std-term">Sequence</span></a> semantics.</p>
+<p class="last">Iterables can be
 used in a <a class="reference internal" href="reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal"><span class="pre">for</span></code></a> loop and in many other places where a sequence is
 needed (<a class="reference internal" href="library/functions.html#zip" title="zip"><code class="xref py py-func docutils literal"><span class="pre">zip()</span></code></a>, <a class="reference internal" href="library/functions.html#map" title="map"><code class="xref py py-func docutils literal"><span class="pre">map()</span></code></a>, …).  When an iterable object is passed
 as an argument to the built-in function <a class="reference internal" href="library/functions.html#iter" title="iter"><code class="xref py py-func docutils literal"><span class="pre">iter()</span></code></a>, it returns an
@@ -564,7 +567,8 @@ of values.  When using iterables, it is usually not necessary to call
 <a class="reference internal" href="library/functions.html#iter" title="iter"><code class="xref py py-func docutils literal"><span class="pre">iter()</span></code></a> or deal with iterator objects yourself.  The <code class="docutils literal"><span class="pre">for</span></code>
 statement does that automatically for you, creating a temporary unnamed
 variable to hold the iterator for the duration of the loop.  See also
-<a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a>, <a class="reference internal" href="#term-sequence"><span class="xref std std-term">sequence</span></a>, and <a class="reference internal" href="#term-generator"><span class="xref std std-term">generator</span></a>.</dd>
+<a class="reference internal" href="#term-iterator"><span class="xref std std-term">iterator</span></a>, <a class="reference internal" href="#term-sequence"><span class="xref std std-term">sequence</span></a>, and <a class="reference internal" href="#term-generator"><span class="xref std std-term">generator</span></a>.</p>
+</dd>
 <dt id="term-iterator">iterator</dt>
 <dd><p class="first">An object representing a stream of data.  Repeated calls to the iterator’s
 <a class="reference internal" href="library/stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal"><span class="pre">__next__()</span></code></a> method (or passing it to the built-in function
@@ -1048,7 +1052,7 @@ understanding and using the language.  The listing can be found by typing
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="index.html">3.6.4 Documentation</a> &#187;
+          <a href="index.html">3.6.5 Documentation</a> &#187;
         </li>
 
     <li class="right">
@@ -1074,10 +1078,10 @@ understanding and using the language.  The listing can be found by typing
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 13, 2018。
+    上次更新于 4月 24, 2018。
     <a href="bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>

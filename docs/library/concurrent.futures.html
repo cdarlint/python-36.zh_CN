@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>17.4. concurrent.futures — Launching parallel tasks &#8212; Python 3.6.4 文档</title>
+    <title>17.4. concurrent.futures — Launching parallel tasks &#8212; Python 3.6.5 文档</title>
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.6.4',
+        VERSION:     '3.6.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.6.4 文档 中搜索"
+          title="在 Python 3.6.5 文档 中搜索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="关于这些文档" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -62,7 +62,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -128,21 +128,26 @@ callable.</p>
 <dl class="method">
 <dt id="concurrent.futures.Executor.map">
 <code class="descname">map</code><span class="sig-paren">(</span><em>func</em>, <em>*iterables</em>, <em>timeout=None</em>, <em>chunksize=1</em><span class="sig-paren">)</span><a class="headerlink" href="#concurrent.futures.Executor.map" title="永久链接至目标">¶</a></dt>
-<dd><p>Equivalent to <a class="reference internal" href="functions.html#map" title="map"><code class="xref py py-func docutils literal"><span class="pre">map(func,</span> <span class="pre">*iterables)</span></code></a> except <em>func</em> is executed
-asynchronously and several calls to <em>func</em> may be made concurrently.  The
-returned iterator raises a <a class="reference internal" href="#concurrent.futures.TimeoutError" title="concurrent.futures.TimeoutError"><code class="xref py py-exc docutils literal"><span class="pre">concurrent.futures.TimeoutError</span></code></a> if
-<a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal"><span class="pre">__next__()</span></code></a> is called and the result isn’t available
+<dd><p>Similar to <a class="reference internal" href="functions.html#map" title="map"><code class="xref py py-func docutils literal"><span class="pre">map(func,</span> <span class="pre">*iterables)</span></code></a> except:</p>
+<ul class="simple">
+<li>the <em>iterables</em> are collected immediately rather than lazily;</li>
+<li><em>func</em> is executed asynchronously and several calls to
+<em>func</em> may be made concurrently.</li>
+</ul>
+<p>The returned iterator raises a <a class="reference internal" href="#concurrent.futures.TimeoutError" title="concurrent.futures.TimeoutError"><code class="xref py py-exc docutils literal"><span class="pre">concurrent.futures.TimeoutError</span></code></a>
+if <a class="reference internal" href="stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal"><span class="pre">__next__()</span></code></a> is called and the result isn’t available
 after <em>timeout</em> seconds from the original call to <a class="reference internal" href="#concurrent.futures.Executor.map" title="concurrent.futures.Executor.map"><code class="xref py py-meth docutils literal"><span class="pre">Executor.map()</span></code></a>.
 <em>timeout</em> can be an int or a float.  If <em>timeout</em> is not specified or
-<code class="docutils literal"><span class="pre">None</span></code>, there is no limit to the wait time.  If a call raises an
-exception, then that exception will be raised when its value is
-retrieved from the iterator. When using <a class="reference internal" href="#concurrent.futures.ProcessPoolExecutor" title="concurrent.futures.ProcessPoolExecutor"><code class="xref py py-class docutils literal"><span class="pre">ProcessPoolExecutor</span></code></a>, this
-method chops <em>iterables</em> into a number of chunks which it submits to the
-pool as separate tasks. The (approximate) size of these chunks can be
-specified by setting <em>chunksize</em> to a positive integer. For very long
-iterables, using a large value for <em>chunksize</em> can significantly improve
-performance compared to the default size of 1. With <a class="reference internal" href="#concurrent.futures.ThreadPoolExecutor" title="concurrent.futures.ThreadPoolExecutor"><code class="xref py py-class docutils literal"><span class="pre">ThreadPoolExecutor</span></code></a>,
-<em>chunksize</em> has no effect.</p>
+<code class="docutils literal"><span class="pre">None</span></code>, there is no limit to the wait time.</p>
+<p>If a <em>func</em> call raises an exception, then that exception will be
+raised when its value is retrieved from the iterator.</p>
+<p>When using <a class="reference internal" href="#concurrent.futures.ProcessPoolExecutor" title="concurrent.futures.ProcessPoolExecutor"><code class="xref py py-class docutils literal"><span class="pre">ProcessPoolExecutor</span></code></a>, this method chops <em>iterables</em>
+into a number of chunks which it submits to the pool as separate
+tasks.  The (approximate) size of these chunks can be specified by
+setting <em>chunksize</em> to a positive integer.  For very long iterables,
+using a large value for <em>chunksize</em> can significantly improve
+performance compared to the default size of 1.  With
+<a class="reference internal" href="#concurrent.futures.ThreadPoolExecutor" title="concurrent.futures.ThreadPoolExecutor"><code class="xref py py-class docutils literal"><span class="pre">ThreadPoolExecutor</span></code></a>, <em>chunksize</em> has no effect.</p>
 <div class="versionchanged">
 <p><span class="versionmodified">在 3.5 版更改: </span>Added the <em>chunksize</em> argument.</p>
 </div>
@@ -614,7 +619,7 @@ in a non-clean fashion (for example, if it was killed from the outside).</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <a href="../index.html">3.6.4 Documentation</a> &#187;
+          <a href="../index.html">3.6.5 Documentation</a> &#187;
         </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
@@ -642,10 +647,10 @@ in a non-clean fashion (for example, if it was killed from the outside).</p>
     Python 软件基金会是一个非盈利组织。
     <a href="https://www.python.org/psf/donations/">请捐助。</a>
     <br />
-    上次更新于 1月 13, 2018。
+    上次更新于 4月 24, 2018。
     <a href="../bugs.html">发现了问题</a>？
     <br />
-    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.6 创建。
+    使用<a href="http://sphinx.pocoo.org/">Sphinx</a>1.6.3 创建。
     </div>
 
   </body>
