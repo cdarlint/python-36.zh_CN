@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-12 15:01+0000\n"
+"POT-Creation-Date: 2018-02-24 12:26+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: cdarlint <cdarlint@gmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/python-doc/teams/5390/zh_CN/)\n"
@@ -18,57 +18,26 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../../tools/templates/indexsidebar.html:1
-msgid "Download"
-msgstr "下载"
+#: ../../tools/templates/customsourcelink.html:3
+msgid "This Page"
+msgstr "当前页面"
 
-#: ../../tools/templates/indexsidebar.html:2
-msgid "Download these documents"
-msgstr "下载这些文档"
+#: ../../tools/templates/customsourcelink.html:5
+msgid "Report a Bug"
+msgstr "提交 Bug"
 
-#: ../../tools/templates/indexsidebar.html:3
-msgid "Docs for other versions"
-msgstr "其他版本的文档"
-
-#: ../../tools/templates/indexsidebar.html:5
-msgid "Python 3.7 (in development)"
-msgstr "Python 3.7（开发中）"
-
-#: ../../tools/templates/indexsidebar.html:6
-msgid "Python 3.5 (stable)"
-msgstr "Python 3.5（稳定版）"
-
-#: ../../tools/templates/indexsidebar.html:7
-msgid "Python 2.7 (stable)"
-msgstr "Python 2.7（稳定版）"
-
-#: ../../tools/templates/indexsidebar.html:8
-msgid "Old versions"
-msgstr "历史版本"
-
-#: ../../tools/templates/indexsidebar.html:11
-msgid "Other resources"
-msgstr "其他资源"
-
-#: ../../tools/templates/indexsidebar.html:14
-msgid "PEP Index"
-msgstr "PEP检索"
-
-#: ../../tools/templates/indexsidebar.html:15
-msgid "Beginner's Guide"
-msgstr "初学者指南（维基）"
-
-#: ../../tools/templates/indexsidebar.html:16
-msgid "Book List"
-msgstr "推荐书单"
-
-#: ../../tools/templates/indexsidebar.html:17
-msgid "Audio/Visual Talks"
-msgstr "音视频小讲座"
+#: ../../tools/templates/customsourcelink.html:8
+msgid "Show Source"
+msgstr "显示源码"
 
 #: ../../tools/templates/dummy.html:6
 msgid "CPython implementation detail:"
 msgstr "CPython实现细节："
+
+#: ../../tools/templates/dummy.html:7
+msgid ""
+"Deprecated since version {deprecated}, will be removed in version {removed}"
+msgstr "从版本 {deprecated} 开始标记为过时，将在版本 {removed} 中移除。"
 
 #: ../../tools/templates/indexcontent.html:8
 msgid "Welcome! This is the documentation for Python %(release)s."
@@ -231,6 +200,58 @@ msgstr "Python 的历史和授权"
 msgid "Copyright"
 msgstr "版权信息"
 
+#: ../../tools/templates/indexsidebar.html:1
+msgid "Download"
+msgstr "下载"
+
+#: ../../tools/templates/indexsidebar.html:2
+msgid "Download these documents"
+msgstr "下载这些文档"
+
+#: ../../tools/templates/indexsidebar.html:3
+msgid "Docs for other versions"
+msgstr "其他版本的文档"
+
+#: ../../tools/templates/indexsidebar.html:5
+msgid "Python 3.8 (in development)"
+msgstr "Python 3.8（开发中）"
+
+#: ../../tools/templates/indexsidebar.html:6
+msgid "Python 3.7 (pre-release)"
+msgstr "Python 3.7（预览版）"
+
+#: ../../tools/templates/indexsidebar.html:7
+msgid "Python 3.5 (stable)"
+msgstr "Python 3.5（稳定版）"
+
+#: ../../tools/templates/indexsidebar.html:8
+msgid "Python 2.7 (stable)"
+msgstr "Python 2.7（稳定版）"
+
+#: ../../tools/templates/indexsidebar.html:9
+msgid "Old versions"
+msgstr "历史版本"
+
+#: ../../tools/templates/indexsidebar.html:12
+msgid "Other resources"
+msgstr "其他资源"
+
+#: ../../tools/templates/indexsidebar.html:15
+msgid "PEP Index"
+msgstr "PEP检索"
+
+#: ../../tools/templates/indexsidebar.html:16
+msgid "Beginner's Guide"
+msgstr "初学者指南（维基）"
+
+#: ../../tools/templates/indexsidebar.html:17
+msgid "Book List"
+msgstr "推荐书单"
+
+#: ../../tools/templates/indexsidebar.html:18
+msgid "Audio/Visual Talks"
+msgstr "音视频小讲座"
+
 #: ../../tools/templates/layout.html:10
 msgid "Documentation "
 msgstr "文档"
@@ -264,15 +285,3 @@ msgid ""
 "Created using <a href=\"http://sphinx.pocoo.org/\">Sphinx</a> "
 "%(sphinx_version)s."
 msgstr "使用<a href=\"http://sphinx.pocoo.org/\">Sphinx</a>%(sphinx_version)s 创建。"
-
-#: ../../tools/templates/customsourcelink.html:3
-msgid "This Page"
-msgstr "当前页面"
-
-#: ../../tools/templates/customsourcelink.html:5
-msgid "Report a Bug"
-msgstr "提交 Bug"
-
-#: ../../tools/templates/customsourcelink.html:8
-msgid "Show Source"
-msgstr "显示源码"

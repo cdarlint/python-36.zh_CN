@@ -67,8 +67,8 @@ string *pq* will match AB.  This holds unless *A* or *B* contain low precedence
 operations; boundary conditions between *A* and *B*; or have numbered group
 references.  Thus, complex expressions can easily be constructed from simpler
 primitive expressions like the ones described here.  For details of the theory
-and implementation of regular expressions, consult the Friedl book referenced
-above, or almost any textbook about compiler construction.
+and implementation of regular expressions, consult the Friedl book [Frie09]_,
+or almost any textbook about compiler construction.
 
 A brief explanation of the format of regular expressions follows.  For further
 information and a gentler presentation, consult the :ref:`regex-howto`.
@@ -315,7 +315,7 @@ The special characters are:
 
    This example looks for a word following a hyphen:
 
-      >>> m = re.search('(?<=-)\w+', 'spam-egg')
+      >>> m = re.search(r'(?<=-)\w+', 'spam-egg')
       >>> m.group(0)
       'egg'
 
@@ -469,14 +469,6 @@ three digits in length.
 
 .. versionchanged:: 3.6
    Unknown escapes consisting of ``'\'`` and an ASCII letter now are errors.
-
-
-.. seealso::
-
-   Mastering Regular Expressions
-      Book on regular expressions by Jeffrey Friedl, published by O'Reilly.  The
-      second edition of the book no longer covers Python at all, but the first
-      edition covered writing good regular expression patterns in great detail.
 
 
 
@@ -719,14 +711,21 @@ form.
       Splitting on a pattern that could match an empty string now raises
       a warning.  Patterns that can only match empty strings are now rejected.
 
+
 .. function:: findall(pattern, string, flags=0)
 
    Return all non-overlapping matches of *pattern* in *string*, as a list of
    strings.  The *string* is scanned left-to-right, and matches are returned in
    the order found.  If one or more groups are present in the pattern, return a
    list of groups; this will be a list of tuples if the pattern has more than
-   one group.  Empty matches are included in the result unless they touch the
-   beginning of another match.
+   one group.  Empty matches are included in the result.
+
+   .. note::
+
+      Due to the limitation of the current implementation the character
+      following an empty match is not included in a next match, so
+      ``findall(r'^|\w+', 'two words')`` returns ``['', 'wo', 'words']``
+      (note missed "t").  This is changed in Python 3.7.
 
 
 .. function:: finditer(pattern, string, flags=0)
@@ -734,8 +733,7 @@ form.
    Return an :term:`iterator` yielding :ref:`match objects <match-objects>` over
    all non-overlapping matches for the RE *pattern* in *string*.  The *string*
    is scanned left-to-right, and matches are returned in the order found.  Empty
-   matches are included in the result unless they touch the beginning of another
-   match.
+   matches are included in the result.  See also the note about :func:`findall`.
 
 
 .. function:: sub(pattern, repl, string, count=0, flags=0)
@@ -1555,3 +1553,9 @@ The tokenizer produces the following output::
     Token(typ='END', value=';', line=4, column=27)
     Token(typ='ENDIF', value='ENDIF', line=5, column=4)
     Token(typ='END', value=';', line=5, column=9)
+
+
+.. [Frie09] Friedl, Jeffrey. Mastering Regular Expressions. 3rd ed., O'Reilly
+   Media, 2009. The third edition of the book no longer covers Python at all,
+   but the first edition covered writing good regular expression patterns in
+   great detail.
